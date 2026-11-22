@@ -3,9 +3,8 @@
 A small, freely licensed model that turns a screenshot or a photo of a printed
 chess diagram into an editable position, entirely offline.
 
-**Status: planning. Nothing has been trained or measured yet.** This repository
-holds the plan, the code and, later, the evidence. Work is tracked in
-[Issues](../../issues).
+**Status: the synthetic data generator works; no model has been trained or
+measured yet.** Work is tracked in [Issues](../../issues).
 
 ## Why
 
@@ -60,6 +59,55 @@ been examined, so they serve only as a first comparison with the study's table.
 ChessQ and other restricted models are used for comparison only. Their outputs
 are not used as training labels.
 
+## Synthetic data generator
+
+`boardgen` produces labelled images of three kinds: phone photos of printed
+diagrams, direct screenshots, and phone photos of a monitor. Every sample is a
+pure function of `(seed, index)`, so a dataset never has to be stored or shared.
+
+![Twelve generated samples. Left of each pair: the image with the labelled board outline. Right: the board as the classifier will see it, cropped with deliberate error.](docs/samples/sheet-seed1.jpg)
+
+```bash
+python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python tools/fetch_assets.py
+.venv/bin/python -m boardgen sheet --seed 1 --count 12 --out docs/samples/sheet-seed1.jpg
+.venv/bin/python -m boardgen dump --seed 1 --count 1000 --out data/gen/seed1
+.venv/bin/python -m pytest tests
+```
+
+From Python, `boardgen.generate(seed, index)` returns the image and its labels,
+and `boardgen.rectify(image, corners)` cuts out the board.
+
+What varies:
+
+- **Positions**: random legal play, sparse endgames, pieces scattered without
+  regard to legality, the starting position and the empty board.
+- **Printed diagrams**: hatched, cross-hatched, dotted, grey and halftone dark
+  squares; frames; coordinates; white halos around pieces; a page of Latin or
+  Cyrillic text; a second diagram nearby; print showing through the paper.
+- **Screens**: board colours, 13 piece sets, last-move and check highlights,
+  legal-move dots, arrows, circles, coordinates, and a generic app layout with
+  player bars, clocks, an evaluation bar and a move list.
+- **Camera**: perspective, rotation, page curl, uneven light, shadows, glare,
+  screen moiré, blur, sensor noise, low resolution and JPEG compression.
+
+Each sample is labelled with:
+
+| Field | Meaning |
+| --- | --- |
+| `corners` | The four outer corners of the 8×8 playing area in the image, clockwise from the top-left as displayed, in pixel-centre coordinates. Frames and coordinate margins are outside. |
+| `squares` | 64 piece symbols as seen in the image, row by row from the top-left; `""` is an empty square. |
+| `placement` | The FEN piece-placement field of the real position. |
+| `white_at_bottom` | `false` when the board is shown from Black's side, so `squares` is the position turned by 180°. |
+| `kind`, `meta` | `book`, `screenshot` or `monitor`, and the style choices made for the sample. |
+
+Known gaps: only three of the piece sets resemble book typefaces, and nothing
+here has yet been compared with real photos. One process generates about two
+samples a second on an Apple M4.
+
+Piece sets and fonts are downloaded on demand and listed with their licences
+in [THIRD_PARTY.md](THIRD_PARTY.md).
+
 ## Related work
 
 **MoveAPiece.** [MoveAPiece](https://github.com/egdels/moveapiece) (GPL-3.0) is
@@ -97,7 +145,8 @@ this repository are licensed under the
 [GNU Affero General Public License v3.0 only](LICENSE) (`AGPL-3.0-only`), the
 same licence as Mobile Maia. Contributions are accepted under the same licence.
 
-Every font, piece set and texture used to generate training data must have a
-licence that allows this, and will be listed with its source and terms before
-any weights are released. Private evaluation photos of copyrighted books are
-not committed.
+Every font and piece set used to generate training data must have a licence
+that allows this. They are listed with their sources and terms in
+[THIRD_PARTY.md](THIRD_PARTY.md), which also records the sets that were left
+out because their terms are noncommercial or unclear. Private evaluation
+photos of copyrighted books are kept in `eval/private/` and are not committed.
