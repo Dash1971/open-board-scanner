@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated training data, checkpoints and run logs
+data/
+runs/
+*.ckpt
+*.pt
+
+# Private evaluation photos: copyrighted book pages are never committed
+eval/private/
+
+# macOS
+.DS_Store
