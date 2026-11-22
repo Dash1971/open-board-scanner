@@ -219,10 +219,45 @@ These are hand checks, not measurements:
   the second twelve.
 - The photos are private and are not published.
 
-The likely way forward is to label real photos and fine-tune on them, keeping
-whole books out of training to measure the result honestly.
+The next step is to label real photos and fine-tune on them, keeping whole
+books out of training to measure the result honestly. The labelling tool is
+described below.
 
 Recorded metrics are in [`results/`](results).
+
+## Labelling real photos
+
+`label/` is a page that runs on your own computer for turning a folder of
+photos into labelled boards. For each photo it finds the board outline with
+contour detection, cuts the board out, and shows the classifier's reading
+next to it, so labelling means fixing the squares it got wrong.
+
+```sh
+pip install -r requirements.txt onnxruntime
+python tools/fetch_assets.py
+python -m label --photos eval/private/my-photos
+```
+
+Then open `http://127.0.0.1:8765/`. On the page you can:
+
+- fix a square by pointing at it and pressing a piece letter;
+- drag the outline's corners when the finder missed;
+- turn the crop, or flip the viewing side;
+- add a second board from the same photo;
+- name the book a photo comes from, so whole books can be held out later.
+
+Without a model file (`--model`, default `runs/boardnet-v1/boardnet-fp32.onnx`)
+every board starts empty.
+
+Labels are written to `eval/private/labels/<folder>.json` after every change.
+Each record holds the outline, the quarter turns to upright, the board as
+seen, the viewing side, the book name and the model's own reading, which is
+kept so the model can be scored against the corrected labels. The format is
+documented in [`label/store.py`](label/store.py).
+
+The server listens on `127.0.0.1` only. Photos and labels stay under
+`eval/private/`, which git ignores: book pages are copyrighted and are never
+committed. The contour finder is a labelling aid, not the localizer.
 
 ## Related work
 
