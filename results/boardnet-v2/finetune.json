@@ -1,0 +1,131 @@
+{
+  "start": "runs/boardnet-v1/model.pt",
+  "steps": 1000,
+  "lr": 0.0003,
+  "real_share": 0.5,
+  "seed": 0,
+  "train_boards": 339,
+  "train_sources": [
+    "e-book 1",
+    "e-book 2",
+    "printed book 1",
+    "printed book 2",
+    "printed book 3"
+  ],
+  "minutes": 2.8,
+  "synthetic_before": {
+    "boards": 3000,
+    "exact_boards": 0.8553,
+    "boards_with_at_most_1_error": 0.9373,
+    "square_accuracy": 0.9954,
+    "wrong_squares_per_board": 0.295
+  },
+  "synthetic_after": {
+    "boards": 3000,
+    "exact_boards": 0.8513,
+    "boards_with_at_most_1_error": 0.9337,
+    "square_accuracy": 0.99513,
+    "wrong_squares_per_board": 0.312
+  },
+  "real_trained_on_before": {
+    "boards": 339,
+    "exact_boards": 192,
+    "boards_with_at_most_1_error": 211,
+    "wrong_squares": 718,
+    "square_accuracy": 0.96691,
+    "quarter_turns_right": 339,
+    "by_source": {
+      "e-book 1": {
+        "boards": 100,
+        "exact_boards": 99,
+        "boards_with_at_most_1_error": 100,
+        "wrong_squares": 1,
+        "square_accuracy": 0.99984,
+        "quarter_turns_right": 100
+      },
+      "e-book 2": {
+        "boards": 63,
+        "exact_boards": 0,
+        "boards_with_at_most_1_error": 3,
+        "wrong_squares": 381,
+        "square_accuracy": 0.90551,
+        "quarter_turns_right": 63
+      },
+      "printed book 1": {
+        "boards": 45,
+        "exact_boards": 37,
+        "boards_with_at_most_1_error": 45,
+        "wrong_squares": 8,
+        "square_accuracy": 0.99722,
+        "quarter_turns_right": 45
+      },
+      "printed book 2": {
+        "boards": 73,
+        "exact_boards": 1,
+        "boards_with_at_most_1_error": 5,
+        "wrong_squares": 325,
+        "square_accuracy": 0.93044,
+        "quarter_turns_right": 73
+      },
+      "printed book 3": {
+        "boards": 58,
+        "exact_boards": 55,
+        "boards_with_at_most_1_error": 58,
+        "wrong_squares": 3,
+        "square_accuracy": 0.99919,
+        "quarter_turns_right": 58
+      }
+    }
+  },
+  "real_trained_on_after": {
+    "boards": 339,
+    "exact_boards": 334,
+    "boards_with_at_most_1_error": 339,
+    "wrong_squares": 5,
+    "square_accuracy": 0.99977,
+    "quarter_turns_right": 339,
+    "by_source": {
+      "e-book 1": {
+        "boards": 100,
+        "exact_boards": 100,
+        "boards_with_at_most_1_error": 100,
+        "wrong_squares": 0,
+        "square_accuracy": 1.0,
+        "quarter_turns_right": 100
+      },
+      "e-book 2": {
+        "boards": 63,
+        "exact_boards": 61,
+        "boards_with_at_most_1_error": 63,
+        "wrong_squares": 2,
+        "square_accuracy": 0.9995,
+        "quarter_turns_right": 63
+      },
+      "printed book 1": {
+        "boards": 45,
+        "exact_boards": 44,
+        "boards_with_at_most_1_error": 45,
+        "wrong_squares": 1,
+        "square_accuracy": 0.99965,
+        "quarter_turns_right": 45
+      },
+      "printed book 2": {
+        "boards": 73,
+        "exact_boards": 71,
+        "boards_with_at_most_1_error": 73,
+        "wrong_squares": 2,
+        "square_accuracy": 0.99957,
+        "quarter_turns_right": 73
+      },
+      "printed book 3": {
+        "boards": 58,
+        "exact_boards": 58,
+        "boards_with_at_most_1_error": 58,
+        "wrong_squares": 0,
+        "square_accuracy": 1.0,
+        "quarter_turns_right": 58
+      }
+    }
+  },
+  "note": "Trained on every labelled real board, so the real figures here are not a test."
+}

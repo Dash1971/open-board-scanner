@@ -1,0 +1,552 @@
+{
+  "note": "Each entry fine-tunes BoardNet v1 on the labelled real boards from every other source and tests on the held-out source. 'once' reads each crop as it lies; 'four_turns' averages readings at all four quarter turns. Labels: 100 corrected by hand on the labelling page, 239 model readings checked by eye on contact sheets.",
+  "held_out": {
+    "printed book 1": {
+      "train_boards": 294,
+      "train_sources": [
+        "e-book 1",
+        "e-book 2",
+        "printed book 2",
+        "printed book 3"
+      ],
+      "steps": 800,
+      "before": {
+        "once": {
+          "boards": 45,
+          "exact_boards": 37,
+          "boards_with_at_most_1_error": 45,
+          "wrong_squares": 8,
+          "square_accuracy": 0.99722,
+          "quarter_turns_right": 45,
+          "by_source": {
+            "printed book 1": {
+              "boards": 45,
+              "exact_boards": 37,
+              "boards_with_at_most_1_error": 45,
+              "wrong_squares": 8,
+              "square_accuracy": 0.99722,
+              "quarter_turns_right": 45
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 45,
+          "exact_boards": 43,
+          "boards_with_at_most_1_error": 45,
+          "wrong_squares": 2,
+          "square_accuracy": 0.99931,
+          "quarter_turns_right": 45,
+          "by_source": {
+            "printed book 1": {
+              "boards": 45,
+              "exact_boards": 43,
+              "boards_with_at_most_1_error": 45,
+              "wrong_squares": 2,
+              "square_accuracy": 0.99931,
+              "quarter_turns_right": 45
+            }
+          }
+        }
+      },
+      "after": {
+        "once": {
+          "boards": 45,
+          "exact_boards": 41,
+          "boards_with_at_most_1_error": 45,
+          "wrong_squares": 4,
+          "square_accuracy": 0.99861,
+          "quarter_turns_right": 45,
+          "by_source": {
+            "printed book 1": {
+              "boards": 45,
+              "exact_boards": 41,
+              "boards_with_at_most_1_error": 45,
+              "wrong_squares": 4,
+              "square_accuracy": 0.99861,
+              "quarter_turns_right": 45
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 45,
+          "exact_boards": 45,
+          "boards_with_at_most_1_error": 45,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 45,
+          "by_source": {
+            "printed book 1": {
+              "boards": 45,
+              "exact_boards": 45,
+              "boards_with_at_most_1_error": 45,
+              "wrong_squares": 0,
+              "square_accuracy": 1.0,
+              "quarter_turns_right": 45
+            }
+          }
+        }
+      }
+    },
+    "printed book 3": {
+      "train_boards": 281,
+      "train_sources": [
+        "e-book 1",
+        "e-book 2",
+        "printed book 1",
+        "printed book 2"
+      ],
+      "steps": 800,
+      "before": {
+        "once": {
+          "boards": 58,
+          "exact_boards": 55,
+          "boards_with_at_most_1_error": 58,
+          "wrong_squares": 3,
+          "square_accuracy": 0.99919,
+          "quarter_turns_right": 58,
+          "by_source": {
+            "printed book 3": {
+              "boards": 58,
+              "exact_boards": 55,
+              "boards_with_at_most_1_error": 58,
+              "wrong_squares": 3,
+              "square_accuracy": 0.99919,
+              "quarter_turns_right": 58
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 58,
+          "exact_boards": 58,
+          "boards_with_at_most_1_error": 58,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 58,
+          "by_source": {
+            "printed book 3": {
+              "boards": 58,
+              "exact_boards": 58,
+              "boards_with_at_most_1_error": 58,
+              "wrong_squares": 0,
+              "square_accuracy": 1.0,
+              "quarter_turns_right": 58
+            }
+          }
+        }
+      },
+      "after": {
+        "once": {
+          "boards": 58,
+          "exact_boards": 58,
+          "boards_with_at_most_1_error": 58,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 58,
+          "by_source": {
+            "printed book 3": {
+              "boards": 58,
+              "exact_boards": 58,
+              "boards_with_at_most_1_error": 58,
+              "wrong_squares": 0,
+              "square_accuracy": 1.0,
+              "quarter_turns_right": 58
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 58,
+          "exact_boards": 58,
+          "boards_with_at_most_1_error": 58,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 58,
+          "by_source": {
+            "printed book 3": {
+              "boards": 58,
+              "exact_boards": 58,
+              "boards_with_at_most_1_error": 58,
+              "wrong_squares": 0,
+              "square_accuracy": 1.0,
+              "quarter_turns_right": 58
+            }
+          }
+        }
+      }
+    },
+    "e-book 1": {
+      "train_boards": 239,
+      "train_sources": [
+        "e-book 2",
+        "printed book 1",
+        "printed book 2",
+        "printed book 3"
+      ],
+      "steps": 800,
+      "before": {
+        "once": {
+          "boards": 100,
+          "exact_boards": 99,
+          "boards_with_at_most_1_error": 100,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99984,
+          "quarter_turns_right": 100,
+          "by_source": {
+            "e-book 1": {
+              "boards": 100,
+              "exact_boards": 99,
+              "boards_with_at_most_1_error": 100,
+              "wrong_squares": 1,
+              "square_accuracy": 0.99984,
+              "quarter_turns_right": 100
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 100,
+          "exact_boards": 99,
+          "boards_with_at_most_1_error": 100,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99984,
+          "quarter_turns_right": 100,
+          "by_source": {
+            "e-book 1": {
+              "boards": 100,
+              "exact_boards": 99,
+              "boards_with_at_most_1_error": 100,
+              "wrong_squares": 1,
+              "square_accuracy": 0.99984,
+              "quarter_turns_right": 100
+            }
+          }
+        }
+      },
+      "after": {
+        "once": {
+          "boards": 100,
+          "exact_boards": 100,
+          "boards_with_at_most_1_error": 100,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 100,
+          "by_source": {
+            "e-book 1": {
+              "boards": 100,
+              "exact_boards": 100,
+              "boards_with_at_most_1_error": 100,
+              "wrong_squares": 0,
+              "square_accuracy": 1.0,
+              "quarter_turns_right": 100
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 100,
+          "exact_boards": 100,
+          "boards_with_at_most_1_error": 100,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 100,
+          "by_source": {
+            "e-book 1": {
+              "boards": 100,
+              "exact_boards": 100,
+              "boards_with_at_most_1_error": 100,
+              "wrong_squares": 0,
+              "square_accuracy": 1.0,
+              "quarter_turns_right": 100
+            }
+          }
+        }
+      }
+    },
+    "printed book 2 and e-book 2 (one typeface)": {
+      "train_boards": 203,
+      "train_sources": [
+        "e-book 1",
+        "printed book 1",
+        "printed book 3"
+      ],
+      "steps": 800,
+      "before": {
+        "once": {
+          "boards": 136,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 8,
+          "wrong_squares": 706,
+          "square_accuracy": 0.91889,
+          "quarter_turns_right": 136,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 0,
+              "boards_with_at_most_1_error": 3,
+              "wrong_squares": 381,
+              "square_accuracy": 0.90551,
+              "quarter_turns_right": 63
+            },
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 1,
+              "boards_with_at_most_1_error": 5,
+              "wrong_squares": 325,
+              "square_accuracy": 0.93044,
+              "quarter_turns_right": 73
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 136,
+          "exact_boards": 2,
+          "boards_with_at_most_1_error": 19,
+          "wrong_squares": 435,
+          "square_accuracy": 0.95002,
+          "quarter_turns_right": 136,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 1,
+              "boards_with_at_most_1_error": 11,
+              "wrong_squares": 174,
+              "square_accuracy": 0.95685,
+              "quarter_turns_right": 63
+            },
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 1,
+              "boards_with_at_most_1_error": 8,
+              "wrong_squares": 261,
+              "square_accuracy": 0.94414,
+              "quarter_turns_right": 73
+            }
+          }
+        }
+      },
+      "after": {
+        "once": {
+          "boards": 136,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 8,
+          "wrong_squares": 755,
+          "square_accuracy": 0.91326,
+          "quarter_turns_right": 136,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 0,
+              "boards_with_at_most_1_error": 4,
+              "wrong_squares": 423,
+              "square_accuracy": 0.89509,
+              "quarter_turns_right": 63
+            },
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 1,
+              "boards_with_at_most_1_error": 4,
+              "wrong_squares": 332,
+              "square_accuracy": 0.92894,
+              "quarter_turns_right": 73
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 136,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 19,
+          "wrong_squares": 453,
+          "square_accuracy": 0.94795,
+          "quarter_turns_right": 136,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 2,
+              "boards_with_at_most_1_error": 11,
+              "wrong_squares": 187,
+              "square_accuracy": 0.95362,
+              "quarter_turns_right": 63
+            },
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 2,
+              "boards_with_at_most_1_error": 8,
+              "wrong_squares": 266,
+              "square_accuracy": 0.94307,
+              "quarter_turns_right": 73
+            }
+          }
+        }
+      }
+    },
+    "printed book 2": {
+      "train_boards": 266,
+      "train_sources": [
+        "e-book 1",
+        "e-book 2",
+        "printed book 1",
+        "printed book 3"
+      ],
+      "steps": 800,
+      "before": {
+        "once": {
+          "boards": 73,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 5,
+          "wrong_squares": 325,
+          "square_accuracy": 0.93044,
+          "quarter_turns_right": 73,
+          "by_source": {
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 1,
+              "boards_with_at_most_1_error": 5,
+              "wrong_squares": 325,
+              "square_accuracy": 0.93044,
+              "quarter_turns_right": 73
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 73,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 8,
+          "wrong_squares": 261,
+          "square_accuracy": 0.94414,
+          "quarter_turns_right": 73,
+          "by_source": {
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 1,
+              "boards_with_at_most_1_error": 8,
+              "wrong_squares": 261,
+              "square_accuracy": 0.94414,
+              "quarter_turns_right": 73
+            }
+          }
+        }
+      },
+      "after": {
+        "once": {
+          "boards": 73,
+          "exact_boards": 65,
+          "boards_with_at_most_1_error": 72,
+          "wrong_squares": 9,
+          "square_accuracy": 0.99807,
+          "quarter_turns_right": 73,
+          "by_source": {
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 65,
+              "boards_with_at_most_1_error": 72,
+              "wrong_squares": 9,
+              "square_accuracy": 0.99807,
+              "quarter_turns_right": 73
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 73,
+          "exact_boards": 72,
+          "boards_with_at_most_1_error": 73,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99979,
+          "quarter_turns_right": 73,
+          "by_source": {
+            "printed book 2": {
+              "boards": 73,
+              "exact_boards": 72,
+              "boards_with_at_most_1_error": 73,
+              "wrong_squares": 1,
+              "square_accuracy": 0.99979,
+              "quarter_turns_right": 73
+            }
+          }
+        }
+      }
+    },
+    "e-book 2": {
+      "train_boards": 276,
+      "train_sources": [
+        "e-book 1",
+        "printed book 1",
+        "printed book 2",
+        "printed book 3"
+      ],
+      "steps": 800,
+      "before": {
+        "once": {
+          "boards": 63,
+          "exact_boards": 0,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 381,
+          "square_accuracy": 0.90551,
+          "quarter_turns_right": 63,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 0,
+              "boards_with_at_most_1_error": 3,
+              "wrong_squares": 381,
+              "square_accuracy": 0.90551,
+              "quarter_turns_right": 63
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 63,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 11,
+          "wrong_squares": 174,
+          "square_accuracy": 0.95685,
+          "quarter_turns_right": 63,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 1,
+              "boards_with_at_most_1_error": 11,
+              "wrong_squares": 174,
+              "square_accuracy": 0.95685,
+              "quarter_turns_right": 63
+            }
+          }
+        }
+      },
+      "after": {
+        "once": {
+          "boards": 63,
+          "exact_boards": 58,
+          "boards_with_at_most_1_error": 63,
+          "wrong_squares": 5,
+          "square_accuracy": 0.99876,
+          "quarter_turns_right": 63,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 58,
+              "boards_with_at_most_1_error": 63,
+              "wrong_squares": 5,
+              "square_accuracy": 0.99876,
+              "quarter_turns_right": 63
+            }
+          }
+        },
+        "four_turns": {
+          "boards": 63,
+          "exact_boards": 62,
+          "boards_with_at_most_1_error": 63,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99975,
+          "quarter_turns_right": 63,
+          "by_source": {
+            "e-book 2": {
+              "boards": 63,
+              "exact_boards": 62,
+              "boards_with_at_most_1_error": 63,
+              "wrong_squares": 1,
+              "square_accuracy": 0.99975,
+              "quarter_turns_right": 63
+            }
+          }
+        }
+      }
+    }
+  }
+}

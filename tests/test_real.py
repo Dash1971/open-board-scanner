@@ -1,0 +1,81 @@
+"""Checks for training on labelled real photos; skipped when PyTorch is not installed."""
+
+import json
+
+import cv2
+import numpy as np
+import pytest
+
+pytest.importorskip("torch")
+
+from label.store import rows_to_grid  # noqa: E402
+from train.finetune import split  # noqa: E402
+from train.real import RealBoard, load_labelled, real_batch  # noqa: E402
+
+
+def board(source="a", quarter_turns=1, seen="K7/8/8/8/8/8/8/7p", name="one"):
+    image = np.zeros((200, 200, 3), np.uint8)
+    image[20:40, 20:40] = 255  # a mark in the photo's top-left square of the board
+    corners = np.array([[20, 20], [180, 20], [180, 180], [20, 180]], np.float32)
+    squares = np.rot90(rows_to_grid(seen), -quarter_turns)
+    return RealBoard(name, source, image, corners, np.ascontiguousarray(squares), quarter_turns, True)
+
+
+def test_plain_crop_keeps_labels_as_the_board_lies():
+    image, squares, white, turns = board().crop()
+    assert image.shape == (256, 256, 3) and squares.shape == (64,) and white is True and turns == 1
+    assert image[:30, :30].mean() > 200 and image[40:, 40:].mean() < 5
+
+
+def test_turned_crops_keep_image_and_labels_together():
+    example = board()
+    upright = rows_to_grid("K7/8/8/8/8/8/8/7p")
+    top_left = np.zeros((8, 8), int)
+    top_left[0, 0] = 1
+    rng = np.random.default_rng(0)
+    seen_turns = set()
+    for _ in range(40):
+        image, squares, _, turns = example.crop(rng)
+        seen_turns.add(turns)
+        # Bringing the crop upright must always give the labelled board.
+        assert (np.rot90(squares.reshape(8, 8), turns) == upright).all()
+        # The bright mark must sit on the same square in the image as in the plain crop's labels.
+        row, column = np.argwhere(np.rot90(top_left, (example.quarter_turns - turns) % 4))[0]
+        assert image[row * 32 + 8 : row * 32 + 24, column * 32 + 8 : column * 32 + 24].mean() > 150
+    assert seen_turns == {0, 1, 2, 3}
+
+
+def test_batches_draw_evenly_from_sources():
+    boards = [board("big", name=str(i)) for i in range(9)] + [board("small", seen="8/8/8/8/8/8/8/8", name="s")]
+    images, squares, white, turns = real_batch(boards, 400, np.random.default_rng(1))
+    assert images.shape == (400, 256, 256, 3) and squares.shape == (400, 64)
+    from_small = int(((squares != 0).sum(axis=1) == 0).sum())
+    assert 150 < from_small < 250
+
+
+def test_split_by_source_and_by_fold():
+    boards = [board("a", name=f"a{i}") for i in range(6)] + [board("b", name=f"b{i}") for i in range(4)]
+    train, test = split(boards, ["b"], None, 0)
+    assert {b.source for b in train} == {"a"} and {b.source for b in test} == {"b"}
+    held = []
+    for index in range(5):
+        train, test = split(boards, [], (index, 5), 0)
+        assert len(train) + len(test) == 10 and not {b.board_id for b in train} & {b.board_id for b in test}
+        held += [b.board_id for b in test]
+    assert sorted(held) == sorted(b.board_id for b in boards)  # every board is held out exactly once
+    assert split(boards, [], None, 0) == (boards, [])
+    with pytest.raises(SystemExit):
+        split(boards, ["missing"], None, 0)
+
+
+def test_only_labelled_boards_are_loaded(tmp_path):
+    photos = tmp_path / "photos"
+    photos.mkdir()
+    cv2.imwrite(str(photos / "p.png"), np.zeros((60, 80, 3), np.uint8))
+    record = {"photo": "p.png", "corners": [[1, 1], [50, 1], [50, 50], [1, 50]], "quarter_turns": 3, "seen": "8/8/8/8/8/8/8/Q7", "white_at_bottom": False, "source": "x"}
+    labels = tmp_path / "labels.json"
+    labels.write_text(json.dumps({"boards": {"p.png": {**record, "status": "done"}, "p.png#2": {**record, "status": "todo"}, "p.png#3": {**record, "status": "skip"}}}))
+    loaded = load_labelled(labels, photos)
+    assert [b.board_id for b in loaded] == ["p.png"]
+    assert loaded[0].quarter_turns == 3 and loaded[0].white_at_bottom is False and loaded[0].image.shape == (60, 80, 3)
+    assert (np.rot90(loaded[0].squares, 3) == rows_to_grid("8/8/8/8/8/8/8/Q7")).all()

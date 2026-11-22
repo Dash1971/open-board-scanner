@@ -14,6 +14,9 @@ One record describes one board in one photo:
                     sources can be kept out of training
     status          "todo", "done" or "skip"
     found           whether the outline came from the board finder
+    method          how the label was made: "page" for squares corrected by hand
+                    on the labelling page, "sheets" for a model reading checked
+                    by eye on contact sheets (see label/review.py)
     read            what the model made of the crop, kept for scoring
 
 Records live in one JSON file, rewritten whole on every change.
@@ -211,7 +214,7 @@ class Store:
     def read(self, board_id: str, corners: np.ndarray) -> dict:
         return self.reader.read(self.image(self.boards[board_id]["photo"]), corners)
 
-    def update(self, board_id: str, corners, quarter_turns: int, seen: str, white_at_bottom: bool, source: str, status: str) -> None:
+    def update(self, board_id: str, corners, quarter_turns: int, seen: str, white_at_bottom: bool, source: str, status: str, method: str = "page") -> None:
         corners = np.asarray(corners, np.float64)
         if corners.shape != (4, 2) or not np.isfinite(corners).all():
             raise ValueError("corners must be four points")
@@ -225,7 +228,7 @@ class Store:
             rounded = corners.round(1).tolist()
             if rounded != record["read"]["corners"]:
                 record["read"] = self.read(board_id, corners)
-            record.update(corners=rounded, quarter_turns=int(quarter_turns), seen=seen, white_at_bottom=bool(white_at_bottom), source=str(source).strip()[:80], status=status)
+            record.update(corners=rounded, quarter_turns=int(quarter_turns), seen=seen, white_at_bottom=bool(white_at_bottom), source=str(source).strip()[:80], status=status, method=method)
             self.save()
 
     def save(self) -> None:

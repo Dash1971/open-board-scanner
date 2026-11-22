@@ -3,12 +3,13 @@
 A small, freely licensed model that turns a screenshot or a photo of a printed
 chess diagram into an editable position, entirely offline.
 
-**Status: a 2 MB classifier trained on synthetic data only. It is not yet a
-usable scanner.** It reads about 86% of synthetic test boards exactly and
-turns sideways photos upright reliably, but in hand checks on real photos it
-read 14 of 24 boards exactly, with nearly all errors on one book typeface the
-generator cannot imitate. No weights are released yet. Work is tracked in
-[Issues](../../issues).
+**Status: a 2 MB classifier, fine-tuned on 339 labelled photos. It is not yet
+a usable scanner.** Held out of training one source at a time, it read all 203
+boards from three books it had never seen, reading each board at four
+rotations. A fourth typeface was only read
+once the model had trained on it, so coverage of typefaces is the open risk.
+The board still has to be found by a separate step that is not built, and no
+weights are released yet. Work is tracked in [Issues](../../issues).
 
 ## Why
 
@@ -219,9 +220,76 @@ These are hand checks, not measurements:
   the second twelve.
 - The photos are private and are not published.
 
-The next step is to label real photos and fine-tune on them, keeping whole
-books out of training to measure the result honestly. The labelling tool is
-described below.
+Those hand checks led to labelling real photos and fine-tuning on them.
+
+### Fine-tuned on real photos (v2)
+
+BoardNet v2 is v1 trained further on 339 labelled photos, mixed half and half
+with synthetic crops so that screenshots and other artwork are not forgotten
+(`python -m train.finetune`). The photos come from five sources:
+
+| Source | Boards | v1 exact |
+| --- | ---: | ---: |
+| Printed book 1 (sparse endgame diagrams) | 45 | 37 |
+| Printed book 2 (tall collared pawns) | 73 | 1 |
+| Printed book 3 (glossy pages, glare) | 58 | 55 |
+| E-book 1, photographed on a monitor | 100 | 99 |
+| E-book 2, the typeface of book 2 on a monitor | 63 | 0 |
+| All | 339 | 192 |
+
+To test honestly, each source in turn was kept out of fine-tuning and then
+read by a model that had never seen it:
+
+| Held out | Boards | v1 exact | Fine-tuned, read once | Fine-tuned, read at four turns |
+| --- | ---: | ---: | ---: | ---: |
+| Printed book 1 | 45 | 37 | 41 | 45 |
+| Printed book 3 | 58 | 55 | 58 | 58 |
+| E-book 1 | 100 | 99 | 100 | 100 |
+| Printed book 2 and e-book 2 together | 136 | 1 | 1 | 4 |
+| Printed book 2 only | 73 | 1 | 65 | 72 |
+| E-book 2 only | 63 | 0 | 58 | 62 |
+
+What this shows:
+
+- **Unseen books in familiar typefaces are read well.** The three sources
+  with ordinary figurines came to 203 of 203 exact boards when read at four
+  turns, against 191 for v1 read once.
+- **An unfamiliar typeface is not learned from other books.** With both
+  sources of the tall-pawn typeface held out, real photos of other books did
+  nothing for it: 4 of 136.
+- **Seeing a typeface once is enough to carry across media.** Trained on the
+  monitor photos only, the model read 72 of 73 printed pages in that
+  typeface, and 62 of 63 the other way round.
+- **Reading at four turns helps.** The crop is read at each quarter turn and
+  the four readings are averaged. It costs four passes, about 2 ms each for
+  the INT8 file on a Mac CPU.
+- **Synthetic accuracy held:** 85.1% exact boards on the v1 test set after
+  fine-tuning on all 339, against 85.5% before.
+
+The released candidate is trained on all 339 boards, so no real photo is left
+to test it on; the table above is the estimate of how it behaves. Its INT8
+file is 2.03 MB. Read at four turns, the INT8 and FP32 files both match the
+labels on all 339 boards, which checks the export and not the accuracy.
+
+Limits of these numbers:
+
+- **Five sources is few.** Three of them share ordinary figurines. How many
+  typefaces in circulation the model cannot read is unknown.
+- **The outlines are not from a localizer.** Boards were cut out by contour
+  detection, corrected by hand on one photo. Finding the board on device is
+  not built.
+- **Most labels were proposed by a model.** 100 boards were corrected square
+  by square on the labelling page. The other 239 are readings by a model
+  fine-tuned on those 100, checked by eye on contact sheets, which found
+  three wrong squares. A check that starts from the model's answer can miss
+  an error the model makes consistently.
+- **The hand labels were not clean.** Ten wrong squares on eight of the 100
+  hand-labelled boards were found by reading each board with a model that
+  had not trained on it, and corrected after looking at the photo.
+- **The checker was tested, on a small sample.** On 28 boards whose labels
+  were already known, the contact-sheet check caught all 26 wrong squares in
+  the proposals and introduced none.
+- The photos are private and are not published.
 
 Recorded metrics are in [`results/`](results).
 
@@ -258,6 +326,25 @@ documented in [`label/store.py`](label/store.py).
 The server listens on `127.0.0.1` only. Photos and labels stay under
 `eval/private/`, which git ignores: book pages are copyrighted and are never
 committed. The contour finder is a labelling aid, not the localizer.
+
+### Checking many boards at once
+
+Correcting every board on the page is slow. Once a model reads most boards
+correctly, `label/review.py` is quicker: it draws each unlabelled board with
+the proposed reading written onto it, four boards to a sheet.
+
+```sh
+python -m label.review sheets --photos eval/private/my-photos \
+    --labels eval/private/labels/my-photos.json \
+    --checkpoint runs/boardnet-v2/model.pt --out eval/private/review
+```
+
+Every square holding a piece gets a tag in its corner, yellow for White and
+black for Black. Squares where the readings disagreed get a red frame, and
+boards whose material is impossible or unusual are marked. The outcome goes
+in a small JSON file (accepted boards, changed squares, unusable boards, book
+names) and `python -m label.review apply` turns it into labels. Each label
+records whether it was made on the page or from sheets.
 
 ## Related work
 
@@ -301,3 +388,9 @@ that allows this. They are listed with their sources and terms in
 [THIRD_PARTY.md](THIRD_PARTY.md), which also records the sets that were left
 out because their terms are noncommercial or unclear. Private evaluation
 photos of copyrighted books are kept in `eval/private/` and are not committed.
+
+BoardNet v2 was fine-tuned on photographs of diagrams in copyrighted books
+and e-books. The photographs are not distributed, and the model outputs only
+piece positions. Whether weights trained this way can be released under this
+licence without qualification has not been settled, which is one reason none
+are published.
