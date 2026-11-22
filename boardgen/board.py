@@ -142,7 +142,12 @@ class BookStyle:
     margin: int
 
 
-def sample_book_style(rng: np.random.Generator, sq: int, paper: np.ndarray, ink: np.ndarray) -> BookStyle:
+def sample_book_style(
+    rng: np.random.Generator, sq: int, paper: np.ndarray, ink: np.ndarray, piece_sets: tuple[str, ...] | None = None
+) -> BookStyle:
+    """Draw the look of a printed diagram; piece_sets limits which sets may be used."""
+    every_set = [name for name in assets.piece_sets() if piece_sets is None or name in piece_sets]
+    print_sets = [name for name in assets.print_piece_sets() if name in every_set] or every_set
     dark = str(rng.choice(["hatch", "grey", "halftone", "cross", "dots"], p=[0.42, 0.30, 0.12, 0.08, 0.08]))
     if dark == "halftone":
         spacing = sq / rng.uniform(9, 18)
@@ -153,10 +158,7 @@ def sample_book_style(rng: np.random.Generator, sq: int, paper: np.ndarray, ink:
     else:
         spacing = sq / rng.uniform(4.5, 11)
         thickness = spacing * rng.uniform(0.15, 0.45)
-    if rng.random() < 0.8:
-        piece_set = str(rng.choice(assets.print_piece_sets()))
-    else:
-        piece_set = str(rng.choice(list(assets.piece_sets())))
+    piece_set = str(rng.choice(print_sets)) if rng.random() < 0.8 else str(rng.choice(every_set))
     patterned = dark in ("hatch", "cross", "dots")
     return BookStyle(
         sq=sq,
@@ -291,7 +293,11 @@ def _square_slice(origin: int, sq: int, row: int, col: int) -> tuple[slice, slic
 
 
 def render_screen_board(
-    rng: np.random.Generator, sq: int, visual: list[str], white_at_bottom: bool
+    rng: np.random.Generator,
+    sq: int,
+    visual: list[str],
+    white_at_bottom: bool,
+    piece_sets: tuple[str, ...] | None = None,
 ) -> BoardImage:
     n = 8 * sq
     if rng.random() < 0.85:
@@ -363,7 +369,7 @@ def render_screen_board(
         image = draw_texts(image, items)
         area = image[m : m + n, m : m + n]
 
-    piece_set = str(rng.choice(list(assets.piece_sets())))
+    piece_set = str(rng.choice([name for name in assets.piece_sets() if piece_sets is None or name in piece_sets]))
     piece_size = max(6, int(round(sq * rng.uniform(0.84, 1.0))))
     for index in occupied:
         row, col = divmod(index, 8)

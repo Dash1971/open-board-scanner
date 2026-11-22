@@ -50,11 +50,21 @@ class Sample:
         }
 
 
-def generate(seed: int, index: int, kind: str | None = None, degrade: bool = True, long_side: int = 1024) -> Sample:
+def generate(
+    seed: int,
+    index: int,
+    kind: str | None = None,
+    degrade: bool = True,
+    long_side: int = 1024,
+    board_fraction: tuple[float, float] = (0.35, 0.9),
+    piece_sets: tuple[str, ...] | None = None,
+) -> Sample:
     """Generate sample `index` of the stream identified by `seed`.
 
     kind fixes the sample type; by default it is drawn from KIND_WEIGHTS.
     degrade=False skips lighting, blur, noise and compression (for tests).
+    board_fraction is the range of the board's width as a share of the photo's
+    shorter side. piece_sets limits which piece sets may be drawn.
     """
     rng = np.random.default_rng([seed, index])
     drawn = str(rng.choice(KINDS, p=KIND_WEIGHTS))
@@ -69,7 +79,7 @@ def generate(seed: int, index: int, kind: str | None = None, degrade: bool = Tru
 
     if kind == "screenshot":
         sq = int(rng.integers(28, 110))
-        flat = board_module.render_screen_board(rng, sq, visual, white_at_bottom)
+        flat = board_module.render_screen_board(rng, sq, visual, white_at_bottom, piece_sets)
         view, corners, scene_meta = scene.make_screen(rng, flat, sq)
         if degrade:
             image, scale = camera.degrade_screenshot(rng, view, long_side)
@@ -81,7 +91,7 @@ def generate(seed: int, index: int, kind: str | None = None, degrade: bool = Tru
 
     portrait = rng.random() < 0.7
     width, height = (long_side * 3 // 4, long_side) if portrait else (long_side, long_side * 3 // 4)
-    fraction = rng.uniform(0.35, 0.9)
+    fraction = rng.uniform(*board_fraction)
     side = fraction * min(width, height)
     sq = max(14, int(round(side / 8 * rng.uniform(1.0, 1.25))))
 
@@ -89,7 +99,7 @@ def generate(seed: int, index: int, kind: str | None = None, degrade: bool = Tru
         warmth = rng.uniform(0, 1)
         paper = (rng.uniform(205, 252) * np.array([1.0, 1 - 0.04 * warmth, 1 - 0.13 * warmth])).astype(np.float32)
         ink = (rng.uniform(8, 75) * np.array([1.0, 0.98, 0.95])).astype(np.float32)
-        style = board_module.sample_book_style(rng, sq, paper, ink)
+        style = board_module.sample_book_style(rng, sq, paper, ink, piece_sets)
         flat = board_module.render_book_board(rng, style, visual, white_at_bottom)
         view, corners, scene_meta = scene.make_book_page(rng, style, flat, fraction)
         if rng.random() < 0.7:  # slight ink spread and softness from printing
@@ -97,7 +107,7 @@ def generate(seed: int, index: int, kind: str | None = None, degrade: bool = Tru
         background = rng.uniform(20, 200) * rng.uniform(0.7, 1.0, 3)
         max_skew, curl_probability = 0.09, 0.5
     else:
-        flat = board_module.render_screen_board(rng, sq, visual, white_at_bottom)
+        flat = board_module.render_screen_board(rng, sq, visual, white_at_bottom, piece_sets)
         view, corners, scene_meta = scene.make_screen(rng, flat, sq)
         bezel = int(sq * rng.uniform(0.2, 1.2))
         view = cv2.copyMakeBorder(view, bezel, bezel, bezel, bezel, cv2.BORDER_CONSTANT, value=(12.0, 12.0, 12.0))

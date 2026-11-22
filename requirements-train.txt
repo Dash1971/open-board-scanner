@@ -1,0 +1,4 @@
+# Extra packages for training and export, on top of requirements.txt.
+onnx==1.23.2
+onnxruntime==1.32.0
+torch==2.15.0

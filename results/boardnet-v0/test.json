@@ -1,0 +1,76 @@
+{
+  "all": {
+    "boards": 3000,
+    "exact_boards": 0.8887,
+    "boards_with_at_most_1_error": 0.9603,
+    "square_accuracy": 0.99693,
+    "wrong_squares_per_board": 0.196
+  },
+  "seen_piece_sets": {
+    "boards": 2286,
+    "exact_boards": 0.9366,
+    "boards_with_at_most_1_error": 0.9755,
+    "square_accuracy": 0.99792,
+    "wrong_squares_per_board": 0.133
+  },
+  "held_out_piece_sets": {
+    "boards": 714,
+    "exact_boards": 0.7353,
+    "boards_with_at_most_1_error": 0.9118,
+    "square_accuracy": 0.99379,
+    "wrong_squares_per_board": 0.398
+  },
+  "book": {
+    "boards": 1773,
+    "exact_boards": 0.881,
+    "boards_with_at_most_1_error": 0.9492,
+    "square_accuracy": 0.9964,
+    "wrong_squares_per_board": 0.231
+  },
+  "book_held_out": {
+    "boards": 520,
+    "exact_boards": 0.7231,
+    "boards_with_at_most_1_error": 0.8962,
+    "square_accuracy": 0.99315,
+    "wrong_squares_per_board": 0.438
+  },
+  "screenshot": {
+    "boards": 757,
+    "exact_boards": 0.9155,
+    "boards_with_at_most_1_error": 0.9841,
+    "square_accuracy": 0.99831,
+    "wrong_squares_per_board": 0.108
+  },
+  "screenshot_held_out": {
+    "boards": 118,
+    "exact_boards": 0.7797,
+    "boards_with_at_most_1_error": 0.9492,
+    "square_accuracy": 0.99563,
+    "wrong_squares_per_board": 0.28
+  },
+  "monitor": {
+    "boards": 470,
+    "exact_boards": 0.8745,
+    "boards_with_at_most_1_error": 0.9638,
+    "square_accuracy": 0.99674,
+    "wrong_squares_per_board": 0.209
+  },
+  "monitor_held_out": {
+    "boards": 76,
+    "exact_boards": 0.75,
+    "boards_with_at_most_1_error": 0.9605,
+    "square_accuracy": 0.99527,
+    "wrong_squares_per_board": 0.303
+  },
+  "white_at_bottom_accuracy": 0.8696,
+  "commonest_mistakes": [
+    "62x r read as p",
+    "47x P read as empty",
+    "29x Q read as R",
+    "27x R read as P",
+    "26x B read as P",
+    "23x Q read as K",
+    "20x empty read as P",
+    "19x R read as r"
+  ]
+}

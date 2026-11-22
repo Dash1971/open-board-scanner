@@ -3,8 +3,10 @@
 A small, freely licensed model that turns a screenshot or a photo of a printed
 chess diagram into an editable position, entirely offline.
 
-**Status: the synthetic data generator works; no model has been trained or
-measured yet.** Work is tracked in [Issues](../../issues).
+**Status: a first 2 MB classifier has been trained on synthetic data only. It
+is a baseline, not a usable scanner:** it reads 89% of synthetic test boards
+exactly, and six of twelve real photos in a first hand check. No weights are
+released yet. Work is tracked in [Issues](../../issues).
 
 ## Why
 
@@ -101,12 +103,80 @@ Each sample is labelled with:
 | `white_at_bottom` | `false` when the board is shown from Black's side, so `squares` is the position turned by 180°. |
 | `kind`, `meta` | `book`, `screenshot` or `monitor`, and the style choices made for the sample. |
 
-Known gaps: only three of the piece sets resemble book typefaces, and nothing
-here has yet been compared with real photos. One process generates about two
-samples a second on an Apple M4.
+Known gaps: only three of the piece sets resemble book typefaces, no sample
+is rotated by a quarter turn, and the degradations have not been tuned
+against real photos. One process generates about two full samples a second on
+an Apple M4.
 
 Piece sets and fonts are downloaded on demand and listed with their licences
 in [THIRD_PARTY.md](THIRD_PARTY.md).
+
+## First classifier: BoardNet v0
+
+A narrow ResNet (1.95 million parameters) takes a 256×256 crop of the board
+and outputs 13 classes for each of the 64 squares, plus which side is at the
+bottom. It was trained for 10 epochs on 32,000 synthetic crops (16,000
+generated samples, two crops each), in 30 minutes on an Apple M4.
+
+```bash
+.venv/bin/pip install -r requirements-train.txt
+.venv/bin/python -m train.make_crops --seed 1000 --count 3000 --crops 1 --out data/crops/test
+.venv/bin/python -m train.make_crops --seed 1 --count 16000 --holdout --out data/crops/train
+.venv/bin/python -m train.train --train data/crops/train --test data/crops/test --out runs/boardnet-v0
+.venv/bin/python -m train.export_onnx --checkpoint runs/boardnet-v0/model.pt --data data/crops/test --out runs/boardnet-v0
+```
+
+### Synthetic test set
+
+3,000 crops from a seed never used in training. Two piece sets, mpchess and
+fantasy, were kept out of training entirely to measure unseen artwork.
+
+| Test crops | Boards | Exact boards | At most one wrong square | Squares correct |
+| --- | ---: | ---: | ---: | ---: |
+| All | 3,000 | 88.9% | 96.0% | 99.69% |
+| Piece sets seen in training | 2,286 | 93.7% | 97.6% | 99.79% |
+| Piece sets held out | 714 | 73.5% | 91.2% | 99.38% |
+| Printed diagrams | 1,773 | 88.1% | 94.9% | 99.64% |
+| Screenshots | 757 | 91.6% | 98.4% | 99.83% |
+| Photos of a monitor | 470 | 87.5% | 96.4% | 99.67% |
+
+The gap between seen and held-out piece sets is the main result: accuracy
+depends on having seen the artwork, so the generator needs many more piece
+styles. The commonest mistakes were a black rook read as a black pawn, a white
+pawn read as empty, and a white queen read as a white rook. Which side is at
+the bottom was right for 87% of non-empty boards.
+
+### ONNX files
+
+| File | Size | Exact boards (2,600 test crops) | One board, Mac CPU, 2 threads |
+| --- | ---: | ---: | ---: |
+| FP32 | 7.78 MB | 88.9% | 5.1 ms |
+| INT8 | 2.03 MB | 88.8% | 2.1 ms |
+
+INT8 ranges were calibrated on 400 test crops that were then left out of the
+scoring. Android speed and memory have not been measured.
+
+### First look at real photos
+
+Twelve phone photos were checked by hand: six of printed book pages and six of
+an e-book on a monitor. The model read six of the twelve boards exactly and
+got 19 squares wrong across the other six. The errors were mostly one book
+typeface's pawns read as bishops, and kings confused with queens.
+
+This is a first look, not a measurement:
+
+- The twelve were sampled by position in the folder, the board outline came
+  from plain contour detection, which happened to work on all twelve, and five
+  book photos taken sideways were turned upright by hand.
+- The correct positions were read by eye from the crops and have not been
+  independently verified.
+- The photos are private and are not published.
+
+Two things this showed: photos taken with the phone turned sideways are
+common, so rotated boards must be generated and recognised; and typefaces the
+generator lacks are where the errors are.
+
+Recorded metrics are in [`results/boardnet-v0`](results/boardnet-v0).
 
 ## Related work
 
