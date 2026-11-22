@@ -3,10 +3,12 @@
 A small, freely licensed model that turns a screenshot or a photo of a printed
 chess diagram into an editable position, entirely offline.
 
-**Status: a first 2 MB classifier has been trained on synthetic data only. It
-is a baseline, not a usable scanner:** it reads 89% of synthetic test boards
-exactly, and six of twelve real photos in a first hand check. No weights are
-released yet. Work is tracked in [Issues](../../issues).
+**Status: a 2 MB classifier trained on synthetic data only. It is not yet a
+usable scanner.** It reads about 86% of synthetic test boards exactly and
+turns sideways photos upright reliably, but in hand checks on real photos it
+read 14 of 24 boards exactly, with nearly all errors on one book typeface the
+generator cannot imitate. No weights are released yet. Work is tracked in
+[Issues](../../issues).
 
 ## Why
 
@@ -84,14 +86,20 @@ What varies:
 
 - **Positions**: random legal play, sparse endgames, pieces scattered without
   regard to legality, the starting position and the empty board.
+- **Piece artwork**: 18 sets, seven of which look like book typefaces. Printed
+  pieces are also stretched and their strokes thickened or thinned, because
+  typefaces differ in proportion and weight far more than the available
+  artwork does.
 - **Printed diagrams**: hatched, cross-hatched, dotted, grey and halftone dark
   squares; frames; coordinates; white halos around pieces; a page of Latin or
   Cyrillic text; a second diagram nearby; print showing through the paper.
-- **Screens**: board colours, 13 piece sets, last-move and check highlights,
+- **Screens**: board colours, last-move and check highlights,
   legal-move dots, arrows, circles, coordinates, and a generic app layout with
   player bars, clocks, an evaluation bar and a move list.
-- **Camera**: perspective, rotation, page curl, uneven light, shadows, glare,
+- **Camera**: perspective, tilt, page curl, uneven light, shadows, glare,
   screen moiré, blur, sensor noise, low resolution and JPEG compression.
+- **Sideways photos**: about a third of book photos are turned by a quarter
+  turn, as happens when the phone is held sideways.
 
 Each sample is labelled with:
 
@@ -100,83 +108,121 @@ Each sample is labelled with:
 | `corners` | The four outer corners of the 8×8 playing area in the image, clockwise from the top-left as displayed, in pixel-centre coordinates. Frames and coordinate margins are outside. |
 | `squares` | 64 piece symbols as seen in the image, row by row from the top-left; `""` is an empty square. |
 | `placement` | The FEN piece-placement field of the real position. |
-| `white_at_bottom` | `false` when the board is shown from Black's side, so `squares` is the position turned by 180°. |
+| `quarter_turns` | How many quarter turns counter-clockwise bring the image upright. |
+| `white_at_bottom` | `false` when the upright board is shown from Black's side. |
 | `kind`, `meta` | `book`, `screenshot` or `monitor`, and the style choices made for the sample. |
 
-Known gaps: only three of the piece sets resemble book typefaces, no sample
-is rotated by a quarter turn, and the degradations have not been tuned
+Known gaps: the typeface behind most real-photo errors so far is commercial
+and has no open look-alike here, and the degradations have not been tuned
 against real photos. One process generates about two full samples a second on
 an Apple M4.
 
 Piece sets and fonts are downloaded on demand and listed with their licences
 in [THIRD_PARTY.md](THIRD_PARTY.md).
 
-## First classifier: BoardNet v0
+## Classifier: BoardNet
 
-A narrow ResNet (1.95 million parameters) takes a 256×256 crop of the board
-and outputs 13 classes for each of the 64 squares, plus which side is at the
-bottom. It was trained for 10 epochs on 32,000 synthetic crops (16,000
-generated samples, two crops each), in 30 minutes on an Apple M4.
+A narrow ResNet (1.95 million parameters) takes a 256×256 crop of the board,
+in whatever orientation the photo has, and outputs:
+
+- 13 classes for each of the 64 squares, as they appear in the image;
+- how many quarter turns bring the board upright;
+- which side is at the bottom of the upright board.
 
 ```bash
 .venv/bin/pip install -r requirements-train.txt
-.venv/bin/python -m train.make_crops --seed 1000 --count 3000 --crops 1 --out data/crops/test
-.venv/bin/python -m train.make_crops --seed 1 --count 16000 --holdout --out data/crops/train
-.venv/bin/python -m train.train --train data/crops/train --test data/crops/test --out runs/boardnet-v0
-.venv/bin/python -m train.export_onnx --checkpoint runs/boardnet-v0/model.pt --data data/crops/test --out runs/boardnet-v0
+.venv/bin/python -m train.make_crops --seed 1000 --count 3000 --crops 1 --out data/crops/test-v1
+.venv/bin/python -m train.make_crops --seed 2 --count 24000 --holdout --out data/crops/train-v1
+.venv/bin/python -m train.train --train data/crops/train-v1 --test data/crops/test-v1 --out runs/boardnet-v1
+.venv/bin/python -m train.export_onnx --checkpoint runs/boardnet-v1/model.pt --data data/crops/test-v1 --out runs/boardnet-v1
 ```
 
-### Synthetic test set
+Two versions have been trained, each for 10 epochs on an Apple M4:
 
-3,000 crops from a seed never used in training. Two piece sets, mpchess and
-fantasy, were kept out of training entirely to measure unseen artwork.
+| | v0 | v1 |
+| --- | --- | --- |
+| Generator | 13 piece sets, upright only | 18 piece sets, shape variation, sideways photos |
+| Training crops | 32,000 | 48,000 |
+| Outputs | squares, viewing side | squares, viewing side, quarter turns |
+| Training time | 30 minutes | 41 minutes |
 
-| Test crops | Boards | Exact boards | At most one wrong square | Squares correct |
-| --- | ---: | ---: | ---: | ---: |
-| All | 3,000 | 88.9% | 96.0% | 99.69% |
-| Piece sets seen in training | 2,286 | 93.7% | 97.6% | 99.79% |
-| Piece sets held out | 714 | 73.5% | 91.2% | 99.38% |
-| Printed diagrams | 1,773 | 88.1% | 94.9% | 99.64% |
-| Screenshots | 757 | 91.6% | 98.4% | 99.83% |
-| Photos of a monitor | 470 | 87.5% | 96.4% | 99.67% |
+Two piece sets, mpchess and fantasy, are kept out of training in both
+versions to measure unseen artwork.
 
-The gap between seen and held-out piece sets is the main result: accuracy
-depends on having seen the artwork, so the generator needs many more piece
-styles. The commonest mistakes were a black rook read as a black pawn, a white
-pawn read as empty, and a white queen read as a white rook. Which side is at
-the bottom was right for 87% of non-empty boards.
+### Synthetic test sets
 
-### ONNX files
+Each test set is 3,000 crops from a seed never used in training. The v1 test
+set is harder than the v0 one: it includes the new piece sets, shape
+variation and sideways crops.
 
-| File | Size | Exact boards (2,600 test crops) | One board, Mac CPU, 2 threads |
+| Exact boards | v0 on v0 test | v1 on v0 test | v1 on v1 test |
 | --- | ---: | ---: | ---: |
-| FP32 | 7.78 MB | 88.9% | 5.1 ms |
-| INT8 | 2.03 MB | 88.8% | 2.1 ms |
+| All | 88.9% | 88.1% | 85.5% |
+| Piece sets seen in training | 93.7% | 92.6% | 88.3% |
+| Piece sets held out | 73.5% | 73.7% | 65.8% |
+| Printed diagrams | 88.1% | 87.0% | 82.7% |
+| Screenshots | 91.5% | 91.9% | 93.3% |
+| Photos of a monitor | 87.5% | 86.2% | 83.8% |
+
+On the v1 test set, v1 gets 99.54% of squares right, picks the correct
+quarter turn for 99.97% of non-empty boards, and names the viewing side
+correctly for 88%. Putting all three together, 76.1% of crops give the exact
+position. The viewing side is the weak part: a diagram without coordinates
+often does not show which way it faces.
+
+The broader generator did not raise accuracy on the old test set, and the gap
+between seen and held-out piece sets is about as wide as before.
+
+### ONNX files (v1)
+
+| File | Size | Exact boards (2,600 test crops) |
+| --- | ---: | ---: |
+| FP32 | 7.79 MB | 85.4% |
+| INT8 | 2.03 MB | 85.2% |
 
 INT8 ranges were calibrated on 400 test crops that were then left out of the
-scoring. Android speed and memory have not been measured.
+scoring. On a Mac CPU with two threads, the v0 files of the same design took
+5.1 ms (FP32) and 2.1 ms (INT8) per board. Android has not been measured.
 
-### First look at real photos
+### Real photos
 
-Twelve phone photos were checked by hand: six of printed book pages and six of
-an e-book on a monitor. The model read six of the twelve boards exactly and
-got 19 squares wrong across the other six. The errors were mostly one book
-typeface's pawns read as bishops, and kings confused with queens.
+Twenty-four phone photos were checked by hand, in two sets of twelve, each
+with six printed book pages and six photos of an e-book on a monitor.
 
-This is a first look, not a measurement:
+| | Exact boards | Wrong squares | Turned upright correctly |
+| --- | ---: | ---: | ---: |
+| First twelve, v0 (sideways crops turned by hand) | 6 of 12 | 19 of 768 | not applicable |
+| First twelve, v1 | 7 of 12 | 25 of 768 | 12 of 12 |
+| Second twelve, v1 | 7 of 12 | 30 of 768 | 12 of 12 |
 
-- The twelve were sampled by position in the folder, the board outline came
-  from plain contour detection, which happened to work on all twelve, and five
-  book photos taken sideways were turned upright by hand.
+What this shows:
+
+- **Rotation works.** v1 turned all 24 crops the right way, including the ten
+  sideways ones, with no help.
+- **Piece reading on real photos did not improve.** v1 fixed some boards and
+  made others worse.
+- **One typeface causes nearly all the errors.** It appears in one of the
+  printed books and in the e-books, and its pawns, bishops and kings are
+  confused with each other and sometimes given the wrong colour. Boards in
+  the other printed typeface, and sparse positions in any typeface, were read
+  without error. The troublesome typeface appears to be a commercial one, so
+  it cannot be added to the generator.
+
+These are hand checks, not measurements:
+
+- Photos were sampled by position in the folder. The board outline came from
+  plain contour detection, which worked on all 24.
 - The correct positions were read by eye from the crops and have not been
   independently verified.
+- v1's generator changes were chosen after seeing the errors on the first
+  twelve, so only the second twelve are a fair test of v1. v0 was not run on
+  the second twelve.
 - The photos are private and are not published.
 
-Two things this showed: photos taken with the phone turned sideways are
-common, so rotated boards must be generated and recognised; and typefaces the
-generator lacks are where the errors are.
+The likely way forward is to label real photos and fine-tune on them, keeping
+whole books out of training to measure the result honestly.
 
-Recorded metrics are in [`results/boardnet-v0`](results/boardnet-v0).
+Recorded metrics are in [`results/`](results).
 
 ## Related work
 

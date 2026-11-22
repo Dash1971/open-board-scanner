@@ -124,6 +124,9 @@ class BookStyle:
     piece_set: str
     piece_scale: float
     piece_contrast: float
+    piece_width: float
+    piece_height: float
+    stroke: float
     dark: str
     spacing: float
     thickness: float
@@ -160,6 +163,10 @@ def sample_book_style(
         thickness = spacing * rng.uniform(0.15, 0.45)
     piece_set = str(rng.choice(print_sets)) if rng.random() < 0.8 else str(rng.choice(every_set))
     patterned = dark in ("hatch", "cross", "dots")
+    # Typefaces differ in proportions and line weight far more than the available
+    # artwork does, so pieces are stretched and their strokes thickened or thinned.
+    stretch = float(rng.uniform(0.8, 1.25)) if rng.random() < 0.6 else 1.0
+    stroke = float(rng.uniform(-1.0, 1.6)) if rng.random() < 0.45 else 0.0
     return BookStyle(
         sq=sq,
         paper=paper,
@@ -167,6 +174,9 @@ def sample_book_style(
         piece_set=piece_set,
         piece_scale=float(rng.uniform(0.8, 1.0)),
         piece_contrast=float(rng.uniform(1.0, 2.5)),
+        piece_width=min(1.0, 1.0 / stretch),
+        piece_height=min(1.0, stretch),
+        stroke=stroke,
         dark=dark,
         spacing=float(max(spacing, 2.0)),
         thickness=float(max(thickness, 0.6)),
@@ -193,8 +203,21 @@ def _print_piece(style: BookStyle, symbol: str, size: int) -> tuple[np.ndarray, 
     luma = (patch[..., :3] @ np.array([0.299, 0.587, 0.114], np.float32)) / 255.0
     straight = np.where(alpha > 1e-3, luma / np.maximum(alpha, 1e-3), 1.0)
     straight = np.clip((straight - 0.5) * style.piece_contrast + 0.5, 0.0, 1.0)
-    white = (straight * alpha)[..., None]
-    rgb = style.paper * white + style.ink * (alpha[..., None] - white)
+    ink = alpha * (1.0 - straight)
+    radius = int(round(abs(style.stroke) * size / 64))
+    if radius:
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * radius + 1,) * 2)
+        if style.stroke > 0:
+            ink = cv2.dilate(ink, kernel)
+            alpha = np.maximum(alpha, ink)
+        else:
+            ink = cv2.erode(ink, kernel)
+    width, height = max(4, int(round(size * style.piece_width))), max(4, int(round(size * style.piece_height)))
+    if (width, height) != (size, size):
+        ink = cv2.resize(ink, (width, height), interpolation=cv2.INTER_AREA)
+        alpha = cv2.resize(alpha, (width, height), interpolation=cv2.INTER_AREA)
+    white = (alpha - ink)[..., None]
+    rgb = style.paper * white + style.ink * ink[..., None]
     return rgb, alpha
 
 
@@ -271,9 +294,9 @@ def render_book_board(
         if not symbol:
             continue
         row, col = divmod(index, 8)
-        x = int(round(m + col * sq + (sq - piece_size) / 2 + shift_x))
-        y = int(round(m + row * sq + (sq - piece_size) / 2 + shift_y))
         rgb, alpha = _print_piece(style, symbol, piece_size)
+        x = int(round(m + col * sq + (sq - alpha.shape[1]) / 2 + shift_x))
+        y = int(round(m + row * sq + (sq - alpha.shape[0]) / 2 + shift_y))
         if halo_radius > 0:
             kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * halo_radius + 1,) * 2)
             padded = cv2.copyMakeBorder(alpha, *(halo_radius,) * 4, cv2.BORDER_CONSTANT, value=0)

@@ -252,6 +252,56 @@
         "bN.svg": "d432bfd091c598e53b5dbaab5532abd8414db5d2a0a627983ade9b5cdad95e4d",
         "bP.svg": "75554fbf823367b5155090b0759e494f2eb39a05235a3ab8cc99eb8ce90f3295"
       }
+    },
+    "gnome-simple": {
+      "author": "W3C SVG working group, via GNOME Chess",
+      "licence": "W3C",
+      "print": true,
+      "naming": "long",
+      "source": {
+        "repo": "GNOME/gnome-chess",
+        "commit": "de63bdec5cf9f0770890086262e6a127d5c4a619",
+        "path": "data/pieces/simple"
+      },
+      "sha256": {
+        "wK.svg": "205b867ba962da38b8a53184666415f816de7f826641a6b7b95c160880acc663",
+        "wQ.svg": "0cd28701053827ee74f51a51aa5ca1b713b59b924dd94ee36196a5521aa24de8",
+        "wR.svg": "cba9783a9507555b01b4e07691f6eb62e8323456731815d31e43899d95a2a7eb",
+        "wB.svg": "72f9307c7fc33dea36086af3de78a0b80494cea8fab800ce777c98378f44a7eb",
+        "wN.svg": "2199862c1f3ed6bb92369e8b6171c6cfe5c5f1dfe3f47e36607caa2d90c8ab88",
+        "wP.svg": "77725ef0b389f9a0d61719831b53470694a913321d60ad7d9b6d5c5d5f571c7b",
+        "bK.svg": "eaf6b3b981b6a4c4286c7987e2382cfcbd1d8a84a8ab1111ebdd5d2c89d183f6",
+        "bQ.svg": "b7f3e6c116931056b5080d020e20f1c79a2e507a3383c9036969a143b83f8d0e",
+        "bR.svg": "aa074b44d87f4930fde7699b74ab8c1dd954e7425269b6c91618d4f1c8ece4bf",
+        "bB.svg": "f06589fbe1611477ba129e96917534766dd163f2ceb9ec8a002a226d1233eae6",
+        "bN.svg": "2098e1cf347c0a3cf8c05e67be7cd9e6f99e925c9238f674848396dff192c156",
+        "bP.svg": "013c5305c228bd208bccc85f4927f0bf0455345133db82e3c06cae41f76e4103"
+      }
+    },
+    "gnome-fancy": {
+      "author": "GNOME Chess contributors",
+      "licence": "GPL-3.0-or-later",
+      "print": false,
+      "naming": "long",
+      "source": {
+        "repo": "GNOME/gnome-chess",
+        "commit": "de63bdec5cf9f0770890086262e6a127d5c4a619",
+        "path": "data/pieces/fancy"
+      },
+      "sha256": {
+        "wK.svg": "c6a8b72e4c2fee0415b303d32a4f54c7f20763824851cfbf549df6da00bdaeda",
+        "wQ.svg": "de561f31a60c92a77157b5608f63c3c0e5a53696d6bb53f0b37b57a3d21c04c7",
+        "wR.svg": "b21e1d04cbbdcc9193349a7841aa6e64e73f2eeda3e0f43280aedf67fe5336b7",
+        "wB.svg": "de9acd025a8eac69c36c54eb4051c835e1f610225ff73b16eef2305189660dea",
+        "wN.svg": "e5def724e99e51fd1bc2ade78b75a3bd3678bad9bfe76d20c833f9dbedf8e1d2",
+        "wP.svg": "3e9f727c1b2ae3ca95a22c139a28538add5b1ae2f506a696a3d20e4eab473c73",
+        "bK.svg": "b3a604640d1bd62efb54d48b370b964d982cecdbb95f3d8135517283f9c9c556",
+        "bQ.svg": "2a2fd43d39176827fb7b50c370a8e13f4066f54e7430a6850cb4270074d8e9f1",
+        "bR.svg": "4b97300c9c3a356aa53ea60e5184d6f7b3c628a754d066adf7b1fd9e707b3926",
+        "bB.svg": "710b3aebc06612df639dcb9ae713bb04117621fefe325933c4ee7babd52c66ac",
+        "bN.svg": "c7106bebd563cf5e0f6c158da0c0e5e0827d6e52a0bee6fb9274d03a6f310ba3",
+        "bP.svg": "d7fc206cb847c60bb15cb6d0769498f1b4a3f346d734755668e76214387e8599"
+      }
     }
   }
 }

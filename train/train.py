@@ -74,12 +74,14 @@ def main() -> None:
     for epoch in range(1, args.epochs + 1):
         model.train()
         running, seen = 0.0, 0
-        for images, squares, white in batches(args.train, args.batch, rng, group=2):
+        for images, squares, white, turns in batches(args.train, args.batch, rng):
             batch = augment(torch.from_numpy(images).to(device).permute(0, 3, 1, 2).float(), generator)
             target = torch.from_numpy(squares).to(device).long().view(-1, 8, 8)
-            logits, orientation = model(batch)
-            loss = F.cross_entropy(logits, target) + 0.2 * F.binary_cross_entropy_with_logits(
-                orientation, torch.from_numpy(white).to(device).float()
+            logits, orientation, rotation = model(batch)
+            loss = (
+                F.cross_entropy(logits, target)
+                + 0.2 * F.binary_cross_entropy_with_logits(orientation, torch.from_numpy(white).to(device).float())
+                + 0.2 * F.cross_entropy(rotation, torch.from_numpy(turns).to(device).long())
             )
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
@@ -98,7 +100,8 @@ def main() -> None:
         print(
             f"epoch {epoch:2d}  loss {entry['train_loss']:.4f}  exact {report['all']['exact_boards']:.3f}  "
             f"squares {report['all']['square_accuracy']:.4f}  seen-sets exact {report['seen_piece_sets']['exact_boards']:.3f}  "
-            f"held-out exact {report['held_out_piece_sets']['exact_boards']:.3f}  {entry['minutes']} min",
+            f"held-out exact {report['held_out_piece_sets']['exact_boards']:.3f}  turn {report['quarter_turn_accuracy']:.3f}  "
+            f"position {report['exact_positions']:.3f}  {entry['minutes']} min",
             flush=True,
         )
         torch.save(model.state_dict(), out / "model.pt")

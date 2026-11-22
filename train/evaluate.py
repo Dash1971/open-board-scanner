@@ -14,7 +14,7 @@ import torch
 from boardgen import CLASSES, KINDS
 
 from .data import load_all
-from .make_crops import HELD_OUT_SETS, set_names
+from .make_crops import HELD_OUT_SETS
 from .model import BoardNet
 
 
@@ -24,15 +24,27 @@ def pick_device() -> torch.device:
 
 @torch.no_grad()
 def predict(model: BoardNet, images: np.ndarray, device: torch.device, batch_size: int = 256):
-    """Return predicted classes (N x 64) and White-at-bottom probabilities (N)."""
+    """Return predicted classes (N x 64), White-at-bottom probabilities (N) and quarter turns (N)."""
     model.eval()
-    squares, white = [], []
+    squares, white, turns = [], [], []
     for offset in range(0, len(images), batch_size):
         batch = torch.from_numpy(images[offset : offset + batch_size]).to(device).permute(0, 3, 1, 2).float()
-        logits, orientation = model(batch)
+        logits, orientation, rotation = model(batch)
         squares.append(logits.argmax(dim=1).flatten(1).cpu().numpy())
         white.append(torch.sigmoid(orientation).cpu().numpy())
-    return np.concatenate(squares), np.concatenate(white)
+        turns.append(rotation.argmax(dim=1).cpu().numpy())
+    return np.concatenate(squares), np.concatenate(white), np.concatenate(turns)
+
+
+def to_positions(squares: np.ndarray, white_at_bottom: np.ndarray, quarter_turns: np.ndarray) -> np.ndarray:
+    """Turn grids as seen in the image (N x 64) into positions in FEN order."""
+    grids = squares.reshape(-1, 8, 8)
+    upright = np.empty_like(grids)
+    for turns in range(4):
+        chosen = quarter_turns == turns
+        upright[chosen] = np.rot90(grids[chosen], turns, axes=(1, 2))
+    flat = upright.reshape(-1, 64)
+    return np.where(white_at_bottom.astype(bool)[:, None], flat, flat[:, ::-1])
 
 
 def _summary(predicted: np.ndarray, truth: np.ndarray) -> dict:
@@ -47,9 +59,9 @@ def _summary(predicted: np.ndarray, truth: np.ndarray) -> dict:
 
 
 def score(model: BoardNet, data: dict[str, np.ndarray], device: torch.device) -> dict:
-    predicted, white = predict(model, data["images"], device)
+    predicted, white, turns = predict(model, data["images"], device)
     truth = data["squares"]
-    names = set_names()
+    names = list(data["set_names"])
     held_out = np.isin(data["piece_set"], [names.index(name) for name in HELD_OUT_SETS])
     report = {"all": _summary(predicted, truth)}
     report["seen_piece_sets"] = _summary(predicted[~held_out], truth[~held_out])
@@ -58,9 +70,16 @@ def score(model: BoardNet, data: dict[str, np.ndarray], device: torch.device) ->
         mask = data["kind"] == index
         report[kind] = _summary(predicted[mask], truth[mask])
         report[f"{kind}_held_out"] = _summary(predicted[mask & held_out], truth[mask & held_out])
-    # Orientation is only knowable when the position is not empty.
+    # Rotation and viewing side are only knowable when the position is not empty.
     known = (truth != 0).any(axis=1)
     report["white_at_bottom_accuracy"] = round(float(((white > 0.5) == data["white_at_bottom"].astype(bool))[known].mean()), 4)
+    report["quarter_turn_accuracy"] = round(float((turns == data["quarter_turns"])[known].mean()), 4)
+    sideways = known & (data["quarter_turns"] != 0)
+    report["quarter_turn_accuracy_on_turned_crops"] = round(float((turns == data["quarter_turns"])[sideways].mean()), 4) if sideways.any() else None
+    # The end result: the position after undoing the predicted rotation and viewing side.
+    true_positions = to_positions(truth, data["white_at_bottom"], data["quarter_turns"])
+    read_positions = to_positions(predicted, white > 0.5, turns)
+    report["exact_positions"] = round(float((true_positions == read_positions).all(axis=1).mean()), 4)
     confusion = np.zeros((len(CLASSES), len(CLASSES)), np.int64)
     np.add.at(confusion, (truth.ravel(), predicted.ravel()), 1)
     mistakes = [

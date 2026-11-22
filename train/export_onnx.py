@@ -59,8 +59,8 @@ def main() -> None:
         torch.zeros(1, 3, 256, 256),
         str(float_path),
         input_names=["image"],
-        output_names=["squares", "white_at_bottom"],
-        dynamic_axes={"image": {0: "batch"}, "squares": {0: "batch"}, "white_at_bottom": {0: "batch"}},
+        output_names=["squares", "white_at_bottom", "rotation"],
+        dynamic_axes={name: {0: "batch"} for name in ("image", "squares", "white_at_bottom", "rotation")},
         opset_version=17,
         dynamo=False,
     )

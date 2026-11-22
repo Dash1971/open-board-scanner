@@ -1,9 +1,13 @@
 """BoardNet: a small convolutional network that reads a rectified board in one pass.
 
 Input: float32 RGB, N x 3 x 256 x 256, values 0..255 (normalisation is inside
-the model). Outputs: square logits N x 13 x 8 x 8 in the image's own
-orientation (row 0 is the top of the image; class order is boardgen.CLASSES),
-and one logit per image for "White is at the bottom".
+the model). Outputs:
+
+- square logits, N x 13 x 8 x 8, for the grid as it appears in the image (row
+  0 is the top of the image; class order is boardgen.CLASSES);
+- one logit per image for "White is at the bottom of the upright board";
+- four logits per image for how many quarter turns counter-clockwise bring
+  the image upright.
 
 The network is a narrow ResNet: plain 3x3 convolutions, batch norm and ReLU
 only, so it exports cleanly to ONNX and quantises to INT8. A depthwise
@@ -60,11 +64,12 @@ class BoardNet(nn.Module):
         self.features = nn.Sequential(*layers)
         self.squares = nn.Conv2d(channels, classes, 1)
         self.orientation = nn.Linear(channels, 1)
+        self.rotation = nn.Linear(channels, 4)
 
-    def forward(self, image: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+    def forward(self, image: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         features = self.features((image - self.mean) / self.std)
         pooled = features.mean(dim=(2, 3))
-        return self.squares(features), self.orientation(pooled).squeeze(1)
+        return self.squares(features), self.orientation(pooled).squeeze(1), self.rotation(pooled)
 
 
 def parameter_count(model: nn.Module) -> int:

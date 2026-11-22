@@ -40,8 +40,8 @@ def test_labels_are_consistent(kind, index):
 
     # The squares as displayed agree with the position and the viewing side.
     assert len(sample.squares) == 64 and set(sample.squares) <= set(CLASSES)
-    position = sample.squares if sample.white_at_bottom else sample.squares[::-1]
-    assert to_fen(position) == sample.placement
+    assert sample.quarter_turns in (0, 1, 2, 3)
+    assert to_fen(sample.position()) == sample.placement
 
 
 def _square_contrast(sample) -> tuple[np.ndarray, np.ndarray]:
@@ -76,3 +76,19 @@ def test_curl_solver_finds_where_page_points_land():
     landed = curl.invert(points)
     dx, dy = curl.offset(landed[:, 0], landed[:, 1])
     assert np.allclose(landed + np.stack([dx, dy], axis=1), points, atol=1e-6)
+
+
+def test_turned_photos_are_the_upright_photo_rotated():
+    """A sideways sample shows the same picture and labels as its upright twin, rotated."""
+    turned = [(index, generate(31, index, "book")) for index in range(12)]
+    turned = [(index, sample) for index, sample in turned if sample.quarter_turns]
+    assert turned, "expected at least one sideways book photo in twelve"
+    for index, sample in turned:
+        upright = generate(31, index, "book", turns=False)
+        restored = np.rot90(sample.image, sample.quarter_turns)
+        assert np.array_equal(restored, upright.image)
+        assert sample.position() == upright.position()
+        # The crop cut with the turned corners is the upright crop, turned.
+        crop = np.rot90(rectify(sample.image, sample.corners, 128), sample.quarter_turns)
+        difference = np.abs(crop.astype(np.int16) - rectify(upright.image, upright.corners, 128).astype(np.int16))
+        assert difference.mean() < 2.0

@@ -1,0 +1,832 @@
+[
+  {
+    "epoch": 1,
+    "step": 1488,
+    "minutes": 4.5,
+    "train_loss": 0.2811,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.4093,
+      "boards_with_at_most_1_error": 0.6433,
+      "square_accuracy": 0.97399,
+      "wrong_squares_per_board": 1.664
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.4354,
+      "boards_with_at_most_1_error": 0.6721,
+      "square_accuracy": 0.97666,
+      "wrong_squares_per_board": 1.494
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.2228,
+      "boards_with_at_most_1_error": 0.4375,
+      "square_accuracy": 0.95495,
+      "wrong_squares_per_board": 2.883
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.3723,
+      "boards_with_at_most_1_error": 0.5933,
+      "square_accuracy": 0.96924,
+      "wrong_squares_per_board": 1.968
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.1545,
+      "boards_with_at_most_1_error": 0.3648,
+      "square_accuracy": 0.94655,
+      "wrong_squares_per_board": 3.421
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.5046,
+      "boards_with_at_most_1_error": 0.7662,
+      "square_accuracy": 0.9857,
+      "wrong_squares_per_board": 0.915
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.359,
+      "boards_with_at_most_1_error": 0.6026,
+      "square_accuracy": 0.97736,
+      "wrong_squares_per_board": 1.449
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.3957,
+      "boards_with_at_most_1_error": 0.634,
+      "square_accuracy": 0.97307,
+      "wrong_squares_per_board": 1.723
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.3158,
+      "boards_with_at_most_1_error": 0.5088,
+      "square_accuracy": 0.95861,
+      "wrong_squares_per_board": 2.649
+    },
+    "white_at_bottom_accuracy": 0.8699,
+    "quarter_turn_accuracy": 0.965,
+    "quarter_turn_accuracy_on_turned_crops": 0.9128,
+    "exact_positions": 0.36,
+    "commonest_mistakes": [
+      "355x K read as B",
+      "343x N read as P",
+      "289x k read as b",
+      "273x B read as P",
+      "210x p read as b",
+      "202x r read as p",
+      "185x R read as P",
+      "165x Q read as R"
+    ]
+  },
+  {
+    "epoch": 2,
+    "step": 2976,
+    "minutes": 8.9,
+    "train_loss": 0.1059,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.6583,
+      "boards_with_at_most_1_error": 0.8393,
+      "square_accuracy": 0.98819,
+      "wrong_squares_per_board": 0.756
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.6957,
+      "boards_with_at_most_1_error": 0.8678,
+      "square_accuracy": 0.99016,
+      "wrong_squares_per_board": 0.63
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.3913,
+      "boards_with_at_most_1_error": 0.6359,
+      "square_accuracy": 0.9741,
+      "wrong_squares_per_board": 1.658
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.6108,
+      "boards_with_at_most_1_error": 0.797,
+      "square_accuracy": 0.98559,
+      "wrong_squares_per_board": 0.922
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.2704,
+      "boards_with_at_most_1_error": 0.5107,
+      "square_accuracy": 0.96667,
+      "wrong_squares_per_board": 2.133
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.786,
+      "boards_with_at_most_1_error": 0.9432,
+      "square_accuracy": 0.99529,
+      "wrong_squares_per_board": 0.301
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.6026,
+      "boards_with_at_most_1_error": 0.9231,
+      "square_accuracy": 0.99199,
+      "wrong_squares_per_board": 0.513
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.6319,
+      "boards_with_at_most_1_error": 0.8319,
+      "square_accuracy": 0.98657,
+      "wrong_squares_per_board": 0.86
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.5965,
+      "boards_with_at_most_1_error": 0.7544,
+      "square_accuracy": 0.97999,
+      "wrong_squares_per_board": 1.281
+    },
+    "white_at_bottom_accuracy": 0.871,
+    "quarter_turn_accuracy": 0.9993,
+    "quarter_turn_accuracy_on_turned_crops": 0.9972,
+    "exact_positions": 0.5783,
+    "commonest_mistakes": [
+      "169x q read as Q",
+      "114x Q read as R",
+      "113x B read as P",
+      "110x q read as r",
+      "95x k read as K",
+      "86x P read as empty",
+      "83x R read as P",
+      "80x b read as p"
+    ]
+  },
+  {
+    "epoch": 3,
+    "step": 4464,
+    "minutes": 13.1,
+    "train_loss": 0.0851,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.749,
+      "boards_with_at_most_1_error": 0.8747,
+      "square_accuracy": 0.99109,
+      "wrong_squares_per_board": 0.57
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.7853,
+      "boards_with_at_most_1_error": 0.8951,
+      "square_accuracy": 0.99263,
+      "wrong_squares_per_board": 0.472
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.4891,
+      "boards_with_at_most_1_error": 0.7283,
+      "square_accuracy": 0.98009,
+      "wrong_squares_per_board": 1.274
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.7045,
+      "boards_with_at_most_1_error": 0.8426,
+      "square_accuracy": 0.98915,
+      "wrong_squares_per_board": 0.694
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.4206,
+      "boards_with_at_most_1_error": 0.6695,
+      "square_accuracy": 0.97653,
+      "wrong_squares_per_board": 1.502
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.8653,
+      "boards_with_at_most_1_error": 0.9604,
+      "square_accuracy": 0.99676,
+      "wrong_squares_per_board": 0.207
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.6667,
+      "boards_with_at_most_1_error": 0.9231,
+      "square_accuracy": 0.99259,
+      "wrong_squares_per_board": 0.474
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.7298,
+      "boards_with_at_most_1_error": 0.8574,
+      "square_accuracy": 0.9893,
+      "wrong_squares_per_board": 0.685
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.5263,
+      "boards_with_at_most_1_error": 0.7018,
+      "square_accuracy": 0.97752,
+      "wrong_squares_per_board": 1.439
+    },
+    "white_at_bottom_accuracy": 0.8771,
+    "quarter_turn_accuracy": 0.9997,
+    "quarter_turn_accuracy_on_turned_crops": 0.9986,
+    "exact_positions": 0.6613,
+    "commonest_mistakes": [
+      "131x B read as P",
+      "95x b read as B",
+      "87x P read as empty",
+      "73x k read as K",
+      "67x Q read as R",
+      "56x R read as P",
+      "53x n read as b",
+      "53x Q read as q"
+    ]
+  },
+  {
+    "epoch": 4,
+    "step": 5952,
+    "minutes": 17.4,
+    "train_loss": 0.0741,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.754,
+      "boards_with_at_most_1_error": 0.89,
+      "square_accuracy": 0.99178,
+      "wrong_squares_per_board": 0.526
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.7891,
+      "boards_with_at_most_1_error": 0.9096,
+      "square_accuracy": 0.99319,
+      "wrong_squares_per_board": 0.436
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.5027,
+      "boards_with_at_most_1_error": 0.75,
+      "square_accuracy": 0.9817,
+      "wrong_squares_per_board": 1.171
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.7033,
+      "boards_with_at_most_1_error": 0.8635,
+      "square_accuracy": 0.98963,
+      "wrong_squares_per_board": 0.664
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.4292,
+      "boards_with_at_most_1_error": 0.6738,
+      "square_accuracy": 0.9768,
+      "wrong_squares_per_board": 1.485
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.8666,
+      "boards_with_at_most_1_error": 0.963,
+      "square_accuracy": 0.99717,
+      "wrong_squares_per_board": 0.181
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.6795,
+      "boards_with_at_most_1_error": 0.9487,
+      "square_accuracy": 0.99419,
+      "wrong_squares_per_board": 0.372
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.7638,
+      "boards_with_at_most_1_error": 0.8723,
+      "square_accuracy": 0.99122,
+      "wrong_squares_per_board": 0.562
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.5614,
+      "boards_with_at_most_1_error": 0.7895,
+      "square_accuracy": 0.98465,
+      "wrong_squares_per_board": 0.982
+    },
+    "white_at_bottom_accuracy": 0.8747,
+    "quarter_turn_accuracy": 0.9983,
+    "quarter_turn_accuracy_on_turned_crops": 0.993,
+    "exact_positions": 0.665,
+    "commonest_mistakes": [
+      "102x P read as R",
+      "93x P read as empty",
+      "82x B read as b",
+      "70x P read as B",
+      "63x Q read as R",
+      "62x P read as p",
+      "61x r read as p",
+      "51x k read as K"
+    ]
+  },
+  {
+    "epoch": 5,
+    "step": 7440,
+    "minutes": 21.6,
+    "train_loss": 0.0685,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.7737,
+      "boards_with_at_most_1_error": 0.9017,
+      "square_accuracy": 0.99256,
+      "wrong_squares_per_board": 0.476
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.8134,
+      "boards_with_at_most_1_error": 0.9229,
+      "square_accuracy": 0.99413,
+      "wrong_squares_per_board": 0.376
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.4891,
+      "boards_with_at_most_1_error": 0.75,
+      "square_accuracy": 0.98136,
+      "wrong_squares_per_board": 1.193
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.7451,
+      "boards_with_at_most_1_error": 0.881,
+      "square_accuracy": 0.99088,
+      "wrong_squares_per_board": 0.584
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.412,
+      "boards_with_at_most_1_error": 0.6824,
+      "square_accuracy": 0.97673,
+      "wrong_squares_per_board": 1.489
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.8534,
+      "boards_with_at_most_1_error": 0.9617,
+      "square_accuracy": 0.99686,
+      "wrong_squares_per_board": 0.201
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.6923,
+      "boards_with_at_most_1_error": 0.9103,
+      "square_accuracy": 0.99319,
+      "wrong_squares_per_board": 0.436
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.7532,
+      "boards_with_at_most_1_error": 0.883,
+      "square_accuracy": 0.99199,
+      "wrong_squares_per_board": 0.513
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.5263,
+      "boards_with_at_most_1_error": 0.807,
+      "square_accuracy": 0.9841,
+      "wrong_squares_per_board": 1.018
+    },
+    "white_at_bottom_accuracy": 0.8815,
+    "quarter_turn_accuracy": 0.9997,
+    "quarter_turn_accuracy_on_turned_crops": 0.9986,
+    "exact_positions": 0.6917,
+    "commonest_mistakes": [
+      "103x B read as P",
+      "82x R read as P",
+      "74x b read as B",
+      "66x P read as empty",
+      "57x k read as K",
+      "48x r read as p",
+      "48x b read as p",
+      "47x q read as Q"
+    ]
+  },
+  {
+    "epoch": 6,
+    "step": 8928,
+    "minutes": 25.6,
+    "train_loss": 0.0485,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.825,
+      "boards_with_at_most_1_error": 0.92,
+      "square_accuracy": 0.99434,
+      "wrong_squares_per_board": 0.362
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.8526,
+      "boards_with_at_most_1_error": 0.9328,
+      "square_accuracy": 0.9953,
+      "wrong_squares_per_board": 0.301
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.6277,
+      "boards_with_at_most_1_error": 0.8288,
+      "square_accuracy": 0.98743,
+      "wrong_squares_per_board": 0.804
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.7947,
+      "boards_with_at_most_1_error": 0.899,
+      "square_accuracy": 0.99306,
+      "wrong_squares_per_board": 0.444
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.5751,
+      "boards_with_at_most_1_error": 0.7854,
+      "square_accuracy": 0.98518,
+      "wrong_squares_per_board": 0.948
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.9115,
+      "boards_with_at_most_1_error": 0.9841,
+      "square_accuracy": 0.99831,
+      "wrong_squares_per_board": 0.108
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.7821,
+      "boards_with_at_most_1_error": 0.9615,
+      "square_accuracy": 0.99579,
+      "wrong_squares_per_board": 0.269
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.8,
+      "boards_with_at_most_1_error": 0.8957,
+      "square_accuracy": 0.99279,
+      "wrong_squares_per_board": 0.462
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.6316,
+      "boards_with_at_most_1_error": 0.8246,
+      "square_accuracy": 0.9852,
+      "wrong_squares_per_board": 0.947
+    },
+    "white_at_bottom_accuracy": 0.8964,
+    "quarter_turn_accuracy": 1.0,
+    "quarter_turn_accuracy_on_turned_crops": 1.0,
+    "exact_positions": 0.745,
+    "commonest_mistakes": [
+      "79x P read as empty",
+      "71x B read as P",
+      "55x k read as K",
+      "43x b read as B",
+      "41x Q read as R",
+      "39x q read as Q",
+      "35x R read as P",
+      "32x P read as B"
+    ]
+  },
+  {
+    "epoch": 7,
+    "step": 10416,
+    "minutes": 29.4,
+    "train_loss": 0.043,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.839,
+      "boards_with_at_most_1_error": 0.9317,
+      "square_accuracy": 0.99499,
+      "wrong_squares_per_board": 0.32
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.8689,
+      "boards_with_at_most_1_error": 0.9441,
+      "square_accuracy": 0.99593,
+      "wrong_squares_per_board": 0.26
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.625,
+      "boards_with_at_most_1_error": 0.8424,
+      "square_accuracy": 0.98828,
+      "wrong_squares_per_board": 0.75
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.8111,
+      "boards_with_at_most_1_error": 0.9154,
+      "square_accuracy": 0.9938,
+      "wrong_squares_per_board": 0.397
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.5494,
+      "boards_with_at_most_1_error": 0.7897,
+      "square_accuracy": 0.98518,
+      "wrong_squares_per_board": 0.948
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.9273,
+      "boards_with_at_most_1_error": 0.9828,
+      "square_accuracy": 0.99856,
+      "wrong_squares_per_board": 0.092
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.8077,
+      "boards_with_at_most_1_error": 0.9615,
+      "square_accuracy": 0.99639,
+      "wrong_squares_per_board": 0.231
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.8021,
+      "boards_with_at_most_1_error": 0.9106,
+      "square_accuracy": 0.99378,
+      "wrong_squares_per_board": 0.398
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.6842,
+      "boards_with_at_most_1_error": 0.8947,
+      "square_accuracy": 0.98986,
+      "wrong_squares_per_board": 0.649
+    },
+    "white_at_bottom_accuracy": 0.8839,
+    "quarter_turn_accuracy": 0.9993,
+    "quarter_turn_accuracy_on_turned_crops": 0.9972,
+    "exact_positions": 0.747,
+    "commonest_mistakes": [
+      "54x k read as K",
+      "52x P read as empty",
+      "45x B read as P",
+      "38x R read as P",
+      "38x Q read as R",
+      "35x P read as B",
+      "32x b read as B",
+      "31x p read as b"
+    ]
+  },
+  {
+    "epoch": 8,
+    "step": 11904,
+    "minutes": 33.2,
+    "train_loss": 0.0277,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.8477,
+      "boards_with_at_most_1_error": 0.935,
+      "square_accuracy": 0.99521,
+      "wrong_squares_per_board": 0.306
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.8708,
+      "boards_with_at_most_1_error": 0.9498,
+      "square_accuracy": 0.99616,
+      "wrong_squares_per_board": 0.246
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.6821,
+      "boards_with_at_most_1_error": 0.8288,
+      "square_accuracy": 0.98845,
+      "wrong_squares_per_board": 0.739
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.8212,
+      "boards_with_at_most_1_error": 0.9148,
+      "square_accuracy": 0.99397,
+      "wrong_squares_per_board": 0.386
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.6137,
+      "boards_with_at_most_1_error": 0.7639,
+      "square_accuracy": 0.98491,
+      "wrong_squares_per_board": 0.966
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.9326,
+      "boards_with_at_most_1_error": 0.9921,
+      "square_accuracy": 0.99882,
+      "wrong_squares_per_board": 0.075
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.8974,
+      "boards_with_at_most_1_error": 1.0,
+      "square_accuracy": 0.9984,
+      "wrong_squares_per_board": 0.103
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.8106,
+      "boards_with_at_most_1_error": 0.9191,
+      "square_accuracy": 0.99408,
+      "wrong_squares_per_board": 0.379
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.6667,
+      "boards_with_at_most_1_error": 0.8596,
+      "square_accuracy": 0.98931,
+      "wrong_squares_per_board": 0.684
+    },
+    "white_at_bottom_accuracy": 0.871,
+    "quarter_turn_accuracy": 1.0,
+    "quarter_turn_accuracy_on_turned_crops": 1.0,
+    "exact_positions": 0.7447,
+    "commonest_mistakes": [
+      "51x P read as empty",
+      "45x B read as P",
+      "44x Q read as R",
+      "39x R read as P",
+      "38x P read as B",
+      "31x p read as b",
+      "29x Q read as q",
+      "29x P read as p"
+    ]
+  },
+  {
+    "epoch": 9,
+    "step": 13392,
+    "minutes": 37.0,
+    "train_loss": 0.0174,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.853,
+      "boards_with_at_most_1_error": 0.9377,
+      "square_accuracy": 0.99543,
+      "wrong_squares_per_board": 0.292
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.8837,
+      "boards_with_at_most_1_error": 0.9517,
+      "square_accuracy": 0.99641,
+      "wrong_squares_per_board": 0.23
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.6332,
+      "boards_with_at_most_1_error": 0.837,
+      "square_accuracy": 0.98845,
+      "wrong_squares_per_board": 0.739
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.824,
+      "boards_with_at_most_1_error": 0.9177,
+      "square_accuracy": 0.99409,
+      "wrong_squares_per_board": 0.378
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.5579,
+      "boards_with_at_most_1_error": 0.7768,
+      "square_accuracy": 0.98511,
+      "wrong_squares_per_board": 0.953
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.9353,
+      "boards_with_at_most_1_error": 0.9921,
+      "square_accuracy": 0.99886,
+      "wrong_squares_per_board": 0.073
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.8205,
+      "boards_with_at_most_1_error": 0.9744,
+      "square_accuracy": 0.99679,
+      "wrong_squares_per_board": 0.205
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.8298,
+      "boards_with_at_most_1_error": 0.9255,
+      "square_accuracy": 0.99498,
+      "wrong_squares_per_board": 0.321
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.6842,
+      "boards_with_at_most_1_error": 0.8947,
+      "square_accuracy": 0.99068,
+      "wrong_squares_per_board": 0.596
+    },
+    "white_at_bottom_accuracy": 0.8862,
+    "quarter_turn_accuracy": 1.0,
+    "quarter_turn_accuracy_on_turned_crops": 1.0,
+    "exact_positions": 0.7627,
+    "commonest_mistakes": [
+      "52x P read as empty",
+      "47x B read as P",
+      "45x k read as K",
+      "42x R read as P",
+      "41x Q read as R",
+      "31x b read as B",
+      "30x P read as B",
+      "25x q read as Q"
+    ]
+  },
+  {
+    "epoch": 10,
+    "step": 14880,
+    "minutes": 40.8,
+    "train_loss": 0.0124,
+    "all": {
+      "boards": 3000,
+      "exact_boards": 0.8553,
+      "boards_with_at_most_1_error": 0.9373,
+      "square_accuracy": 0.9954,
+      "wrong_squares_per_board": 0.295
+    },
+    "seen_piece_sets": {
+      "boards": 2632,
+      "exact_boards": 0.883,
+      "boards_with_at_most_1_error": 0.9514,
+      "square_accuracy": 0.99636,
+      "wrong_squares_per_board": 0.233
+    },
+    "held_out_piece_sets": {
+      "boards": 368,
+      "exact_boards": 0.6576,
+      "boards_with_at_most_1_error": 0.837,
+      "square_accuracy": 0.98849,
+      "wrong_squares_per_board": 0.736
+    },
+    "book": {
+      "boards": 1773,
+      "exact_boards": 0.8268,
+      "boards_with_at_most_1_error": 0.9165,
+      "square_accuracy": 0.99407,
+      "wrong_squares_per_board": 0.38
+    },
+    "book_held_out": {
+      "boards": 233,
+      "exact_boards": 0.5794,
+      "boards_with_at_most_1_error": 0.7768,
+      "square_accuracy": 0.98525,
+      "wrong_squares_per_board": 0.944
+    },
+    "screenshot": {
+      "boards": 757,
+      "exact_boards": 0.9326,
+      "boards_with_at_most_1_error": 0.9934,
+      "square_accuracy": 0.99884,
+      "wrong_squares_per_board": 0.074
+    },
+    "screenshot_held_out": {
+      "boards": 78,
+      "exact_boards": 0.8462,
+      "boards_with_at_most_1_error": 0.9744,
+      "square_accuracy": 0.9972,
+      "wrong_squares_per_board": 0.179
+    },
+    "monitor": {
+      "boards": 470,
+      "exact_boards": 0.8383,
+      "boards_with_at_most_1_error": 0.9255,
+      "square_accuracy": 0.99485,
+      "wrong_squares_per_board": 0.33
+    },
+    "monitor_held_out": {
+      "boards": 57,
+      "exact_boards": 0.7193,
+      "boards_with_at_most_1_error": 0.8947,
+      "square_accuracy": 0.98986,
+      "wrong_squares_per_board": 0.649
+    },
+    "white_at_bottom_accuracy": 0.8818,
+    "quarter_turn_accuracy": 0.9997,
+    "quarter_turn_accuracy_on_turned_crops": 0.9986,
+    "exact_positions": 0.7613,
+    "commonest_mistakes": [
+      "52x P read as empty",
+      "46x B read as P",
+      "43x R read as P",
+      "42x k read as K",
+      "39x Q read as R",
+      "31x P read as B",
+      "24x b read as B",
+      "23x B read as b"
+    ]
+  }
+]

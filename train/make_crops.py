@@ -5,7 +5,8 @@ is large, so rendering is fast and the 256-pixel crop is not upscaled. Each
 sample yields several crops with different simulated localizer error.
 
 Output is a folder of shards. Shard k holds `images-k.npy` (uint8, N x 256 x
-256 x 3) and `labels-k.npz`. Existing shards are skipped, so a run can be
+256 x 3) and `labels-k.npz`. Crops keep the photo's own orientation, so a
+sideways photo gives a sideways crop, labelled with `quarter_turns`. Existing shards are skipped, so a run can be
 resumed or extended.
 
     python -m train.make_crops --seed 1 --count 24000 --holdout --out data/crops/train
@@ -47,6 +48,7 @@ def _make_shard(job: tuple) -> tuple[int, float]:
     white_at_bottom = np.empty(count * crops, np.uint8)
     kind = np.empty(count * crops, np.uint8)
     piece_set = np.empty(count * crops, np.uint8)
+    quarter_turns = np.empty(count * crops, np.uint8)
     for offset in range(count):
         index = start + offset
         sample = generate(seed, index, long_side=640, board_fraction=(0.55, 0.92), piece_sets=allowed)
@@ -58,8 +60,17 @@ def _make_shard(job: tuple) -> tuple[int, float]:
             white_at_bottom[row] = sample.white_at_bottom
             kind[row] = KINDS.index(sample.kind)
             piece_set[row] = names.index(sample.meta["piece_set"])
+            quarter_turns[row] = sample.quarter_turns
     np.save(images_path, images)
-    np.savez(labels_path, squares=squares, white_at_bottom=white_at_bottom, kind=kind, piece_set=piece_set)
+    np.savez(
+        labels_path,
+        squares=squares,
+        white_at_bottom=white_at_bottom,
+        kind=kind,
+        piece_set=piece_set,
+        quarter_turns=quarter_turns,
+        set_names=np.array(names),
+    )
     return start, time.time() - began
 
 

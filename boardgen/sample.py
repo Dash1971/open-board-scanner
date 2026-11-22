@@ -25,8 +25,13 @@ class Sample:
     squares: 64 piece symbols ("" for empty) as seen in the image, row by row
         from the top-left square.
     placement: the FEN piece-placement field of the real position.
-    white_at_bottom: False if the board is shown from Black's side, in which
-        case `squares` is the position rotated by 180 degrees.
+    quarter_turns: how many quarter turns counter-clockwise bring the image
+        upright (0 to 3). Photos are often taken with the phone turned.
+    white_at_bottom: False if the upright board is shown from Black's side.
+
+    To recover the position: turn the 8x8 grid of `squares` counter-clockwise
+    by `quarter_turns`, then turn it a further half turn if `white_at_bottom`
+    is False. See `Sample.position()`.
     """
 
     image: np.ndarray
@@ -35,7 +40,14 @@ class Sample:
     placement: str
     white_at_bottom: bool
     kind: str
+    quarter_turns: int = 0
     meta: dict = field(default_factory=dict)
+
+    def position(self) -> list[str]:
+        """The 64 squares in FEN order (a8 first), undoing rotation and viewing side."""
+        grid = np.rot90(np.array(self.squares, dtype=object).reshape(8, 8), self.quarter_turns)
+        squares = [str(symbol) for symbol in grid.ravel()]
+        return squares if self.white_at_bottom else squares[::-1]
 
     def labels(self) -> dict:
         """Everything except the image, ready for JSON."""
@@ -43,6 +55,7 @@ class Sample:
             "kind": self.kind,
             "placement": self.placement,
             "white_at_bottom": self.white_at_bottom,
+            "quarter_turns": self.quarter_turns,
             "squares": self.squares,
             "corners": [[round(float(x), 2), round(float(y), 2)] for x, y in self.corners],
             "size": [int(self.image.shape[1]), int(self.image.shape[0])],
@@ -58,13 +71,15 @@ def generate(
     long_side: int = 1024,
     board_fraction: tuple[float, float] = (0.35, 0.9),
     piece_sets: tuple[str, ...] | None = None,
+    turns: bool = True,
 ) -> Sample:
     """Generate sample `index` of the stream identified by `seed`.
 
     kind fixes the sample type; by default it is drawn from KIND_WEIGHTS.
     degrade=False skips lighting, blur, noise and compression (for tests).
     board_fraction is the range of the board's width as a share of the photo's
-    shorter side. piece_sets limits which piece sets may be drawn.
+    shorter side. piece_sets limits which piece sets may be drawn. turns=False
+    keeps every photo upright.
     """
     rng = np.random.default_rng([seed, index])
     drawn = str(rng.choice(KINDS, p=KIND_WEIGHTS))
@@ -87,7 +102,7 @@ def generate(
             image, scale = np.clip(view + 0.5, 0, 255).astype(np.uint8), 1.0
         corners = (corners + 0.5) * scale - 0.5
         meta.update(flat.meta | scene_meta)
-        return Sample(image, corners.astype(np.float32), visual, positions.to_fen(placement), white_at_bottom, kind, meta)
+        return Sample(image, corners.astype(np.float32), visual, positions.to_fen(placement), white_at_bottom, kind, 0, meta)
 
     portrait = rng.random() < 0.7
     width, height = (long_side * 3 // 4, long_side) if portrait else (long_side, long_side * 3 // 4)
@@ -123,7 +138,23 @@ def generate(
     else:
         image, degrade_meta = np.clip(photo + 0.5, 0, 255).astype(np.uint8), {}
     meta.update(flat.meta | scene_meta | camera_meta | degrade_meta)
-    return Sample(image, corners, visual, positions.to_fen(placement), white_at_bottom, kind, meta)
+
+    # Phones are often held sideways. The turn uses its own random stream so
+    # that everything else about a sample is the same with or without it.
+    applied = 0
+    if turns:
+        roll = np.random.default_rng([seed, index, 7]).random()
+        sideways, upside_down = (0.35, 0.03) if kind == "book" else (0.10, 0.02)
+        applied = 1 if roll < sideways / 2 else 3 if roll < sideways else 2 if roll < sideways + upside_down else 0
+    squares = visual
+    for _ in range(applied):  # one quarter turn counter-clockwise at a time
+        width = image.shape[1]
+        image = np.ascontiguousarray(np.rot90(image))
+        corners = np.roll(np.stack([corners[:, 1], (width - 1) - corners[:, 0]], axis=1), -1, axis=0)
+        squares = [str(symbol) for symbol in np.rot90(np.array(squares, dtype=object).reshape(8, 8)).ravel()]
+    return Sample(
+        image, corners.astype(np.float32), squares, positions.to_fen(placement), white_at_bottom, kind, (4 - applied) % 4, meta
+    )
 
 
 def rectify(

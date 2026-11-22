@@ -1,0 +1,79 @@
+{
+  "all": {
+    "boards": 3000,
+    "exact_boards": 0.881,
+    "boards_with_at_most_1_error": 0.963,
+    "square_accuracy": 0.99684,
+    "wrong_squares_per_board": 0.202
+  },
+  "seen_piece_sets": {
+    "boards": 2286,
+    "exact_boards": 0.9261,
+    "boards_with_at_most_1_error": 0.9707,
+    "square_accuracy": 0.9976,
+    "wrong_squares_per_board": 0.154
+  },
+  "held_out_piece_sets": {
+    "boards": 714,
+    "exact_boards": 0.7367,
+    "boards_with_at_most_1_error": 0.9384,
+    "square_accuracy": 0.99442,
+    "wrong_squares_per_board": 0.357
+  },
+  "book": {
+    "boards": 1773,
+    "exact_boards": 0.8697,
+    "boards_with_at_most_1_error": 0.9583,
+    "square_accuracy": 0.99637,
+    "wrong_squares_per_board": 0.232
+  },
+  "book_held_out": {
+    "boards": 520,
+    "exact_boards": 0.7019,
+    "boards_with_at_most_1_error": 0.925,
+    "square_accuracy": 0.99348,
+    "wrong_squares_per_board": 0.417
+  },
+  "screenshot": {
+    "boards": 757,
+    "exact_boards": 0.9194,
+    "boards_with_at_most_1_error": 0.9855,
+    "square_accuracy": 0.99845,
+    "wrong_squares_per_board": 0.099
+  },
+  "screenshot_held_out": {
+    "boards": 118,
+    "exact_boards": 0.8136,
+    "boards_with_at_most_1_error": 0.9746,
+    "square_accuracy": 0.99669,
+    "wrong_squares_per_board": 0.212
+  },
+  "monitor": {
+    "boards": 470,
+    "exact_boards": 0.8617,
+    "boards_with_at_most_1_error": 0.9447,
+    "square_accuracy": 0.99604,
+    "wrong_squares_per_board": 0.253
+  },
+  "monitor_held_out": {
+    "boards": 76,
+    "exact_boards": 0.8553,
+    "boards_with_at_most_1_error": 0.9737,
+    "square_accuracy": 0.99733,
+    "wrong_squares_per_board": 0.171
+  },
+  "white_at_bottom_accuracy": 0.8883,
+  "quarter_turn_accuracy": 0.9997,
+  "quarter_turn_accuracy_on_turned_crops": null,
+  "exact_positions": 0.786,
+  "commonest_mistakes": [
+    "85x k read as K",
+    "43x P read as empty",
+    "26x R read as P",
+    "23x P read as B",
+    "22x empty read as P",
+    "19x B read as P",
+    "18x b read as B",
+    "17x Q read as R"
+  ]
+}

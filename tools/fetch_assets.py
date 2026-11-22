@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Download the piece sets and fonts listed in the assets/ manifests.
 
-Files come from pinned commits and are checked against the SHA-256 hashes in
-the manifests. Nothing is downloaded that a manifest does not name.
+Files come from pinned commits, or from a fixed URL where the source is not a
+git repository, and are checked against the SHA-256 hashes in the manifests.
+Nothing is downloaded that a manifest does not name.
 
     python tools/fetch_assets.py          # download and verify
     python tools/fetch_assets.py --pin    # record hashes for files without one
@@ -21,13 +22,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PIECES_MANIFEST = ROOT / "assets" / "piece_sets.json"
 FONTS_MANIFEST = ROOT / "assets" / "fonts.json"
+GLYPHS_MANIFEST = ROOT / "assets" / "glyph_fonts.json"
 DEST = ROOT / "data" / "assets"
-PIECE_FILES = [f"{c}{p}.svg" for c in "wb" for p in "KQRBNP"]
+PIECES = [(colour, piece) for colour in "wb" for piece in "KQRBNP"]
+LONG_NAMES = {"w": "white", "b": "black", "K": "King", "Q": "Queen", "R": "Rook", "B": "Bishop", "N": "Knight", "P": "Pawn"}
 MAX_BYTES = 4_000_000
 
 
-def fetch(repo: str, commit: str, path: str) -> bytes:
-    url = f"https://raw.githubusercontent.com/{repo}/{commit}/{urllib.parse.quote(path)}"
+def fetch(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": "fetch-assets"})
     with urllib.request.urlopen(request, timeout=60) as response:
         data = response.read(MAX_BYTES + 1)
@@ -36,17 +38,18 @@ def fetch(repo: str, commit: str, path: str) -> bytes:
     return data
 
 
+def raw_url(source: dict, path: str) -> str:
+    return f"https://raw.githubusercontent.com/{source['repo']}/{source['commit']}/{urllib.parse.quote(path)}"
+
+
 class Fetcher:
     def __init__(self, pin: bool) -> None:
         self.pin = pin
         self.failures = 0
 
-    def get(self, source: dict, path: str, target: Path, hashes: dict, key: str) -> None:
+    def get(self, url: str, target: Path, hashes: dict, key: str) -> None:
         """Fetch one file, or reuse the local copy, and check or record its hash."""
-        if target.exists():
-            data = target.read_bytes()
-        else:
-            data = fetch(source["repo"], source["commit"], path)
+        data = target.read_bytes() if target.exists() else fetch(url)
         digest = hashlib.sha256(data).hexdigest()
         expected = hashes.get(key)
         if expected is None and self.pin:
@@ -67,20 +70,29 @@ def main() -> int:
 
     pieces = json.loads(PIECES_MANIFEST.read_text())
     for name, entry in pieces["sets"].items():
+        source = entry.get("source", pieces["source"])
+        folder = source["path"] if "source" in entry else f"{source['path']}/{name}"
         hashes = entry.setdefault("sha256", {})
-        for filename in PIECE_FILES:
-            path = f"{pieces['source']['path']}/{name}/{filename}"
-            fetcher.get(pieces["source"], path, DEST / "pieces" / name / filename, hashes, filename)
+        for colour, piece in PIECES:
+            local = f"{colour}{piece}.svg"
+            remote = f"{LONG_NAMES[colour]}{LONG_NAMES[piece]}.svg" if entry.get("naming") == "long" else local
+            fetcher.get(raw_url(source, f"{folder}/{remote}"), DEST / "pieces" / name / local, hashes, local)
         print(f"pieces/{name}: done")
 
     fonts = json.loads(FONTS_MANIFEST.read_text())
     for name, entry in fonts["fonts"].items():
-        fetcher.get(fonts["source"], entry["path"], DEST / "fonts" / name, entry, "sha256")
+        fetcher.get(raw_url(fonts["source"], entry["path"]), DEST / "fonts" / name, entry, "sha256")
         print(f"fonts/{name}: done")
 
+    glyphs = json.loads(GLYPHS_MANIFEST.read_text())
+    for name, entry in glyphs["fonts"].items():
+        url = entry["url"] if "url" in entry else raw_url(entry, entry["path"])
+        fetcher.get(url, DEST / "glyph_fonts" / entry["file"], entry, "sha256")
+        print(f"glyph_fonts/{name}: done")
+
     if args.pin:
-        for manifest_path, manifest in ((PIECES_MANIFEST, pieces), (FONTS_MANIFEST, fonts)):
-            manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
+        for path, manifest in ((PIECES_MANIFEST, pieces), (FONTS_MANIFEST, fonts), (GLYPHS_MANIFEST, glyphs)):
+            path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
     if fetcher.failures:
         print(f"{fetcher.failures} file(s) failed verification")
     return 1 if fetcher.failures else 0

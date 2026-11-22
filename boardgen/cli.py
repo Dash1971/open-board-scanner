@@ -48,7 +48,8 @@ def _sheet_row(args: tuple[int, int, str | None]) -> np.ndarray:
 
     caption = Image.new("RGB", (2 * CELL, 34), (30, 30, 30))
     side = "white" if sample.white_at_bottom else "black"
-    text = f"#{index} {sample.kind} | {side} at bottom | {sample.placement}"
+    turned = f" | turned {sample.quarter_turns}" if sample.quarter_turns else ""
+    text = f"#{index} {sample.kind} | {side} at bottom{turned} | {sample.placement}"
     ImageDraw.Draw(caption).text((6, 17), text, font=assets.font("Arimo.ttf", 15), fill=(235, 235, 235), anchor="lm")
     return np.vstack([np.hstack([cell, crop]), np.asarray(caption)])
 

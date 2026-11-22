@@ -3,7 +3,8 @@
 The generator renders training images from the artwork and fonts below. None
 of these files are stored in this repository. `tools/fetch_assets.py` downloads
 them from pinned commits and checks each file against the SHA-256 hash recorded
-in [`assets/piece_sets.json`](assets/piece_sets.json) and
+in [`assets/piece_sets.json`](assets/piece_sets.json),
+[`assets/glyph_fonts.json`](assets/glyph_fonts.json) and
 [`assets/fonts.json`](assets/fonts.json).
 
 The sample sheet in `docs/samples/` contains renders of these piece sets and
@@ -32,7 +33,34 @@ and licences are as stated in that commit's
 | totoy | Kosal Sen | CC-BY-4.0 |
 | papercut | Nikolay Anzarov | CC-BY-4.0 |
 
+Source: [GNOME/gnome-chess](https://github.com/GNOME/gnome-chess) at commit
+`de63bdec5cf9f0770890086262e6a127d5c4a619`, directory `data/pieces`.
+
+| Set | Author | Licence |
+| --- | --- | --- |
+| gnome-simple | W3C SVG working group, via GNOME Chess | W3C Software Notice and License, as stated in the set's `COPYING.html` |
+| gnome-fancy | GNOME Chess contributors | GPL-3.0-or-later, the repository's licence; the set has no separate notice |
+
+### Pieces drawn from fonts
+
+These sets are drawn from the chess characters of a font. Enclosed areas of
+each glyph are filled with white, as a printed diagram shows them.
+
+| Set | Font and source | Author | Licence |
+| --- | --- | --- | --- |
+| skaknew | `SkakNew-Diagram.otf` from the [skaknew](https://ctan.org/pkg/skaknew) package on CTAN | Ulrich Dirr, after Piet Tutelaers, Torben Hoffmann and Dirk Bächle | LPPL-1.2 |
+| dejavu | `DejaVuSans.ttf` as shipped in [matplotlib](https://github.com/matplotlib/matplotlib) at commit `c21a3923e2fa7735af4b9544c79d5fd81dea1dab` | DejaVu fonts team | Bitstream Vera licence, with DejaVu's changes in the public domain |
+| noto-symbols2 | `NotoSansSymbols2-Regular.ttf` from google/fonts at the commit listed under Fonts | Google | OFL-1.1 |
+
+CTAN is not a git repository, so the skaknew file is fetched by URL and
+relies on its recorded hash alone.
+
 ### Sets deliberately not used
+
+The skaknew package also contains `AlphaDia`, described in its README as a
+version of Eric Bentzen's Chess Alpha. Chess Alpha is free for personal
+non-commercial use only, so AlphaDia is not used.
+
 
 Lichess ships more piece sets than these. The rest were left out because their
 terms are noncommercial (the CC BY-NC-SA sets, and alpha), forbid derivatives
@@ -66,3 +94,6 @@ License 1.1.
 | Pillow | MIT-CMU |
 | resvg-py | MIT |
 | pytest | MIT |
+| PyTorch (`torch`), training only | BSD-3-Clause, with bundled components under Apache-2.0, MIT and similar licences |
+| ONNX, training only | Apache-2.0 |
+| ONNX Runtime, training only | MIT |

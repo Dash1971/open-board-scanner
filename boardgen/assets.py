@@ -10,7 +10,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 import resvg_py
-from PIL import Image, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_DIR = ROOT / "assets"
@@ -23,8 +23,13 @@ CYRILLIC_FONTS = ("Arimo.ttf", "EBGaramond.ttf", "PTSerif-Bold.ttf", "PTSerif-Re
 
 @lru_cache(maxsize=1)
 def piece_sets() -> dict[str, dict]:
-    """Piece-set names mapped to their manifest entries, in sorted order."""
-    sets = json.loads((MANIFEST_DIR / "piece_sets.json").read_text())["sets"]
+    """Piece-set names mapped to their manifest entries, in sorted order.
+
+    SVG sets come from piece_sets.json; sets drawn from a font's chess glyphs
+    come from glyph_fonts.json and carry the font file and character lists.
+    """
+    sets = dict(json.loads((MANIFEST_DIR / "piece_sets.json").read_text())["sets"])
+    sets.update(json.loads((MANIFEST_DIR / "glyph_fonts.json").read_text())["fonts"])
     return {name: sets[name] for name in sorted(sets)}
 
 
@@ -39,8 +44,40 @@ def font_names() -> tuple[str, ...]:
     return tuple(sorted(fonts))
 
 
+def _glyph_piece(entry: dict, symbol: str) -> np.ndarray:
+    """Draw a piece from a font glyph and fill its enclosed areas with white.
+
+    Fonts draw white pieces as outlines with nothing inside. Printed diagrams
+    show them with a white body, so every area the ink encloses is filled.
+    """
+    path = ASSET_DIR / "glyph_fonts" / entry["file"]
+    if not path.exists():
+        raise FileNotFoundError(f"{path} is missing; run tools/fetch_assets.py first")
+    size = BASE_PIECE_SIZE
+    probe = ImageFont.truetype(str(path), 100)
+    left, top, right, bottom = probe.getbbox(entry["white"][0], anchor="ls")  # the king, relative to the baseline
+    scale = 0.84 * size / max(bottom - top, right - left)
+    font = ImageFont.truetype(str(path), max(8, int(round(100 * scale))))
+    characters = entry["white"] if symbol.isupper() else entry["black"]
+    canvas = Image.new("L", (size, size), 0)
+    baseline = size * 0.92 - bottom * scale
+    ImageDraw.Draw(canvas).text((size / 2, baseline), characters["KQRBNP".index(symbol.upper())], font=font, fill=255, anchor="ms")
+    ink = np.asarray(canvas, dtype=np.float32) / 255.0
+    open_area = np.pad((ink < 0.5).astype(np.uint8), 1, constant_values=1)
+    cv2.floodFill(open_area, None, (0, 0), 2)  # everything reachable from the border becomes 2
+    enclosed = (open_area[1:-1, 1:-1] == 1).astype(np.float32)
+    alpha = np.maximum(ink, enclosed)
+    white = (alpha - ink)[..., None] * 255.0
+    premultiplied = np.concatenate([np.repeat(white, 3, axis=2), alpha[..., None]], axis=2).astype(np.float32)
+    premultiplied.setflags(write=False)
+    return premultiplied
+
+
 @lru_cache(maxsize=None)
 def _base_piece(set_name: str, symbol: str) -> np.ndarray:
+    entry = piece_sets()[set_name]
+    if "file" in entry:
+        return _glyph_piece(entry, symbol)
     colour = "w" if symbol.isupper() else "b"
     path = ASSET_DIR / "pieces" / set_name / f"{colour}{symbol.upper()}.svg"
     if not path.exists():

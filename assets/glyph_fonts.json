@@ -1,0 +1,39 @@
+{
+  "note": "Fonts whose chess glyphs are used as piece artwork. white and black list the characters for K Q R B N P.",
+  "fonts": {
+    "skaknew": {
+      "file": "SkakNew-Diagram.otf",
+      "url": "https://mirrors.ctan.org/fonts/chess/skaknew/SkakNew-Diagram.otf",
+      "author": "Ulrich Dirr, after Piet Tutelaers, Torben Hoffmann and Dirk Bächle",
+      "licence": "LPPL-1.2",
+      "white": "KQRBNP",
+      "black": "kqrbnp",
+      "print": true,
+      "sha256": "bb0a3c03aba60f88f5b81d4dd76fbbf5ccc190978e481bd2c9c915789dd2aea1"
+    },
+    "dejavu": {
+      "file": "DejaVuSans.ttf",
+      "repo": "matplotlib/matplotlib",
+      "commit": "c21a3923e2fa7735af4b9544c79d5fd81dea1dab",
+      "path": "lib/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf",
+      "author": "DejaVu fonts team",
+      "licence": "Bitstream-Vera",
+      "white": "♔♕♖♗♘♙",
+      "black": "♚♛♜♝♞♟",
+      "print": true,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    "noto-symbols2": {
+      "file": "NotoSansSymbols2-Regular.ttf",
+      "repo": "google/fonts",
+      "commit": "06bfe0d62a98375cb09c942fa18e68bd32cff057",
+      "path": "ofl/notosanssymbols2/NotoSansSymbols2-Regular.ttf",
+      "author": "Google",
+      "licence": "OFL-1.1",
+      "white": "♔♕♖♗♘♙",
+      "black": "♚♛♜♝♞♟",
+      "print": true,
+      "sha256": "7d5fb73b7ca67a6798101741f5d280a3d016a56a197afcd4199dbb57b4b82a21"
+    }
+  }
+}
