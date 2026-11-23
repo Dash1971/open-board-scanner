@@ -1,0 +1,9 @@
+{
+ "note": "28 screenshots from the chess.com phone app (864 x 1920 PNG, default pieces and board, 13 from White's side and 15 from Black's), supplied by the project's owner. Whole screenshot in, position out. The correct positions are this model's readings after every square was checked by eye; no artwork from chess.com was used in training.",
+ "screenshots": 28,
+ "board_found": 28,
+ "open_board_scanner_exact": 28,
+ "viewing_side_right": 28,
+ "chessq_lite_v4_int8_exact": 26,
+ "chessq_wrong_squares": 2
+}

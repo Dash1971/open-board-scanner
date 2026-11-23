@@ -54,10 +54,10 @@ implications.**
   read 87 of 88. ChessQ read 72 of 88 with the photo resized the way the
   earlier study did it; its own app may prepare photos differently.
 - **The test is small.** 88 photos from eleven sources.
-- **Real screenshots: a first check only.** On 48 captures of the Lichess
-  analysis board (desktop and phone layouts, four piece sets it trained on),
-  ours read 48 from the whole screenshot and ChessQ 34. Nothing from
-  chess.com or the phone apps has been tested.
+- **Real screenshots: a first check only.** From the whole screenshot, ours
+  read 28 of 28 from the chess.com phone app (artwork it never trained on;
+  ChessQ 26) and 48 of 48 from the Lichess analysis board (ChessQ 34). Both
+  sets use each site's common pieces and are small.
 - **Three projects from the earlier study were not re-run:** CrispChess, Chess
   Acuity and Chess diagram to FEN. There they read 1, 1 and 6 of 12 photos.
 
