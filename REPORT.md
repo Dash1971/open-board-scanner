@@ -70,5 +70,7 @@ implications.**
 - [README](README.md): how the models were built and every result.
 - [`results/comparison/`](results/comparison): the numbers behind this page,
   by source and piece set, and the Lichess screenshot check.
+- [REPRODUCE.md](REPRODUCE.md): every command and seed, and what cannot be
+  reproduced without our private photos.
 - [`tools/compare_models.py`](tools/compare_models.py): the test itself. The
   other projects' model files are the versions pinned in the earlier study.

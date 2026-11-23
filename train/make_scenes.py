@@ -28,12 +28,14 @@ LONG_SIDE = 640
 
 
 def _make_shard(job: tuple) -> tuple[int, float]:
-    seed, start, count, holdout, out = job
+    seed, start, count, holdout, out, only = job
     labels_path = Path(out) / f"labels-{start:07d}.json"
     if labels_path.exists():
         return start, 0.0
     began = time.time()
     allowed = tuple(name for name in assets.piece_sets() if name not in HELD_OUT_SETS) if holdout else None
+    if only:
+        allowed = tuple(name for name in only if allowed is None or name in allowed)
     labels = []
     for index in range(start, start + count):
         sample = generate(seed, index, long_side=LONG_SIDE, piece_sets=allowed)
@@ -51,11 +53,18 @@ def main() -> None:
     parser.add_argument("--count", type=int, required=True)
     parser.add_argument("--shard", type=int, default=200)
     parser.add_argument("--holdout", action="store_true", help="leave out the held-out piece sets")
+    parser.add_argument("--sets", help="comma-separated piece sets to draw from; 'open' means every set that allows commercial use")
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
     Path(args.out).mkdir(parents=True, exist_ok=True)
-    jobs = [(args.seed, start, min(args.shard, args.start + args.count - start), args.holdout, args.out) for start in range(args.start, args.start + args.count, args.shard)]
+    only = None
+    if args.sets:
+        only = assets.open_piece_sets() if args.sets == "open" else tuple(args.sets.split(","))
+        unknown = set(only) - set(assets.piece_sets())
+        if unknown:
+            raise SystemExit(f"unknown piece sets: {sorted(unknown)}")
+    jobs = [(args.seed, start, min(args.shard, args.start + args.count - start), args.holdout, args.out, only) for start in range(args.start, args.start + args.count, args.shard)]
     began = time.time()
     with Pool(args.workers) as pool:
         for done, (start, seconds) in enumerate(pool.imap_unordered(_make_shard, jobs), 1):

@@ -4,7 +4,7 @@ A small, freely licensed model that turns a screenshot or a photo of a printed
 chess diagram into an editable position, entirely offline.
 
 **[Read the short report](REPORT.md): results, and a comparison with three
-other projects.**
+other projects.** To rebuild the models, see [REPRODUCE.md](REPRODUCE.md).
 
 **Status: two models, 3.5 MB together, that turn a photo or screenshot into a
 position. Not yet in an app.** A 1.4 MB finder locates the board and a 2.0 MB
