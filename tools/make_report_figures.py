@@ -19,7 +19,7 @@ THEMES = {
     "dark": {"text": "#f0efec", "soft": "#c3c2b7", "grid": "#34343a", "ours": "#3987e5", "other": "#7d7c76", "surface": "#0d1117"},
 }
 MODELS = [  # key in the results, name, size in MB, licence in a few words
-    ("open-board-scanner", "Open Board Scanner", 3.46, "noncommercial"),
+    ("open-board-scanner", "Open Board Scanner", 3.46, "AGPL-3.0"),
     ("chessq-lite-v4-int8", "ChessQ Lite V4", 41.37, "noncommercial"),
     ("fenify", "Fenify", 127.15, "MIT"),
     ("fenshot", "Fenshot", 1.29, "MIT"),

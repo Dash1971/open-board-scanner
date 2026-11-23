@@ -15,10 +15,13 @@ a position. We ran them against three other projects on the same boards.
 
 | Model | Size | Licence | Photos of books and monitors | Screen piece sets | Time per board | Strongest at |
 | --- | ---: | --- | ---: | ---: | ---: | --- |
-| **Open Board Scanner** | **3.5 MB** | Noncommercial | **99%** | **93%** | **6 ms** | Both jobs in one small, fast model. Finds the board and turns it upright itself. |
+| **Open Board Scanner** | **3.5 MB** | AGPL-3.0 ¹ | **99%** | **93%** | **6 ms** | Both jobs in one small, fast model. Finds the board and turns it upright itself. |
 | [ChessQ Lite V4](https://chessq.org/about) | 41 MB | Noncommercial | **99%** | 64% | 430 ms | Photos of books it has never seen. |
 | [Fenshot](https://github.com/scoriiu/fenshot) | 1.3 MB | MIT | 44% | 91% | 7 ms | Screen boards, at the smallest size and with open terms. |
 | [Fenify](https://github.com/notnil/fenify) | 127 MB | MIT | 69% | 56% | 265 ms | Open terms on photos. |
+
+¹ Trained partly on artwork licensed for noncommercial use; see
+[model licence and provenance](MODEL-LICENSE.md).
 
 Photos: 88 real photos, every square right. Screen piece sets: 1,650 clean
 boards, 50 in each of 33 Lichess sets. Time: one board on a Mac CPU with two
@@ -35,8 +38,10 @@ We decided to try our own model to get round the licensing and size problems
 the earlier study found: the accurate model was large and noncommercial, and
 the small open ones were not accurate enough.
 
-We could not get the performance we needed without noncommercial piece sets.
-So we changed the licence: the models are now noncommercial
+We could not get the performance we needed without noncommercial piece sets,
+so the models are trained partly on them. We first marked the models as
+noncommercial, then judged that more cautious than needed: they stay under
+AGPL-3.0, and we state plainly what they were trained on
 ([details](MODEL-LICENSE.md)). What we did achieve is a high level of
 performance from a relatively small model.
 

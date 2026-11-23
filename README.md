@@ -16,8 +16,9 @@ reader reads it. Given nothing but the image:
 Open risks: book typefaces and screen styles it has not seen, real
 screenshots (only 28 from the chess.com app and 48 from Lichess tested, all
 read correctly), and speed on a phone (not measured). The
-models are for noncommercial use ([why](MODEL-LICENSE.md)), no weights are
-released, and inclusion in Mobile Maia is pending a licensing review. Work is
+models were trained partly on noncommercial artwork
+([provenance](MODEL-LICENSE.md)), no weights are released, and inclusion in
+Mobile Maia is pending a licensing review. Work is
 tracked in [Issues](../../issues).
 
 ## Why
@@ -542,9 +543,9 @@ licensed under the [GNU Affero General Public License v3.0 only](LICENSE)
 (`AGPL-3.0-only`), the same licence as Mobile Maia. Contributions are accepted
 under the same licence.
 
-Trained models have their own terms: from BoardNet v4 onward they are for
-noncommercial use only, under CC BY-NC-SA 4.0. See
-[MODEL-LICENSE.md](MODEL-LICENSE.md) for the reason and the open questions.
+Trained models are under the same licence. What they were trained on,
+including artwork licensed for noncommercial use, is stated in
+[MODEL-LICENSE.md](MODEL-LICENSE.md).
 
 Every font and piece set used to generate training data is listed with its
 source and terms in [THIRD_PARTY.md](THIRD_PARTY.md), which also records the
@@ -554,13 +555,14 @@ kept in `eval/private/` and are not committed.
 Sixteen of the piece sets are licensed for noncommercial use only (CC
 BY-NC-SA). They were added because they include some of the most used
 pieces on Lichess, and a model that has not seen them reads those
-screenshots badly. The consequence is that BoardNet v4 should be treated as
-noncommercial too. The manifest marks these sets, and
+screenshots badly. We do not treat the trained model as a derivative of that
+artwork, but we state the provenance so that others can judge for
+themselves. The manifest marks these sets, and
 `python -m train.make_crops --sets open` generates training data without
-them, so a model with clean terms can be trained from this repository.
+them, so a model trained only on openly licensed artwork can be made from
+this repository.
 
 BoardNet v2 and v4 were fine-tuned on photographs of diagrams in copyrighted books
 and e-books. The photographs are not distributed, and the model outputs only
-piece positions. Whether weights trained this way can be released under this
-licence without qualification has not been settled, which is one reason none
-are published.
+piece positions. This too is stated as provenance. No weights are published
+yet.

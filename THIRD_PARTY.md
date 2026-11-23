@@ -65,11 +65,11 @@ What follows from using them:
 - **They are many people's everyday pieces.** staunty, maestro, horsey and
   others are popular on Lichess, and a model that has never seen them reads
   their screenshots badly, so the project's owner chose to train on them.
-- **A model trained on them is not clean for commercial use.** Whether
-  trained weights are a derivative of the artwork is unsettled; this project
-  treats them as if they were. BoardNet from v4 on is trained with these
-  sets, and no weights are published.
-- **A clean model can still be trained.** `python -m train.make_crops --sets
+- **BoardNet from v4 on is trained with them.** Whether trained weights are a
+  derivative of the artwork is unsettled. This project does not treat them
+  as one, and states the provenance in
+  [MODEL-LICENSE.md](MODEL-LICENSE.md) so that others can judge.
+- **A model without them can still be trained.** `python -m train.make_crops --sets
   open` draws only from sets that allow commercial use, and
   `boardgen.assets.open_piece_sets()` lists them.
 - **Sample images avoid them.** The sample sheet in `docs/samples/` was
