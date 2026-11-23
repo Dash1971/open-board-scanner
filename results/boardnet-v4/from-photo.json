@@ -1,0 +1,184 @@
+{
+ "note": "Photo in, position out, nothing else given. held_out_of_reader: the 88 real boards the reader never trained on (the finder trained on some of their photos). second_photo_set: 99 boards from six sources the finder never trained on (the reader trained on four fifths of them).",
+ "held_out_of_reader": {
+  "all": {
+   "boards": 88,
+   "exact_from_photo": 87,
+   "wrong_squares_from_photo": 1,
+   "exact_with_labelled_outline": 87,
+   "outline_within_tolerance": 87,
+   "worst_outline_error": 0.0273,
+   "turned_upright": 88
+  },
+  "by_source": {
+   "e-book 1": {
+    "boards": 21,
+    "exact_from_photo": 21,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 21,
+    "outline_within_tolerance": 21,
+    "worst_outline_error": 0.0051,
+    "turned_upright": 21
+   },
+   "e-book 2": {
+    "boards": 13,
+    "exact_from_photo": 13,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 13,
+    "outline_within_tolerance": 13,
+    "worst_outline_error": 0.0078,
+    "turned_upright": 13
+   },
+   "e-book 3": {
+    "boards": 4,
+    "exact_from_photo": 4,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 4,
+    "outline_within_tolerance": 4,
+    "worst_outline_error": 0.0216,
+    "turned_upright": 4
+   },
+   "e-book 4": {
+    "boards": 2,
+    "exact_from_photo": 1,
+    "wrong_squares_from_photo": 1,
+    "exact_with_labelled_outline": 1,
+    "outline_within_tolerance": 1,
+    "worst_outline_error": 0.0273,
+    "turned_upright": 2
+   },
+   "e-book 5": {
+    "boards": 7,
+    "exact_from_photo": 7,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 7,
+    "outline_within_tolerance": 7,
+    "worst_outline_error": 0.0117,
+    "turned_upright": 7
+   },
+   "e-book 6": {
+    "boards": 5,
+    "exact_from_photo": 5,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 5,
+    "outline_within_tolerance": 5,
+    "worst_outline_error": 0.0202,
+    "turned_upright": 5
+   },
+   "e-book 7": {
+    "boards": 4,
+    "exact_from_photo": 4,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 4,
+    "outline_within_tolerance": 4,
+    "worst_outline_error": 0.0097,
+    "turned_upright": 4
+   },
+   "e-book 8": {
+    "boards": 3,
+    "exact_from_photo": 3,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 3,
+    "outline_within_tolerance": 3,
+    "worst_outline_error": 0.0086,
+    "turned_upright": 3
+   },
+   "printed book 1": {
+    "boards": 8,
+    "exact_from_photo": 8,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 8,
+    "outline_within_tolerance": 8,
+    "worst_outline_error": 0.0116,
+    "turned_upright": 8
+   },
+   "printed book 2": {
+    "boards": 15,
+    "exact_from_photo": 15,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 15,
+    "outline_within_tolerance": 15,
+    "worst_outline_error": 0.0198,
+    "turned_upright": 15
+   },
+   "printed book 3": {
+    "boards": 6,
+    "exact_from_photo": 6,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 6,
+    "outline_within_tolerance": 6,
+    "worst_outline_error": 0.007,
+    "turned_upright": 6
+   }
+  },
+  "milliseconds_per_photo": 32.6
+ },
+ "second_photo_set": {
+  "all": {
+   "boards": 99,
+   "exact_from_photo": 98,
+   "wrong_squares_from_photo": 1,
+   "exact_with_labelled_outline": 98,
+   "outline_within_tolerance": 95,
+   "worst_outline_error": 0.0318,
+   "turned_upright": 99
+  },
+  "by_source": {
+   "e-book 3": {
+    "boards": 13,
+    "exact_from_photo": 13,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 13,
+    "outline_within_tolerance": 13,
+    "worst_outline_error": 0.0216,
+    "turned_upright": 13
+   },
+   "e-book 4": {
+    "boards": 9,
+    "exact_from_photo": 8,
+    "wrong_squares_from_photo": 1,
+    "exact_with_labelled_outline": 8,
+    "outline_within_tolerance": 6,
+    "worst_outline_error": 0.0318,
+    "turned_upright": 9
+   },
+   "e-book 5": {
+    "boards": 20,
+    "exact_from_photo": 20,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 20,
+    "outline_within_tolerance": 20,
+    "worst_outline_error": 0.0117,
+    "turned_upright": 20
+   },
+   "e-book 6": {
+    "boards": 19,
+    "exact_from_photo": 19,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 19,
+    "outline_within_tolerance": 18,
+    "worst_outline_error": 0.0262,
+    "turned_upright": 19
+   },
+   "e-book 7": {
+    "boards": 21,
+    "exact_from_photo": 21,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 21,
+    "outline_within_tolerance": 21,
+    "worst_outline_error": 0.0193,
+    "turned_upright": 21
+   },
+   "e-book 8": {
+    "boards": 17,
+    "exact_from_photo": 17,
+    "wrong_squares_from_photo": 0,
+    "exact_with_labelled_outline": 17,
+    "outline_within_tolerance": 17,
+    "worst_outline_error": 0.0093,
+    "turned_upright": 17
+   }
+  },
+  "milliseconds_per_photo": 35.5
+ }
+}

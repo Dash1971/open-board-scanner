@@ -1,0 +1,191 @@
+{
+ "held_out_run": {
+  "note": "Trained on synthetic scenes and 181 real photos; printed book 3 and e-book 1 (158 photos) held out. Run before the first look was padded.",
+  "test_sources": [
+   "printed book 3",
+   "e-book 1"
+  ],
+  "real_train": 181,
+  "history": [
+   {
+    "step": 2000,
+    "minutes": 6.4,
+    "synthetic": {
+     "scenes": 300,
+     "median_error": 0.0095,
+     "error_95th_percentile": 0.0198,
+     "worst_error": 0.1073,
+     "within_tolerance": 296,
+     "board_reported_in_view": 300
+    },
+    "real_held_out": {
+     "scenes": 158,
+     "median_error": 0.0091,
+     "error_95th_percentile": 0.0138,
+     "worst_error": 0.0175,
+     "within_tolerance": 158,
+     "board_reported_in_view": 158
+    }
+   },
+   {
+    "step": 4000,
+    "minutes": 13.1,
+    "synthetic": {
+     "scenes": 300,
+     "median_error": 0.007,
+     "error_95th_percentile": 0.0152,
+     "worst_error": 0.0311,
+     "within_tolerance": 299,
+     "board_reported_in_view": 300
+    },
+    "real_held_out": {
+     "scenes": 158,
+     "median_error": 0.0084,
+     "error_95th_percentile": 0.0119,
+     "worst_error": 0.0132,
+     "within_tolerance": 158,
+     "board_reported_in_view": 158
+    }
+   },
+   {
+    "step": 6000,
+    "minutes": 19.2,
+    "synthetic": {
+     "scenes": 300,
+     "median_error": 0.0054,
+     "error_95th_percentile": 0.0133,
+     "worst_error": 1.6246,
+     "within_tolerance": 299,
+     "board_reported_in_view": 299
+    },
+    "real_held_out": {
+     "scenes": 158,
+     "median_error": 0.0082,
+     "error_95th_percentile": 0.0101,
+     "worst_error": 0.0108,
+     "within_tolerance": 158,
+     "board_reported_in_view": 158
+    }
+   },
+   {
+    "step": 8000,
+    "minutes": 26.3,
+    "synthetic": {
+     "scenes": 300,
+     "median_error": 0.0049,
+     "error_95th_percentile": 0.0112,
+     "worst_error": 1.5091,
+     "within_tolerance": 299,
+     "board_reported_in_view": 299
+    },
+    "real_held_out": {
+     "scenes": 158,
+     "median_error": 0.0076,
+     "error_95th_percentile": 0.0097,
+     "worst_error": 0.0105,
+     "within_tolerance": 158,
+     "board_reported_in_view": 158
+    },
+    "synthetic_one_look": {
+     "scenes": 300,
+     "median_error": 0.0058,
+     "error_95th_percentile": 0.0178,
+     "worst_error": 0.8907,
+     "within_tolerance": 294,
+     "board_reported_in_view": 299
+    },
+    "real_held_out_one_look": {
+     "scenes": 158,
+     "median_error": 0.0085,
+     "error_95th_percentile": 0.0115,
+     "worst_error": 0.0185,
+     "within_tolerance": 158,
+     "board_reported_in_view": 158
+    }
+   }
+  ]
+ },
+ "finder_v1": {
+  "note": "Trained on synthetic scenes and the 339 photos of the first set.",
+  "test_sources": [],
+  "real_train": 339,
+  "history": [
+   {
+    "step": 2000,
+    "minutes": 6.7,
+    "synthetic": {
+     "scenes": 300,
+     "median_error": 0.0098,
+     "error_95th_percentile": 0.0193,
+     "worst_error": 0.0385,
+     "within_tolerance": 294,
+     "board_reported_in_view": 300
+    },
+    "real_held_out": {
+     "scenes": 0
+    }
+   },
+   {
+    "step": 4000,
+    "minutes": 14.3,
+    "synthetic": {
+     "scenes": 300,
+     "median_error": 0.0062,
+     "error_95th_percentile": 0.0148,
+     "worst_error": 0.0405,
+     "within_tolerance": 299,
+     "board_reported_in_view": 300
+    },
+    "real_held_out": {
+     "scenes": 0
+    }
+   },
+   {
+    "step": 6000,
+    "minutes": 21.5,
+    "synthetic": {
+     "scenes": 300,
+     "median_error": 0.0053,
+     "error_95th_percentile": 0.0112,
+     "worst_error": 0.0201,
+     "within_tolerance": 300,
+     "board_reported_in_view": 300
+    },
+    "real_held_out": {
+     "scenes": 0
+    },
+    "synthetic_one_look": {
+     "scenes": 300,
+     "median_error": 0.0067,
+     "error_95th_percentile": 0.021,
+     "worst_error": 0.5465,
+     "within_tolerance": 291,
+     "board_reported_in_view": 300
+    },
+    "real_held_out_one_look": {
+     "scenes": 0
+    }
+   }
+  ]
+ },
+ "onnx": {
+  "fp32": {
+   "file_mb": 5.317,
+   "scenes": 500,
+   "median_error": 0.0051,
+   "error_95th_percentile": 0.0117,
+   "worst_error": 0.0319,
+   "within_tolerance": 499,
+   "board_reported_in_view": 500
+  },
+  "int8": {
+   "file_mb": 1.428,
+   "scenes": 500,
+   "median_error": 0.0052,
+   "error_95th_percentile": 0.0121,
+   "worst_error": 0.0303,
+   "within_tolerance": 499,
+   "board_reported_in_view": 500
+  }
+ }
+}

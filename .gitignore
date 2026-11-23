@@ -15,3 +15,6 @@ eval/private/
 
 # macOS
 .DS_Store
+
+# Datasets dropped into the folder
+*.zip

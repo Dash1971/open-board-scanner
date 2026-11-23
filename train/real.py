@@ -72,6 +72,30 @@ def load_labelled(labels: str | Path, photos: str | Path) -> list[RealBoard]:
     return boards
 
 
+def turn_crops(images: np.ndarray, squares: np.ndarray, quarter_turns: np.ndarray, rng: np.random.Generator):
+    """Give every crop a random extra quarter turn, with its labels turned to match.
+
+    Without this a model only meets sideways boards in the kinds of scene
+    that are photographed sideways, and reading a screenshot at all four
+    turns, as the scanner does, would show it artwork it has never seen
+    turned.
+    """
+    images, squares, quarter_turns = images.copy(), squares.copy(), quarter_turns.astype(np.int64).copy()
+    extras = rng.integers(4, size=len(images))
+    for index, extra in enumerate(extras):
+        if extra:
+            images[index] = np.rot90(images[index], extra)
+            squares[index] = np.rot90(squares[index].reshape(8, 8), extra).reshape(64)
+    return images, squares, (quarter_turns - extras) % 4
+
+
+def load_labelled_sets(labels: list[str], photos: list[str]) -> list[RealBoard]:
+    """Labelled boards from several label files, each paired with its photo folder."""
+    if len(labels) != len(photos):
+        raise SystemExit("give one --photos folder for every --labels file")
+    return [board for pair in zip(labels, photos) for board in load_labelled(*pair)]
+
+
 def real_batch(boards: list[RealBoard], count: int, rng: np.random.Generator):
     """`count` jittered crops drawn evenly from the sources, so that a large book does not drown a small one."""
     sources = sorted({board.source for board in boards})

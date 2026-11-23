@@ -3,13 +3,16 @@
 A small, freely licensed model that turns a screenshot or a photo of a printed
 chess diagram into an editable position, entirely offline.
 
-**Status: a 2 MB classifier, fine-tuned on 339 labelled photos. It is not yet
-a usable scanner.** Held out of training one source at a time, it read all 203
-boards from three books it had never seen, reading each board at four
-rotations. A fourth typeface was only read
-once the model had trained on it, so coverage of typefaces is the open risk.
-The board still has to be found by a separate step that is not built, and no
-weights are released yet. Work is tracked in [Issues](../../issues).
+**Status: two models, 3.5 MB together, that turn a photo or screenshot into a
+position. Not yet in an app.** A 1.4 MB finder locates the board and a 2.0 MB
+reader reads it. Given nothing but the image:
+
+- 87 of 88 real photos the reader had never trained on were read exactly;
+- 1,547 of 1,650 clean boards in 33 Lichess piece sets were read exactly.
+
+Open risks: book typefaces and screen styles it has not seen, real
+screenshots (none have been tested), and speed on a phone (not measured). No
+weights are released. Work is tracked in [Issues](../../issues).
 
 ## Why
 
@@ -275,9 +278,9 @@ Limits of these numbers:
 
 - **Five sources is few.** Three of them share ordinary figurines. How many
   typefaces in circulation the model cannot read is unknown.
-- **The outlines are not from a localizer.** Boards were cut out by contour
-  detection, corrected by hand on one photo. Finding the board on device is
-  not built.
+- **The outlines are not from a localizer.** For this test the boards were
+  cut out by contour detection, corrected by hand on one photo. The finder
+  built since is described under [Board finder](#board-finder).
 - **Most labels were proposed by a model.** 100 boards were corrected square
   by square on the labelling page. The other 239 are readings by a model
   fine-tuned on those 100, checked by eye on contact sheets, which found
@@ -291,7 +294,154 @@ Limits of these numbers:
   the proposals and introduced none.
 - The photos are private and are not published.
 
+### More photos, more piece sets, all four turns (v4)
+
+BoardNet v4 is v1 trained further in two rounds (6,000 then 24,000 steps).
+Three things changed from v2:
+
+- **More photos.** A second set of 99 labelled boards from six more sources
+  (e-books 3 to 8) joined the first 339. v2 read 76 of the first 92 exactly;
+  nearly all its errors were on two e-books whose dark squares are a speckle
+  pattern, where it saw pieces on empty squares.
+- **More piece sets.** Nineteen more Lichess sets were added to the
+  generator, sixteen of them under noncommercial licences (see
+  [Licensing](#licensing)). Two of those, cooke and gioco, are kept out of
+  training to test on.
+- **Every crop at a random quarter turn.** v2 only met sideways boards in
+  book photos. Reading a screenshot at four turns then showed it artwork it
+  had never seen turned, and made some sets much worse (pirouetti: 45 of 50
+  read once, 6 of 50 at four turns, from the given outline). Synthetic crops are now turned at
+  random, like the real ones.
+
+One fifth of the 438 labelled real boards was held out of both rounds:
+
+| Reader | Held-out real boards read exactly (of 88) |
+| --- | ---: |
+| v1 (synthetic only) | 47 |
+| v4, read once | 86 |
+| v4, read at four turns | 87 |
+
+This is a different test from v2's: the held-out boards come from sources the
+model also trained on, so it measures new pages of known books, not new
+books. On synthetic crops v4 reads 87% exactly, against 85.5% for v1.
+
+The second test is a collection of 1,650 clean rendered boards: 50 positions
+in each of 33 Lichess piece sets, on five board colourings, half of them
+from Black's side. Boards read exactly from the whole image, finder included:
+
+| Piece sets | Boards | Before the new sets | v4 |
+| --- | ---: | ---: | ---: |
+| The 11 already in the generator | 550 | 495 | 531 |
+| The 17 added to training | 850 | 388 | 800 |
+| 5 never trained on (cooke, gioco, monarchy, fantasy, mpchess) | 250 | 143 | 216 |
+| All | 1,650 | 1,026 | 1,547 |
+
+"Before" is a reader trained the same way without the added sets. Sets still
+read badly: letter (17 of 50; its pieces are letters, which turning makes
+ambiguous), monarchy (19, never trained on), pirouetti (33) and xkcd (39).
+
+Limits:
+
+- **No real screenshots have been tested.** The rendered boards have no
+  arrows, highlights, surrounding page or compression.
+- **The real test is small and not independent of training sources.** 88
+  boards, and only six of them from the two speckled e-books.
+- **Labels for the second photo set were proposed by v2 and checked by eye**
+  on contact sheets, like most of the first set.
+- **v4 is trained with noncommercial artwork** and on photos of copyrighted
+  pages; see [Licensing](#licensing).
+
 Recorded metrics are in [`results/`](results).
+
+## Board finder
+
+BoardFinder (`train/finder.py`) finds the four corners of the board in a
+whole photo or screenshot. It is the same kind of narrow ResNet as the
+reader, with a small feature pyramid that brings its features back up to a
+64 x 64 grid. Each corner is read as the mean position under its own
+heatmap, inside the model, so the output is four points and needs no further
+code. A second output says whether a whole board is in view.
+
+| | |
+| --- | --- |
+| Input | The image shrunk to fit 256 x 256, with a border |
+| Outputs | Four corners as fractions of the view; one "whole board in view" logit |
+| Parameters | 1.33 million |
+| File size | 1.43 MB as INT8 ONNX (5.3 MB as FP32) |
+
+It looks twice: once at the whole image, then at a closer window round what
+it found, which sharpens the corners. An error is the distance from a found
+corner to the labelled one as a share of the board's side, taking each
+board's worst corner. The reader is trained on crops that are off by up to
+2.5%, so that is the tolerance.
+
+| Test | Boards | Within 2.5% | Worst |
+| --- | ---: | ---: | ---: |
+| Synthetic scenes | 500 | 499 | 3.0% |
+| Real photos from two sources held out of training | 158 | 158 | 1.1% |
+| Second photo set, six sources never trained on | 99 | 95 | 3.2% |
+| Rendered boards, 33 piece sets | 1,650 | 1,650 | |
+
+Notes on these numbers:
+
+- **The held-out run is not the shipped file.** It trained on 181 photos
+  with two sources kept out. finder-v1 trained on all 339 photos of the
+  first set, so the second photo set is its real test.
+- **The labelled outlines are not exact.** On real photos they came from
+  contour detection, so some of the measured error is the label's.
+- **The four boards outside tolerance were still read.** With the finder's
+  outline the reader got 98 of those 99 boards exactly.
+- **It found boards that contour detection missed.** Of eight photos where
+  the contour method gave no usable outline, the finder located seven; the
+  eighth is a close-up with no whole board in it, and the finder's "board in
+  view" output was 0.07.
+- **Boards that fill the image needed a fix.** The first look now leaves a
+  border round the image. Without it, an earlier checkpoint placed only
+  1,118 of the 1,650 rendered boards within tolerance, because their corners
+  sat on the very edge of the view.
+- **INT8 keeps the last step in floating point.** With the heatmaps in eight
+  bits the median error rose from 0.9% to 3.2%; with only the convolutions
+  before them quantised it matches FP32.
+
+Training data is 16,000 synthetic scenes from the generator
+(`python -m train.make_scenes`) mixed with real photos, cut into three kinds
+of view: the whole image, a closer window round the board, and windows that
+cut the board or sit inside it, which teach the "board in view" output.
+
+## From photo to position
+
+`boardscan/` joins the two models. It needs only NumPy, OpenCV and ONNX
+Runtime.
+
+```sh
+python -m boardscan --finder runs/finder-v1/boardfinder-int8.onnx \
+    --reader runs/boardnet-v4/boardnet-int8.onnx photo.jpg
+```
+
+The steps are the ones an app has to repeat:
+
+1. Shrink the image into a 256 x 256 view with a border and run the finder.
+2. Cut a closer view round the corners it gave and run the finder again.
+3. Warp the board inside the final corners to 256 x 256.
+4. Run the reader on that crop at each of the four quarter turns and average
+   the four readings. This gives the squares, how the board is turned and
+   which side is at the bottom.
+
+That is two finder passes and four reader passes per image. On a Mac CPU the
+whole chain took about 33 ms per 1280 x 960 photo; on a phone it has not been
+measured. Each square comes with a confidence, so an app can mark doubtful
+squares for the user to check.
+
+Whole-chain results on real photos, with nothing but the photo given:
+
+| Photos | Boards | Read exactly |
+| --- | ---: | ---: |
+| Held out of reader training | 88 | 87 |
+| Second photo set, sources the finder never saw | 99 | 98 |
+
+In the first row the finder had trained on some of the photos; in the second
+the reader had trained on four fifths of them. Only 25 boards are new to
+both models, and 24 of those were read exactly.
 
 ## Labelling real photos
 
@@ -383,13 +533,20 @@ this repository are licensed under the
 [GNU Affero General Public License v3.0 only](LICENSE) (`AGPL-3.0-only`), the
 same licence as Mobile Maia. Contributions are accepted under the same licence.
 
-Every font and piece set used to generate training data must have a licence
-that allows this. They are listed with their sources and terms in
-[THIRD_PARTY.md](THIRD_PARTY.md), which also records the sets that were left
-out because their terms are noncommercial or unclear. Private evaluation
-photos of copyrighted books are kept in `eval/private/` and are not committed.
+Every font and piece set used to generate training data is listed with its
+source and terms in [THIRD_PARTY.md](THIRD_PARTY.md), which also records the
+sets that were left out. Private evaluation photos of copyrighted books are
+kept in `eval/private/` and are not committed.
 
-BoardNet v2 was fine-tuned on photographs of diagrams in copyrighted books
+Sixteen of the piece sets are licensed for noncommercial use only (CC
+BY-NC-SA). They were added because they include some of the most used
+pieces on Lichess, and a model that has not seen them reads those
+screenshots badly. The consequence is that BoardNet v4 should be treated as
+noncommercial too. The manifest marks these sets, and
+`python -m train.make_crops --sets open` generates training data without
+them, so a model with clean terms can be trained from this repository.
+
+BoardNet v2 and v4 were fine-tuned on photographs of diagrams in copyrighted books
 and e-books. The photographs are not distributed, and the model outputs only
 piece positions. Whether weights trained this way can be released under this
 licence without qualification has not been settled, which is one reason none

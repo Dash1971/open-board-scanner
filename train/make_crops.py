@@ -35,7 +35,7 @@ def set_names() -> list[str]:
 
 
 def _make_shard(job: tuple) -> tuple[int, float]:
-    seed, start, count, crops, holdout, out = job
+    seed, start, count, crops, holdout, out, only, kinds = job
     images_path = Path(out) / f"images-{start:07d}.npy"
     labels_path = Path(out) / f"labels-{start:07d}.npz"
     if labels_path.exists():
@@ -43,6 +43,8 @@ def _make_shard(job: tuple) -> tuple[int, float]:
     began = time.time()
     names = set_names()
     allowed = tuple(name for name in names if name not in HELD_OUT_SETS) if holdout else None
+    if only:
+        allowed = tuple(name for name in only if allowed is None or name in allowed)
     images = np.empty((count * crops, CROP, CROP, 3), np.uint8)
     squares = np.empty((count * crops, 64), np.uint8)
     white_at_bottom = np.empty(count * crops, np.uint8)
@@ -51,7 +53,8 @@ def _make_shard(job: tuple) -> tuple[int, float]:
     quarter_turns = np.empty(count * crops, np.uint8)
     for offset in range(count):
         index = start + offset
-        sample = generate(seed, index, long_side=640, board_fraction=(0.55, 0.92), piece_sets=allowed)
+        scene = kinds[int(np.random.default_rng([seed, index, 99]).integers(len(kinds)))] if kinds else None
+        sample = generate(seed, index, kind=scene, long_side=640, board_fraction=(0.55, 0.92), piece_sets=allowed)
         for crop in range(crops):
             row = offset * crops + crop
             rng = np.random.default_rng([seed, index, 1 + crop])
@@ -82,12 +85,21 @@ def main() -> None:
     parser.add_argument("--shard", type=int, default=500, help="samples per shard")
     parser.add_argument("--crops", type=int, default=2, help="crops per sample")
     parser.add_argument("--holdout", action="store_true", help="exclude the held-out piece sets")
-    parser.add_argument("--workers", type=int, default=6)
+    parser.add_argument("--sets", help="comma-separated piece sets to draw from; 'open' means every set that allows commercial use")
+    parser.add_argument("--kinds", help="comma-separated kinds of scene to draw from (default: the generator's own mix)")
+    parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
     Path(args.out).mkdir(parents=True, exist_ok=True)
+    only = None
+    if args.sets:
+        only = assets.open_piece_sets() if args.sets == "open" else tuple(args.sets.split(","))
+        unknown = set(only) - set(set_names())
+        if unknown:
+            raise SystemExit(f"unknown piece sets: {sorted(unknown)}")
+    kinds = tuple(args.kinds.split(",")) if args.kinds else None
     jobs = [
-        (args.seed, start, min(args.shard, args.start + args.count - start), args.crops, args.holdout, args.out)
+        (args.seed, start, min(args.shard, args.start + args.count - start), args.crops, args.holdout, args.out, only, kinds)
         for start in range(args.start, args.start + args.count, args.shard)
     ]
     began = time.time()

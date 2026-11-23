@@ -32,6 +32,48 @@ and licences are as stated in that commit's
 | firi | James Faure | CC-BY-4.0 |
 | totoy | Kosal Sen | CC-BY-4.0 |
 | papercut | Nikolay Anzarov | CC-BY-4.0 |
+| kiwen-suwi | neverRare | CC-BY-4.0 |
+| shapes | flugsio | CC-BY-SA-4.0 |
+| letter | usolando | AGPL-3.0-or-later |
+
+#### Noncommercial sets
+
+The sets below, from the same commit, are licensed for noncommercial use
+only. They are marked `"noncommercial": true` in the manifest.
+
+| Set | Author | Licence |
+| --- | --- | --- |
+| anarcandy | caderek | CC-BY-NC-SA-4.0 |
+| caliente | avi | CC-BY-NC-SA-4.0 |
+| california | Jerry S. | CC-BY-NC-SA-4.0 |
+| cardinal | sadsnake1 | CC-BY-NC-SA-4.0 |
+| chessboart | Michał Fudalej / ChessboArt | CC-BY-NC-SA-4.0 |
+| cooke | fejfar | CC-BY-NC-SA-4.0 |
+| dubrovny | sadsnake1 | CC-BY-NC-SA-4.0 |
+| fresca | sadsnake1 | CC-BY-NC-SA-4.0 |
+| gioco | sadsnake1 | CC-BY-NC-SA-4.0 |
+| horsey | cham, michael1241 | CC-BY-NC-SA-4.0 |
+| icpieces | sadsnake1 | CC-BY-NC-SA-4.0 |
+| maestro | sadsnake1 | CC-BY-NC-SA-4.0 |
+| minimal-warmth | blunder_reign | CC-BY-NC-SA-4.0 |
+| staunty | sadsnake1 | CC-BY-NC-SA-4.0 |
+| tatiana | sadsnake1 | CC-BY-NC-SA-4.0 |
+| xkcd | Randall Munroe | CC-BY-NC-SA-2.5 |
+
+What follows from using them:
+
+- **They are many people's everyday pieces.** staunty, maestro, horsey and
+  others are popular on Lichess, and a model that has never seen them reads
+  their screenshots badly, so the project's owner chose to train on them.
+- **A model trained on them is not clean for commercial use.** Whether
+  trained weights are a derivative of the artwork is unsettled; this project
+  treats them as if they were. BoardNet from v4 on is trained with these
+  sets, and no weights are published.
+- **A clean model can still be trained.** `python -m train.make_crops --sets
+  open` draws only from sets that allow commercial use, and
+  `boardgen.assets.open_piece_sets()` lists them.
+- **Sample images avoid them.** The sample sheet in `docs/samples/` was
+  rendered before these sets were added.
 
 Source: [GNOME/gnome-chess](https://github.com/GNOME/gnome-chess) at commit
 `de63bdec5cf9f0770890086262e6a127d5c4a619`, directory `data/pieces`.
@@ -62,12 +104,12 @@ version of Eric Bentzen's Chess Alpha. Chess Alpha is free for personal
 non-commercial use only, so AlphaDia is not used.
 
 
-Lichess ships more piece sets than these. The rest were left out because their
-terms are noncommercial (the CC BY-NC-SA sets, and alpha), forbid derivatives
-(shahi-ivory-brown), or are not stated clearly enough to rely on (chess7,
-companion, leipzig, reillycraig, riohacha). Four permitted sets were left out
-because they do not look like chess pieces or have no separate black and white
-artwork: letter, shapes, kiwen-suwi and mono.
+Lichess ships more piece sets than these. The rest were left out because they
+forbid derivatives (shahi-ivory-brown), are free for personal use only
+(alpha), are not stated clearly enough to rely on (chess7, companion, leipzig,
+reillycraig, riohacha), are stored as raster images this tool does not fetch
+(monarchy), or cannot be labelled: mono draws both sides alike and disguised
+hides which piece is which.
 
 ## Fonts
 

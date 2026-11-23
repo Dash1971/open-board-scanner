@@ -79,3 +79,23 @@ def test_only_labelled_boards_are_loaded(tmp_path):
     assert [b.board_id for b in loaded] == ["p.png"]
     assert loaded[0].quarter_turns == 3 and loaded[0].white_at_bottom is False and loaded[0].image.shape == (60, 80, 3)
     assert (np.rot90(loaded[0].squares, 3) == rows_to_grid("8/8/8/8/8/8/8/Q7")).all()
+
+
+def test_synthetic_crops_are_turned_with_their_labels():
+    from train.real import turn_crops
+
+    rng = np.random.default_rng(3)
+    images = rng.integers(0, 255, (12, 256, 256, 3), dtype=np.uint8)
+    squares = rng.integers(0, 13, (12, 64))
+    turns = rng.integers(0, 4, 12)
+    new_images, new_squares, new_turns = turn_crops(images, squares, turns, np.random.default_rng(4))
+    changed = 0
+    for index in range(12):
+        extra = (turns[index] - new_turns[index]) % 4
+        changed += extra != 0
+        assert np.array_equal(new_images[index], np.rot90(images[index], extra))
+        # Bringing the crop upright gives the same board before and after the extra turn.
+        before = np.rot90(squares[index].reshape(8, 8), turns[index])
+        after = np.rot90(new_squares[index].reshape(8, 8), new_turns[index])
+        assert np.array_equal(before, after)
+    assert changed > 4

@@ -1,0 +1,538 @@
+{
+ "note": "Whole pipeline (finder-v1 INT8, boardnet-v4 INT8) on the 1,650 rendered boards of the piece-set collection; cooke, gioco, monarchy, fantasy and mpchess were never trained on.",
+ "by_piece_set": {
+  "anarcandy": {
+   "boards": 50,
+   "exact_given_box_one_turn": 43,
+   "exact_given_box_four_turns": 49,
+   "viewing_side_right": 50,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 49
+  },
+  "caliente": {
+   "boards": 50,
+   "exact_given_box_one_turn": 49,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "california": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 48,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "cardinal": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "cburnett": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "celtic": {
+   "boards": 50,
+   "exact_given_box_one_turn": 48,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "chessboart": {
+   "boards": 50,
+   "exact_given_box_one_turn": 49,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 47,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "chessnut": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 50,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "cooke": {
+   "boards": 50,
+   "exact_given_box_one_turn": 39,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 49
+  },
+  "dubrovny": {
+   "boards": 50,
+   "exact_given_box_one_turn": 47,
+   "exact_given_box_four_turns": 47,
+   "viewing_side_right": 48,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 46
+  },
+  "fantasy": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 48,
+   "viewing_side_right": 47,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 48
+  },
+  "firi": {
+   "boards": 50,
+   "exact_given_box_one_turn": 41,
+   "exact_given_box_four_turns": 44,
+   "viewing_side_right": 48,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 48
+  },
+  "fresca": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "gioco": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "horsey": {
+   "boards": 50,
+   "exact_given_box_one_turn": 43,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 49
+  },
+  "icpieces": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "kiwen-suwi": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "letter": {
+   "boards": 50,
+   "exact_given_box_one_turn": 6,
+   "exact_given_box_four_turns": 17,
+   "viewing_side_right": 46,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 17
+  },
+  "maestro": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "merida": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "minimal-warmth": {
+   "boards": 50,
+   "exact_given_box_one_turn": 48,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 48,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "monarchy": {
+   "boards": 50,
+   "exact_given_box_one_turn": 27,
+   "exact_given_box_four_turns": 22,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 19
+  },
+  "mpchess": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "papercut": {
+   "boards": 50,
+   "exact_given_box_one_turn": 47,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "pirouetti": {
+   "boards": 50,
+   "exact_given_box_one_turn": 34,
+   "exact_given_box_four_turns": 32,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 33
+  },
+  "pixel": {
+   "boards": 50,
+   "exact_given_box_one_turn": 48,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 50,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "rhosgfx": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 50,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "shapes": {
+   "boards": 50,
+   "exact_given_box_one_turn": 48,
+   "exact_given_box_four_turns": 49,
+   "viewing_side_right": 41,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "spatial": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "staunty": {
+   "boards": 50,
+   "exact_given_box_one_turn": 48,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 50,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "tatiana": {
+   "boards": 50,
+   "exact_given_box_one_turn": 49,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "totoy": {
+   "boards": 50,
+   "exact_given_box_one_turn": 50,
+   "exact_given_box_four_turns": 50,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 50
+  },
+  "xkcd": {
+   "boards": 50,
+   "exact_given_box_one_turn": 22,
+   "exact_given_box_four_turns": 36,
+   "viewing_side_right": 49,
+   "outline_within_tolerance": 50,
+   "exact_from_whole_image": 39
+  }
+ },
+ "before_new_sets": {
+  "note": "A reader trained the same way without the 17 added sets, for comparison.",
+  "by_piece_set": {
+   "anarcandy": {
+    "boards": 50,
+    "exact_given_box_one_turn": 3,
+    "exact_given_box_four_turns": 4,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 4
+   },
+   "caliente": {
+    "boards": 50,
+    "exact_given_box_one_turn": 16,
+    "exact_given_box_four_turns": 31,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 36
+   },
+   "california": {
+    "boards": 50,
+    "exact_given_box_one_turn": 20,
+    "exact_given_box_four_turns": 49,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 46
+   },
+   "cardinal": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "cburnett": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "celtic": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "chessboart": {
+    "boards": 50,
+    "exact_given_box_one_turn": 34,
+    "exact_given_box_four_turns": 38,
+    "viewing_side_right": 47,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 37
+   },
+   "chessnut": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "cooke": {
+    "boards": 50,
+    "exact_given_box_one_turn": 17,
+    "exact_given_box_four_turns": 30,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 32
+   },
+   "dubrovny": {
+    "boards": 50,
+    "exact_given_box_one_turn": 8,
+    "exact_given_box_four_turns": 4,
+    "viewing_side_right": 44,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 6
+   },
+   "fantasy": {
+    "boards": 50,
+    "exact_given_box_one_turn": 48,
+    "exact_given_box_four_turns": 48,
+    "viewing_side_right": 47,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 47
+   },
+   "firi": {
+    "boards": 50,
+    "exact_given_box_one_turn": 41,
+    "exact_given_box_four_turns": 34,
+    "viewing_side_right": 47,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 34
+   },
+   "fresca": {
+    "boards": 50,
+    "exact_given_box_one_turn": 46,
+    "exact_given_box_four_turns": 48,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 42
+   },
+   "gioco": {
+    "boards": 50,
+    "exact_given_box_one_turn": 19,
+    "exact_given_box_four_turns": 18,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 23
+   },
+   "horsey": {
+    "boards": 50,
+    "exact_given_box_one_turn": 0,
+    "exact_given_box_four_turns": 0,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 0
+   },
+   "icpieces": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "kiwen-suwi": {
+    "boards": 50,
+    "exact_given_box_one_turn": 17,
+    "exact_given_box_four_turns": 2,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 1
+   },
+   "letter": {
+    "boards": 50,
+    "exact_given_box_one_turn": 0,
+    "exact_given_box_four_turns": 0,
+    "viewing_side_right": 30,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 0
+   },
+   "maestro": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 47,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "merida": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 50,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "minimal-warmth": {
+    "boards": 50,
+    "exact_given_box_one_turn": 0,
+    "exact_given_box_four_turns": 0,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 0
+   },
+   "monarchy": {
+    "boards": 50,
+    "exact_given_box_one_turn": 7,
+    "exact_given_box_four_turns": 8,
+    "viewing_side_right": 47,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 6
+   },
+   "mpchess": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 37,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 35
+   },
+   "papercut": {
+    "boards": 50,
+    "exact_given_box_one_turn": 49,
+    "exact_given_box_four_turns": 48,
+    "viewing_side_right": 47,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 49
+   },
+   "pirouetti": {
+    "boards": 50,
+    "exact_given_box_one_turn": 45,
+    "exact_given_box_four_turns": 21,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 19
+   },
+   "pixel": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 49,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 48
+   },
+   "rhosgfx": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 46,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 45
+   },
+   "shapes": {
+    "boards": 50,
+    "exact_given_box_one_turn": 0,
+    "exact_given_box_four_turns": 0,
+    "viewing_side_right": 25,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 0
+   },
+   "spatial": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 47,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "staunty": {
+    "boards": 50,
+    "exact_given_box_one_turn": 20,
+    "exact_given_box_four_turns": 17,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 18
+   },
+   "tatiana": {
+    "boards": 50,
+    "exact_given_box_one_turn": 49,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 48,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 48
+   },
+   "totoy": {
+    "boards": 50,
+    "exact_given_box_one_turn": 50,
+    "exact_given_box_four_turns": 50,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 50
+   },
+   "xkcd": {
+    "boards": 50,
+    "exact_given_box_one_turn": 0,
+    "exact_given_box_four_turns": 0,
+    "viewing_side_right": 49,
+    "outline_within_tolerance": 50,
+    "exact_from_whole_image": 0
+   }
+  }
+ }
+}

@@ -39,6 +39,12 @@ def print_piece_sets() -> tuple[str, ...]:
 
 
 @lru_cache(maxsize=1)
+def open_piece_sets() -> tuple[str, ...]:
+    """Sets whose licence allows commercial use: everything not marked noncommercial."""
+    return tuple(name for name, entry in piece_sets().items() if not entry.get("noncommercial"))
+
+
+@lru_cache(maxsize=1)
 def font_names() -> tuple[str, ...]:
     fonts = json.loads((MANIFEST_DIR / "fonts.json").read_text())["fonts"]
     return tuple(sorted(fonts))

@@ -28,7 +28,7 @@ import torch.nn.functional as F
 from .data import batches, load_all
 from .evaluate import pick_device, score
 from .model import BoardNet
-from .real import load_labelled, real_batch, score_real
+from .real import load_labelled_sets, real_batch, score_real, turn_crops
 from .train import augment
 
 
@@ -57,8 +57,8 @@ def synthetic_batches(folder: str, count: int, rng: np.random.Generator):
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--labels", required=True)
-    parser.add_argument("--photos", required=True)
+    parser.add_argument("--labels", action="append", required=True, help="label file; repeat with --photos for several photo sets")
+    parser.add_argument("--photos", action="append", required=True)
     parser.add_argument("--start", required=True, help="checkpoint to start from")
     parser.add_argument("--synthetic", required=True, help="folder of synthetic training crops to mix in")
     parser.add_argument("--synthetic-test", help="folder of synthetic test crops, to check nothing was forgotten")
@@ -79,7 +79,7 @@ def main() -> None:
     rng = np.random.default_rng(args.seed)
     generator = torch.Generator(device=device).manual_seed(args.seed)
 
-    train, test = split(load_labelled(args.labels, args.photos), args.test_source, tuple(args.fold) if args.fold else None, args.seed)
+    train, test = split(load_labelled_sets(args.labels, args.photos), args.test_source, tuple(args.fold) if args.fold else None, args.seed)
     if not train:
         raise SystemExit("no labelled boards left to train on")
     model = BoardNet().to(device)
@@ -107,7 +107,9 @@ def main() -> None:
     model.train()
     for step in range(1, args.steps + 1):
         real = real_batch(train, real_count, rng)
-        columns = [np.concatenate([a, b]) for a, b in zip(real, next(synthetic))]
+        images, squares, white, turns = next(synthetic)
+        images, squares, turns = turn_crops(images, squares, turns, rng)
+        columns = [np.concatenate([a, b]) for a, b in zip(real, (images, squares, white, turns))]
         images = augment(torch.from_numpy(columns[0]).to(device).permute(0, 3, 1, 2).float(), generator)
         logits, orientation, rotation = model(images)
         loss = (
