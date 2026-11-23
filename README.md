@@ -17,7 +17,8 @@ Open risks: book typefaces and screen styles it has not seen, real
 screenshots (only 28 from the chess.com app and 48 from Lichess tested, all
 read correctly), and speed on a phone (not measured). The
 models were trained partly on noncommercial artwork
-([provenance](MODEL-LICENSE.md)), no weights are released, and inclusion in
+([provenance](MODEL-LICENSE.md)), the model files are published as a
+[release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1), and inclusion in
 Mobile Maia is pending a licensing review. Work is
 tracked in [Issues](../../issues).
 
@@ -424,9 +425,12 @@ cut the board or sit inside it, which teach the "board in view" output.
 Runtime.
 
 ```sh
-python -m boardscan --finder runs/finder-v1/boardfinder-int8.onnx \
-    --reader runs/boardnet-v4/boardnet-int8.onnx photo.jpg
+python -m boardscan --finder boardfinder-v1-int8.onnx \
+    --reader boardnet-v4-int8.onnx photo.jpg
 ```
+
+The two model files are in the [models release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1).
+For putting the scanner in an app, see [docs/INTEGRATION.md](docs/INTEGRATION.md).
 
 The steps are the ones an app has to repeat:
 
@@ -564,5 +568,4 @@ this repository.
 
 BoardNet v2 and v4 were fine-tuned on photographs of diagrams in copyrighted books
 and e-books. The photographs are not distributed, and the model outputs only
-piece positions. This too is stated as provenance. No weights are published
-yet.
+piece positions. This too is stated as provenance.

@@ -12,7 +12,7 @@ Every command and seed used for the models in the [report](REPORT.md).
 | The 1,650-board test | Yes. The boards are published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/test-boards-v1). |
 | BoardNet v2 and v4, and the shipped finder | No. They also train on 438 labelled photos of copyrighted pages, which are private. The commands are below for use with your own photos. |
 | Results on real photos and screenshots | No. Those images are private. |
-| The trained models | Not published. |
+| The trained models | Published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1), so the tests can be run without training. |
 
 Training on a GPU does not give the same weights twice, so expect numbers
 close to ours, not equal.

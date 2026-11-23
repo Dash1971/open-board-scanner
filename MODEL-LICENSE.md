@@ -3,8 +3,8 @@
 **Trained models are licensed under [AGPL-3.0-only](LICENSE), the same as the
 code.**
 
-No model files are published yet. This page states the terms they will carry
-and, separately, what they were trained on.
+The model files are published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1). This page states the
+terms they carry and, separately, what they were trained on.
 
 ## What the models were trained on
 

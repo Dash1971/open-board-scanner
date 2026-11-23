@@ -67,6 +67,7 @@ implications.**
 
 ## Where to look
 
+- [Models release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1): the two model files, 3.5 MB together.
 - [README](README.md): how the models were built and every result.
 - [`results/comparison/`](results/comparison): the numbers behind this page,
   by source and piece set, and the Lichess screenshot check.
