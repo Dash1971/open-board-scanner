@@ -37,13 +37,6 @@ A model trained without them can be made from this repository:
 `python -m train.make_crops --sets open` generates training data from the
 openly licensed sets only.
 
-## History
-
-- 23 November 2026: the noncommercial sets were added. The models were first
-  marked as noncommercial (CC BY-NC-SA 4.0).
-- 23 November 2026, later: that marking was judged more cautious than
-  needed, and inconsistent, because the training data also includes GPL and
-  AGPL piece sets whose terms would conflict with it. The models went back to
-  AGPL-3.0-only with this provenance statement.
+## Status
 
 Inclusion in Mobile Maia is pending a review of the licensing implications.

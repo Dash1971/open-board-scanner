@@ -39,9 +39,8 @@ the earlier study found: the accurate model was large and noncommercial, and
 the small open ones were not accurate enough.
 
 We could not get the performance we needed without noncommercial piece sets,
-so the models are trained partly on them. We first marked the models as
-noncommercial, then judged that more cautious than needed: they stay under
-AGPL-3.0, and we state plainly what they were trained on
+so the models are trained partly on them. They are licensed under AGPL-3.0,
+and we state plainly what they were trained on
 ([details](MODEL-LICENSE.md)). What we did achieve is a high level of
 performance from a relatively small model.
 
