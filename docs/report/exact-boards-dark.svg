@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 442" width="720" height="442" role="img" aria-label="Boards read exactly by each model on two tests">
+<text x="0" y="22" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#f0efec">Boards read exactly, every square right</text>
+<text x="0" y="42" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#c3c2b7">Each model was given the same board, already cut out and upright</text>
+<text x="0" y="80" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f0efec">Real photos the model never trained on (88 boards)</text>
+<line x1="190" y1="90" x2="190" y2="224" stroke="#34343a" stroke-width="1"/>
+<text x="180" y="109" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0efec">Open Board Scanner</text>
+<path d="M190,94 h371.7 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-371.7 z" fill="#3987e5"/>
+<text x="573.7" y="109" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">99%</tspan><tspan dx="6" fill="#c3c2b7">87 of 88</tspan></text>
+<text x="180" y="143" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0efec">ChessQ Lite V4</text>
+<path d="M190,128 h371.7 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-371.7 z" fill="#7d7c76"/>
+<text x="573.7" y="143" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">99%</tspan><tspan dx="6" fill="#c3c2b7">87 of 88</tspan></text>
+<text x="180" y="177" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0efec">Fenify</text>
+<path d="M190,162 h259.4 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-259.4 z" fill="#7d7c76"/>
+<text x="461.4" y="177" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">69%</tspan><tspan dx="6" fill="#c3c2b7">61 of 88</tspan></text>
+<text x="180" y="211" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0efec">Fenshot</text>
+<path d="M190,196 h164.4 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-164.4 z" fill="#7d7c76"/>
+<text x="366.4" y="211" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">44%</tspan><tspan dx="6" fill="#c3c2b7">39 of 88</tspan></text>
+<text x="0" y="272" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f0efec">Clean boards in 33 Lichess piece sets (1,650 boards)</text>
+<line x1="190" y1="282" x2="190" y2="416" stroke="#34343a" stroke-width="1"/>
+<text x="180" y="301" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#f0efec">Open Board Scanner</text>
+<path d="M190,286 h350.4 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-350.4 z" fill="#3987e5"/>
+<text x="552.4" y="301" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">93%</tspan><tspan dx="6" fill="#c3c2b7">1,539 of 1,650</tspan></text>
+<text x="180" y="335" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0efec">ChessQ Lite V4</text>
+<path d="M190,320 h241.0 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-241.0 z" fill="#7d7c76"/>
+<text x="443.0" y="335" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">64%</tspan><tspan dx="6" fill="#c3c2b7">1,064 of 1,650</tspan></text>
+<text x="180" y="369" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0efec">Fenify</text>
+<path d="M190,354 h210.2 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-210.2 z" fill="#7d7c76"/>
+<text x="412.2" y="369" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">56%</tspan><tspan dx="6" fill="#c3c2b7">930 of 1,650</tspan></text>
+<text x="180" y="403" text-anchor="end" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#f0efec">Fenshot</text>
+<path d="M190,388 h341.0 a4,4 0 0 1 4,4 v12.0 a4,4 0 0 1 -4,4 h-341.0 z" fill="#7d7c76"/>
+<text x="543.0" y="403" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#f0efec"><tspan font-weight="600">91%</tspan><tspan dx="6" fill="#c3c2b7">1,498 of 1,650</tspan></text>
+</svg>

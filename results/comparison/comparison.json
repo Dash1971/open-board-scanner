@@ -1,0 +1,1080 @@
+{
+ "input": "board cut out, upright, 512 x 512",
+ "threads": 2,
+ "real_photos": {
+  "open-board-scanner": {
+   "boards": 88,
+   "exact": 87,
+   "wrong_squares": 1,
+   "milliseconds_per_board": 6.4,
+   "by_group": {
+    "e-book 1": {
+     "boards": 21,
+     "exact": 21,
+     "wrong_squares": 0
+    },
+    "e-book 2": {
+     "boards": 13,
+     "exact": 13,
+     "wrong_squares": 0
+    },
+    "e-book 3": {
+     "boards": 4,
+     "exact": 4,
+     "wrong_squares": 0
+    },
+    "e-book 4": {
+     "boards": 2,
+     "exact": 1,
+     "wrong_squares": 1
+    },
+    "e-book 5": {
+     "boards": 7,
+     "exact": 7,
+     "wrong_squares": 0
+    },
+    "e-book 6": {
+     "boards": 5,
+     "exact": 5,
+     "wrong_squares": 0
+    },
+    "e-book 7": {
+     "boards": 4,
+     "exact": 4,
+     "wrong_squares": 0
+    },
+    "e-book 8": {
+     "boards": 3,
+     "exact": 3,
+     "wrong_squares": 0
+    },
+    "printed book 1": {
+     "boards": 8,
+     "exact": 8,
+     "wrong_squares": 0
+    },
+    "printed book 2": {
+     "boards": 15,
+     "exact": 15,
+     "wrong_squares": 0
+    },
+    "printed book 3": {
+     "boards": 6,
+     "exact": 6,
+     "wrong_squares": 0
+    }
+   }
+  },
+  "chessq-lite-v4-int8": {
+   "boards": 88,
+   "exact": 87,
+   "wrong_squares": 1,
+   "milliseconds_per_board": 428.7,
+   "by_group": {
+    "e-book 1": {
+     "boards": 21,
+     "exact": 21,
+     "wrong_squares": 0
+    },
+    "e-book 2": {
+     "boards": 13,
+     "exact": 13,
+     "wrong_squares": 0
+    },
+    "e-book 3": {
+     "boards": 4,
+     "exact": 3,
+     "wrong_squares": 1
+    },
+    "e-book 4": {
+     "boards": 2,
+     "exact": 2,
+     "wrong_squares": 0
+    },
+    "e-book 5": {
+     "boards": 7,
+     "exact": 7,
+     "wrong_squares": 0
+    },
+    "e-book 6": {
+     "boards": 5,
+     "exact": 5,
+     "wrong_squares": 0
+    },
+    "e-book 7": {
+     "boards": 4,
+     "exact": 4,
+     "wrong_squares": 0
+    },
+    "e-book 8": {
+     "boards": 3,
+     "exact": 3,
+     "wrong_squares": 0
+    },
+    "printed book 1": {
+     "boards": 8,
+     "exact": 8,
+     "wrong_squares": 0
+    },
+    "printed book 2": {
+     "boards": 15,
+     "exact": 15,
+     "wrong_squares": 0
+    },
+    "printed book 3": {
+     "boards": 6,
+     "exact": 6,
+     "wrong_squares": 0
+    }
+   }
+  },
+  "fenshot": {
+   "boards": 88,
+   "exact": 39,
+   "wrong_squares": 178,
+   "milliseconds_per_board": 7.4,
+   "by_group": {
+    "e-book 1": {
+     "boards": 21,
+     "exact": 21,
+     "wrong_squares": 0
+    },
+    "e-book 2": {
+     "boards": 13,
+     "exact": 4,
+     "wrong_squares": 11
+    },
+    "e-book 3": {
+     "boards": 4,
+     "exact": 4,
+     "wrong_squares": 0
+    },
+    "e-book 4": {
+     "boards": 2,
+     "exact": 1,
+     "wrong_squares": 2
+    },
+    "e-book 5": {
+     "boards": 7,
+     "exact": 0,
+     "wrong_squares": 29
+    },
+    "e-book 6": {
+     "boards": 5,
+     "exact": 0,
+     "wrong_squares": 37
+    },
+    "e-book 7": {
+     "boards": 4,
+     "exact": 2,
+     "wrong_squares": 3
+    },
+    "e-book 8": {
+     "boards": 3,
+     "exact": 0,
+     "wrong_squares": 16
+    },
+    "printed book 1": {
+     "boards": 8,
+     "exact": 4,
+     "wrong_squares": 10
+    },
+    "printed book 2": {
+     "boards": 15,
+     "exact": 2,
+     "wrong_squares": 49
+    },
+    "printed book 3": {
+     "boards": 6,
+     "exact": 1,
+     "wrong_squares": 21
+    }
+   }
+  },
+  "fenify": {
+   "boards": 88,
+   "exact": 61,
+   "wrong_squares": 47,
+   "milliseconds_per_board": 265.2,
+   "by_group": {
+    "e-book 1": {
+     "boards": 21,
+     "exact": 14,
+     "wrong_squares": 7
+    },
+    "e-book 2": {
+     "boards": 13,
+     "exact": 12,
+     "wrong_squares": 1
+    },
+    "e-book 3": {
+     "boards": 4,
+     "exact": 1,
+     "wrong_squares": 4
+    },
+    "e-book 4": {
+     "boards": 2,
+     "exact": 2,
+     "wrong_squares": 0
+    },
+    "e-book 5": {
+     "boards": 7,
+     "exact": 6,
+     "wrong_squares": 1
+    },
+    "e-book 6": {
+     "boards": 5,
+     "exact": 5,
+     "wrong_squares": 0
+    },
+    "e-book 7": {
+     "boards": 4,
+     "exact": 2,
+     "wrong_squares": 2
+    },
+    "e-book 8": {
+     "boards": 3,
+     "exact": 3,
+     "wrong_squares": 0
+    },
+    "printed book 1": {
+     "boards": 8,
+     "exact": 5,
+     "wrong_squares": 3
+    },
+    "printed book 2": {
+     "boards": 15,
+     "exact": 11,
+     "wrong_squares": 4
+    },
+    "printed book 3": {
+     "boards": 6,
+     "exact": 0,
+     "wrong_squares": 25
+    }
+   }
+  }
+ },
+ "rendered_boards": {
+  "open-board-scanner": {
+   "boards": 1650,
+   "exact": 1539,
+   "wrong_squares": 147,
+   "milliseconds_per_board": 7.1,
+   "by_group": {
+    "anarcandy": {
+     "boards": 50,
+     "exact": 49,
+     "wrong_squares": 1
+    },
+    "caliente": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "california": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "cardinal": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "cburnett": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "celtic": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "chessboart": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "chessnut": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "cooke": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "dubrovny": {
+     "boards": 50,
+     "exact": 47,
+     "wrong_squares": 4
+    },
+    "fantasy": {
+     "boards": 50,
+     "exact": 48,
+     "wrong_squares": 2
+    },
+    "firi": {
+     "boards": 50,
+     "exact": 43,
+     "wrong_squares": 11
+    },
+    "fresca": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "gioco": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "horsey": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "icpieces": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "kiwen-suwi": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "letter": {
+     "boards": 50,
+     "exact": 21,
+     "wrong_squares": 44
+    },
+    "maestro": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "merida": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "minimal-warmth": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "monarchy": {
+     "boards": 50,
+     "exact": 15,
+     "wrong_squares": 44
+    },
+    "mpchess": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "papercut": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "pirouetti": {
+     "boards": 50,
+     "exact": 30,
+     "wrong_squares": 25
+    },
+    "pixel": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "rhosgfx": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "shapes": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "spatial": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "staunty": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "tatiana": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "totoy": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "xkcd": {
+     "boards": 50,
+     "exact": 36,
+     "wrong_squares": 16
+    }
+   }
+  },
+  "chessq-lite-v4-int8": {
+   "boards": 1650,
+   "exact": 1064,
+   "wrong_squares": 3039,
+   "milliseconds_per_board": 562.3,
+   "by_group": {
+    "anarcandy": {
+     "boards": 50,
+     "exact": 20,
+     "wrong_squares": 80
+    },
+    "caliente": {
+     "boards": 50,
+     "exact": 45,
+     "wrong_squares": 31
+    },
+    "california": {
+     "boards": 50,
+     "exact": 40,
+     "wrong_squares": 65
+    },
+    "cardinal": {
+     "boards": 50,
+     "exact": 45,
+     "wrong_squares": 26
+    },
+    "cburnett": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "celtic": {
+     "boards": 50,
+     "exact": 48,
+     "wrong_squares": 15
+    },
+    "chessboart": {
+     "boards": 50,
+     "exact": 42,
+     "wrong_squares": 47
+    },
+    "chessnut": {
+     "boards": 50,
+     "exact": 42,
+     "wrong_squares": 75
+    },
+    "cooke": {
+     "boards": 50,
+     "exact": 33,
+     "wrong_squares": 22
+    },
+    "dubrovny": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 52
+    },
+    "fantasy": {
+     "boards": 50,
+     "exact": 41,
+     "wrong_squares": 49
+    },
+    "firi": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 240
+    },
+    "fresca": {
+     "boards": 50,
+     "exact": 44,
+     "wrong_squares": 54
+    },
+    "gioco": {
+     "boards": 50,
+     "exact": 44,
+     "wrong_squares": 88
+    },
+    "horsey": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 236
+    },
+    "icpieces": {
+     "boards": 50,
+     "exact": 44,
+     "wrong_squares": 32
+    },
+    "kiwen-suwi": {
+     "boards": 50,
+     "exact": 26,
+     "wrong_squares": 68
+    },
+    "letter": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 428
+    },
+    "maestro": {
+     "boards": 50,
+     "exact": 42,
+     "wrong_squares": 86
+    },
+    "merida": {
+     "boards": 50,
+     "exact": 45,
+     "wrong_squares": 24
+    },
+    "minimal-warmth": {
+     "boards": 50,
+     "exact": 46,
+     "wrong_squares": 21
+    },
+    "monarchy": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 147
+    },
+    "mpchess": {
+     "boards": 50,
+     "exact": 46,
+     "wrong_squares": 7
+    },
+    "papercut": {
+     "boards": 50,
+     "exact": 43,
+     "wrong_squares": 35
+    },
+    "pirouetti": {
+     "boards": 50,
+     "exact": 4,
+     "wrong_squares": 116
+    },
+    "pixel": {
+     "boards": 50,
+     "exact": 22,
+     "wrong_squares": 89
+    },
+    "rhosgfx": {
+     "boards": 50,
+     "exact": 13,
+     "wrong_squares": 90
+    },
+    "shapes": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 569
+    },
+    "spatial": {
+     "boards": 50,
+     "exact": 45,
+     "wrong_squares": 27
+    },
+    "staunty": {
+     "boards": 50,
+     "exact": 40,
+     "wrong_squares": 107
+    },
+    "tatiana": {
+     "boards": 50,
+     "exact": 48,
+     "wrong_squares": 9
+    },
+    "totoy": {
+     "boards": 50,
+     "exact": 46,
+     "wrong_squares": 17
+    },
+    "xkcd": {
+     "boards": 50,
+     "exact": 21,
+     "wrong_squares": 87
+    }
+   }
+  },
+  "fenshot": {
+   "boards": 1650,
+   "exact": 1498,
+   "wrong_squares": 225,
+   "milliseconds_per_board": 9.9,
+   "by_group": {
+    "anarcandy": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "caliente": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "california": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "cardinal": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "cburnett": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "celtic": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "chessboart": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "chessnut": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "cooke": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "dubrovny": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "fantasy": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "firi": {
+     "boards": 50,
+     "exact": 18,
+     "wrong_squares": 86
+    },
+    "fresca": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "gioco": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "horsey": {
+     "boards": 50,
+     "exact": 40,
+     "wrong_squares": 23
+    },
+    "icpieces": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "kiwen-suwi": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "letter": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "maestro": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "merida": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "minimal-warmth": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 50
+    },
+    "monarchy": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 52
+    },
+    "mpchess": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "papercut": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "pirouetti": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "pixel": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "rhosgfx": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "shapes": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "spatial": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "staunty": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "tatiana": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "totoy": {
+     "boards": 50,
+     "exact": 50,
+     "wrong_squares": 0
+    },
+    "xkcd": {
+     "boards": 50,
+     "exact": 40,
+     "wrong_squares": 14
+    }
+   }
+  },
+  "fenify": {
+   "boards": 1650,
+   "exact": 930,
+   "wrong_squares": 2810,
+   "milliseconds_per_board": 276.4,
+   "by_group": {
+    "anarcandy": {
+     "boards": 50,
+     "exact": 5,
+     "wrong_squares": 151
+    },
+    "caliente": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "california": {
+     "boards": 50,
+     "exact": 38,
+     "wrong_squares": 15
+    },
+    "cardinal": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "cburnett": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "celtic": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "chessboart": {
+     "boards": 50,
+     "exact": 9,
+     "wrong_squares": 75
+    },
+    "chessnut": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "cooke": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "dubrovny": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "fantasy": {
+     "boards": 50,
+     "exact": 38,
+     "wrong_squares": 13
+    },
+    "firi": {
+     "boards": 50,
+     "exact": 1,
+     "wrong_squares": 232
+    },
+    "fresca": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "gioco": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "horsey": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 283
+    },
+    "icpieces": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "kiwen-suwi": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "letter": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 460
+    },
+    "maestro": {
+     "boards": 50,
+     "exact": 37,
+     "wrong_squares": 16
+    },
+    "merida": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "minimal-warmth": {
+     "boards": 50,
+     "exact": 33,
+     "wrong_squares": 26
+    },
+    "monarchy": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 101
+    },
+    "mpchess": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "papercut": {
+     "boards": 50,
+     "exact": 23,
+     "wrong_squares": 34
+    },
+    "pirouetti": {
+     "boards": 50,
+     "exact": 35,
+     "wrong_squares": 24
+    },
+    "pixel": {
+     "boards": 50,
+     "exact": 38,
+     "wrong_squares": 13
+    },
+    "rhosgfx": {
+     "boards": 50,
+     "exact": 14,
+     "wrong_squares": 75
+    },
+    "shapes": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 855
+    },
+    "spatial": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "staunty": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "tatiana": {
+     "boards": 50,
+     "exact": 39,
+     "wrong_squares": 12
+    },
+    "totoy": {
+     "boards": 50,
+     "exact": 35,
+     "wrong_squares": 18
+    },
+    "xkcd": {
+     "boards": 50,
+     "exact": 0,
+     "wrong_squares": 227
+    }
+   }
+  }
+ },
+ "real_photos_whole_image": {
+  "open-board-scanner": {
+   "boards": 88,
+   "exact": 87,
+   "wrong_squares": 1,
+   "milliseconds_per_board": 55.7,
+   "by_group": {
+    "e-book 1": {
+     "boards": 21,
+     "exact": 21,
+     "wrong_squares": 0
+    },
+    "e-book 2": {
+     "boards": 13,
+     "exact": 13,
+     "wrong_squares": 0
+    },
+    "e-book 3": {
+     "boards": 4,
+     "exact": 4,
+     "wrong_squares": 0
+    },
+    "e-book 4": {
+     "boards": 2,
+     "exact": 1,
+     "wrong_squares": 1
+    },
+    "e-book 5": {
+     "boards": 7,
+     "exact": 7,
+     "wrong_squares": 0
+    },
+    "e-book 6": {
+     "boards": 5,
+     "exact": 5,
+     "wrong_squares": 0
+    },
+    "e-book 7": {
+     "boards": 4,
+     "exact": 4,
+     "wrong_squares": 0
+    },
+    "e-book 8": {
+     "boards": 3,
+     "exact": 3,
+     "wrong_squares": 0
+    },
+    "printed book 1": {
+     "boards": 8,
+     "exact": 8,
+     "wrong_squares": 0
+    },
+    "printed book 2": {
+     "boards": 15,
+     "exact": 15,
+     "wrong_squares": 0
+    },
+    "printed book 3": {
+     "boards": 6,
+     "exact": 6,
+     "wrong_squares": 0
+    }
+   }
+  },
+  "chessq-lite-v4-int8": {
+   "boards": 88,
+   "exact": 72,
+   "wrong_squares": 33,
+   "milliseconds_per_board": 732.0,
+   "by_group": {
+    "e-book 1": {
+     "boards": 21,
+     "exact": 14,
+     "wrong_squares": 15
+    },
+    "e-book 2": {
+     "boards": 13,
+     "exact": 7,
+     "wrong_squares": 15
+    },
+    "e-book 3": {
+     "boards": 4,
+     "exact": 3,
+     "wrong_squares": 1
+    },
+    "e-book 4": {
+     "boards": 2,
+     "exact": 2,
+     "wrong_squares": 0
+    },
+    "e-book 5": {
+     "boards": 7,
+     "exact": 6,
+     "wrong_squares": 1
+    },
+    "e-book 6": {
+     "boards": 5,
+     "exact": 5,
+     "wrong_squares": 0
+    },
+    "e-book 7": {
+     "boards": 4,
+     "exact": 4,
+     "wrong_squares": 0
+    },
+    "e-book 8": {
+     "boards": 3,
+     "exact": 3,
+     "wrong_squares": 0
+    },
+    "printed book 1": {
+     "boards": 8,
+     "exact": 8,
+     "wrong_squares": 0
+    },
+    "printed book 2": {
+     "boards": 15,
+     "exact": 14,
+     "wrong_squares": 1
+    },
+    "printed book 3": {
+     "boards": 6,
+     "exact": 6,
+     "wrong_squares": 0
+    }
+   }
+  }
+ }
+}

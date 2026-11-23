@@ -3,6 +3,9 @@
 A small, freely licensed model that turns a screenshot or a photo of a printed
 chess diagram into an editable position, entirely offline.
 
+**[Read the short report](REPORT.md): results, and a comparison with three
+other projects.**
+
 **Status: two models, 3.5 MB together, that turn a photo or screenshot into a
 position. Not yet in an app.** A 1.4 MB finder locates the board and a 2.0 MB
 reader reads it. Given nothing but the image:
@@ -11,8 +14,10 @@ reader reads it. Given nothing but the image:
 - 1,547 of 1,650 clean boards in 33 Lichess piece sets were read exactly.
 
 Open risks: book typefaces and screen styles it has not seen, real
-screenshots (none have been tested), and speed on a phone (not measured). No
-weights are released. Work is tracked in [Issues](../../issues).
+screenshots (none have been tested), and speed on a phone (not measured). The
+models are for noncommercial use ([why](MODEL-LICENSE.md)), no weights are
+released, and inclusion in Mobile Maia is pending a licensing review. Work is
+tracked in [Issues](../../issues).
 
 ## Why
 
@@ -528,10 +533,14 @@ splits, and replace backgrounds to stop the model learning the table.
 
 ## Licensing
 
-Copyright (c) 2026 Dash. Code, documentation and released model weights in
-this repository are licensed under the
-[GNU Affero General Public License v3.0 only](LICENSE) (`AGPL-3.0-only`), the
-same licence as Mobile Maia. Contributions are accepted under the same licence.
+Copyright (c) 2026 Dash. Code and documentation in this repository are
+licensed under the [GNU Affero General Public License v3.0 only](LICENSE)
+(`AGPL-3.0-only`), the same licence as Mobile Maia. Contributions are accepted
+under the same licence.
+
+Trained models have their own terms: from BoardNet v4 onward they are for
+noncommercial use only, under CC BY-NC-SA 4.0. See
+[MODEL-LICENSE.md](MODEL-LICENSE.md) for the reason and the open questions.
 
 Every font and piece set used to generate training data is listed with its
 source and terms in [THIRD_PARTY.md](THIRD_PARTY.md), which also records the
