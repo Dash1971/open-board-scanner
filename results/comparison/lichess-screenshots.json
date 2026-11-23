@@ -1,0 +1,53 @@
+{
+ "note": "48 captures of the Lichess analysis board taken in a desktop browser pane (about 800 pixels wide, JPEG), with positions known in advance. Whole screenshot in, position out. A board counts as exact when all 64 squares match, either way up. All four piece sets are ones BoardNet v4 trained on.",
+ "groups": {
+  "A": {
+   "look": "desktop layout, default pieces and board",
+   "screenshots": 8,
+   "open_board_scanner_exact": 8,
+   "chessq_lite_v4_int8_exact": 8,
+   "viewing_side_right": 8
+  },
+  "B": {
+   "look": "phone layout, default pieces and board",
+   "screenshots": 8,
+   "open_board_scanner_exact": 8,
+   "chessq_lite_v4_int8_exact": 7,
+   "viewing_side_right": 8
+  },
+  "C": {
+   "look": "desktop layout, staunty pieces, blue board",
+   "screenshots": 8,
+   "open_board_scanner_exact": 8,
+   "chessq_lite_v4_int8_exact": 6,
+   "viewing_side_right": 8
+  },
+  "D": {
+   "look": "phone layout, staunty pieces, blue board",
+   "screenshots": 8,
+   "open_board_scanner_exact": 8,
+   "chessq_lite_v4_int8_exact": 7,
+   "viewing_side_right": 8
+  },
+  "E": {
+   "look": "desktop layout, horsey pieces, green board",
+   "screenshots": 8,
+   "open_board_scanner_exact": 8,
+   "chessq_lite_v4_int8_exact": 0,
+   "viewing_side_right": 7
+  },
+  "F": {
+   "look": "phone layout, maestro pieces, wood board",
+   "screenshots": 8,
+   "open_board_scanner_exact": 8,
+   "chessq_lite_v4_int8_exact": 6,
+   "viewing_side_right": 8
+  }
+ },
+ "all": {
+  "screenshots": 48,
+  "open_board_scanner_exact": 48,
+  "chessq_lite_v4_int8_exact": 34,
+  "viewing_side_right": 47
+ }
+}

@@ -14,7 +14,8 @@ reader reads it. Given nothing but the image:
 - 1,547 of 1,650 clean boards in 33 Lichess piece sets were read exactly.
 
 Open risks: book typefaces and screen styles it has not seen, real
-screenshots (none have been tested), and speed on a phone (not measured). The
+screenshots (48 Lichess captures read correctly; nothing from chess.com or
+the phone apps tested), and speed on a phone (not measured). The
 models are for noncommercial use ([why](MODEL-LICENSE.md)), no weights are
 released, and inclusion in Mobile Maia is pending a licensing review. Work is
 tracked in [Issues](../../issues).
@@ -347,8 +348,10 @@ ambiguous), monarchy (19, never trained on), pirouetti (33) and xkcd (39).
 
 Limits:
 
-- **No real screenshots have been tested.** The rendered boards have no
-  arrows, highlights, surrounding page or compression.
+- **Real screenshots have had a first check only.** 48 captures of the
+  Lichess analysis board were all read correctly from the whole image
+  (`results/comparison/lichess-screenshots.json`). The rendered boards have
+  no arrows, highlights, surrounding page or compression.
 - **The real test is small and not independent of training sources.** 88
   boards, and only six of them from the two speckled e-books.
 - **Labels for the second photo set were proposed by v2 and checked by eye**

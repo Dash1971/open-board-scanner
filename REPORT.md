@@ -53,15 +53,18 @@ implications.**
 - **Every model got the board already cut out.** From the whole photo, ours
   read 87 of 88. ChessQ read 72 of 88 with the photo resized the way the
   earlier study did it; its own app may prepare photos differently.
-- **The test is small.** 88 photos from eleven sources, and no real
-  screenshots with an app around the board.
+- **The test is small.** 88 photos from eleven sources.
+- **Real screenshots: a first check only.** On 48 captures of the Lichess
+  analysis board (desktop and phone layouts, four piece sets it trained on),
+  ours read 48 from the whole screenshot and ChessQ 34. Nothing from
+  chess.com or the phone apps has been tested.
 - **Three projects from the earlier study were not re-run:** CrispChess, Chess
   Acuity and Chess diagram to FEN. There they read 1, 1 and 6 of 12 photos.
 
 ## Where to look
 
 - [README](README.md): how the models were built and every result.
-- [`results/comparison/comparison.json`](results/comparison/comparison.json):
-  the numbers behind this page, by source and piece set.
+- [`results/comparison/`](results/comparison): the numbers behind this page,
+  by source and piece set, and the Lichess screenshot check.
 - [`tools/compare_models.py`](tools/compare_models.py): the test itself. The
   other projects' model files are the versions pinned in the earlier study.
