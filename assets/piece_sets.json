@@ -759,6 +759,302 @@
         "bP.svg": "04a548840515ebb42e08e88c832f2434d15faa9e121c108e1be437d1b4ef4e47"
       },
       "freeware": true
+    },
+    "kilfiger": {
+      "author": "James Kilfiger",
+      "licence": "public domain",
+      "print": false,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/kilfiger"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "93abd192d41dc3af80b7b20ac9e2f4adb50e0007af63cabc1257317737b0d7a1",
+        "wQ.svg": "28bdffa5cdb74a257fda4d08b2d621644fe5ff1748ea84eab7cb249a319e3882",
+        "wR.svg": "f93a2d0cd54c071a6003c7325dbd517703a5064cac40fef7b15edb5cc9774162",
+        "wB.svg": "1a55aabe5543e8a87f70dfbea2b0650a1dac098ee0beb361192e01d2a1dc55e3",
+        "wN.svg": "e3e2851789cb894fd450686c36cb15160f2e72c0c309642895cf4ea729d5c5c6",
+        "wP.svg": "3732ad5981db6c8ade08dd621a7e4c80ea133da58229c0532b71df5dffe3911e",
+        "bK.svg": "483d91c60ca93581f1e07a399c745ccf50b42dc92a594e601b9dcdb3d57e2894",
+        "bQ.svg": "64c644b3a7c1700c0fbed8d062d6d9d0fee4591a72b7ae6618ed1a2dabf37f82",
+        "bR.svg": "b93ff2f9e65a9292c452cb4388294d580d63a56e2a8d67e38379a52e1b391b2d",
+        "bB.svg": "87fd0a4edb843542a059916b5ae012cd89e6fe832381faba4ff52ccd8e9444bb",
+        "bN.svg": "2929eab2e7559c08a4f394ac1ea84634aec9c61384d0f1d6040d4f5eda33a046",
+        "bP.svg": "d62a76324eda61914bb21d2344fd71464377afbf523255e8de4ca190474b4c99"
+      }
+    },
+    "kosal": {
+      "author": "Kosal Sen",
+      "licence": "CC-BY-4.0",
+      "print": false,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/kosal"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "41190d19ec9e5bddf223271cc067919bbdb3157e56cc76ea51882ca93c7fd91c",
+        "wQ.svg": "4d44589cbbaf7573ada376276d71d0c1ad516c5e03dedf30a2b99563343671fd",
+        "wR.svg": "b21a8fd94061650e08d5b77ed4788803118c3332b174db128de02867face3c5a",
+        "wB.svg": "b3edc4c12726482f30f2a597c695d85fab8ce614d47e2c6e96360da7e2e91c33",
+        "wN.svg": "a166cfca591016f9c2f784a263e076d7f0c0f399b0468845eb146b99d8e5fc57",
+        "wP.svg": "2b42960445d4e640896b4ff909829c1c38561686c16e39d2f479d5cee70766cd",
+        "bK.svg": "97d77d8ad68db5bf01b768aceb2033b810f46a48d0d528233e16fded4618d8b6",
+        "bQ.svg": "08d727f0cd8a88d9cb6653a8ce89cc7ca6edce4f966c9b628f5c7e8feaf23426",
+        "bR.svg": "06ea6eb4cf76ee3435ea2319680d7cebc33bbaeec2d14c4ba8d95e22cbc2e71d",
+        "bB.svg": "ae0aee14beec4025ecadc3d0677027f6ce21ce0865bbccbd9b73c677c7ec9273",
+        "bN.svg": "f12580163ddfb6e0cdf08a689362e7e6b9b70d6738698a9330e12508a05b16a6",
+        "bP.svg": "4b1fbcfdcaee68423e873f82f6c8a8976fdad4b7b1b2e76de87b96284592ad66"
+      }
+    },
+    "libra": {
+      "author": "sadsnake1",
+      "licence": "CC-BY-NC-SA-4.0",
+      "print": false,
+      "noncommercial": true,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/libra"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "eb1882d7af1eb3c6d14ef79c41a57d9d0303251e07298192e216aee292ef2ad7",
+        "wQ.svg": "76a3ca7fdd6d30e77c5163f68d9d66326fe41087af647f4a5ab5460972ac6c6a",
+        "wR.svg": "0523faefce55dabc0cf922ad2f79dde152b0c4efa70ec2ce6d36f01b9472d986",
+        "wB.svg": "7df2a2d296c4b007296bd5ad02efd277dc0c7e10a0487b8536dce53a8486bc61",
+        "wN.svg": "050d7224c8d5f5e57c235cc8e71d5747cf3376712fe625e09187a9e33b76654e",
+        "wP.svg": "8474d31807ea46c5bcfcaa96cab50e1f8bec775de31505d4009c691a19eb2b92",
+        "bK.svg": "f2949d845ba5a73925a4972563554f3028a06e059979564cbe76d8c6f4a6c55c",
+        "bQ.svg": "2b1db13ccadc0b887ea9858637261f42c31ed4d2b9dc3314c218c5ee2ccc73a0",
+        "bR.svg": "027b0cfe924d1e5d314d81a5ad0330c58601bf744a5e54eaea945d5b193462bd",
+        "bB.svg": "6ec5780de0ca0cc81a266095085eeb056550fc22449af45d687a0167d610832e",
+        "bN.svg": "d26d7db2202556a431062fa4de9bbf8a5642013a5a45b10592207cb9c89f47fb",
+        "bP.svg": "a6ffb8371f9f53bc7698d107580df2ee013316bcbb2d7dcbd1d4b30d72fae617"
+      }
+    },
+    "governor": {
+      "author": "the lila authors",
+      "licence": "AGPL-3.0-or-later",
+      "print": false,
+      "sha256": {
+        "wK.svg": "93831ba2eb0a7fb85177168f508f0528a2127c46aa46492b6a838487caba9bb0",
+        "wQ.svg": "96985f060dc76a84f8ebe865076f8d0b7eb15e1afaaa67e7c35f8f069d18216b",
+        "wR.svg": "89962fd739018685a0c7b4acbd8079d25f92688c4c5fe638e9f253a741533c69",
+        "wB.svg": "e2fc3fc3d053b51dad49fb07a7a769866fd0b00ac8db03102340d9355c18c631",
+        "wN.svg": "a6bcafa28083e7262f258da298c63a7f6521ad77566c002fd76b6d776e5ef5c9",
+        "wP.svg": "8a97540d6239e9e15907c49139af5a09423f35e8a07532fae4edf295a80040db",
+        "bK.svg": "bca25291dd3b2a16e10ea4960783145482fc496cfe67d96244df0bbbfcd13e63",
+        "bQ.svg": "1cb5accddac11588648e0d58a747fd839ecd6b976eb767ae383869c45b9cb48b",
+        "bR.svg": "05b2bca59a4d81e881efcac8190bf384dadd50a3767b761596ee18aa3c6f2031",
+        "bB.svg": "5f5dfd87e0d90691e54d89a222e626d654a6fb2f98b83b8ba59e6e8704fdf700",
+        "bN.svg": "4b2d154e63428ce5e73e797082d8b0b7d0b44b92428d56c6bb2d32216664255f",
+        "bP.svg": "244832832c4018b3e4d6e6dd8b669b35ddaf72f8f10ad07f721f844643814006"
+      }
+    },
+    "book-classic-b": {
+      "author": "Ben Citak",
+      "licence": "GPL-2.0",
+      "print": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Book Classic B"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "c0550ec641039cd252bd76c5af61aa11fd613df947cac251698ab807db0c70c4",
+        "wQ.svg": "f35580d1e88b7e20177b1a2029aa495df5be46b2ae1d0d913107bdef3f8ed4e0",
+        "wR.svg": "fb3289fccca4c95ba6847ca3de087e73edda615bc89d695b87c37692228babcf",
+        "wB.svg": "8fef2f1eceb6fa773d42c41870e46951a23c3fc1acf7f2e7b6ec2ec2cf9a2ac5",
+        "wN.svg": "0c7ed7455dfc4c5723a5cd4c5730b1cb12a32b2eb4b59ff9af4d72258c8709ff",
+        "wP.svg": "69ca86abfc5dae9bb1d74ed1575ff04774b9eb6772d146823c76a010d0b3aa59",
+        "bK.svg": "46460f995e5a72c08520eb2af4ef917861dc905bfe6bcecfe16b1f9da30a9e5c",
+        "bQ.svg": "022fe12ecf90132e829c15413d05f67d8c0b0e0d6cd828794c19c6eb163e83f3",
+        "bR.svg": "5a257dd4e8f313750cc1fa15c3d5749d30e2b83d17e3748220254c707fedd64d",
+        "bB.svg": "7ac00110b9710b6318c0599f3f518e6df5f96abecc33dff24f241f30d70317de",
+        "bN.svg": "c70e47adb544291b481222a9e5deccfccef26104dbcb7d68b0cbae000afd2599",
+        "bP.svg": "e9b188776cadedafe1cf26f002d6acdce2c3658e5dcd8376a229ade229f1681c"
+      }
+    },
+    "book-diagram-b": {
+      "author": "Ben Citak",
+      "licence": "GPL-2.0",
+      "print": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Book Diagram B"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "63b2cd7a0bd3c013c530897686aff4e5a2488c48213f103faad35f9fb4e9f6fe",
+        "wQ.svg": "469329f08cc956762b2bf216dab11977af1c404f1153eda34a5f2d8efd1d742d",
+        "wR.svg": "4a631ea55b749a51fbc6839c99212d3779f880d06c3517249ec70dc9f4fffe39",
+        "wB.svg": "3cd428ff9f896ef17264e97596546539f4b7e7390d49004bf45b699afef0ccef",
+        "wN.svg": "ca55f96c9c0fea328ea2c364342fc249501b11cd1dc499028ac52fbc13e71944",
+        "wP.svg": "f07fc8e82a3439171366f161b8de40489e0301459e1a55181a8b53280ee42029",
+        "bK.svg": "b8a17c8fd2fed42cdd01726c2475c41338d3b71713a2534ad9fcd00e68a9a38a",
+        "bQ.svg": "9d249bd0716aa69c38c199355fe93a4bb8deddd6f96508c5929d2db633b42f95",
+        "bR.svg": "12e318d13922b748440ce54d438cd5100186fd2d583f9f885a8fea942182ebc5",
+        "bB.svg": "29351b3d03fac73ceb3936a6c26c801bc690f15237da75b6030975b342281cc5",
+        "bN.svg": "941cc5adc120d8b35700e34d6c5da7f5e1138100460d6e0a3dc5f3c12ec78cff",
+        "bP.svg": "131e5257739c7e15921cc8a97229507a327546ce2d3e7ef14268e60fdcb74b9d"
+      }
+    },
+    "book-strategie-b": {
+      "author": "Ben Citak",
+      "licence": "GPL-2.0",
+      "print": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Book Strategie B"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "b54fbcacfa7dcd91fa830b10991ad47e94f3c6d55905ebbeabc1be9755f18291",
+        "wQ.svg": "0ba401d7dc8e6c5245ee217c728f2bbce6891d8bd255aca109a5ca787cdecfef",
+        "wR.svg": "14c4aaa56b16bc3af1e0cfce362e1afda24bd3961db681552f6a213c0ffd8467",
+        "wB.svg": "6b780f0ec0c984844f0e052ddb7e57457c501d485c459e6d67eac9789299f7dd",
+        "wN.svg": "98225cfbd4defa9e2b1e9f30b514ad8e8723afeeb4b0af08808cf611d5f616db",
+        "wP.svg": "304096580b6c60e1895eb1280335d351754864db1c724c07123391283e1d5f4c",
+        "bK.svg": "76e6f0997422a0d4becd7f5f6abfcf0686b8d5536bf594d0a5a319d7a0a733ca",
+        "bQ.svg": "f676813c5bcf400b972ad3ce3af28bc4090f66ad4343d375ddc663c61c6c3e64",
+        "bR.svg": "6dfc8c017c1603aa8a4733cfe340a5260112f0b635f351c9b73937e666fda04c",
+        "bB.svg": "c127b353dcd109ddcaddab2e133ac7b573081c50cb7afa0a87f8c4adfe1812ca",
+        "bN.svg": "d348ab7320380fd9321d22c106b8d6b8c0e0aa3cb16d7185e63429fd8c35b31d",
+        "bP.svg": "ebd5eeb799c50548be6784b36a8bcd5ea8f850bfcfed537c01968ea72f06212a"
+      }
+    },
+    "kaneo": {
+      "author": "Kadagaden",
+      "licence": "CC-BY-4.0",
+      "print": false,
+      "source": {
+        "repo": "luanlv/chess-pieces",
+        "commit": "4152933d2633c67195988631c0af325d4c3935bf",
+        "path": "chess_kaneo"
+      },
+      "sha256": {
+        "wK.svg": "46c7f647315f4414ac2eda6ab338bc4d5ccbf627c4fe9ad565f4f343f60ab91a",
+        "wQ.svg": "a1dc6f576298d46af39645e593c5bcfa49d4fc17d08fd4de3a1aa800d7cf55ca",
+        "wR.svg": "f14e9c11200ac5a3fb97f257ca94cf46c2c94a85102157b5983b38f22916f3c6",
+        "wB.svg": "6683d39caac2a793368ea3ad181e73083e70c94e4d0fca1e2937e5e4714460ff",
+        "wN.svg": "87963338cccc85773bc74c8b318a94f14abd6e8d666480e58d5f4e0b950f0836",
+        "wP.svg": "9175201108420c2338c0caa0e78c7f6ac9ebaf677adc7ed066e8a92f075e3308",
+        "bK.svg": "bd749ec263b7d8e375359775e53190e679f349f854ed999c8b434dcff106f9e4",
+        "bQ.svg": "2daacf0bb6093413a56c0987272534bbdaa4a4f3420360f8f2bc49803a0461ee",
+        "bR.svg": "286cd32782be6203d28b1ffdf4898cb76d864d850b8b09e8f6b56bed2cb3f420",
+        "bB.svg": "fdce0c2d7c2401f933a9acef83dadde78747e9d02c8c1b9bc130834503943a37",
+        "bN.svg": "17edfeffef6ea45824f5a1ad5be852b5f41fcb97d6bef60b679f366dd31cc8bb",
+        "bP.svg": "b8423b6b4740809be0abd907b766c04d03fe1c1e0379df7f15cad7d929ccc5e6"
+      }
+    },
+    "kaneo-midnight": {
+      "author": "Kadagaden",
+      "licence": "CC-BY-4.0",
+      "print": false,
+      "source": {
+        "repo": "luanlv/chess-pieces",
+        "commit": "4152933d2633c67195988631c0af325d4c3935bf",
+        "path": "chess_kaneo_midnight"
+      },
+      "sha256": {
+        "wK.svg": "c4fed18226eac003ec10f8aa7cfb2f5f4b8e8cfc1dbf7220ed7138970c11a3a4",
+        "wQ.svg": "cb3fe43ee4be105a08cda15844d7993fe3fb58547c73ac88996418ff541b137b",
+        "wR.svg": "23ad65e89ec1e00783058f56ac51ae7834c011958e8ff236ce3ade3d0cfa919d",
+        "wB.svg": "f30f5ffc9bc6b222c0b14f31c9807fcd02b6585230643c234f97ef0d7c9ed456",
+        "wN.svg": "766a75b57bf231fa167f92f9a79958dbd02f170626987a3b8fc153622243b115",
+        "wP.svg": "3333b3eb5458b257490bcad4a243276cf3b312348452ff29cbd6c8e716eb2ceb",
+        "bK.svg": "22c34626b19474cd4d7dafc91f3935a71567e4715814a2a13c7a6fefa25bd82e",
+        "bQ.svg": "641d7c9d63e9af4175101b1e730f72d65745e0b8860db72001dd49b1176008c8",
+        "bR.svg": "a1f88b83d5ac54c11bd123b77d21aa29e7c0c63adbd22719fbb96aaa1af6a70e",
+        "bB.svg": "5deee2ab3e18cb7bc5e16d5c311381f1aeb0d7538935f1f65bd59708e2b90e3b",
+        "bN.svg": "fbc40ca0f48d088f22d52d417b6f6373e9c92dc903175dc6c7952e94c5ab2cbe",
+        "bP.svg": "7869fc62ec82e875d91c1db5c3e629569c1e0853142204fbd69ff06ea04e0576"
+      }
     }
   }
 }

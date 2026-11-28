@@ -99,7 +99,7 @@ What varies:
 
 - **Positions**: random legal play, sparse endgames, pieces scattered without
   regard to legality, the starting position and the empty board.
-- **Piece artwork**: 60 sets, 26 of which look like book typefaces. Printed
+- **Piece artwork**: 69 sets, 29 of which look like book typefaces. Printed
   pieces are also stretched and their strokes thickened or thinned, because
   typefaces differ in proportion and weight far more than the available
   artwork does.

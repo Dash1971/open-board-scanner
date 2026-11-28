@@ -92,6 +92,27 @@ What follows from using them:
 - **Sample images avoid them.** The sample sheet in `docs/samples/` was
   rendered before these sets were added.
 
+#### Sets from other chess programs
+
+| Set | Author | Licence | Source |
+| --- | --- | --- | --- |
+| governor | the lila authors | AGPL-3.0-or-later | lichess-org/lila, same commit as above |
+| kilfiger | James Kilfiger | Public domain, as stated in each file's metadata | [pychess/pychess](https://github.com/pychess/pychess) at `d434d37d35736601cd8c384c8947ad4e06921f8d`, `pieces/` |
+| kosal | Kosal Sen | CC-BY-4.0 | PyChess, same commit |
+| libra | sadsnake1 | CC-BY-NC-SA-4.0 (noncommercial) | PyChess, same commit |
+| book-classic-b | Ben Citak | GPL-2.0 | [lukasmonk/lucaschessR2](https://github.com/lukasmonk/lucaschessR2) at `b3ab7678077d6433e45d85f55acac2102e13e82e`, `Resources/Pieces/` |
+| book-diagram-b | Ben Citak | GPL-2.0 | Lucas Chess, same commit |
+| book-strategie-b | Ben Citak | GPL-2.0 | Lucas Chess, same commit |
+| kaneo | Kadagaden | CC-BY-4.0 | [luanlv/chess-pieces](https://github.com/luanlv/chess-pieces) at `4152933d2633c67195988631c0af325d4c3935bf` |
+| kaneo-midnight | Kadagaden | CC-BY-4.0 | chess-pieces, same commit |
+
+The three Book sets were drawn for Lucas Chess to look like printed
+diagrams. Book Classic follows the same design as Good Companion, which
+gives `--sets open` an openly licensed version of that typeface.
+
+Sets in these programs with no stated terms, or that copy artwork already
+listed here, were left out.
+
 Source: [GNOME/gnome-chess](https://github.com/GNOME/gnome-chess) at commit
 `de63bdec5cf9f0770890086262e6a127d5c4a619`, directory `data/pieces`.
 
