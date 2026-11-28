@@ -16,7 +16,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 from . import assets
-from .sample import generate, rectify
+from .sample import KINDS, generate, rectify
 
 CELL = 384
 
@@ -70,7 +70,7 @@ def main() -> None:
         command.add_argument("--seed", type=int, default=1)
         command.add_argument("--start", type=int, default=0, help="first sample index")
         command.add_argument("--count", type=int, default=12)
-        command.add_argument("--kind", choices=["book", "screenshot", "monitor"], default=None)
+        command.add_argument("--kind", choices=KINDS, default=None)
         command.add_argument("--out", required=True)
         command.add_argument("--workers", type=int, default=4)
     commands.choices["sheet"].add_argument("--columns", type=int, default=3)

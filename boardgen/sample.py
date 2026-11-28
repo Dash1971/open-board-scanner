@@ -10,8 +10,11 @@ import numpy as np
 from . import board as board_module
 from . import camera, positions, scene
 
-KINDS = ("book", "screenshot", "monitor")
-KIND_WEIGHTS = (0.60, 0.25, 0.15)
+# Stored data refers to kinds by position, so new kinds go at the end.
+KINDS = ("book", "screenshot", "monitor", "ebook")
+KIND_WEIGHTS = (0.45, 0.22, 0.13, 0.20)
+POINTER_PROBABILITY = 0.25  # on screens of any kind
+BADGE_PROBABILITY = 0.06  # on chess-site boards
 
 
 @dataclass
@@ -72,6 +75,7 @@ def generate(
     board_fraction: tuple[float, float] = (0.35, 0.9),
     piece_sets: tuple[str, ...] | None = None,
     turns: bool = True,
+    overlays: bool = True,
 ) -> Sample:
     """Generate sample `index` of the stream identified by `seed`.
 
@@ -79,7 +83,8 @@ def generate(
     degrade=False skips lighting, blur, noise and compression (for tests).
     board_fraction is the range of the board's width as a share of the photo's
     shorter side. piece_sets limits which piece sets may be drawn. turns=False
-    keeps every photo upright.
+    keeps every photo upright. overlays=False leaves out mouse pointers and
+    end-of-game badges on screens.
     """
     rng = np.random.default_rng([seed, index])
     drawn = str(rng.choice(KINDS, p=KIND_WEIGHTS))
@@ -88,14 +93,30 @@ def generate(
         raise ValueError(f"unknown kind {kind!r}")
 
     placement, method = positions.sample_placement(rng)
-    white_at_bottom = bool(rng.random() >= (0.15 if kind == "book" else 0.4))
+    white_at_bottom = bool(rng.random() >= (0.4 if kind in ("screenshot", "monitor") else 0.15))
     visual = placement if white_at_bottom else placement[::-1]
     meta = {"seed": seed, "index": index, "position": method}
+
+    # Overlays use their own random stream, so that a sample drawn without them
+    # is the same picture with the same labels, minus the overlays.
+    overlay_rng = np.random.default_rng([seed, index, 8])
+
+    def add_overlays(view: np.ndarray, corners: np.ndarray, sq: int) -> dict:
+        if not overlays:
+            return {}
+        added = {}
+        if kind != "ebook" and overlay_rng.random() < BADGE_PROBABILITY:
+            added["badges"] = scene.add_badges(overlay_rng, view, corners, sq, visual)
+        if overlay_rng.random() < POINTER_PROBABILITY:
+            scene.add_pointer(overlay_rng, view, corners, sq)
+            added["pointer"] = True
+        return added
 
     if kind == "screenshot":
         sq = int(rng.integers(28, 110))
         flat = board_module.render_screen_board(rng, sq, visual, white_at_bottom, piece_sets)
         view, corners, scene_meta = scene.make_screen(rng, flat, sq)
+        scene_meta |= add_overlays(view, corners, sq)
         if degrade:
             image, scale = camera.degrade_screenshot(rng, view, long_side)
         else:
@@ -110,20 +131,29 @@ def generate(
     side = fraction * min(width, height)
     sq = max(14, int(round(side / 8 * rng.uniform(1.0, 1.25))))
 
-    if kind == "book":
-        warmth = rng.uniform(0, 1)
-        paper = (rng.uniform(205, 252) * np.array([1.0, 1 - 0.04 * warmth, 1 - 0.13 * warmth])).astype(np.float32)
+    if kind in ("book", "ebook"):
+        printed = kind == "book"
+        warmth = rng.uniform(0, 1) if printed else rng.uniform(0, 0.4)
+        lightness = rng.uniform(205, 252) if printed else rng.uniform(215, 255)
+        paper = (lightness * np.array([1.0, 1 - 0.04 * warmth, 1 - 0.13 * warmth])).astype(np.float32)
         ink = (rng.uniform(8, 75) * np.array([1.0, 0.98, 0.95])).astype(np.float32)
         style = board_module.sample_book_style(rng, sq, paper, ink, piece_sets)
         flat = board_module.render_book_board(rng, style, visual, white_at_bottom)
-        view, corners, scene_meta = scene.make_book_page(rng, style, flat, fraction)
-        if rng.random() < 0.7:  # slight ink spread and softness from printing
+        view, corners, scene_meta = scene.make_book_page(rng, style, flat, fraction, printed)
+        if rng.random() < 0.7:  # slight ink spread and softness from printing or scanning
             view = cv2.GaussianBlur(view, (0, 0), max(0.3, sq / 48 * rng.uniform(0.3, 0.9)))
-        background = rng.uniform(20, 200) * rng.uniform(0.7, 1.0, 3)
-        max_skew, curl_probability = 0.09, 0.5
+        if not printed:
+            view, corners, reader_meta = scene.make_reader(rng, view, corners, sq)
+            scene_meta |= reader_meta
     else:
         flat = board_module.render_screen_board(rng, sq, visual, white_at_bottom, piece_sets)
         view, corners, scene_meta = scene.make_screen(rng, flat, sq)
+
+    if kind == "book":
+        background = rng.uniform(20, 200) * rng.uniform(0.7, 1.0, 3)
+        max_skew, curl_probability = 0.09, 0.5
+    else:  # a monitor, photographed
+        scene_meta |= add_overlays(view, corners, sq)
         bezel = int(sq * rng.uniform(0.2, 1.2))
         view = cv2.copyMakeBorder(view, bezel, bezel, bezel, bezel, cv2.BORDER_CONSTANT, value=(12.0, 12.0, 12.0))
         corners = corners + bezel
@@ -134,7 +164,7 @@ def generate(
         rng, view, corners, width, height, side, max_skew, curl_probability, background
     )
     if degrade:
-        image, degrade_meta = camera.degrade_photo(rng, photo, in_scene if kind == "monitor" else None)
+        image, degrade_meta = camera.degrade_photo(rng, photo, None if kind == "book" else in_scene)
     else:
         image, degrade_meta = np.clip(photo + 0.5, 0, 255).astype(np.uint8), {}
     meta.update(flat.meta | scene_meta | camera_meta | degrade_meta)

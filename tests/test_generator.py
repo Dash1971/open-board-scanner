@@ -1,10 +1,13 @@
 """Checks that samples are reproducible and that their labels match the image."""
 
+import dataclasses
+
 import cv2
 import numpy as np
 import pytest
 
 from boardgen import CLASSES, KINDS, generate, rectify
+from boardgen.board import render_book_board, sample_book_style
 from boardgen.camera import Curl
 from boardgen.positions import to_fen
 
@@ -68,6 +71,79 @@ def test_corners_and_squares_line_up_with_the_pixels(kind, index):
     bare = float(np.median(empty))
     assert (occupied > 2 * bare + 2.0).mean() >= 0.95
     assert (empty < np.median(occupied)).mean() >= 0.6
+
+
+@pytest.mark.parametrize("index", range(8))
+def test_ebook_corners_line_up_with_the_squares(index):
+    """On a clean e-book photo the corners frame the printed squares.
+
+    Dark squares are patterned, so pieces cannot be told from texture as on
+    screens. Instead, the inside of each empty light square must be plain
+    paper and each empty dark square darker than that. Only a sixteenth of a
+    square is left out at each edge, so a grid shifted by a tenth of a square
+    puts pattern into the light squares and fails.
+    """
+    sample = generate(21, index, "ebook", degrade=False, overlays=False)
+    crop = rectify(sample.image, sample.corners, 256).astype(np.float32).mean(axis=2)
+    cells = crop.reshape(8, 32, 8, 32).swapaxes(1, 2)[:, :, 2:30, 2:30]
+    grid = np.array(sample.squares, dtype=object).reshape(8, 8)
+    dark = (np.add.outer(np.arange(8), np.arange(8)) % 2).astype(bool)
+    if sample.quarter_turns % 2:  # a quarter turn moves h1 (light) to a dark corner position
+        dark = ~dark
+    empty = grid == ""
+    light_cells, dark_cells = cells[empty & ~dark], cells[empty & dark]
+    if len(light_cells) < 4 or len(dark_cells) < 4:
+        pytest.skip("needs empty squares of both colours")
+    paper = np.median(light_cells.mean(axis=(1, 2)))
+    assert (light_cells.std(axis=(1, 2)) < 6).mean() >= 0.9
+    assert (dark_cells.mean(axis=(1, 2)) < paper - 8).mean() >= 0.9
+
+
+def test_speckled_squares_are_reproducible_and_cover_the_planned_share():
+    paper, ink = np.full(3, 240, np.float32), np.full(3, 20, np.float32)
+    style = sample_book_style(np.random.default_rng(1), 64, paper, ink)
+    style = dataclasses.replace(style, dark="speckle", spacing=2.0, grey=0.45, grid=False, coords=False, marker=False)
+    first = render_book_board(np.random.default_rng(2), style, [""] * 64, True)
+    again = render_book_board(np.random.default_rng(2), style, [""] * 64, True)
+    other = render_book_board(np.random.default_rng(3), style, [""] * 64, True)
+    assert np.array_equal(first.image, again.image)
+    assert not np.array_equal(first.image, other.image)
+    m = style.margin
+    area = first.image[m : m + 512, m : m + 512].mean(axis=2)
+    ink_share = (240 - area) / 220
+    squares = ink_share.reshape(8, 64, 8, 64).mean(axis=(1, 3))
+    dark = np.add.outer(np.arange(8), np.arange(8)) % 2 == 1
+    assert np.allclose(squares[dark], 0.45, atol=0.06)
+    assert squares[~dark].max() < 0.01
+
+
+def test_speckle_style_is_drawn_for_some_books():
+    styles = {generate(9, index, "book").meta["dark_squares"] for index in range(40)}
+    assert "speckle" in styles
+
+
+@pytest.mark.parametrize("kind", ["screenshot", "monitor", "ebook"])
+def test_overlays_change_pixels_but_not_labels(kind):
+    """Pointers and badges have their own random stream: without them the
+    sample is the same picture, with the same labels."""
+    found = 0
+    for index in range(60):
+        sample = generate(13, index, kind, degrade=False)
+        if not (sample.meta.get("pointer") or sample.meta.get("badges")):
+            continue
+        bare = generate(13, index, kind, degrade=False, overlays=False)
+        labels, bare_labels = sample.labels(), bare.labels()
+        overlay_keys = {"pointer", "badges"}
+        assert {k: v for k, v in labels["meta"].items() if k not in overlay_keys} == bare_labels["meta"]
+        labels.pop("meta"), bare_labels.pop("meta")
+        assert labels == bare_labels
+        changed = np.abs(sample.image.astype(np.int16) - bare.image.astype(np.int16)).max(axis=2) > 0
+        assert 0 < changed.mean() < 0.02
+        assert generate(13, index, kind, degrade=False).labels() == sample.labels()
+        found += 1
+        if found == 3:
+            break
+    assert found, "expected an overlay in sixty samples"
 
 
 def test_curl_solver_finds_where_page_points_land():

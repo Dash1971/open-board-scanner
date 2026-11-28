@@ -77,8 +77,9 @@ are not used as training labels.
 
 ## Synthetic data generator
 
-`boardgen` produces labelled images of three kinds: phone photos of printed
-diagrams, direct screenshots, and phone photos of a monitor. Every sample is a
+`boardgen` produces labelled images of four kinds: phone photos of printed
+diagrams, direct screenshots, phone photos of a chess site on a monitor, and
+phone photos of an e-book page (a PDF or reader app) on a monitor. Every sample is a
 pure function of `(seed, index)`, so a dataset never has to be stored or shared.
 
 ![Twelve generated samples. Left of each pair: the image with the labelled board outline. Right: the board as the classifier will see it, cropped with deliberate error.](docs/samples/sheet-seed1.jpg)
@@ -102,12 +103,14 @@ What varies:
   pieces are also stretched and their strokes thickened or thinned, because
   typefaces differ in proportion and weight far more than the available
   artwork does.
-- **Printed diagrams**: hatched, cross-hatched, dotted, grey and halftone dark
-  squares; frames; coordinates; white halos around pieces; a page of Latin or
+- **Printed diagrams**: hatched, cross-hatched, dotted, speckled, grey and
+  halftone dark squares; frames; coordinates; white halos around pieces; a page of Latin or
   Cyrillic text; a second diagram nearby; print showing through the paper.
 - **Screens**: board colours, last-move and check highlights,
   legal-move dots, arrows, circles, coordinates, and a generic app layout with
-  player bars, clocks, an evaluation bar and a move list.
+  player bars, clocks, an evaluation bar and a move list. A mouse pointer
+  may lie over the board, and kings may carry end-of-game badges. E-book
+  pages sit in a reader window, zoomed or framed, sometimes under a toolbar.
 - **Camera**: perspective, tilt, page curl, uneven light, shadows, glare,
   screen moiré, blur, sensor noise, low resolution and JPEG compression.
 - **Sideways photos**: about a third of book photos are turned by a quarter
@@ -122,7 +125,7 @@ Each sample is labelled with:
 | `placement` | The FEN piece-placement field of the real position. |
 | `quarter_turns` | How many quarter turns counter-clockwise bring the image upright. |
 | `white_at_bottom` | `false` when the upright board is shown from Black's side. |
-| `kind`, `meta` | `book`, `screenshot` or `monitor`, and the style choices made for the sample. |
+| `kind`, `meta` | `book`, `screenshot`, `monitor` or `ebook`, and the style choices made for the sample. |
 
 Known gaps: the degradations have not been tuned against real photos. One process generates about two full samples a second on
 an Apple M4.

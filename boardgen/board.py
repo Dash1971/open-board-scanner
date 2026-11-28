@@ -102,6 +102,21 @@ def dot_pattern(n: int, spacing: float, radius: float, angle: float) -> np.ndarr
     return np.clip(radius - np.hypot(u, v) + 0.5, 0.0, 1.0)
 
 
+def speckle_pattern(rng: np.random.Generator, n: int, grain: float, share: float) -> np.ndarray:
+    """Irregular ink specks about `grain` pixels across covering about `share` of the area, as a 0..1 map.
+
+    Some books and scanned e-books print dark squares this way. Blurred white
+    noise cut at a quantile gives blobs of the right size and coverage, with
+    edges about a pixel soft.
+    """
+    noise = rng.standard_normal((n, n)).astype(np.float32)
+    if grain > 1.0:
+        noise = cv2.GaussianBlur(noise, (0, 0), grain * 0.4)
+    spread = float(noise.std()) + 1e-6
+    cut = float(np.quantile(noise[:: max(1, n // 64), :: 3], 1.0 - share))
+    return np.clip((noise - cut) / (spread * 0.35) + 0.5, 0.0, 1.0)
+
+
 def _playing_area_corners(origin: int, n: int) -> np.ndarray:
     lo, hi = origin - 0.5, origin + n - 0.5
     return np.array([[lo, lo], [hi, lo], [hi, hi], [lo, hi]], dtype=np.float32)
@@ -151,8 +166,11 @@ def sample_book_style(
     """Draw the look of a printed diagram; piece_sets limits which sets may be used."""
     every_set = [name for name in assets.piece_sets() if piece_sets is None or name in piece_sets]
     print_sets = [name for name in assets.print_piece_sets() if name in every_set] or every_set
-    dark = str(rng.choice(["hatch", "grey", "halftone", "cross", "dots"], p=[0.42, 0.30, 0.12, 0.08, 0.08]))
-    if dark == "halftone":
+    dark = str(rng.choice(["hatch", "grey", "halftone", "cross", "dots", "speckle"], p=[0.37, 0.27, 0.11, 0.07, 0.07, 0.11]))
+    if dark == "speckle":
+        spacing = sq * rng.uniform(0.012, 0.035)  # grain size
+        thickness = 1.0  # not used: grey sets the share of ink
+    elif dark == "halftone":
         spacing = sq / rng.uniform(9, 18)
         thickness = spacing * rng.uniform(0.25, 0.42)  # dot radius
     elif dark == "dots":
@@ -162,7 +180,7 @@ def sample_book_style(
         spacing = sq / rng.uniform(4.5, 11)
         thickness = spacing * rng.uniform(0.15, 0.45)
     piece_set = str(rng.choice(print_sets)) if rng.random() < 0.8 else str(rng.choice(every_set))
-    patterned = dark in ("hatch", "cross", "dots")
+    patterned = dark in ("hatch", "cross", "dots", "speckle")
     # Typefaces differ in proportions and line weight far more than the available
     # artwork does, so pieces are stretched and their strokes thickened or thinned.
     stretch = float(rng.uniform(0.8, 1.25)) if rng.random() < 0.6 else 1.0
@@ -181,7 +199,7 @@ def sample_book_style(
         spacing=float(max(spacing, 2.0)),
         thickness=float(max(thickness, 0.6)),
         angle=float(rng.choice([45.0, 135.0]) + rng.normal(0, 1.5)),
-        grey=float(rng.uniform(0.12, 0.5)),
+        grey=float(rng.uniform(0.3, 0.55) if dark == "speckle" else rng.uniform(0.12, 0.5)),  # ink share
         halo=float(rng.uniform(0.03, 0.09)) if patterned and rng.random() < 0.75 else 0.0,
         frame=int(max(1, round(sq * rng.uniform(0.02, 0.09)))) if rng.random() < 0.85 else 0,
         double_frame=bool(rng.random() < 0.2),
@@ -240,6 +258,8 @@ def render_book_board(
             line_pattern(n, style.spacing, style.thickness, style.angle, offset),
             line_pattern(n, style.spacing, style.thickness, style.angle + 90, offset),
         )
+    elif style.dark == "speckle":
+        coverage = speckle_pattern(rng, n, style.spacing, style.grey)
     elif style.dark in ("dots", "halftone"):
         coverage = dot_pattern(n, style.spacing, style.thickness, 45.0 if style.dark == "halftone" else 0.0)
     else:
