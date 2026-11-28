@@ -97,8 +97,10 @@ and `boardgen.rectify(image, corners)` cuts out the board.
 
 What varies:
 
-- **Positions**: random legal play, sparse endgames, pieces scattered without
-  regard to legality, the starting position and the empty board.
+- **Positions**: real puzzle positions from the Lichess database (after
+  `tools/fetch_positions.py`), random legal play, sparse endgames, pieces
+  scattered without regard to legality, the starting position and the empty
+  board.
 - **Piece artwork**: 69 sets, 29 of which look like book typefaces. Printed
   pieces are also stretched and their strokes thickened or thinned, because
   typefaces differ in proportion and weight far more than the available
@@ -106,7 +108,8 @@ What varies:
 - **Printed diagrams**: hatched, cross-hatched, dotted, speckled, grey and
   halftone dark squares; frames; coordinates; white halos around pieces; a page of Latin or
   Cyrillic text; a second diagram nearby; print showing through the paper.
-- **Screens**: board colours, last-move and check highlights,
+- **Screens**: flat board colours or, after `tools/fetch_boards.py`, wood,
+  marble and other textured boards; last-move and check highlights,
   legal-move dots, arrows, circles, coordinates, and a generic app layout with
   player bars, clocks, an evaluation bar and a move list. A mouse pointer
   may lie over the board, and kings may carry end-of-game badges. E-book

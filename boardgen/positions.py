@@ -6,8 +6,16 @@ entry is a piece symbol (PNBRQK for White, pnbrqk for Black) or "" if empty.
 
 from __future__ import annotations
 
+from functools import lru_cache
+from pathlib import Path
+
 import chess
 import numpy as np
+
+ROOT = Path(__file__).resolve().parent.parent
+# Written by tools/fetch_positions.py; tests point this at a missing file.
+REAL_POSITIONS = ROOT / "data" / "assets" / "positions" / "lichess-puzzles.txt"
+REAL_SHARE = 0.35  # of all samples, taken from the random-game share when the file exists
 
 CLASSES = ("", "P", "N", "B", "R", "Q", "K", "p", "n", "b", "r", "q", "k")
 _SCATTER_SYMBOLS = ("P", "N", "B", "R", "Q", "K", "p", "n", "b", "r", "q", "k")
@@ -37,6 +45,39 @@ def _game(rng: np.random.Generator) -> list[str]:
     return _from_board(board)
 
 
+@lru_cache(maxsize=4)
+def _real_positions_in(path: Path) -> tuple[str, ...]:
+    if not path.exists():
+        return ()
+    return tuple(line.strip() for line in path.read_text().splitlines() if line.strip())
+
+
+def real_positions() -> tuple[str, ...]:
+    """Placements from real games and puzzles, or () if none have been fetched."""
+    return _real_positions_in(Path(REAL_POSITIONS))
+
+
+def _real(rng: np.random.Generator) -> list[str]:
+    """A position from a real game, sometimes a few random legal moves further on.
+
+    Real positions have the structures random play rarely reaches (castled
+    kings, pawn chains, fianchettoed bishops); the extra moves vary them while
+    keeping those structures.
+    """
+    found = real_positions()
+    board = chess.Board(found[int(rng.integers(len(found)))] + " w - - 0 1")
+    if rng.random() < 0.5:
+        board.turn = chess.WHITE if rng.random() < 0.5 else chess.BLACK
+        if board.was_into_check():  # the side not to move is in check: the other side moves
+            board.turn = not board.turn
+        for _ in range(int(rng.integers(1, 7))):
+            moves = list(board.legal_moves)
+            if not moves:
+                break
+            board.push(moves[int(rng.integers(len(moves)))])
+    return _from_board(board)
+
+
 def _sparse(rng: np.random.Generator) -> list[str]:
     """Two kings and up to six other pieces, as in endgames and studies."""
     extras = int(rng.integers(0, 7))
@@ -59,6 +100,8 @@ def _scatter(rng: np.random.Generator) -> list[str]:
 def sample_placement(rng: np.random.Generator) -> tuple[list[str], str]:
     """Return a placement and the name of the method that produced it."""
     roll = rng.random()
+    if roll < REAL_SHARE and real_positions():
+        return _real(rng), "real"
     if roll < 0.55:
         return _game(rng), "game"
     if roll < 0.75:

@@ -179,6 +179,19 @@ riohacha), are stored as raster images this tool does not fetch (monarchy),
 or cannot be labelled: mono draws both sides alike and disguised hides which
 piece is which.
 
+## Board textures and positions
+
+`tools/fetch_boards.py` and `tools/fetch_positions.py` download these; the
+manifests are [`assets/boards.json`](assets/boards.json) and
+[`assets/positions.json`](assets/positions.json).
+
+| Data | Source | Author | Terms |
+| --- | --- | --- | --- |
+| 24 board images | lichess-org/lila, `public/images/board` | the lila authors and pirouetti | AGPL-3.0-or-later |
+| 13 pairs of square textures | pychess/pychess, `boards/` | not stated | none stated for the boards; the repository is GPL-3.0 |
+| 15 board textures | Isarhamster/chessx, `data/themes/boards` | not stated | none stated for the boards; the repository is GPL-2.0-or-later |
+| About 60,000 puzzle positions | database.lichess.org | Lichess | CC0 |
+
 ## Fonts
 
 Source: [google/fonts](https://github.com/google/fonts) at commit

@@ -1,0 +1,10 @@
+{
+  "name": "Lichess puzzle database",
+  "url": "https://database.lichess.org/lichess_db_puzzle.csv.zst",
+  "about": "https://database.lichess.org/#puzzles",
+  "licence": "CC0-1.0",
+  "use": "the first rows only; each puzzle position as shown to the solver (after the first move of the line), piece placement only",
+  "file": "data/assets/positions/lichess-puzzles.txt",
+  "rows_read": 60000,
+  "positions": 59979
+}

@@ -14,22 +14,55 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw
 
-from . import assets
+from . import assets, textures
 
+# Flat light and dark square colours, close to the schemes of common sites and
+# programs. Exact values matter less than covering the range people meet.
 SCREEN_THEMES = (
+    # browns and woods
     ((240, 217, 181), (181, 136, 99)),
-    ((238, 238, 210), (118, 150, 86)),
-    ((222, 227, 230), (140, 162, 173)),
-    ((232, 235, 239), (125, 135, 150)),
-    ((240, 240, 240), (160, 160, 160)),
-    ((255, 255, 221), (134, 166, 102)),
     ((236, 218, 185), (174, 138, 104)),
-    ((220, 220, 220), (100, 130, 170)),
-    ((245, 219, 195), (187, 87, 70)),
-    ((230, 230, 250), (150, 120, 180)),
+    ((237, 214, 176), (184, 135, 98)),
     ((255, 228, 178), (209, 139, 71)),
+    ((250, 228, 174), (209, 136, 21)),
+    ((222, 184, 135), (139, 90, 43)),
+    ((189, 146, 85), (107, 64, 39)),
+    # greens
+    ((238, 238, 210), (118, 150, 86)),
+    ((255, 255, 221), (134, 166, 102)),
+    ((235, 236, 208), (115, 149, 82)),
+    ((243, 243, 244), (106, 155, 65)),
+    ((200, 195, 101), (119, 162, 109)),
+    ((236, 236, 236), (193, 193, 142)),
+    ((241, 246, 179), (89, 147, 93)),
+    # blues
+    ((222, 227, 230), (140, 162, 173)),
+    ((234, 233, 210), (75, 115, 153)),
+    ((220, 220, 220), (100, 130, 170)),
+    ((197, 213, 220), (122, 157, 178)),
+    ((239, 239, 239), (140, 180, 210)),
+    ((232, 235, 239), (125, 135, 150)),
+    # greys
+    ((240, 240, 240), (160, 160, 160)),
+    ((220, 220, 220), (171, 171, 171)),
     ((200, 200, 200), (90, 90, 90)),
+    # purples and reds
+    ((230, 230, 250), (150, 120, 180)),
+    ((240, 241, 240), (132, 118, 186)),
+    ((159, 144, 176), (125, 74, 141)),
+    ((245, 219, 195), (187, 87, 70)),
+    ((255, 255, 255), (232, 155, 160)),
+    ((237, 238, 191), (242, 117, 117)),
+    # high contrast
+    ((255, 255, 255), (110, 110, 110)),
+    ((255, 255, 255), (150, 190, 120)),
+    ((255, 255, 200), (60, 120, 60)),
+    # dark interfaces
+    ((171, 171, 171), (105, 105, 105)),
+    ((140, 151, 166), (82, 93, 110)),
+    ((150, 135, 115), (95, 80, 65)),
 )
+TEXTURE_PROBABILITY = 0.35  # of screen boards, when board textures have been fetched
 HIGHLIGHT_COLOURS = ((205, 210, 106), (155, 199, 0), (247, 236, 116), (100, 170, 220), (240, 150, 80))
 ARROW_COLOURS = ((21, 120, 27), (136, 32, 32), (0, 48, 136), (230, 143, 0), (255, 170, 0))
 
@@ -355,12 +388,20 @@ def render_screen_board(
     coords = str(rng.choice(["none", "inside", "outside"], p=[0.4, 0.45, 0.15]))
     m = int(sq * rng.uniform(0.45, 0.7)) if coords == "outside" else int(sq * rng.uniform(0, 0.25) * (rng.random() < 0.4))
     size = n + 2 * m
-    surround = np.clip(dark_colour * rng.uniform(0.4, 1.3), 0, 255) if rng.random() < 0.5 else light
     image = np.empty((size, size, 3), np.float32)
-    image[:] = surround
     area = image[m : m + n, m : m + n]
     dark = checker(sq)[..., None]
-    area[:] = light * (1 - dark) + dark_colour * dark
+    texture = ""
+    if textures.available() and rng.random() < TEXTURE_PROBABILITY:
+        area[:], texture = textures.surface(rng, sq, light, dark_colour)
+        # Coordinates and the surround take the colours the texture actually shows.
+        light = (area * (1 - dark)).sum(axis=(0, 1)) / (1 - dark).sum()
+        dark_colour = (area * dark).sum(axis=(0, 1)) / dark.sum()
+    else:
+        area[:] = light * (1 - dark) + dark_colour * dark
+    surround = np.clip(dark_colour * rng.uniform(0.4, 1.3), 0, 255) if rng.random() < 0.5 else light
+    for band in (image[:m], image[m + n :], image[m : m + n, :m], image[m : m + n, m + n :]):
+        band[:] = surround
     if rng.random() < 0.3:
         area += (smooth_field(rng, n, n, sq * rng.uniform(0.15, 1.5)) * rng.uniform(3, 12))[..., None]
 
@@ -455,4 +496,6 @@ def render_screen_board(
         image[:] = (image @ np.array([0.299, 0.587, 0.114], np.float32))[..., None]
 
     meta = {"style": "screen", "piece_set": piece_set, "coords": coords != "none"}
+    if texture:
+        meta["texture"] = texture
     return BoardImage(np.clip(image, 0, 255), _playing_area_corners(m, n), meta)

@@ -1,0 +1,473 @@
+{
+  "description": "Board surfaces for on-screen boards. kind 'board' is an image of a whole 8x8 board with a light square at the top left (Lichess); 'pair' is a light and a dark square texture in two files (PyChess); 'stacked' is one image with the light texture in its top half and the dark one below (ChessX). Any square texture may also be tinted with flat colours (boardgen/textures.py).",
+  "sources": {
+    "lichess": {
+      "repo": "lichess-org/lila",
+      "commit": "1f25f6ae91088627103f1e3b6da76fa78e78ff8d",
+      "path": "public/images/board",
+      "author": "the lila authors and pirouetti",
+      "terms": "AGPL-3.0-or-later (COPYING.md lists public/images/board under AGPLv3+)",
+      "terms_url": "https://github.com/lichess-org/lila/blob/1f25f6ae91088627103f1e3b6da76fa78e78ff8d/COPYING.md"
+    },
+    "pychess": {
+      "repo": "pychess/pychess",
+      "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+      "path": "boards",
+      "author": "not stated (ARTISTS lists no board textures)",
+      "terms": "no terms stated for the board textures; the repository as a whole is GPL-3.0 (LICENSE)",
+      "terms_url": "https://github.com/pychess/pychess/blob/d434d37d35736601cd8c384c8947ad4e06921f8d/LICENSE"
+    },
+    "chessx": {
+      "repo": "Isarhamster/chessx",
+      "commit": "c7d815796e977c1ededef515d6db00bff326bd8d",
+      "path": "data/themes/boards",
+      "author": "not stated",
+      "terms": "no terms stated for the board textures; the repository as a whole is GPL-2.0-or-later (COPYING.md, README.md)",
+      "terms_url": "https://github.com/Isarhamster/chessx/blob/c7d815796e977c1ededef515d6db00bff326bd8d/COPYING.md"
+    }
+  },
+  "boards": {
+    "lichess-blue-marble": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "blue-marble.jpg",
+      "sha256": {
+        "blue-marble.jpg": "788bdb3571ec0fec2e3d4a64947f71d7e23009a4f6624ad24ebc875f2ccd2ba6"
+      }
+    },
+    "lichess-blue": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "blue.png",
+      "sha256": {
+        "blue.png": "a313a2d16eb84ed82e9967193e1f23a126ddeda1d3a007f948fe2b1319789291"
+      }
+    },
+    "lichess-blue2": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "blue2.jpg",
+      "sha256": {
+        "blue2.jpg": "47cec5423132bbf4cef3ddce07ddf5e1525294307fb9fa8483c1b807b59a5811"
+      }
+    },
+    "lichess-blue3": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "blue3.jpg",
+      "sha256": {
+        "blue3.jpg": "8d4d0b74829fd37b899421229e052604b33850ec1c6f9420ef7edf29ebe91619"
+      }
+    },
+    "lichess-brown": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "brown.png",
+      "sha256": {
+        "brown.png": "d4a5fe345f74bcd5482ce81bfa44e2990e6d4d1e647511145b3ae87b8dc289d8"
+      }
+    },
+    "lichess-canvas2": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "canvas2.jpg",
+      "sha256": {
+        "canvas2.jpg": "ea84ca546b4e8620e774469e07036edbb627f18691111b64a1daef39424dee0d"
+      }
+    },
+    "lichess-green-plastic": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "green-plastic.png",
+      "sha256": {
+        "green-plastic.png": "6f975618487c2d87ef548116d9a7e48a46eeb21d5fe77a962924c768b90f79f6"
+      }
+    },
+    "lichess-green": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "green.png",
+      "sha256": {
+        "green.png": "2f5abd91feaaf2be910bf22e7053749c5d7afc30b931611858ac126bb9d9adc2"
+      }
+    },
+    "lichess-grey": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "grey.jpg",
+      "sha256": {
+        "grey.jpg": "7f4c6dacb45743ca89e7a01d988f3f56ca82ae8da92c0ffecbd2a9c68f3ec6bc"
+      }
+    },
+    "lichess-horsey": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "horsey.jpg",
+      "sha256": {
+        "horsey.jpg": "22419a7d9b0999f67be32966ab4f47cf2ea264811b1b04057c253a7485459035"
+      }
+    },
+    "lichess-ic": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "ic.png",
+      "sha256": {
+        "ic.png": "87d2f16adc15b77359fd6e204bb1590d4adb5774caa7b0f461d253dbbb6ce21e"
+      }
+    },
+    "lichess-leather": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "leather.jpg",
+      "sha256": {
+        "leather.jpg": "c3c76e69bbe6e1e9ee0693bea213921e501ae8ed878208140e460c20ebb78172"
+      }
+    },
+    "lichess-maple": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "maple.jpg",
+      "sha256": {
+        "maple.jpg": "bb87290d35132f95df5554e8b02ecdac91805e8298be9e77024a11c3479df85b"
+      }
+    },
+    "lichess-maple2": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "maple2.jpg",
+      "sha256": {
+        "maple2.jpg": "916cc605c6963c157c298b16333608ff5ede2f3b833254283c45e46f01f57a86"
+      }
+    },
+    "lichess-marble": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "marble.jpg",
+      "sha256": {
+        "marble.jpg": "1d855696aaa2a243410c3fa28e610d7419357df0b4ba838852cb05e02d35ad25"
+      }
+    },
+    "lichess-metal": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "metal.jpg",
+      "sha256": {
+        "metal.jpg": "d475ecaa08a826012a582b681cb61c3f8850ae3b8e30cb2e98f89d6d979218ff"
+      }
+    },
+    "lichess-olive": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "olive.jpg",
+      "sha256": {
+        "olive.jpg": "38f8c32c39d0df1c068e471b8c87fb609a8190697fe72e06b4519837be9996df"
+      }
+    },
+    "lichess-pink-pyramid": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "pink-pyramid.png",
+      "sha256": {
+        "pink-pyramid.png": "36f586d80dca50f2da2eeb42e8ee155fe02992aa63425369a58abf2bec705b69"
+      }
+    },
+    "lichess-purple-diag": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "purple-diag.png",
+      "sha256": {
+        "purple-diag.png": "303094fe9d01c44100e82ee488d5050883b250e55acfd26192addacb209588c1"
+      }
+    },
+    "lichess-purple": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "purple.png",
+      "sha256": {
+        "purple.png": "0a9f76bd9a53e0fcb190121899f0e0a86eb91e916e7bc8f67a4b0f8d48478fa1"
+      }
+    },
+    "lichess-wood": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "wood.jpg",
+      "sha256": {
+        "wood.jpg": "6019d01e71e8f775878a4a8dbce3c3bfbf265b33c93aee9b7b2e2788819b1d11"
+      }
+    },
+    "lichess-wood2": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "wood2.jpg",
+      "sha256": {
+        "wood2.jpg": "a4c209b482c92ee24bd1ec3178a1df6bf89eecfdb31e25db13e8bd6ded21bc73"
+      }
+    },
+    "lichess-wood3": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "wood3.jpg",
+      "sha256": {
+        "wood3.jpg": "05fc1c904fbb8857ea9b2ba1462de780ec7b42c6d2e3349bde6eb9bd283560b6"
+      }
+    },
+    "lichess-wood4": {
+      "source": "lichess",
+      "kind": "board",
+      "file": "wood4.jpg",
+      "sha256": {
+        "wood4.jpg": "c6af794973f823f33e9a58cd9606714a49bc807311422d7849eaebcd52f899ed"
+      }
+    },
+    "pychess-aluminium": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "aluminium_l.png",
+      "dark": "aluminium_d.png",
+      "sha256": {
+        "aluminium_l.png": "b965d9fb6c5471cd9221decff3694cb4495db2a4dfc20a2980338f2b48361e16",
+        "aluminium_d.png": "28e595e9f6cb154cc88520128bf8f99f4f235bf0aa6e4e161ac29ea4097afac2"
+      }
+    },
+    "pychess-brazilwood": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "brazilwood_l.png",
+      "dark": "brazilwood_d.png",
+      "sha256": {
+        "brazilwood_l.png": "e68486e51291499bd641f36a3dfe50954f6f24be80595072ad88422bf921e1af",
+        "brazilwood_d.png": "a4ab916efc06e120b9442a6d5c61a5ed48d8d1ff8deda39b74e8c3c564e259dd"
+      }
+    },
+    "pychess-cherry": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "cherry_l.png",
+      "dark": "cherry_d.png",
+      "sha256": {
+        "cherry_l.png": "122d16073ff942b861c97550af3511a0ffa8e493c41e2afe09b7fff3f05a23f6",
+        "cherry_d.png": "c87a69867da13941ff4566c1888d571f836a6a72ac9f1ba605a0e52b0f5e188b"
+      }
+    },
+    "pychess-fritz": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "fritz_l.png",
+      "dark": "fritz_d.png",
+      "sha256": {
+        "fritz_l.png": "589dff2f136fd7bacd5c8d6d51c8eedf94596901fd677fb41143cb7c7264da7a",
+        "fritz_d.png": "1afb65cb150d6f59c9abe84a0496498dc0890e379b696380798062d2bc1d67ac"
+      }
+    },
+    "pychess-lanta": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "lanta_l.png",
+      "dark": "lanta_d.png",
+      "sha256": {
+        "lanta_l.png": "d9d0fb7ad0e2f020d0d854833fec248646f0baa43dc85c898e7110528201d6e1",
+        "lanta_d.png": "1a5b659acac79633b681a8ae9c8e5b50e39b6e8b25515615174ead8df92eef36"
+      }
+    },
+    "pychess-lapis": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "lapis_l.png",
+      "dark": "lapis_d.png",
+      "sha256": {
+        "lapis_l.png": "20821670414d9e4fbfc44119186b108c20393dc4d8183fad012e37528dcfc1eb",
+        "lapis_d.png": "c547045376e7ce80502da7c9b90f765720f6d6adeb2eaf3e7c8525779c521338"
+      }
+    },
+    "pychess-mahogony": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "mahogony_l.png",
+      "dark": "mahogony_d.png",
+      "sha256": {
+        "mahogony_l.png": "37a5bf665ee872000b8a4402aebd4880f8ba42fb5eb48a52bb02bf0dd3423794",
+        "mahogony_d.png": "789a7f1058d895f97ddd07b4615f0d0e1db91243eaaef4e4df31571d2dfd5aba"
+      }
+    },
+    "pychess-maple": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "maple_l.png",
+      "dark": "maple_d.png",
+      "sha256": {
+        "maple_l.png": "e61f65c9a8a54ff702c2c864e541bf79def6807b94f84a31ad350794cd385683",
+        "maple_d.png": "f2eacced971b1c1aaca5e1ece14c4d641b661e8761a36effb405492140f04011"
+      }
+    },
+    "pychess-marble": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "marble_l.png",
+      "dark": "marble_d.png",
+      "sha256": {
+        "marble_l.png": "1c3835d9ff9560a83f09cb43e8ea38d18ab3d9c7bfb078f832422224b16a845b",
+        "marble_d.png": "ac2b2374503b252a27613894bdcef67bb263ee9b941e23c3ee5aa95725ce582e"
+      }
+    },
+    "pychess-sand": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "sand_l.png",
+      "dark": "sand_d.png",
+      "sha256": {
+        "sand_l.png": "0bfe50d97ddb00ba8cbf5dd4b032c98db0305c7a0a6785e7f352cdf80e1b41e4",
+        "sand_d.png": "8841c73e5cffe3e35b7eee3c0cd18aa56ca37714001fd2cc8200a4d30ccb784b"
+      }
+    },
+    "pychess-sandlewood": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "sandlewood_l.png",
+      "dark": "sandlewood_d.png",
+      "sha256": {
+        "sandlewood_l.png": "89c23f3784456e0510150f9dc93b472ca3df9287289481d6e0585e87a549ec41",
+        "sandlewood_d.png": "017ecb4e943ff15645301e4b566166352e1be50a9fe92e5ec6110faa815dec47"
+      }
+    },
+    "pychess-slate": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "slate_l.png",
+      "dark": "slate_d.png",
+      "sha256": {
+        "slate_l.png": "f5a3250f2661cf126096295c866c42fbd16e39ccbfbedb442b3b6e6887f7ea94",
+        "slate_d.png": "0d5cacdbca500e99a0b73a228cbf39429c88561b46dbbd9c865cbe2717e9d73e"
+      }
+    },
+    "pychess-wood": {
+      "source": "pychess",
+      "kind": "pair",
+      "light": "wood_l.png",
+      "dark": "wood_d.png",
+      "sha256": {
+        "wood_l.png": "4a4629632e026c33bf1b7efbb2f1fba56e31ae70e65296d9cf07fc03a8b3ba12",
+        "wood_d.png": "6681216478259198fa5295e078a2706f59e8e9c36b2c5a6735ceac7d944dcbe8"
+      }
+    },
+    "chessx-aluminium": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "aluminium.png",
+      "sha256": {
+        "aluminium.png": "efe4a894c2e75b080d8478b0b7cf1edd58451b09a48a4e2505b7a9b9c8dbd17f"
+      }
+    },
+    "chessx-brazilwood": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "brazilwood.png",
+      "sha256": {
+        "brazilwood.png": "6410d7aefcdcd75a36e1cb90e1180ae9a64826e448d2cb5c51fe4251d7530683"
+      }
+    },
+    "chessx-cherry": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "cherry.png",
+      "sha256": {
+        "cherry.png": "063af8ff783b4411ec7954a6a7d03f4cf6e29eb8920bf15ad80bda5591d18aa6"
+      }
+    },
+    "chessx-cumaru": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "cumaru.png",
+      "sha256": {
+        "cumaru.png": "3a2852f2e4c99a861816b0fedfa64d96dd14948f9edc16776b839ae69c15275c"
+      }
+    },
+    "chessx-lanta": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "lanta.png",
+      "sha256": {
+        "lanta.png": "20e9a520895b5388a19ad0f544c2820cd685f73543692e6e925138989b861be6"
+      }
+    },
+    "chessx-lapis": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "lapis.png",
+      "sha256": {
+        "lapis.png": "0083abd5d26f2163f1b1a6f9e78399a1fc172415e662f55ae6942e62b23a56a2"
+      }
+    },
+    "chessx-mahogony": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "mahogony.png",
+      "sha256": {
+        "mahogony.png": "7afd4151bcb285a166e0c23ae09e67d6a9fbf7132951816cd751e70e8d5f0b1c"
+      }
+    },
+    "chessx-maple": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "maple.png",
+      "sha256": {
+        "maple.png": "52b731d6c5b5a9dc6e1c01e3807b40a9c95b0ee695b86a6659d323429e82d294"
+      }
+    },
+    "chessx-marble": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "marble.png",
+      "sha256": {
+        "marble.png": "2b01aca36c79fb54124f15ae06f2ffada2d968ce4bdc5ec5ad1a340c3b4bb799"
+      }
+    },
+    "chessx-purpleheart": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "purpleheart.png",
+      "sha256": {
+        "purpleheart.png": "8631e2f34a9e0f7cdb376bf556a341bd682b7d6419fe806e05f79e909caec493"
+      }
+    },
+    "chessx-sand": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "sand.png",
+      "sha256": {
+        "sand.png": "b44a69b8975986b96e83aae8af424e6acf77c0990b2e7edf67222628d1d9dd5e"
+      }
+    },
+    "chessx-sandlewood": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "sandlewood.png",
+      "sha256": {
+        "sandlewood.png": "e224c9cce0a1a223b550cdf07fb3c6f4caf66b4d1c176835ddd8f932a388a543"
+      }
+    },
+    "chessx-silverwood": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "silverwood.png",
+      "sha256": {
+        "silverwood.png": "66deae8f43f428ae16016498cf2ccdff069f70b223483c1cc6f983c50321e7d9"
+      }
+    },
+    "chessx-slate": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "slate.png",
+      "sha256": {
+        "slate.png": "0bc30156f4ee063fb27e02da7d20738603d94a2819c2939d2a3615c2cfd70320"
+      }
+    },
+    "chessx-wood": {
+      "source": "chessx",
+      "kind": "stacked",
+      "file": "wood.png",
+      "sha256": {
+        "wood.png": "0dd48cf5007d4cdab181fbdcc884350c57fea715cbf1665d7bf4abff2bda8c99"
+      }
+    }
+  }
+}
