@@ -40,8 +40,8 @@ def print_piece_sets() -> tuple[str, ...]:
 
 @lru_cache(maxsize=1)
 def open_piece_sets() -> tuple[str, ...]:
-    """Sets whose licence allows commercial use: everything not marked noncommercial."""
-    return tuple(name for name, entry in piece_sets().items() if not entry.get("noncommercial"))
+    """Sets under an open licence: not marked noncommercial, and not freeware with no licence text."""
+    return tuple(name for name, entry in piece_sets().items() if not entry.get("noncommercial") and not entry.get("freeware"))
 
 
 @lru_cache(maxsize=1)

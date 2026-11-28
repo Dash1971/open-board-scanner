@@ -217,8 +217,9 @@ What this shows:
   printed books and in the e-books, and its pawns, bishops and kings are
   confused with each other and sometimes given the wrong colour. Boards in
   the other printed typeface, and sparse positions in any typeface, were read
-  without error. The troublesome typeface appears to be a commercial one, so
-  it cannot be added to the generator.
+  without error. At the time the typeface looked like a commercial one. It
+  has since been identified as Good Companion, a freeware font that Lichess
+  ships as its `companion` set, and added to the generator.
 
 These are hand checks, not measurements:
 

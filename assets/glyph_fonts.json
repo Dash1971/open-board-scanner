@@ -34,6 +34,17 @@
       "black": "♚♛♜♝♞♟",
       "print": true,
       "sha256": "7d5fb73b7ca67a6798101741f5d280a3d016a56a197afcd4199dbb57b4b82a21"
+    },
+    "alphadia": {
+      "file": "AlphaDia.otf",
+      "url": "https://mirrors.ctan.org/fonts/chess/skaknew/AlphaDia.otf",
+      "author": "Eric Bentzen (Chess Alpha), adapted by Ulrich Dirr",
+      "licence": "Chess Alpha terms: free for personal non-commercial use",
+      "noncommercial": true,
+      "white": "KQRBNP",
+      "black": "kqrbnp",
+      "print": true,
+      "sha256": "f443b1640de586fda0a19330954192cad80b66b6ec26e1cf19949e4f8976b7f2"
     }
   }
 }

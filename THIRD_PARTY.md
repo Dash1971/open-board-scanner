@@ -59,6 +59,23 @@ only. They are marked `"noncommercial": true` in the manifest.
 | staunty | sadsnake1 | CC-BY-NC-SA-4.0 |
 | tatiana | sadsnake1 | CC-BY-NC-SA-4.0 |
 | xkcd | Randall Munroe | CC-BY-NC-SA-2.5 |
+| alpha | Eric Bentzen | "free for personal non commercial use" |
+
+#### Freeware sets
+
+Also from the same commit. Lichess lists these as "freeware", with no licence
+text. They are marked `"freeware": true` in the manifest and are left out by
+`--sets open`.
+
+| Set | Author | Terms as listed by Lichess |
+| --- | --- | --- |
+| leipzig | Armando Hernandez Marroquin | "freeware" |
+| companion | David L. Brown (Good Companion) | "freeware" |
+| chess7 | Style-7 | "freeware" |
+
+Good Companion is the typeface with tall, collared pawns and a boxed cross
+on the king that earlier models could not read in two of the books
+photographed for testing.
 
 What follows from using them:
 
@@ -93,23 +110,18 @@ each glyph are filled with white, as a printed diagram shows them.
 | skaknew | `SkakNew-Diagram.otf` from the [skaknew](https://ctan.org/pkg/skaknew) package on CTAN | Ulrich Dirr, after Piet Tutelaers, Torben Hoffmann and Dirk Bächle | LPPL-1.2 |
 | dejavu | `DejaVuSans.ttf` as shipped in [matplotlib](https://github.com/matplotlib/matplotlib) at commit `c21a3923e2fa7735af4b9544c79d5fd81dea1dab` | DejaVu fonts team | Bitstream Vera licence, with DejaVu's changes in the public domain |
 | noto-symbols2 | `NotoSansSymbols2-Regular.ttf` from google/fonts at the commit listed under Fonts | Google | OFL-1.1 |
+| alphadia | `AlphaDia.otf` from the skaknew package on CTAN | Eric Bentzen's Chess Alpha, adapted by Ulrich Dirr | Chess Alpha's terms: free for personal non-commercial use |
 
 CTAN is not a git repository, so the skaknew file is fetched by URL and
 relies on its recorded hash alone.
 
 ### Sets deliberately not used
 
-The skaknew package also contains `AlphaDia`, described in its README as a
-version of Eric Bentzen's Chess Alpha. Chess Alpha is free for personal
-non-commercial use only, so AlphaDia is not used.
-
-
 Lichess ships more piece sets than these. The rest were left out because they
-forbid derivatives (shahi-ivory-brown), are free for personal use only
-(alpha), are not stated clearly enough to rely on (chess7, companion, leipzig,
-reillycraig, riohacha), are stored as raster images this tool does not fetch
-(monarchy), or cannot be labelled: mono draws both sides alike and disguised
-hides which piece is which.
+forbid modification (shahi-ivory-brown), have no stated terms (reillycraig,
+riohacha), are stored as raster images this tool does not fetch (monarchy),
+or cannot be labelled: mono draws both sides alike and disguised hides which
+piece is which.
 
 ## Fonts
 

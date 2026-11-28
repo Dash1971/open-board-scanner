@@ -679,6 +679,86 @@
         "bN.svg": "7400577cc22ee93fe27cfcdb4cb9cc099e8f73519aab157502880568283ab546",
         "bP.svg": "0cb3c92ae4fe10d144dd719dc3f2de7bf33e244dae0cbbb9e4da932d521c8dee"
       }
+    },
+    "alpha": {
+      "author": "Eric Bentzen",
+      "licence": "free for personal non commercial use",
+      "noncommercial": true,
+      "print": true,
+      "sha256": {
+        "wK.svg": "5a697a3b5b245135e04a34927913df7928fc04f3254908c425a0198568867fcb",
+        "wQ.svg": "d483109640d6ddc13c840a5b124a3ac4ed5753afffc88747d81c3cc68fa945bc",
+        "wR.svg": "273d91461dc90f4e644972464cdfad49e29c5fc05dd4345dfb16867e0933aa81",
+        "wB.svg": "4c185916b0e9b163f540aaeba762f7dc3f93295ed922e3681e8e2126a97eb413",
+        "wN.svg": "64d597b5902a1e0e5d3b5289a9d9013e93a04f6f85879607f04f6bf5dda9deaf",
+        "wP.svg": "ee1c0be8c248d79e2529e9a922c54a3e8f76d4f03ed1271a03a160c5651d8148",
+        "bK.svg": "ef96c6fc2bef56adf13c5fb3a98a4148e73a72117aaebc9bf9c8e83e0b836b66",
+        "bQ.svg": "bf26b6cffe77050df00846a24590df9be166c18807d1a16554fdd4d3f5d22bdb",
+        "bR.svg": "3b57773f1729db220eae246bdc74bfb0b8edcb2a4063e849748288f9481005d8",
+        "bB.svg": "d380ce9c3958e4c1a69c73586a5822a2cf332f136bd248188b0b577471bd0c12",
+        "bN.svg": "cb5efc8318507d2103a252dbf342a2ad9ec997e803bc14ab8614f0d8cff78c13",
+        "bP.svg": "5345f64c0aef191adf8eec21a2620f33d6fca72fd8b28b928acba0088f911d13"
+      }
+    },
+    "leipzig": {
+      "author": "Armando Hernandez Marroquin",
+      "licence": "freeware",
+      "print": true,
+      "sha256": {
+        "wK.svg": "97fabe0b256933778007e13c914023084d279e00a7a3f24eac70bec1f753c1a6",
+        "wQ.svg": "35bf01d72019af9f723411e7291d6e7bee8567ea4c724e27cf22f3aadb3bac85",
+        "wR.svg": "530b3f54684e749a2a149ce5e3d23880e2e6d6ddf132f2cec181605cbc92c3e6",
+        "wB.svg": "7250042c1378bffe7f87ad779039a38a444c0d342b8b6abe5658ffbe2ad53ecd",
+        "wN.svg": "670689035cea3100ba4c4c921b5b776c50e339f19a1b964456a110c9608a5e47",
+        "wP.svg": "cf1454eb5a74f434230d39bab3b11db503e38efdc8aa09baf5ff35ee3236be49",
+        "bK.svg": "7cf3e853133a74660a97a126a9d8a1b75e9d5220faf07fb3e813d48f30abc793",
+        "bQ.svg": "9fe79f3db8e000134e8bee003ff3c07fd764305c4ec2a1178dfafecca04b2b51",
+        "bR.svg": "d999dcac6f991f1c4f101503f4db02febde8856c8af4e4ea51f5a82521e02d9f",
+        "bB.svg": "4790e2351ca414130fd41553d249c8e8f42b171099fb470f821481c7d744d61c",
+        "bN.svg": "7cf3da9f6162627c9cf29f48fb29d4a6c7d844368e25adae489530059f5c7f9c",
+        "bP.svg": "a2d3012ded2b03a42bc9943001fa6482f30f1f8099ff652e9eccb45d97990941"
+      },
+      "freeware": true
+    },
+    "companion": {
+      "author": "David L. Brown",
+      "licence": "freeware",
+      "print": true,
+      "sha256": {
+        "wK.svg": "f1d2063fb6d86e99d7684b5ab6ce31d53b9b0d87134f9032902d4ead01a9b0d0",
+        "wQ.svg": "f3f131c181fbbfb2c21fde4a5111321dc2415c614acb85532a1d7644e5d7cd35",
+        "wR.svg": "787792f1b582ce79327707e2448bc206db2262212a7cfef0f3cf44a07d06aa2b",
+        "wB.svg": "73f7aba84c8d0cca8cb1bac472c358166c804c32196491ed839d362d5934af04",
+        "wN.svg": "b09e059d93f9a011392a5a1d0d923aa0abf32e706804821189cc61dae926b2af",
+        "wP.svg": "38711372e52ac386ed53dc1015ecac6ec63db54bd2faa7a287eb64bf32cc42c4",
+        "bK.svg": "206de5a14c85cdace7b91bc92412a5849c2bfee563a0342037d07ccf32927f72",
+        "bQ.svg": "ebc71beeb29e81d40d6756230281b72766a72a663d6de068fc49468dfccf35b8",
+        "bR.svg": "57c211c1b4cee5556a872785364c9a1129625fcc9a6e779b7a0a55275edb14cc",
+        "bB.svg": "6352b7245d2db05018aaaf2b39ef10e4ee6c1230280b37990a0968a8438cdfa0",
+        "bN.svg": "520e6d46379185a91519bd60b45a873f53d4c10a0fcbf0eadbeec2ffdcbc67a7",
+        "bP.svg": "ecf7fcb4b70bf305b17a65beeab9525d6a1a62ad3ade7a0dc12e99b8c8db6064"
+      },
+      "freeware": true
+    },
+    "chess7": {
+      "author": "Style-7",
+      "licence": "freeware",
+      "print": false,
+      "sha256": {
+        "wK.svg": "e6b4181c5ba1f2cae9bddeb167d7135e4b6009a24077b2c249f24afca5645319",
+        "wQ.svg": "c5e7b9dfd133ecdde704002534ca82e8ce93da3e3cb3ef68ab8782ab1899b787",
+        "wR.svg": "f2ebe26aa0627805198d412804e9fd4a42c1a1f4a90324323d7690141acf512e",
+        "wB.svg": "e8b758acc9d3b067f7c49f00103314feaf86db20bf1d1f85e6c394cc93aa775d",
+        "wN.svg": "a5005932243e92bd41e1b1e5af3323227b41ab9b2d6d42db38d56fea45e3539f",
+        "wP.svg": "bc516efc65f771a7abb2c058566929f24e69d19ef31fe7d921e69c3813daa56b",
+        "bK.svg": "05d9df744ca363db616ea8c268ad026f5c7c1335e866e7c8b3892c27a1faa233",
+        "bQ.svg": "fe80214dc8cf10704f09ca9cadf57e6a0830e2017d3b50eccd7af0ddd2afb093",
+        "bR.svg": "bc36ce0edcdf07c25a23924f41042c6e2ca3c83d1f7816af850ca3969de3c92a",
+        "bB.svg": "6b365fe5664703fe8fc5372b2666923d150c089398869d37ea92eaa7d6dc38a9",
+        "bN.svg": "6a3581c8d6ed2661fbd5bb6a97772b982ab63ce794ec3fb96ea2e3af0ba922c7",
+        "bP.svg": "04a548840515ebb42e08e88c832f2434d15faa9e121c108e1be437d1b4ef4e47"
+      },
+      "freeware": true
     }
   }
 }
