@@ -1,0 +1,288 @@
+{
+ "name": "boardnet-v4",
+ "note": "Reader trained on four fifths of the first two photo sets (printed books 1 to 3, e-books 1 to 8) and on the artwork of 28 of the 33 rendered piece sets. It never saw e-books 9 to 14, app screenshot 1, the Wikisource books, or the chess.com and Lichess screenshots.",
+ "tests": {
+  "photos": {
+   "boards": 527,
+   "exact": 525,
+   "by_group": {
+    "app screenshot 1": {
+     "boards": 3,
+     "exact": 3
+    },
+    "e-book 1": {
+     "boards": 100,
+     "exact": 100
+    },
+    "e-book 10": {
+     "boards": 17,
+     "exact": 17
+    },
+    "e-book 11": {
+     "boards": 3,
+     "exact": 3
+    },
+    "e-book 12": {
+     "boards": 4,
+     "exact": 4
+    },
+    "e-book 13": {
+     "boards": 11,
+     "exact": 11
+    },
+    "e-book 14": {
+     "boards": 29,
+     "exact": 29
+    },
+    "e-book 2": {
+     "boards": 63,
+     "exact": 63
+    },
+    "e-book 3": {
+     "boards": 13,
+     "exact": 13
+    },
+    "e-book 4": {
+     "boards": 9,
+     "exact": 8
+    },
+    "e-book 5": {
+     "boards": 20,
+     "exact": 20
+    },
+    "e-book 6": {
+     "boards": 19,
+     "exact": 19
+    },
+    "e-book 7": {
+     "boards": 21,
+     "exact": 21
+    },
+    "e-book 8": {
+     "boards": 17,
+     "exact": 17
+    },
+    "e-book 9": {
+     "boards": 22,
+     "exact": 21
+    },
+    "printed book 1": {
+     "boards": 45,
+     "exact": 45
+    },
+    "printed book 2": {
+     "boards": 73,
+     "exact": 73
+    },
+    "printed book 3": {
+     "boards": 58,
+     "exact": 58
+    }
+   }
+  },
+  "wikisource": {
+   "boards": 306,
+   "exact": 190,
+   "by_group": {
+    "Capablanca, Chess Fundamentals (1921)": {
+     "boards": 144,
+     "exact": 82
+    },
+    "Capablanca, My Chess Career (1920)": {
+     "boards": 89,
+     "exact": 73
+    },
+    "Carroll, Through the Looking-Glass (1872)": {
+     "boards": 1,
+     "exact": 1
+    },
+    "Collier's Cyclopedia of Commercial and Social Information (1882)": {
+     "boards": 1,
+     "exact": 1
+    },
+    "Rogers, How to Play Chess (1907)": {
+     "boards": 17,
+     "exact": 12
+    },
+    "Staunton, The Chess-Player's Text Book (1849)": {
+     "boards": 50,
+     "exact": 18
+    },
+    "The Chess Player's Chronicle, series 3, volume 1 (1877)": {
+     "boards": 4,
+     "exact": 3
+    }
+   }
+  },
+  "chess.com app": {
+   "boards": 28,
+   "exact": 28,
+   "by_group": {
+    "default pieces and board": {
+     "boards": 28,
+     "exact": 28
+    }
+   }
+  },
+  "lichess": {
+   "boards": 48,
+   "exact": 48,
+   "by_group": {
+    "default": {
+     "boards": 16,
+     "exact": 16
+    },
+    "piece set 'horsey', board 'green'": {
+     "boards": 8,
+     "exact": 8
+    },
+    "piece set 'maestro', board 'wood'": {
+     "boards": 8,
+     "exact": 8
+    },
+    "piece set 'staunty', board 'blue'": {
+     "boards": 16,
+     "exact": 16
+    }
+   }
+  },
+  "rendered boards": {
+   "boards": 1650,
+   "exact": 1547,
+   "by_group": {
+    "anarcandy": {
+     "boards": 50,
+     "exact": 49
+    },
+    "caliente": {
+     "boards": 50,
+     "exact": 50
+    },
+    "california": {
+     "boards": 50,
+     "exact": 50
+    },
+    "cardinal": {
+     "boards": 50,
+     "exact": 50
+    },
+    "cburnett": {
+     "boards": 50,
+     "exact": 50
+    },
+    "celtic": {
+     "boards": 50,
+     "exact": 50
+    },
+    "chessboart": {
+     "boards": 50,
+     "exact": 50
+    },
+    "chessnut": {
+     "boards": 50,
+     "exact": 50
+    },
+    "cooke": {
+     "boards": 50,
+     "exact": 49
+    },
+    "dubrovny": {
+     "boards": 50,
+     "exact": 46
+    },
+    "fantasy": {
+     "boards": 50,
+     "exact": 48
+    },
+    "firi": {
+     "boards": 50,
+     "exact": 48
+    },
+    "fresca": {
+     "boards": 50,
+     "exact": 50
+    },
+    "gioco": {
+     "boards": 50,
+     "exact": 50
+    },
+    "horsey": {
+     "boards": 50,
+     "exact": 49
+    },
+    "icpieces": {
+     "boards": 50,
+     "exact": 50
+    },
+    "kiwen-suwi": {
+     "boards": 50,
+     "exact": 50
+    },
+    "letter": {
+     "boards": 50,
+     "exact": 17
+    },
+    "maestro": {
+     "boards": 50,
+     "exact": 50
+    },
+    "merida": {
+     "boards": 50,
+     "exact": 50
+    },
+    "minimal-warmth": {
+     "boards": 50,
+     "exact": 50
+    },
+    "monarchy": {
+     "boards": 50,
+     "exact": 19
+    },
+    "mpchess": {
+     "boards": 50,
+     "exact": 50
+    },
+    "papercut": {
+     "boards": 50,
+     "exact": 50
+    },
+    "pirouetti": {
+     "boards": 50,
+     "exact": 33
+    },
+    "pixel": {
+     "boards": 50,
+     "exact": 50
+    },
+    "rhosgfx": {
+     "boards": 50,
+     "exact": 50
+    },
+    "shapes": {
+     "boards": 50,
+     "exact": 50
+    },
+    "spatial": {
+     "boards": 50,
+     "exact": 50
+    },
+    "staunty": {
+     "boards": 50,
+     "exact": 50
+    },
+    "tatiana": {
+     "boards": 50,
+     "exact": 50
+    },
+    "totoy": {
+     "boards": 50,
+     "exact": 50
+    },
+    "xkcd": {
+     "boards": 50,
+     "exact": 39
+    }
+   }
+  }
+ }
+}
