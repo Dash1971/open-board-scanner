@@ -124,9 +124,7 @@ Each sample is labelled with:
 | `white_at_bottom` | `false` when the upright board is shown from Black's side. |
 | `kind`, `meta` | `book`, `screenshot` or `monitor`, and the style choices made for the sample. |
 
-Known gaps: the typeface behind most real-photo errors so far is commercial
-and has no open look-alike here, and the degradations have not been tuned
-against real photos. One process generates about two full samples a second on
+Known gaps: the degradations have not been tuned against real photos. One process generates about two full samples a second on
 an Apple M4.
 
 Piece sets and fonts are downloaded on demand and listed with their licences
