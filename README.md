@@ -10,21 +10,21 @@ other projects.** To rebuild the models, see [REPRODUCE.md](REPRODUCE.md).
 position. Not yet in an app.** A 1.4 MB finder locates the board and a 2.0 MB
 reader reads it. Given nothing but the image:
 
-- 87 of 88 real photos the reader had never trained on were read exactly;
-- 1,547 of 1,650 clean boards in 33 Lichess piece sets were read exactly.
+- 402 of 413 real boards from books and apps the reader had never trained on
+  were read exactly (the earlier reader, v4: 360);
+- 1,610 of 1,650 clean boards in 33 Lichess piece sets were read exactly
+  (v4: 1,547).
 
-**A new reader, BoardNet v5, is trained but not yet released.** It adds
-1,294 more real boards and a much wider generator. Trained without them, it
-read 402 of 413 real boards from books and apps it had never seen; v4 read
-360. See [v5](#more-real-boards-and-a-wider-generator-v5). The figures above
-and the release are still v4.
+The current reader is BoardNet v5, released on 28 November 2026. The first
+figure comes from a check run made before the final training, because v5
+itself is trained on every real board we have; see
+[v5](#more-real-boards-and-a-wider-generator-v5).
 
-Open risks: book typefaces and screen styles it has not seen, real
-screenshots (only 28 from the chess.com app and 48 from Lichess tested, all
-read correctly), and speed on a phone (not measured). The
+Open risks: book typefaces and screen styles it has not seen, the lack of a
+real test v5 has not trained on, and speed on a phone (not measured). The
 models were trained partly on noncommercial artwork
 ([provenance](MODEL-LICENSE.md)), the model files are published as a
-[release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1), and inclusion in
+[release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v2), and inclusion in
 Mobile Maia is pending a licensing review. Work is
 tracked in [Issues](../../issues).
 
@@ -378,7 +378,9 @@ Recorded metrics are in [`results/`](results).
 ### More real boards and a wider generator (v5)
 
 BoardNet v5 is v4 trained further on everything gathered since. The model is
-the same size (2.03 MB as INT8). It is not yet in a release.
+the same size (2.03 MB as INT8) and takes the same input and gives the
+same outputs, so it replaces v4 file for file. It is in the
+[models-v2 release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v2).
 
 What was added:
 
@@ -514,10 +516,10 @@ Runtime.
 
 ```sh
 python -m boardscan --finder boardfinder-v1-int8.onnx \
-    --reader boardnet-v4-int8.onnx photo.jpg
+    --reader boardnet-v5-int8.onnx photo.jpg
 ```
 
-The two model files are in the [models release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1).
+The two model files are in the [models release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v2).
 For putting the scanner in an app, see [docs/INTEGRATION.md](docs/INTEGRATION.md).
 
 The steps are the ones an app has to repeat:

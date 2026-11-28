@@ -1,7 +1,7 @@
 # Putting the scanner in an app
 
 Everything an app needs to turn an image into a position with the two model
-files from the [models release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1).
+files from the [models release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v2).
 [`boardscan/pipeline.py`](../boardscan/pipeline.py) and
 [`boardscan/geometry.py`](../boardscan/geometry.py) are the reference: about
 150 lines, with no dependencies beyond NumPy, OpenCV and ONNX Runtime.
@@ -14,7 +14,7 @@ values **0 to 255**. Normalisation is inside the models; do not divide by 255.
 | File | Outputs |
 | --- | --- |
 | `boardfinder-v1-int8.onnx` (1.4 MB) | `corners`: `1 x 4 x 2`, x and y of the board's top-left, top-right, bottom-right and bottom-left corners **as fractions of the 256 x 256 view**. `present`: `1`, a logit; above 0 means a whole board is in view. |
-| `boardnet-v4-int8.onnx` (2.0 MB) | `squares`: `N x 13 x 8 x 8` logits, row 0 at the top of the crop. `rotation`: `N x 4` logits for how many anticlockwise quarter turns bring the crop upright. `white_at_bottom`: `N` logits; above 0 means White is at the bottom of the upright board. |
+| `boardnet-v5-int8.onnx` (2.0 MB) | `squares`: `N x 13 x 8 x 8` logits, row 0 at the top of the crop. `rotation`: `N x 4` logits for how many anticlockwise quarter turns bring the crop upright. `white_at_bottom`: `N` logits; above 0 means White is at the bottom of the upright board. |
 
 The finder takes one image at a time. The reader takes a batch.
 
@@ -65,7 +65,7 @@ reference pipeline with the INT8 files. A port should give the same
 pixel or two.
 
 ```sh
-python -m boardscan --finder boardfinder-v1-int8.onnx --reader boardnet-v4-int8.onnx docs/integration/*.png
+python -m boardscan --finder boardfinder-v1-int8.onnx --reader boardnet-v5-int8.onnx docs/integration/*.png
 ```
 
 ## Size and speed

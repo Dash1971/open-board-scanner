@@ -3,7 +3,8 @@
 **Trained models are licensed under [AGPL-3.0-only](LICENSE), the same as the
 code.**
 
-The model files are published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1). This page states the
+The model files are published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v2)
+(the earlier files are in [models-v1](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1)). This page states the
 terms they carry and, separately, what they were trained on.
 
 ## What the models were trained on
@@ -14,7 +15,7 @@ terms they carry and, separately, what they were trained on.
   [THIRD_PARTY.md](THIRD_PARTY.md).
 - **Photographs of diagrams in copyrighted books and e-books.** From BoardNet
   v2 on. The photographs are not distributed.
-- **From BoardNet v5 on** (trained, not yet in a release):
+- **From BoardNet v5 on** (the models-v2 release):
   - scanned pages of old books from Wikisource and the Internet Archive;
   - screenshots of the chess.com phone app and of Lichess;
   - the public "Chess Positions" image set, whose boards are drawn with

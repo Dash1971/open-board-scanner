@@ -1,7 +1,7 @@
 {
  "models": {
   "finder": "boardfinder-v1-int8.onnx",
-  "reader": "boardnet-v4-int8.onnx"
+  "reader": "boardnet-v5-int8.onnx"
  },
  "images": {
   "screenshot.png": {
@@ -30,7 +30,7 @@
    "white_at_bottom": true,
    "placement": "8/1k6/4n2p/4P2P/N2P4/3R3P/3N4/2KR4",
    "matches_the_true_position": true,
-   "lowest_square_confidence": 1.0
+   "lowest_square_confidence": 0.999
   },
   "book-photo.png": {
    "width": 768,
@@ -58,7 +58,7 @@
    "white_at_bottom": true,
    "placement": "8/1k6/4n2p/4P2P/N2P4/3R3P/3N4/2KR4",
    "matches_the_true_position": true,
-   "lowest_square_confidence": 0.997
+   "lowest_square_confidence": 0.891
   },
   "book-photo-sideways.png": {
    "width": 1024,
@@ -86,7 +86,7 @@
    "white_at_bottom": true,
    "placement": "r3k3/2p1p1Br/pp6/3n1P1p/P4n2/5N1P/R2K2B1/4R3",
    "matches_the_true_position": true,
-   "lowest_square_confidence": 0.962
+   "lowest_square_confidence": 0.985
   }
  }
 }

@@ -13,16 +13,16 @@ Every command and seed used for the models in the [report](REPORT.md).
 | BoardNet v2 and v4, and the shipped finder | No. They also train on 438 labelled photos of copyrighted pages, which are private. The commands are below for use with your own photos. |
 | BoardNet v5 | No. It also trains on 548 private photos and 28 private screenshots. Its other 1,156 real boards (Wikisource, Internet Archive, Lichess) and all its synthetic data can be fetched or regenerated. |
 | Results on real photos and screenshots | No. Those images are private. |
-| The trained models | Published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1), so the tests can be run without training. |
+| The trained models | Published as releases ([models-v2](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v2) with BoardNet v5, [models-v1](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1) with v4), so the tests can be run without training. |
 
 Training on a GPU does not give the same weights twice, so expect numbers
 close to ours, not equal.
 
 ## Setup
 
-Python 3.12. Check out the `models-v1` tag first: the generator has gained new
-kinds of sample since, so the current code draws different images from the
-same seeds.
+Python 3.12. To rebuild v1 to v4, check out the `models-v1` tag first: the
+generator has gained new kinds of sample since, so the current code draws
+different images from the same seeds. For v5 use the `models-v2` tag.
 
 ```sh
 git checkout models-v1
@@ -100,7 +100,7 @@ python -m train.export_finder --checkpoint runs/finder-v1/model.pt --scenes data
 
 ### BoardNet v5
 
-Not yet in a release. The synthetic crops come from the current generator
+Released as `models-v2`. The synthetic crops come from the generator at that tag
 with every set in the manifests (`python tools/fetch_assets.py` first):
 
 ```sh
