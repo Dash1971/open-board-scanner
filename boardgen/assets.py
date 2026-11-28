@@ -60,10 +60,13 @@ def _glyph_piece(entry: dict, symbol: str) -> np.ndarray:
     if not path.exists():
         raise FileNotFoundError(f"{path} is missing; run tools/fetch_assets.py first")
     size = BASE_PIECE_SIZE
-    probe = ImageFont.truetype(str(path), 100)
+    # Older chess fonts map their glyphs only through a symbol or Mac Roman table,
+    # which FreeType does not pick by default; such entries name the table to use.
+    encoding = entry.get("encoding", "")
+    probe = ImageFont.truetype(str(path), 100, encoding=encoding)
     left, top, right, bottom = probe.getbbox(entry["white"][0], anchor="ls")  # the king, relative to the baseline
     scale = 0.84 * size / max(bottom - top, right - left)
-    font = ImageFont.truetype(str(path), max(8, int(round(100 * scale))))
+    font = ImageFont.truetype(str(path), max(8, int(round(100 * scale))), encoding=encoding)
     characters = entry["white"] if symbol.isupper() else entry["black"]
     canvas = Image.new("L", (size, size), 0)
     baseline = size * 0.92 - bottom * scale

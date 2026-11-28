@@ -112,8 +112,43 @@ each glyph are filled with white, as a printed diagram shows them.
 | noto-symbols2 | `NotoSansSymbols2-Regular.ttf` from google/fonts at the commit listed under Fonts | Google | OFL-1.1 |
 | alphadia | `AlphaDia.otf` from the skaknew package on CTAN | Eric Bentzen's Chess Alpha, adapted by Ulrich Dirr | Chess Alpha's terms: free for personal non-commercial use |
 
-CTAN is not a git repository, so the skaknew file is fetched by URL and
-relies on its recorded hash alone.
+CTAN and En Passant are not git repositories, so these files are fetched by
+URL and rely on their recorded hashes alone.
+
+#### Fonts from the En Passant collection
+
+The [En Passant chess font page](https://www.enpassant.dk/chess/fonteng.htm)
+lists free chess diagram fonts with each author's terms; CTAN's
+`fonts/chess/enpassant` holds Type 1 versions of some. None comes with a
+licence text. Those marked "freeware" are described that way by their author
+or by the page; those marked "non-commercial use" say so in their own notes.
+All are left out by `--sets open`.
+
+| Set | File and source | Author | Terms |
+| --- | --- | --- | --- |
+| chess-adventurer | `AVENFONT.TTF` from www.enpassant.dk/chess/downl/adventur.zip | Armando H. Marroquin | freeware |
+| chess-cases | `CASEFONT.TTF` from www.enpassant.dk/chess/downl/cases.zip | Matthieu Leschemelle, redesigned by Armando H. Marroquin | freeware |
+| chess-lucena | `LUCEFONT.TTF` from www.enpassant.dk/chess/downl/lucena.zip | Armando H. Marroquin | freeware |
+| chess-usual | `TT_USUAL.TTF` from www.enpassant.dk/chess/downl/usual.zip | Armando H. Marroquin, after Chess Regular by Alastair Scott | freeware |
+| chess-utrecht | `chess1.ttf` from www.enpassant.dk/chess/downl/chessttf.zip | Hans Bodlaender | freeware |
+| smart-regular | `stchess.ttf` from www.enpassant.dk/chess/downl/smart.zip | Christoph Wirth | freeware |
+| skak | `SKAK-K6.PFB` from www.enpassant.dk/chess/downl/skak.zip | Egon Madsen | non-commercial use |
+| chess-berlin | `chess-berlin-board-fig-raw.pfb` from mirrors.ctan.org/fonts/chess/enpassant/chess-berlin-board-fig-raw.pfb | Eric Bentzen; Type 1 conversion by Ulrike Fischer | non-commercial use |
+| chess-mark | `MARKFONT.TTF` from www.enpassant.dk/chess/downl/chesmark.zip | Armando H. Marroquin | freeware |
+| chess-maya | `MAYAFONT.TTF` from www.enpassant.dk/chess/downl/chesmaya.zip | Armando H. Marroquin | freeware |
+| chess-condal | `CONDFONT.TTF` from www.enpassant.dk/chess/downl/condal.zip | Armando H. Marroquin | freeware |
+| chess-harlequin | `HARLFONT.TTF` from www.enpassant.dk/chess/downl/harlequi.zip | Armando H. Marroquin | freeware |
+| chess-kingdom | `KINGFONT.TTF` from www.enpassant.dk/chess/downl/kingdom.zip | Armando H. Marroquin | freeware |
+| chess-magnetic | `MAGNFONT.TTF` from www.enpassant.dk/chess/downl/magnetic.zip | Armando H. Marroquin | freeware |
+| chess-marroquin | `MARRFONT.TTF` from www.enpassant.dk/chess/downl/marroqui.zip | Armando H. Marroquin | freeware |
+| chess-mediaeval | `MVALFONT.TTF` from www.enpassant.dk/chess/downl/medie_tt.zip | Armando H. Marroquin | freeware |
+| chess-motif | `MOTIFONT.TTF` from www.enpassant.dk/chess/downl/motif.zip | Armando H. Marroquin | freeware |
+| chess-pirat | `PIRATDIA.TTF` from www.enpassant.dk/chess/downl/pirat.zip | Klaus Wolf | freeware |
+
+Left out: Chess Regular, a conversion of Adobe's Cheq whose file carries
+another company's copyright notice; Alfonso-X, Line and Millennia, which are
+decorative and not used for diagrams; and fonts whose download no longer
+works. Chess Usual is its author's redrawing of the Cheq design and is kept.
 
 ### Sets deliberately not used
 
