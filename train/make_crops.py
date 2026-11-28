@@ -25,8 +25,9 @@ import numpy as np
 from boardgen import CLASSES, KINDS, assets, generate, rectify
 
 CROP = 256
-# Piece sets kept out of training so that accuracy on unseen artwork can be measured.
-HELD_OUT_SETS = ("fantasy", "mpchess")
+# Piece sets kept out of training by --holdout, so that accuracy on unseen artwork
+# can be measured. A final model is generated without --holdout and sees them all.
+HELD_OUT_SETS = ("fantasy", "mpchess", "cooke", "gioco", "monarchy")
 CLASS_INDEX = {symbol: index for index, symbol in enumerate(CLASSES)}
 
 

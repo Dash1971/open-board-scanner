@@ -62,7 +62,7 @@ def score(model: BoardNet, data: dict[str, np.ndarray], device: torch.device) ->
     predicted, white, turns = predict(model, data["images"], device)
     truth = data["squares"]
     names = list(data["set_names"])
-    held_out = np.isin(data["piece_set"], [names.index(name) for name in HELD_OUT_SETS])
+    held_out = np.isin(data["piece_set"], [names.index(name) for name in HELD_OUT_SETS if name in names])
     report = {"all": _summary(predicted, truth)}
     report["seen_piece_sets"] = _summary(predicted[~held_out], truth[~held_out])
     report["held_out_piece_sets"] = _summary(predicted[held_out], truth[held_out])

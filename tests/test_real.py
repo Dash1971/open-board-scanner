@@ -99,3 +99,14 @@ def test_synthetic_crops_are_turned_with_their_labels():
         after = np.rot90(new_squares[index].reshape(8, 8), new_turns[index])
         assert np.array_equal(before, after)
     assert changed > 4
+
+
+def test_sources_and_a_fold_can_be_held_out_together():
+    first = [board("a", name=f"a{i}") for i in range(10)]
+    later = [board("c", name=f"c{i}") for i in range(4)] + [board("d", name=f"d{i}") for i in range(3)]
+    earlier_test = {b.board_id for b in split(first, [], (0, 5), 0)[1]}
+    train, test = split(first + later, ["d"], (0, 5), 0, fold_pool=len(first))
+    held = {b.board_id for b in test}
+    # The same boards of the first set as before, the whole of source d, and nothing of source c.
+    assert held == earlier_test | {"d0", "d1", "d2"}
+    assert len(train) + len(test) == 17 and not held & {b.board_id for b in train}

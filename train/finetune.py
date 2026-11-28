@@ -5,9 +5,10 @@
 
 Boards are held out for testing in one of two ways: whole sources by name
 (--test-source, repeatable), which says how the model does on a book it has
-never seen, or every k-th board (--fold I K), which says how it does on unseen
-pages of books it has seen. With neither, every labelled board is trained on
-and nothing real is left to test with.
+never seen, and every k-th board (--fold I K), which says how it does on
+unseen pages of books it has seen. The two can be combined. With neither,
+every labelled board is trained on and nothing real is left to test with.
+--compare scores an earlier checkpoint on the same held-out boards.
 
 Held-out boards are scored twice: read once as they lie, and read at all four
 quarter turns with the readings averaged.
@@ -35,19 +36,23 @@ from .train import augment
 FOUR_TURNS = (0, 1, 2, 3)  # reading a crop at every quarter turn and averaging costs four passes
 
 
-def split(boards, test_sources: list[str], fold: tuple[int, int] | None, seed: int):
-    """Divide labelled boards into (train, test)."""
-    if test_sources:
-        unknown = set(test_sources) - {board.source for board in boards}
-        if unknown:
-            raise SystemExit(f"no labelled boards from {sorted(unknown)}")
-        return [b for b in boards if b.source not in test_sources], [b for b in boards if b.source in test_sources]
+def split(boards, test_sources: list[str], fold: tuple[int, int] | None, seed: int, fold_pool: int | None = None):
+    """Divide labelled boards into (train, test).
+
+    Boards from `test_sources` are held out, and so is every k-th board of
+    `fold`. With `fold_pool`, the fold is drawn from the first that many
+    boards only, so that a later run with more photos holds out exactly the
+    boards an earlier run did.
+    """
+    unknown = set(test_sources) - {board.source for board in boards}
+    if unknown:
+        raise SystemExit(f"no labelled boards from {sorted(unknown)}")
+    held: set[int] = {i for i, board in enumerate(boards) if board.source in test_sources}
     if fold:
         index, folds = fold
-        order = np.random.default_rng(seed).permutation(len(boards))
-        held = set(order[index::folds].tolist())
-        return [b for i, b in enumerate(boards) if i not in held], [b for i, b in enumerate(boards) if i in held]
-    return list(boards), []
+        pool = len(boards) if fold_pool is None else fold_pool
+        held |= set(np.random.default_rng(seed).permutation(pool)[index::folds].tolist())
+    return [b for i, b in enumerate(boards) if i not in held], [b for i, b in enumerate(boards) if i in held]
 
 
 def synthetic_batches(folder: str, count: int, rng: np.random.Generator):
@@ -65,6 +70,8 @@ def main() -> None:
     parser.add_argument("--out", required=True)
     parser.add_argument("--test-source", action="append", default=[])
     parser.add_argument("--fold", type=int, nargs=2, metavar=("I", "K"))
+    parser.add_argument("--fold-sets", type=int, help="draw the fold from the first this-many --labels files only")
+    parser.add_argument("--compare", action="append", default=[], help="another checkpoint to score on the same held-out boards (repeatable)")
     parser.add_argument("--steps", type=int, default=600)
     parser.add_argument("--batch", type=int, default=32)
     parser.add_argument("--real-share", type=float, default=0.5, help="share of each batch drawn from real photos")
@@ -79,7 +86,8 @@ def main() -> None:
     rng = np.random.default_rng(args.seed)
     generator = torch.Generator(device=device).manual_seed(args.seed)
 
-    train, test = split(load_labelled_sets(args.labels, args.photos), args.test_source, tuple(args.fold) if args.fold else None, args.seed)
+    fold_pool = len(load_labelled_sets(args.labels[: args.fold_sets], args.photos[: args.fold_sets])) if args.fold_sets else None
+    train, test = split(load_labelled_sets(args.labels, args.photos), args.test_source, tuple(args.fold) if args.fold else None, args.seed, fold_pool)
     if not train:
         raise SystemExit("no labelled boards left to train on")
     model = BoardNet().to(device)
@@ -93,6 +101,12 @@ def main() -> None:
     }  # fmt: skip
     if synthetic_test:
         report["before"]["synthetic"] = score(model, synthetic_test, device)["all"]
+    report["compare"] = {}
+    for checkpoint in args.compare:  # an earlier model on the same held-out boards
+        other = BoardNet().to(device)
+        other.load_state_dict(torch.load(checkpoint, map_location=device))
+        report["compare"][checkpoint] = {"real_test": score_real(other, test, device), "real_test_four_turns": score_real(other, test, device, FOUR_TURNS)}
+        del other
 
     real_count = max(1, min(args.batch - 1, round(args.batch * args.real_share)))
     synthetic = synthetic_batches(args.synthetic, args.batch - real_count, rng)
