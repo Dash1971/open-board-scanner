@@ -166,18 +166,138 @@ All are left out by `--sets open`.
 | chess-motif | `MOTIFONT.TTF` from www.enpassant.dk/chess/downl/motif.zip | Armando H. Marroquin | freeware |
 | chess-pirat | `PIRATDIA.TTF` from www.enpassant.dk/chess/downl/pirat.zip | Klaus Wolf | freeware |
 
-Left out: Chess Regular, a conversion of Adobe's Cheq whose file carries
-another company's copyright notice; Alfonso-X, Line and Millennia, which are
-decorative and not used for diagrams; and fonts whose download no longer
-works. Chess Usual is its author's redrawing of the Cheq design and is kept.
+Fonts whose download no longer works were left out.
+
+### More sets from the same programs
+
+Added once licence terms stopped being a reason to leave artwork out of
+training. Terms are given as found. Sets with no stated terms are marked
+`"unlicensed": true` in the manifest, and sets that forbid modified copies
+`"noderivatives": true`; `--sets open` leaves both out, along with the
+noncommercial and freeware sets.
+
+#### More piece sets
+
+Terms below are recorded as found. The project's owner treats licence terms
+as no limit on use as training data, since a trained model contains none of
+the artwork; provenance is listed so that others can judge. Sets marked
+`noncommercial`, `noderivatives`, `freeware` or `unlicensed` in the manifest
+are left out by `--sets open` and `boardgen.assets.open_piece_sets()`.
+
+#### Lichess
+
+Source: [lichess-org/lila](https://github.com/lichess-org/lila) at commit
+`1f25f6ae91088627103f1e3b6da76fa78e78ff8d`, directory `public/piece`. Terms
+as listed in that commit's
+[COPYING.md](https://github.com/lichess-org/lila/blob/1f25f6ae91088627103f1e3b6da76fa78e78ff8d/COPYING.md).
+
+| Set | Author | Terms as found | Flag |
+| --- | --- | --- | --- |
+| monarchy | slither77 | CC-BY-NC-SA-4.0 | noncommercial; twelve WebP files |
+| reillycraig | Reilly Craig | no terms stated (licence column blank) | unlicensed |
+| riohacha | not stated | no terms stated (author and licence columns blank) | unlicensed |
+| shahi-ivory-brown | Tamer Karatekin | "Free for personal and commercial use, but non-derivative non-modify license" (Şahî Chess & Shatranj Font License v1.0) | noderivatives |
+
+#### PyChess
+
+Source: [pychess/pychess](https://github.com/pychess/pychess) at commit
+`d434d37d35736601cd8c384c8947ad4e06921f8d`, directory `pieces/`. The
+repository as a whole is GPL-3.0; the terms below are those stated for each
+set's folder.
+
+| Set | Folder | Author | Terms as found | Flag |
+| --- | --- | --- | --- | --- |
+| alila | `alila` | Xyvir (per the commit that added it) | no terms stated | unlicensed |
+| atopdown | `atopdown` | Xyvir (per the commit that added it) | no terms stated | unlicensed |
+| chessmonk | `chessmonk` | not stated | no terms stated | unlicensed |
+| freestaunton | `freestaunton` | Eran Karu / Ben Van Vlierden (PyChess ARTISTS) | no terms stated; license.txt only links to forum threads and the author's download | unlicensed |
+| merida-new | `merida_new` | Felix Kling | license.txt: "Permission of author" | unlicensed |
+
+#### Lucas Chess
+
+Source: [lukasmonk/lucaschessR2](https://github.com/lukasmonk/lucaschessR2) at
+commit `b3ab7678077d6433e45d85f55acac2102e13e82e`, directory
+`Resources/Pieces/`. The repository as a whole is GPL-3.0; most piece folders
+have no author or licence file, and the terms below are those found for each
+folder.
+
+| Set | Folder | Author | Terms as found | Flag |
+| --- | --- | --- | --- | --- |
+| balestegui | `Balestegui` | not stated | no terms stated | unlicensed |
+| berlin-shadow | `Berlin` | Eric Bentzen (Chess Berlin), drawn with a shadow | no terms stated; the Chess Berlin font is "free for personal non-commercial use" | noncommercial |
+| book-classic | `Book Classic` | Ben Citak | GPL-2.0 (license.txt) | — |
+| book-diagram | `Book Diagram` | Ben Citak | GPL-2.0 (license.txt) | — |
+| book-strategie | `Book Strategie` | Ben Citak | GPL-2.0 (license.txt) | — |
+| caballo-r | `Caballo-R` | not stated | no terms stated | unlicensed |
+| caballo-r-m | `Caballo-R-M` | not stated | no terms stated | unlicensed |
+| caballo-r-mm | `Caballo-R-MM` | not stated | no terms stated | unlicensed |
+| caballo-r-p | `Caballo-R-P` | not stated | no terms stated | unlicensed |
+| caballo-r-rc-c | `Caballo-R-RC-C` | not stated | no terms stated | unlicensed |
+| cburnett-dark | `CburnettDark` | Colin M.L. Burnett, recoloured | no separate terms stated; Burnett's set is GPL-2.0-or-later as Lichess lists it | — |
+| cburnett-size | `CburnettSize` | Colin M.L. Burnett, resized | no separate terms stated; Burnett's set is GPL-2.0-or-later as Lichess lists it | — |
+| etruscan | `Etruscan` | not stated | no terms stated | unlicensed |
+| etruscan-clear | `Etruscan-clear` | not stated | no terms stated | unlicensed |
+| eyes | `Eyes` | Maurizio Monge | LGPL-2.0 (license.txt, GNU Library General Public License version 2) | — |
+| fantasy-alt | `FantasyAlt` | Maurizio Monge | LGPL-2.0 (license.txt) | — |
+| internet | `Internet` | not stated | no terms stated | unlicensed |
+| jin-alpha | `JinAlpha` | Eric Bentzen (Chess Alpha), as recoloured for the Jin chess client | GPL-2.0 (license.txt); the Chess Alpha artwork is "free for personal non commercial use" | noncommercial |
+| kilfiger-shiny | `Kilfiger2` | James Kilfiger, restyled | no separate terms stated; Kilfiger's set is public domain as stated in its files | — |
+| montreal | `Montreal` | Gary Katch (Chess Montreal font) | no terms stated; the En Passant font page lists the font as "Freeware (with permission of the author)" | freeware |
+| qwertyxp20000 | `QwertyXP20000` | not stated | no terms stated | unlicensed |
+| regular-embossed | `Regular2` | Alastair Scott (Chess Regular), restyled | no terms stated; En Passant lists Chess Regular as "Freeware" | freeware |
+| shahi-white-gray | `Shahi-White-Gray` | Tamer Karatekin (Şahî), recoloured | no terms stated; the Şahî artwork's licence forbids derivatives | noderivatives |
+| staunton-3d | `Staunton 3D` | Marc Graziani | GPL-2.0 (license.txt) | — |
+
+The three Book sets with a white halo draw past their own viewBox. They are
+rendered with the viewBox widened by 5% (`"scale": 0.95`), so the halo is
+whole. Staunton 3D is taller than wide and is letterboxed.
+
+#### 1Echecs SVG
+
+Source: [MuTsunTsai/1echecs-svg](https://github.com/MuTsunTsai/1echecs-svg) at
+commit `1fd2e94846e94995c6ac7fab72ca3f74a1b32f0c`, directory `svg`.
+
+| Set | Author | Terms as found | Flag |
+| --- | --- | --- | --- |
+| 1echecs | Christian Poisson (1Echecs font); SVG extraction by Mu-Tsun Tsai | no terms stated in the repository; the En Passant font page says "1Echecs is freeware, but if used for more than 10 diagrams, the author would like a copy" | freeware |
+
+#### Fonts from the En Passant collection
+
+Fetched by URL from www.enpassant.dk and checked against recorded hashes.
+Terms are from the [font page](https://www.enpassant.dk/chess/fonteng.htm)
+and the files in each zip.
+
+| Set | File and source | Author | Terms as found | Flag |
+| --- | --- | --- | --- | --- |
+| chess-regular | `CHEQ_TT.TTF` from www.enpassant.dk/chess/downl/cheq_tt.zip | Alastair Scott, after Adobe's Cheq | page: "Freeware"; no licence text; the font's name table says "Copyright 1991, Atech Software, Carlsbad CA" | freeware |
+| traveller-standard | `STD.TTF` from www.enpassant.dk/chess/downl/tds.zip | Alan Cowderoy | page: "Freeware"; the font's notes state no terms | freeware |
+| chess-alfonso | `ALFOCHES.TTF` from www.enpassant.dk/chess/downl/alfonso.zip | Armando H. Marroquin | README: "The font is freeware"; no licence text | freeware |
+| chess-line | `LINEFONT.TTF` from www.enpassant.dk/chess/downl/chesline.zip | Armando H. Marroquin | README: "The font is freeware"; no licence text | freeware |
+
+#### Still left out
+
+- Not the six chess pieces, or piece type hidden: Lucas Chess Abxtadt (abstract
+  shapes), Cartoon (animals), Freak (people), Prmi (cats), Skulls, Kidsdraw
+  (children's drawings, pawn as a triangle); Chess Millennia (queen and rook
+  drawn alike); Lichess mono and disguised.
+- White and black not told apart: Lucas Chess Balestegui2 (black drawn as an
+  outline only).
+- Copies of artwork already listed: PyChess regular (Chess Regular), magnetic,
+  maya, pirat, alfonso; Lucas Chess AlfonsoX, Condal, Magnetic, Maya, Pirat,
+  Regular, Chessicons; skak-svg (the skak design already present as SkakNew);
+  Chess Alpha2 (Chess Alpha, re-spaced for text). Compared by looking.
+- Not downloaded, taken by name to be sets already listed: Lucas Chess Alpha,
+  Cardinalv1, Cburnett, Celtic, Fantasy, Kilfiger, Leipzig, Merida, Spatial,
+  Shahi-Ivory-Brown; Lichess kosal.
+- Download no longer available from its author: Chess Plain (Alan Hickey) and
+  ChessOle; not found on CTAN or another authoritative mirror.
 
 ### Sets deliberately not used
 
-Lichess ships more piece sets than these. The rest were left out because they
-forbid modification (shahi-ivory-brown), have no stated terms (reillycraig,
-riohacha), are stored as raster images this tool does not fetch (monarchy),
-or cannot be labelled: mono draws both sides alike and disguised hides which
-piece is which.
+Left out because the pieces cannot be labelled reliably: sets that draw both
+sides alike or nearly so (mono, chessicons, metaltops, Balestegui2), sets
+that hide or replace the piece types (disguised, Abxtadt, Cartoon, Kidsdraw,
+Freak, Prmi, Skulls, Millennia), and copies of artwork already listed.
 
 ## Board textures and positions
 

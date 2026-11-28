@@ -5,8 +5,9 @@ import dataclasses
 import cv2
 import numpy as np
 import pytest
+from PIL import Image
 
-from boardgen import CLASSES, KINDS, generate, rectify
+from boardgen import CLASSES, KINDS, assets, generate, rectify
 from boardgen.board import render_book_board, sample_book_style
 from boardgen.camera import Curl
 from boardgen.positions import to_fen
@@ -168,3 +169,86 @@ def test_turned_photos_are_the_upright_photo_rotated():
         crop = np.rot90(rectify(sample.image, sample.corners, 128), sample.quarter_turns)
         difference = np.abs(crop.astype(np.int16) - rectify(upright.image, upright.corners, 128).astype(np.int16))
         assert difference.mean() < 2.0
+
+
+def _rows_and_columns(piece: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """The rows and columns where a piece has ink."""
+    ink = piece[..., 3] > 0.5
+    return np.flatnonzero(ink.any(axis=1)), np.flatnonzero(ink.any(axis=0))
+
+
+@pytest.mark.parametrize("width, height", [(50, 100), (100, 50)])
+def test_artwork_that_is_not_square_keeps_its_shape(tmp_path, width, height):
+    """A tall drawing is centred across the square; a wide one stands on its bottom edge."""
+    path = tmp_path / "piece.svg"
+    path.write_text(
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}">'
+        f'<rect width="{width}" height="{height}" fill="#000"/></svg>'
+    )
+    piece = assets._svg_piece(path, 1.0)
+    size = assets.BASE_PIECE_SIZE
+    assert piece.shape == (size, size, 4)
+    rows, columns = _rows_and_columns(piece)
+    assert abs((columns[-1] - columns[0] + 1) / (rows[-1] - rows[0] + 1) - width / height) < 0.03
+    assert max(len(rows), len(columns)) == size
+    assert rows[-1] == size - 1
+    assert abs(columns[0] + columns[-1] - (size - 1)) <= 1
+
+
+def test_scale_shows_artwork_that_the_viewbox_clips(tmp_path):
+    """Scaling widens the viewBox: a drawing 12 units wide in a 10-unit box is drawn whole, with a margin."""
+    path = tmp_path / "piece.svg"
+    path.write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">'
+        '<rect x="-1" y="0" width="12" height="10"/></svg>'
+    )
+    size = assets.BASE_PIECE_SIZE
+    rows, columns = _rows_and_columns(assets._svg_piece(path, 1.0))
+    assert len(rows) == len(columns) == size  # clipped to the square
+    rows, columns = _rows_and_columns(assets._svg_piece(path, 0.8))
+    assert abs(len(columns) - 12 / 12.5 * size) <= 2 and abs(len(rows) - 10 / 12.5 * size) <= 2
+    assert columns[0] > 0 and columns[-1] < size - 1 and abs(rows[0] + rows[-1] - (size - 1)) <= 2
+
+
+def test_bitmap_pieces_keep_their_alpha_and_shape(tmp_path):
+    """A bitmap piece is fitted like an SVG one, premultiplied, with transparency kept."""
+    image = Image.new("RGBA", (60, 120), (0, 0, 0, 0))
+    image.paste((200, 40, 40, 255), (10, 10, 50, 110))
+    path = tmp_path / "piece.webp"
+    image.save(path, lossless=True)
+    piece = assets._raster_piece(path, 1.0)
+    size = assets.BASE_PIECE_SIZE
+    assert piece.shape == (size, size, 4)
+    assert piece[..., 3].min() == 0.0 and piece[..., 3].max() == pytest.approx(1.0, abs=1e-3)
+    assert (piece[..., :3] <= piece[..., 3:] * 255.0 + 1e-3).all()  # premultiplied
+    middle = piece[size // 2, size // 2]
+    assert middle[3] == pytest.approx(1.0, abs=1e-3) and middle[:3] == pytest.approx([200, 40, 40], abs=1.0)
+    rows, columns = _rows_and_columns(piece)
+    assert abs((columns[-1] - columns[0] + 1) / (rows[-1] - rows[0] + 1) - 40 / 100) < 0.03
+
+
+def test_open_sets_leave_out_sets_without_an_open_licence(monkeypatch):
+    sets = {
+        "gpl": {"licence": "GPL-2.0", "print": False},
+        "nc": {"licence": "CC-BY-NC-SA-4.0", "print": False, "noncommercial": True},
+        "free": {"licence": "freeware", "print": False, "freeware": True},
+        "none": {"licence": "no terms stated", "print": False, "unlicensed": True},
+        "nd": {"licence": "no modification", "print": False, "noderivatives": True},
+    }
+    monkeypatch.setattr(assets, "piece_sets", lambda: sets)
+    assert assets.open_piece_sets.__wrapped__() == ("gpl",)
+
+
+def test_open_sets_in_the_manifests_state_a_licence():
+    every = assets.piece_sets()
+    assert all(not every[name].get("unlicensed") for name in assets.open_piece_sets())
+    assert any(entry.get("unlicensed") for entry in every.values())
+
+
+@pytest.mark.parametrize("name", [name for name, entry in assets.piece_sets().items() if "format" in entry or "scale" in entry])
+def test_bitmap_and_inset_sets_draw_every_piece(name):
+    pieces = [assets.piece(name, symbol, 96) for symbol in "KQRBNPkqrbnp"]
+    for piece in pieces:
+        assert piece.shape == (96, 96, 4)
+        assert 0.05 < (piece[..., 3] > 0.5).mean() < 0.9
+    assert len({piece.tobytes() for piece in pieces}) == 12

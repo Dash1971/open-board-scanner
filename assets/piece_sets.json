@@ -1055,6 +1055,1251 @@
         "bN.svg": "fbc40ca0f48d088f22d52d417b6f6373e9c92dc903175dc6c7952e94c5ab2cbe",
         "bP.svg": "7869fc62ec82e875d91c1db5c3e629569c1e0853142204fbd69ff06ea04e0576"
       }
+    },
+    "monarchy": {
+      "author": "slither77",
+      "licence": "CC-BY-NC-SA-4.0",
+      "print": false,
+      "noncommercial": true,
+      "format": "webp",
+      "sha256": {
+        "wK.webp": "9ebd11a9fe9b9e43c0a96b561c915e72bc7dc7fabaee4ea540b9215be6e2832f",
+        "wQ.webp": "6f38b70d5fa46399b01c11e5a942f747fd96a564ba2173db3d6526f95f311541",
+        "wR.webp": "70dd8338e3d3307a20384c5211c8c1c03455e513c5a2be90f59513e5b1f261b0",
+        "wB.webp": "86dbc4d5d9280c945ee1bf80af15fd54a97482593d81a48f823d68d1d058f2bd",
+        "wN.webp": "c43b008717c4a688753412fac5279750e87dc2e6396866b9580521fe4f18a0e6",
+        "wP.webp": "422f9942248e04cc2b8c96e32cd78faf9600d194fb99b18bf288d7ea56a28295",
+        "bK.webp": "62be1b0a9bd994eb91b85881cb40bad21153e4fc00f93c96d4e887de561d8c1c",
+        "bQ.webp": "c2a386da57dac3070b3a92c5e0e3d40c7a25665f637209f1439b4b25ea7c9ea6",
+        "bR.webp": "1450aa3a7cc0ef01d5f092ad7e08c7f32bfd210e2af5fc802ddf9964c8f8ce3c",
+        "bB.webp": "7e1f890940d6b6b5c985827447fedbe55adedc42f812ccf328d60ea754e76806",
+        "bN.webp": "663b1f5afb674dab69de1d89c8d4d9bf96f66686c2202d6d5f022c4f25645caf",
+        "bP.webp": "72d29e74268fb871cb67e07f8d259b28f7a83ad13d0eadd601312dcce4eaa180"
+      }
+    },
+    "reillycraig": {
+      "author": "Reilly Craig",
+      "licence": "no terms stated (Lichess COPYING.md lists the author and leaves the licence blank)",
+      "print": false,
+      "unlicensed": true,
+      "sha256": {
+        "wK.svg": "67328c5dc3f968456166025b04ff23a3a4d17411b2e0e3d470433218af6796fd",
+        "wQ.svg": "d21df0dc13a2559a4a4484406e4cd9da1362485c58eaeba3240b3b07e3a83065",
+        "wR.svg": "ba8fc638045bde563effdb3d837ee66362a491949e08ac3e784a86d125aa021e",
+        "wB.svg": "745a5b21b7afce7cd8c5f4c98c441d4e32d1b23fb0e2c624c81b7d5e77b7615f",
+        "wN.svg": "a43faccde13dc0949d26f91b6a77680f1dc10076a0494999b68fa8347b567772",
+        "wP.svg": "0e155aa75f3b462dad5bbdfd18f58363abe61f498050d62dc23f2c9b2662f1e0",
+        "bK.svg": "aa2acde992d585bc9c2aba1983e0ff58e8ad2bda14ce08eadaef6ea936398a44",
+        "bQ.svg": "6c71318d4c52192ab13880e30b581c7d227899f14b647b220fe7c9db7ebfd6b0",
+        "bR.svg": "44446d869c7a463683e10f37fc10cfcb6ed767a4fd76d89e0f4a22349a65054c",
+        "bB.svg": "5375a25448f4e7eaf62e28589a4517af23c73286ba923e4813838613643af919",
+        "bN.svg": "1f46d4cd4a8a0bc8f03483d82d2279b5055353c41140b1233c279ac2d916671d",
+        "bP.svg": "d65711501752f94a09fef56d2511ca495b085b4e6e0cd0dfb84ae1376e7d56de"
+      }
+    },
+    "riohacha": {
+      "author": "not stated",
+      "licence": "no terms stated (Lichess COPYING.md leaves author and licence blank)",
+      "print": false,
+      "unlicensed": true,
+      "sha256": {
+        "wK.svg": "53c039ca1667c66d721d05e473a021430d6f161c17022dc79d6dc3650dcd2b39",
+        "wQ.svg": "dc3f6530b5ceec816e9b8ac40b52770d750b032dad0a605c68ac6d78b95c9830",
+        "wR.svg": "61da61f09898b37c29004d0a10a8aa19f01aec914a4ce9c381d6776621a11f2b",
+        "wB.svg": "f117dc60e1a1629d018ad4894910709f6ba8a241a7bcfcb104f4e3452e21d052",
+        "wN.svg": "8b1518c36b2a76ed7bf8e13584af5c00539f69785cd8c27dfa669702b3514558",
+        "wP.svg": "d6dad734b63ad0dd8e177bd7a0710ad2af6d0bd12b14fb77a22b958492868007",
+        "bK.svg": "a9758602efa1c21faf3916ff1482300156cb9f452aca71f2fd633b45bc6d2765",
+        "bQ.svg": "b8c4ec10aff8bab52d770d017c5d0fa895f433cec744aa3c8d556a2ec38f9806",
+        "bR.svg": "6172a2e0f65aa9a8649ec34bd0c12e063c0dd2d70bac26462626fc3d137a9e5d",
+        "bB.svg": "54b8201d51963b5e687683f95304cdee387f016bbe8151d87d1be97081a1e228",
+        "bN.svg": "ceda73a1c370cd82042820b3b436343fd01f5987c6fe4cc6e67da0647e1c6488",
+        "bP.svg": "666ac7dd143e31be454e074ecbc7a28bac4513df026850077575b4191ecda990"
+      }
+    },
+    "shahi-ivory-brown": {
+      "author": "Tamer Karatekin",
+      "licence": "Şahî Chess & Shatranj Font License v1.0, as summarised in Lichess COPYING.md: \"Free for personal and commercial use, but non-derivative non-modify license\"",
+      "print": false,
+      "noderivatives": true,
+      "sha256": {
+        "wK.svg": "3a718197706dac04574007eb5e6f3311eea41d541fabbb74f0042185cefda787",
+        "wQ.svg": "30ed2817e58149d6ff36afdedddd6d6f1641e01800026dd8df9f8d6a28db8609",
+        "wR.svg": "014337a2f59ca327cd908dc5908f037a7dc24f0e3918068d1e7806a8ddd94bfb",
+        "wB.svg": "e834921a53dd3110eed5ab17f53f1a71481757eaa243ee3c4b1889b6387c677b",
+        "wN.svg": "e8593329b22e040c0088f44097106e4b6082ea817115554b10e719a54e0cf9e2",
+        "wP.svg": "094d2d8894ab18012580a10460a85b4e019bf1f0a395a08da30eef4a916903b2",
+        "bK.svg": "ea778830737e740e470d7aeca0c85a6fd3801fe9540cc79abd63d6384af34db0",
+        "bQ.svg": "b27fda451f96c79e5c053c44ee07b803988a6b1fa1c3ae25ece81fa75eed0af1",
+        "bR.svg": "159f6eb98a7077d1e010f5988c878f8f673b53a141171a1e57d6cf545b18bfe3",
+        "bB.svg": "96a84b3647d03a6ff734a35ebce723056796f4384a5fab4e7acc23753ca7a35f",
+        "bN.svg": "5dd364ed4e2bcfb4637d9817daeba16936bd3921f85221d58c5b3ac689e496e6",
+        "bP.svg": "1fc8b99441dae30fd792319e25583f8a1170b45763a3527f8fe61ec3203f5c80"
+      }
+    },
+    "alila": {
+      "author": "Xyvir (as committed to PyChess)",
+      "licence": "no terms stated",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/alila"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "79c5b1bbb0b30ce53d8484b9d1a8e1f64d88978017121a98e9f7f97106cec05e",
+        "wQ.svg": "f7a164cd15175ea61f2453d1a0e3e1313b28b5cd18b25bd9fa883cf7fe39499c",
+        "wR.svg": "b7552c990583f1b426ae80b2d9e92ada31c274d2e23601bf2629b7cedfe2e3a6",
+        "wB.svg": "b31c9386ffc0a2fa3b2450d7840e4978a058ae042d57e217c4ff83cc89dd5827",
+        "wN.svg": "8a31dd676eb3a12f689b47bb13340c18b5f1345a9c2b896da54cb044edf1750d",
+        "wP.svg": "8ddff6027658584189f792118eb572b6188be56a8efe85f7f2ec0adef5ec61ef",
+        "bK.svg": "f10bf88540a29cd5830e7c57ef1608c399c4763c9545ec9970b05fc651d8b6ea",
+        "bQ.svg": "4b9770fb0cc63d67fe94d5d55d14f5dbb57ee339309bb6c4ab6b798072ab172c",
+        "bR.svg": "1a97de12bf09bd510522f927fe04f85ac6b3cfcef96baa0581913d506114ee04",
+        "bB.svg": "4196fbbd7ddd2286e3068f194826074346b396a2224f490879451ab314ab6086",
+        "bN.svg": "e92faa9e2ae5729c71cedf5d198a43e408d357fce6c9c948ebdba61618b7cf25",
+        "bP.svg": "35d29389cc82ce0253ac9064d69ccae104d148614f3a7b9e3ae4851fce9e27b7"
+      }
+    },
+    "atopdown": {
+      "author": "Xyvir (as committed to PyChess)",
+      "licence": "no terms stated",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/atopdown"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "89ca5ce7b36e33ed73e98a6782dc30c12cf78c55813025b33fb227b1150a9675",
+        "wQ.svg": "b641ad773e697537d22cbf7c68150f4c1e9a554da8c0bd7dd920a0fce468986e",
+        "wR.svg": "b44976af429dbbb41c217598e42ce30b06efd548928a1df46adb03cf8189e5b9",
+        "wB.svg": "ba777bc0b799c53f0e47a22a472bfb32bb445c30721c52daada424b929ca011c",
+        "wN.svg": "28c4998e0aa1438c01170c9b3707e49b8bc07e6fda3f5b910469443c2f1b1a57",
+        "wP.svg": "ae0d2888093ba8dc05caf08fa27a6592707294f4bdfff923499c180f1cec9e96",
+        "bK.svg": "bb93b5a3546dc7f0a46be637aadabb35d73647c01f6c0d4f0f1043f1fb460422",
+        "bQ.svg": "0a570fbda6aae20774cc97bf5fb83f6c13e53d6c7206370aca7466fbc1de11a4",
+        "bR.svg": "e71d11484962add4218b869a83c581c8e867f9da584b2ba62b8cbc5a6690aabc",
+        "bB.svg": "e2397c76a20996bff695376a6985ed84dae91869cf1c29fe74198a6b1fade525",
+        "bN.svg": "5d1c33255d3512858b3842b94addf7a69dd2bf49eadbcb644d2705858b30a837",
+        "bP.svg": "c0c6f2c13f7aca0ea1db3a1b8be0b632703401d2617b88b49fba25c276f517bb"
+      }
+    },
+    "chessmonk": {
+      "author": "not stated",
+      "licence": "no terms stated",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/chessmonk"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "a71a488f79a85f14ae25005267c885c020cb57db4aa296484fc593ac42bfd2a2",
+        "wQ.svg": "573c30298adf4cab8a355fa6442a7097c7f3652c0e6bfd6b0ab538d8993a5233",
+        "wR.svg": "13917c46ea5743fdfbf149f1ede3fe2d85dd5f5ff16059cc082bbbecd884029a",
+        "wB.svg": "fb2859bbd8b9a809d5b48829028dd689cddcce4e8ff1e86ff546b5fc099db05a",
+        "wN.svg": "c2fcae83173f0d6e894b3af6ac0448055bc0c45d4a0797b92f01e545d58dafb2",
+        "wP.svg": "1ce2a4344553dd8b90fd8f6d59ef24754a949465f324df114a449c4d7209be41",
+        "bK.svg": "dc9b427031d4a18610c47ea86981c7f3b84336898caa2a35c861db90322b99e2",
+        "bQ.svg": "b67117299b0b085a9b018280206c855cf1ee446ecb36ff1e869988b4e6388fa6",
+        "bR.svg": "c0be4d5d9316235d364658a9fbe492fc703a658cefb1da8930d2da19cf4f83c3",
+        "bB.svg": "bb5b868c1b5feb62eabbf13dcca00dd58c4d306c5eee47b484e7bedfdce5f3ff",
+        "bN.svg": "1577be18e455400f134dd8a4a7b84615de0d29a2f5e2b5e5eb460115185598e4",
+        "bP.svg": "cbc4512920a39312553d53ef2c0d3b147cdfd70d74e0c016eb41f5b7e114e784"
+      }
+    },
+    "freestaunton": {
+      "author": "Eran Karu / Ben Van Vlierden",
+      "licence": "no terms stated (license.txt only links to forum threads and the author's download)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/freestaunton"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "8931da0eced8c6c61e7254fe12a929d0f92a0f1d4b758cf09e534a15db152bae",
+        "wQ.svg": "d81a100a5cfd0376d18505429b5a7ff195d1b8fc0a0fd297250f4fc69fb75584",
+        "wR.svg": "68d39524625096991f3e244473b6379cf20c8b83d9c9cce29da53e77efa35c35",
+        "wB.svg": "02fb3ea88a5fadf0dd6e4d2807f7d36ea7564b76fd47bc7970121038a0ce3669",
+        "wN.svg": "c8bea01e42ed10b21116c24c9bcb5208493f28bc45908877fbe30feaac0a9582",
+        "wP.svg": "4fb40af94e74971818e45c14c30951fcfcc240b7da65ede4ca09df9f7a8931f0",
+        "bK.svg": "d9885f112b5c5763f6b753e473606526d68515ff870c2456f9925ab7b719563d",
+        "bQ.svg": "110a8c1b37db1ba4ed49763ad6ed28b8808076ee08b10f699be291197d0af7c4",
+        "bR.svg": "5baa23960f003aa07f14d2bdb64ff7acd274b776c5e3087821f45a802e6c3134",
+        "bB.svg": "3aeddd5f96afa07eae6864d8df988692f9c619727df90cacd810ca59496aa53b",
+        "bN.svg": "3eaa76e95d1851a12bc576c3ac3c8e47b010f3a12df457d20fbc6cf1d6233edd",
+        "bP.svg": "4a36fba2266306b96acccf81a5716db1b03e56454fa906646357a8299087ecec"
+      }
+    },
+    "merida-new": {
+      "author": "Felix Kling",
+      "licence": "license.txt: \"Permission of author\"; no terms for others",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "pychess/pychess",
+        "commit": "d434d37d35736601cd8c384c8947ad4e06921f8d",
+        "path": "pieces/merida_new"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "2661f3702689567e67ed5ec23a6d24a1f52319082086a3cbdd87962ed93e79a0",
+        "wQ.svg": "a4be0fbd0bf8c818319e06e56a5c5e737f22a1f638f797e52a0b7708b1d43db1",
+        "wR.svg": "98ddad4349b7a69d44161ff6d37a421fda13052b969c2a99cd1e839c5bba67a9",
+        "wB.svg": "80c74b9969ed769fcfacb840f441eab29ac3d7a513ae2003eba10fc9a49974ce",
+        "wN.svg": "2782524a3b9fd6c9a08df8a994adb6454872672021a96867c74dec2f9084d375",
+        "wP.svg": "086de76d4b470566581c109f459872ed243d638563d9ca61d9ef4185164f3147",
+        "bK.svg": "b030c4ede15a7577d244172a80779b6f50acb4e6299a587307cc53c257b54649",
+        "bQ.svg": "de995cdb696c2b08c86ff6a194b7124e87a77861df0971cad531c121da85ca98",
+        "bR.svg": "2b99dc749a6289fea7df2e5dbc58c19cad7352e525aa441f1d4d53bba8b12b95",
+        "bB.svg": "9e252dca2260dafdd0b8cb1022d2a3995bcb1c94e271089bfc9190d6a86d9ba1",
+        "bN.svg": "fb53f269c6cea0d1a3af73dd8ac1d0b61e1ac71b6ceef162acc46396ffd15047",
+        "bP.svg": "b746939e5fb27c1b0749186f578321b40e0d32205237f59b50e842fed0a0fccc"
+      }
+    },
+    "balestegui": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Balestegui"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "00d92ae0a84a83f099dc1080d6beff71c3496c637cb1f6666f5b495b971a1109",
+        "wQ.svg": "89fd992c8dd7d23d7f4a53026db2e976df2f4031dfa4521c841daf1c280a54e4",
+        "wR.svg": "c9ff0cd95e3f4f47924ecaaadc980d95311c456ce900351fec8d75a05b77a18e",
+        "wB.svg": "7ad25c24e1f3f71e3f1c1babe71bd204fde59b0a0409147acc759a8ecc0805cc",
+        "wN.svg": "be7490a7ac9f747b702a08b962e1affc75d9a7b88169283aeb4e06dccffe4e30",
+        "wP.svg": "32f5875e018e8c748982ae966a5e164745a00c5188fb1a893881dd243b0ea072",
+        "bK.svg": "0f9c51aaf2e9b1ea3eff34d4719998cb37b5985a2163ad42cb3c33ec165c6024",
+        "bQ.svg": "b1fab86d8efc52486a1ca3a40efa5f807d8c40e2c4294d265eb8ac06eefa99ec",
+        "bR.svg": "31250437c1cb7641924607a088e1c9d18179b0d85f02b60e711334bbe7df47da",
+        "bB.svg": "d5f3751d9d179433ac6a86fc07707b062c71d7cbd0949efd048ec2845991f4e8",
+        "bN.svg": "c8f83908badbf9f1e0e64a38782cf139222026d81294c4cc0e990eeeed08c0a0",
+        "bP.svg": "8c1cca57817275fd1b892648d047a6c7628145522a042587fd2d92c154bd7d4e"
+      }
+    },
+    "berlin-shadow": {
+      "author": "Eric Bentzen (Chess Berlin), redrawn with a shadow in Lucas Chess",
+      "licence": "no terms stated in Lucas Chess; the Chess Berlin font it follows is \"free for personal non-commercial use\" (Berlin.rtf)",
+      "print": false,
+      "noncommercial": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Berlin"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "e4e3e724816a5c0f0d2c0f07cab6f3e5457950bee90abdd2e0ee8be67b8ce2d3",
+        "wQ.svg": "0f4c2d99f05b97f69cdddfeaf5f505c8c7840cfb2dbd04046209c2011567e443",
+        "wR.svg": "cca7664f1b3b1f73201c70cac436aefabc91833a917df16edff014c4c7f86584",
+        "wB.svg": "8829d39fc2d34ddcc74997ee2f3b0e5401ba93fd3045c5df29a1578bd051f5ae",
+        "wN.svg": "c456909769820984c32e685754e0fb72689635f62d01e5b13abedf6297b9df54",
+        "wP.svg": "b364fa3972bee2ac124dc865d60c2ba6a0ec410327f6397c9eb3d85977d65426",
+        "bK.svg": "b795056b82b7b94f3a4565f857abe070b74d775e059422ce8bb4fd2252876bbd",
+        "bQ.svg": "219b95919dd79554f6dff2f5d9de49c627b8577ca2a3addf1a73590823277b35",
+        "bR.svg": "c27270a1db7b05963b172dde09c11250b4b29ac4031839c53f4d7cede833ee05",
+        "bB.svg": "1d2d2571dac22076fac71c446112bf1a2927923ce332b3b46064c37518b7737c",
+        "bN.svg": "7cef7436b070278dc9b2fcbee67d5e74cb6955392bc503f3d20acb904912ea47",
+        "bP.svg": "c02700479434ef526eec6b26541d5d9bd578c90d232fa4749d128a355fb4d1f4"
+      }
+    },
+    "book-classic": {
+      "author": "Ben Citak",
+      "licence": "GPL-2.0",
+      "print": true,
+      "scale": 0.95,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Book Classic"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "965fc14fa93b56edf46aa15cab26ae40b8b99219c64433d8cf81b1445854a596",
+        "wQ.svg": "35c4433430cfc9d6133937ad66a81df27b76a6ad94b036188187797c51547c63",
+        "wR.svg": "702a22d055cf8184d3bc3e714f55fd27605ccfb5957bb2a31edcc74f306179ea",
+        "wB.svg": "8c1f019f5e4feee96b1c8d8d2ce279840807c51707c53415ef5bdbc4931c9e43",
+        "wN.svg": "15148742cb1f28407b8d329e71289260a8381365e57c84616ba880b280c65e2d",
+        "wP.svg": "fb33db05d7f577884d364df3d91d9e7c791b4e796d4a342ebc74846474221f77",
+        "bK.svg": "d6201c6c0d2cfc13aa40351e986f4aed16f6c9b564cd6e14a4b78f0d805630f3",
+        "bQ.svg": "919faf1f468c9c236c655b3b369ccea35f49dde8fd4e513d59f7b4fa8e3f3630",
+        "bR.svg": "a11379332bf1553c0eeeafe5f44bd4f64eb71845a2f35f1783152b5542c55ba1",
+        "bB.svg": "2cddabc44985cd8422f4ca97b390b687a4e00952222aea8c211f1a4c734e9bc6",
+        "bN.svg": "24bfbee7520f1de2f4320b580607a520c21f86472332409a4661b6d324f334d0",
+        "bP.svg": "1ebbbebb8f72a4e848a16de6c4b79543578df116e266982efdfcd0a910ac8600"
+      }
+    },
+    "book-diagram": {
+      "author": "Ben Citak",
+      "licence": "GPL-2.0",
+      "print": true,
+      "scale": 0.95,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Book Diagram"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "3a18689ad4792d6e86eaeb42a73f70fe724aba3f697b1dfc3f0c0deef9a8857d",
+        "wQ.svg": "15ca722cd4ee9f1964e1c3897ea04f5c5db0dcba39bef09794d6d7ae158bd4df",
+        "wR.svg": "f659bb5197f77da55061cc4ff33550c297cb865ca6a04089c9402be2e20eb1e7",
+        "wB.svg": "91ea2fc7e2e083413450f3dcb3e56a206d8b6df0dfb7ef2fc9da0bda703821e3",
+        "wN.svg": "13485df2a283ef6701330067ced0ecf892afc4c9ad090f06a1e09eb039ff6d58",
+        "wP.svg": "d8a67992404895132a5a95770a3398f3d43f22c661d3d9ee271c62419c29c744",
+        "bK.svg": "45ad684101f9d0db7a1889844db98c34c46db848dbeec3d0e8b1ee7a5128bd45",
+        "bQ.svg": "358de1be7a23b6811fc8721f43e37704cf2b19f32ce2bef39ebb9b75f9e3b346",
+        "bR.svg": "8a7311c431b6d19a9e4dcd8441a15555b0fd7ef664440d3574361cb74428e522",
+        "bB.svg": "6dc8c0dd6f0dcbedf8ece15e39a4a250d0f61e01281ab5b1d43d621bed12071f",
+        "bN.svg": "72800ad4b624c6e2cb747a16d694380d206bd6347fe0b1672f50c243e184ecbf",
+        "bP.svg": "9fc51be0d2085a37223f73e3074b7d7b8270e57a0e74379557dd99f5b480e71b"
+      }
+    },
+    "book-strategie": {
+      "author": "Ben Citak",
+      "licence": "GPL-2.0",
+      "print": true,
+      "scale": 0.95,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Book Strategie"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "92ddcdc5cd96bdb04aa0f6d875888a3f1ab802c3edceaeb91c6fec9700d1dc8f",
+        "wQ.svg": "614ce821dfa296db990032aebe59526ebbc9fcaccd8f0083a2321ecbab5a5706",
+        "wR.svg": "d290f11335167fb1fcbe005ab7e40fd5ddfb46372021fab6da711e6460d517f9",
+        "wB.svg": "46995915a7a519667fe36af9ec43aaa2ad51a8949d566e1e85ffdf918c8f58b0",
+        "wN.svg": "c73ee26d95d26ada2b424c7d84f3c672e2f807ea807eb03c09fb4086c0cef8e6",
+        "wP.svg": "7f303ac0c560fa85f47f4176f36c0f3c0e618565adfaca069e928b1722eafb3d",
+        "bK.svg": "7e7ecdf2b4d067b97824528f0ced9433dc4f73949ea70c580e6c8d7b5fab17b8",
+        "bQ.svg": "4c18356704cac3fc2418ec690e5a59df6f8ef56aa606e56000ac25cea460bdb6",
+        "bR.svg": "0321968635a0375488a920daeed2fe7172fb8d82f522342026413d436c0cd5f4",
+        "bB.svg": "8cf0b8cdc45a745ab5602f1c761b4f72e0be5be4d1369a77be1089af29fd46b7",
+        "bN.svg": "b536e46ba8f0c2ef6efd501ea86611f81b9356a6681bbbee506e770a0471951c",
+        "bP.svg": "387e5186b8d5016d7a0c04022f71da6f13dc2203c54a2285125499bcaf6516d2"
+      }
+    },
+    "caballo-r": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Caballo-R"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "13f628219ad29d67cdc1009ceb753c93a095478d4ce2cdbb8cfb299a7f2c97b3",
+        "wQ.svg": "83fedaba5e8f6521e8a5f3b011ed241bfad9798bdaad57c646b60b23b0eeddc7",
+        "wR.svg": "19f3c052b37c274c938746898a8b96955b35a3051933bc263e1a5012dd53c0bb",
+        "wB.svg": "ae2abe6a67bad66861abbf43b9fbdd17083021ebc09c4a84ab7aa4ebf8ce90bd",
+        "wN.svg": "67698b7ee5e45bcee255cdf2187289a6a652d19373f3453e641b1269701b69dd",
+        "wP.svg": "fee9cd777c0cc76ca329fc5e61590501c36facfa3e037a6c6223047d676ffef3",
+        "bK.svg": "e26fe3a9a8de5e113fb3f22847e09014fc4579e5e250212497f7994494e65259",
+        "bQ.svg": "d9731e99b40efe242194504412aae1e512ac61767b111258c418c07c79c1fb79",
+        "bR.svg": "7d6bda8e35c540276583d8dd906a0b12c8e74a935daf61d4dc394ad0edc5f6da",
+        "bB.svg": "812deffc6c88e507ac4588ab2057195c24880827afd70e0e29057dfff72e7793",
+        "bN.svg": "e0c77fc2abb83e27886249425b51f42311f4615fb4e5483a77fbc36ba922ca35",
+        "bP.svg": "bb5e88e4438d8d76ad857b400b548950dd077b2e6a2a3a45157f3acb9eeb97d3"
+      }
+    },
+    "caballo-r-m": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Caballo-R-M"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "690c70dd1af269b7ac78e48d24a52d26b443af2e91aaceeee2dbc2a459b98bb6",
+        "wQ.svg": "7cb9102a895a914e256724be247126bcfe900d3e9a368a15f536e0482c1f6aa0",
+        "wR.svg": "aba1db409dc73737a41ebc92a614d7c102a8c5852dc8b2da3c5b8e49f1b94ecb",
+        "wB.svg": "9243282d0647fa4bc2ab9214c1f5bcd59222039153f5988b0c107803a13dc07d",
+        "wN.svg": "b4573c0821e992ecb1c3967675f11411dd088951f5fcdfcfb1f87467468228e9",
+        "wP.svg": "7d6cb4f8a8504b27d576ff7d618f803d227bb087090651e4777e237a1aadfb23",
+        "bK.svg": "44f208f5354010234b9c5c75584c3eb404643d8df4ce9f089f0fcdf1a1aec19b",
+        "bQ.svg": "e4ec1097541132bf7832eb8b6432dda47d45a0a69e17a527494d83ef36c2e402",
+        "bR.svg": "75ac1fd02b56d2d32054c1c64be496c163eb903dbdf27a177980d3753e92eb93",
+        "bB.svg": "aec5ea8eb61d55f5083a111dca0e293a541b70aea664fa979d13f5b7abf1bfcf",
+        "bN.svg": "0da724f9ee93ddc02c297f4b3e9e0f8cc9b5c518902ad8daf379f6462b4a7b9e",
+        "bP.svg": "c6667354d28c0543681a0f9f278129eeca6a5ebf70c0b89e9dd56f04246a8aaa"
+      }
+    },
+    "caballo-r-mm": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Caballo-R-MM"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "18dbac0b2eb110c0c3a8a19ebc470fdb1e6bed0326dab109a82c00f1cbba27e8",
+        "wQ.svg": "50ff24abc79e535b9acd01cef02c1d390dc799b72ad35b55a05f4de3b70e7adf",
+        "wR.svg": "869132b1b46f014b2af4aa7367ac5120a16c57bea5998853a2b0887dca7475b5",
+        "wB.svg": "f35741c7dea1d33b2cf599aa3bdf417b40a478b5c9f20dd71ebaa6375d15fb77",
+        "wN.svg": "1524bc1139ba4074c149aab0a45a509f5b807198b13a6322720a9ef132ea12d4",
+        "wP.svg": "f6ebfb6eabffba6a294d462471801ca8dec4ae1dd5866080326adc11a84815cd",
+        "bK.svg": "1c6b28b01e32a802c9c4913e3fec53276c6f53999e0488c6001b2bcac57903e9",
+        "bQ.svg": "a2af6c08eba760eed45e15d3f96838276ba0fe5cd0a5183285ac93387224dd03",
+        "bR.svg": "db0425c99da14f78ae9d79b38af84bc26ce3a9c5ef714253ea0f73e2a330091c",
+        "bB.svg": "cfed4e64e1c8a9509760e8955f75b706c0daba9c76092b116839c2d203ce59db",
+        "bN.svg": "162b12662a4c4fe9bf43a0d0f2d5dc279a358c451ae35f4e74714c52755e8a58",
+        "bP.svg": "206e2882797686314bee4762b7326773a8942bb943fb7db6d254cb797ca1ad18"
+      }
+    },
+    "caballo-r-p": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Caballo-R-P"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "f8bc217e6ca0a02c9cf081fb080a92c80b868486950e58c6839de1648f37bf49",
+        "wQ.svg": "978f33ea8e7736cf042391a5f4524cd364a4e7d7618d0617224d74209c6e04a2",
+        "wR.svg": "57df4b236a2ef420245172fec235ebbc26621fdbd2206ad926fcda0197263125",
+        "wB.svg": "cfc73e7d34374b26e82c9551dbf3fecab3357675e741ce932f9b15ea4149e804",
+        "wN.svg": "04a0b710640ff3e54f7905aee6375c38d54b1122b25f5d8f59ff3010f88def13",
+        "wP.svg": "2e421a1f8a4ec932c7e120c38b5b806b54cfb87cc6aacf6a460380f500d9e1f9",
+        "bK.svg": "3774632989a9f2fce08a9fe1e940545bddb3d6ab244f32ff43dec31e9acdac71",
+        "bQ.svg": "051db0ca5c9163b35154b9bdee345436524667f9d81391c495f269ad0bcd3f5c",
+        "bR.svg": "aeddd0f96ce44e8af2eb1d15adbc24e0f3868ca02aa0f860ab65871a2e9078d6",
+        "bB.svg": "67a17da108091dfbf519c54a5920503eb819039414153900cdc0b9666d5be47d",
+        "bN.svg": "af7e00cbf9c41b66fddbf5a9f0fc2b205b10bc8ab8fb8595dd5672191f6c9ee0",
+        "bP.svg": "fe93be82fac0777d687c09c5419ad650483eda1f032ddc5bb4b267ca3568ca1f"
+      }
+    },
+    "caballo-r-rc-c": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Caballo-R-RC-C"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "965513a9baa909c266a1e1f9ed67210b0a4862f141ee1f90f44f06deea1d8630",
+        "wQ.svg": "b511d476f17cbffd386799e33107a4e8eb73592684341bdd699c9ba03b815e70",
+        "wR.svg": "bae9c66d6a8c4818fe98ba49c849489b7692eb5e7f82aea83b28b8e8d324ef9f",
+        "wB.svg": "4f5aac32b8513360f91ac575a4d3c839184d2ff46e3930b6ef69ecb2e187df48",
+        "wN.svg": "2fc0bc6a4f8ca7085e2b86b69843fd926576677767c3ad79ab5e8e278a877267",
+        "wP.svg": "e9e4d160887760a3ff5974a152c4ef96df7f1a63fe4ac86b69454823c54d32c1",
+        "bK.svg": "350a262929f7c6d28b9cd23dc174b2bd7deb44254ee4b5d82afc468901df7bff",
+        "bQ.svg": "d45f1d3166edee6378ceea85fff9623bff82c4f16c4ba08d3147b6a6ffcca8b2",
+        "bR.svg": "25b0b0fb84664eb232164e456fa509a96bed858cdd68dafd6ef512490a46231a",
+        "bB.svg": "40fe5a08987350b08de515cc9c0fbbf22e384ba0cc62b9a2c573099714a378d8",
+        "bN.svg": "3bbdddfc1a69c28e73794a2c0b6e41f718227b71c18791d42aa9b7fd851508d2",
+        "bP.svg": "9baf607f867037cfa6759e58af33f7b3f82e8c8f4126891d9a722a47ac465b67"
+      }
+    },
+    "cburnett-dark": {
+      "author": "Colin M.L. Burnett, recoloured in Lucas Chess",
+      "licence": "no separate terms stated in Lucas Chess; Colin M.L. Burnett's set is GPL-2.0-or-later as Lichess lists it",
+      "print": false,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/CburnettDark"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "0ba4965e8bc360bfa2cf3dfd53b1c62673ce6fade7efbf696a0448d2889dfd9d",
+        "wQ.svg": "b6628f547ba658c469c90753709091f73fb982d595526b2a142d8e0203a52c96",
+        "wR.svg": "2643b0185bd3f664fa3c29882452a2a9388c4465ce21a3c58b8caf9ca3e147ce",
+        "wB.svg": "a3fb65c27469868ce1027450ee51d0a91ee078eb3e1f35d3b894916d8d6e6d63",
+        "wN.svg": "750b5a6b196d9bd128343869422fea62bf78658461bb8c9bd39c4452a90c1462",
+        "wP.svg": "2705e92fa0ba3fb978d8c392f05c91caefbd5d48140a3bf332aead628087df29",
+        "bK.svg": "978f2e73af9442f8f51c27ce1f91aa6aa5ec86cb0fda2b47a7033252b84a5c8c",
+        "bQ.svg": "2b5eef7c70b6df15386c405698e084b00fa5617cdf659b9b758b75524edc0472",
+        "bR.svg": "dc1a0b3e02d00dcb38c8aa80d8de49eaa0b2b2f563b82bf5d2a0398b7c147ce2",
+        "bB.svg": "9c26b541b89b65bab1c8883266b3d330acc6156beeb16f2627b410a5d44fd8e8",
+        "bN.svg": "cb99b809250fe8a1548c0c618b1569b092c614a3044dd41cbdc26cd7b34970c1",
+        "bP.svg": "57c0648c8d4e0e5e9aac8780bdbcaee318293b24a282575681dab9cdad34fd1a"
+      }
+    },
+    "cburnett-size": {
+      "author": "Colin M.L. Burnett, resized in Lucas Chess",
+      "licence": "no separate terms stated in Lucas Chess; Colin M.L. Burnett's set is GPL-2.0-or-later as Lichess lists it",
+      "print": false,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/CburnettSize"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "bc0d15b54dbd51c8157e4d3f5f34399741e1be2326bcc26f4e26df6b8711e1fd",
+        "wQ.svg": "8f6e0ec8b89ad281cf46616c8af542c948f394011c2445603edf17a015a02a95",
+        "wR.svg": "f05050504463a64866186d8f40ceacf69492f51afc2dc6ded272d5e5abb17e28",
+        "wB.svg": "ba46bf6e06f03af5ef7404c55eeddf97e03305ba46549c08848632465dbb1d75",
+        "wN.svg": "e7abd679649b6a4fc32738e8f3d2e84fe94ed5d6bb547cf317104d762408e800",
+        "wP.svg": "bc1e129ea55402d3209c1be0489f15e977baf5813210607efa5b0e2d4c07859d",
+        "bK.svg": "a4492fe3d63664dddac783046322a6027e3d259d4c381409d8b94f98bdbce248",
+        "bQ.svg": "a46a129c583cc1e27c377a1863b4d5e95af8250dc7b005ba83c01d8bda4feac0",
+        "bR.svg": "22df8394832985c2ec032b72e9bbb51179d34552b0af9932140196b64936b940",
+        "bB.svg": "4508c577e55295ea2c611c09970e3b2eb5f094f203da82a3c27f0e4e3491f70a",
+        "bN.svg": "d350a15ef48712c8c7458b7dcfae4704e1e1b697c4e2b96568ade0767cc6c876",
+        "bP.svg": "4e931c5c5809ee251bf1951862bb94f8a8cd996ab5531bd1bb23809cadb57380"
+      }
+    },
+    "etruscan": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Etruscan"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "f620dda2a23541a72b4d8450942b7b22e2955cd9449eabec308bfdc9112d129e",
+        "wQ.svg": "28ffb94c417270cebad535d6647179699c5fcdac4995ce20331019e6cad206ab",
+        "wR.svg": "cb099231b689231ef4a7f8b77788bf9177754365c81dcaa4066ee5aa3ae80e40",
+        "wB.svg": "56ae7e45199ae1fabfc62e4587d9088f0e3796f0fca1dfa41b2ec3cf06340957",
+        "wN.svg": "f3e2b056571c49756367fbd0a694f811c163219dc9ed669c3991e75a5a025a72",
+        "wP.svg": "fbd1a468036c8fd139a30611b6483f88092c4128931db212ad3a30aab34ae6e0",
+        "bK.svg": "f3de7802dd07e7ecac17c1a0a9016f5dfbdf755be169974ba8c5032061b111f3",
+        "bQ.svg": "1084c379e09780615522b9a7fa7a599e3cd888d5ec5f5d0cc03c6453f54125e0",
+        "bR.svg": "e0a2557b39877978d326b9f78e47fbf88e8451014907dbb11e797ad2a3902afe",
+        "bB.svg": "ee7141313bfe66117f160d4bc119107370ca35bb2b06442d67470b0d6494b6a0",
+        "bN.svg": "bda2560e10ec91f661a607fa7d385929d75ee4b92b7eb9524dc5da4f00e65454",
+        "bP.svg": "2608ac61353f3747d35187f2f97bb3ad8c3ef83a8e99cc25a8521c6b98924a61"
+      }
+    },
+    "etruscan-clear": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Etruscan-clear"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "59ebb3d77a8bc892315ea27280100b0da35ec7c6d41665494e2c6f5a01ff2a0a",
+        "wQ.svg": "53a985c22519ef2591149ed5410f098f0391fb9a4405e1c31ae2418036470602",
+        "wR.svg": "65210a9a80d6a29fbfb65caa35803cf63bde9bf6b6ef84bbfbce4cf1b6069a90",
+        "wB.svg": "033fc5f36488a9c79f4f3dd87fe3c70df4abf74b6a7cb379a585bb6a965dbbb7",
+        "wN.svg": "bc79e1f9a27659072d909316718276c0205c683749917ec4c90014670904d990",
+        "wP.svg": "2004f70797a89944ba4a91e234d2a2808c05e7f8a73b9c6dfc78e0e1c0577eb7",
+        "bK.svg": "46d0b75f1fa69953b4d8d4873c9abd1fc57d5c101951deea7eabfa02ba74bcb9",
+        "bQ.svg": "722b6563b4175e4e9497f55a168fe35098df53fca1ab5611b7c8b99f4e42a9fe",
+        "bR.svg": "bd096839c4bc385ff61a98beca4b276142cd9ec026ab13310f2425cb5695c6ee",
+        "bB.svg": "0fb185f50e07bfa0064e23bb1cf161f7b97df9a32ef1689ea19a246fde60e8f7",
+        "bN.svg": "f3e26ba97a28d731af080c4a40c3a898a3c97400f27ba559f7b14349118bfe70",
+        "bP.svg": "ba767409ebcd2442b8fbc834c8ee4776514a9e90278feb341b01c37db5da4f4d"
+      }
+    },
+    "eyes": {
+      "author": "Maurizio Monge",
+      "licence": "LGPL-2.0 (license.txt: GNU Library General Public License, version 2)",
+      "print": false,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Eyes"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "c489d343c8ed025346ed8177a8760791f2f0ecca4bca31c0983dc071b3201329",
+        "wQ.svg": "f82c3a52f491df71321fb4ad0389dfe0aa0d4aed872498695f50b784bbe1f9be",
+        "wR.svg": "3760f926c6928b0b98ba44ecab292a1fd347cb40a6a2333ec3ea1e7c12d08fcf",
+        "wB.svg": "2cda312616d2dea767c73d487861c6d518b9befb459dbab415b9b296d49f8494",
+        "wN.svg": "c6a1bd66c9b31d2147de2563c6a72dad4e9700e9120d9c25830b7cd32feadefd",
+        "wP.svg": "40bd3b0fb32e577f3a586c7b2b9c859fe7ad4a710bcc4d5bd5cdb541323674e0",
+        "bK.svg": "757064072887b055a1e31a76c223007f07d1b4009b5da9f6febe9df418b0606d",
+        "bQ.svg": "b2d44f30c7784a42a78d8168f0838a0bcf426074dcdf76e3c22545f1d972195a",
+        "bR.svg": "12f85ce685de2f834d149761d96effd6f3b2cb749e4b630289ea01e074d9808a",
+        "bB.svg": "f2496651691576482221762de10438f1595657bb7a6a1a180f35e561a2686606",
+        "bN.svg": "d337659b998d4b3527d6bd6f592e1181818e1a3867ac75af5d8f559b2166ce10",
+        "bP.svg": "7fdd8db9054f007ec0025e55d2c1e4009b190526fa2646f47cbe05a368c0c422"
+      }
+    },
+    "fantasy-alt": {
+      "author": "Maurizio Monge",
+      "licence": "LGPL-2.0 (license.txt: GNU Library General Public License, version 2)",
+      "print": false,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/FantasyAlt"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "27e5f52004f3f78ab5bea2c12322c49721f83310039334d1d1b9986244d1d519",
+        "wQ.svg": "098f8a6c4fa63acbf0e9cd5a8bfa84cc920927533f9fa5336bb1fa2cc68e710a",
+        "wR.svg": "a504c9d33d4e5b084a019bb037138780fbe7cef5ce1fa6625a2e14c3c9153920",
+        "wB.svg": "9beafcabc52e5482f0f48a1383a444bb750dd3f32e83dd46628b8593a0c1bde4",
+        "wN.svg": "519465697bfb289111a8e0d93e34a4b096d7d11f08779edae93bbbf7d5033aaa",
+        "wP.svg": "b79b9b9001f0036451ad9a4d1bbad2a1d2748e02b70dba2564abb0f148c73df8",
+        "bK.svg": "5ffefc24ebf568752097dd5f49a4ce799fa37d537e398971d5f1b48d831ca47c",
+        "bQ.svg": "b5618dcf16ccf90d21e33ad06bf28ed666a63a1cf038963ef6b7af418d9b34b2",
+        "bR.svg": "68c5edd521068e934cda6d5f635da02dbc760af246935ceabc274009905db2d0",
+        "bB.svg": "aaea42939b65f79ae6713d918ca850c3c56ad7296c36244e77ba485aabd3ee8b",
+        "bN.svg": "3f31fab02911e2e6071866176c688701878ade5f86274ba0a1161749c7773fe1",
+        "bP.svg": "f8e96b3d29efb7603b74bcb22d6d5971af8e835a1e03233dfbbccf6afdf09cce"
+      }
+    },
+    "internet": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Internet"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "1698f67340a6cbcd9f9f0335ea82e3e1733a5febda300931d5f8937759be9ff1",
+        "wQ.svg": "c83d811fa3b55b5a9f80ff35ae0570cb008c6fc5ca2754c73fd08480225307e4",
+        "wR.svg": "732461c3329fb0347264737221cce57873842ebe5251451333efa927b150c46b",
+        "wB.svg": "136ba86c5e7f48806f524f5e0fd05c239a23ed8551a2ac755e45dc2545009679",
+        "wN.svg": "2711eaad21eeb4aa485e85bc8a384c48bddef1d4449dc76460c6e33d509e3117",
+        "wP.svg": "3ca416db425990f2e37e5c49fc5e127c3d6f1fdebbd216329d99913f6c11fd8c",
+        "bK.svg": "60deaac5fdb19984d48bb348f93ebc33b54611d878cb1e40c15d919a19162c86",
+        "bQ.svg": "2ee48d81a891007e83bb0e7015ee7731d2994e6720da956b671c2a3f008869c7",
+        "bR.svg": "0a3c759658395514c13c1d7531876acb78853f5a9f6f3388ced1388f60f73995",
+        "bB.svg": "27794e4c12a31c3d0024d43b7ccb2ef9acb780efec0e1a30776db01c9adaf742",
+        "bN.svg": "8d531874247e6b9c5b32748e2c1af3f1dc64ae504446253450a8b3c6fc202a54",
+        "bP.svg": "f9ce7186820fb31e364264ef49a8a20943ee1e9d9775ef07dd0ea8ffe7b9007b"
+      }
+    },
+    "jin-alpha": {
+      "author": "Eric Bentzen (Chess Alpha), as recoloured for the Jin chess client",
+      "licence": "license.txt: GPL-2.0; the Chess Alpha artwork it is drawn from is \"free for personal non commercial use\"",
+      "print": false,
+      "noncommercial": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/JinAlpha"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "2448a8091b1c9c574e797d749b2a03df83b935f29c449ff26b938fdfd911b64e",
+        "wQ.svg": "fba327a10dcc19f91136d547a9938518fa976602e5391076792c2e79912d5d7e",
+        "wR.svg": "f6524b75cec879d947d264be256c35f25df4fbebbd86a04ed98d17e212b57e07",
+        "wB.svg": "aaf85325fad315c0b6289b3226857190987ca8c19d2d58d11d495c0e41bd8189",
+        "wN.svg": "9fda11846faeb04bbf78ec5654f0fd54d30d18a635db610bbd3ed7a0d6dcba56",
+        "wP.svg": "a366dc8d06b5f8587a927e3590725bf2d1bac49acf27d0ca857bc4ef2e93d14b",
+        "bK.svg": "0f8c0ba0b04b7a274a81c42bf21642f0511543dab47dee2550fbdc816885af0b",
+        "bQ.svg": "04991b048ea45256abcab0be6403dfc74555ecce2de4f36f57e119439ab2c127",
+        "bR.svg": "fe81bd936461d42157cef0aea4eae58c29574a7a89a3e8c8f8c8ebc67c39b7cb",
+        "bB.svg": "724d55bb77e9978c6ab0c6285049b117d7cd3c53ac7ff83b4f6259993afadead",
+        "bN.svg": "c68d791da8ea21e53ecb4676ac19a5e41271e8c5ba5dcb80e1eabe6429ee61cc",
+        "bP.svg": "6f2cd1aa77dd3b948ccf0f4012925056fc2a60642356af737c0aecf452e20fb8"
+      }
+    },
+    "kilfiger-shiny": {
+      "author": "James Kilfiger, restyled in Lucas Chess",
+      "licence": "no separate terms stated in Lucas Chess; James Kilfiger's set is public domain as stated in its files' metadata",
+      "print": false,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Kilfiger2"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "d8ed94eebc7ec72cd490d4ae89dfdc190863879c589fbab263ab4fc66de3723e",
+        "wQ.svg": "08d1d6c60d9dd75501c284f2bd07bba8981bf98abb2a5b755000c396a5f4e15c",
+        "wR.svg": "c41a7a315ffa26e207f104af59bea513b7b8f84f8016994bd63c5be5b8fe0cbd",
+        "wB.svg": "5405248c6d32d217a9deeffe5c6a08e7e8809cbf9c685b7deccfb93c096fda33",
+        "wN.svg": "650579473dd2d3159c0362e6abe61a7f41e33a5f2aacd1dca6b714d50ccc9e5e",
+        "wP.svg": "3b4b93c19c0fb0fd52f85995ef3a481c190eb0f85c645148f2321bf3fd07e802",
+        "bK.svg": "e2a532c764d5d550f417e687ad3dfd4d17810bd4261d036acd1d7e92720c3821",
+        "bQ.svg": "e629ba26d99f8527d9095d90f079d4cc641891abb42b44520856dd8018833913",
+        "bR.svg": "5a2b843169ea46df5fbfc18c1103afe4d7eb052f0a77096ac055d21c04068513",
+        "bB.svg": "c8fe5d969a41f5333084ef4a935ab1abb1b9fb7e3310dbbb8c9701b06cfe47c5",
+        "bN.svg": "da734e8326fdfce7a513fc6affa482a862a312781d42474f391c57122bb057a7",
+        "bP.svg": "0c15d26937ba0e08866f4802535ad3e3b386c5938189f1f1aac7c00a3871cbde"
+      }
+    },
+    "montreal": {
+      "author": "Gary Katch (Chess Montreal font)",
+      "licence": "no terms stated in Lucas Chess; the En Passant font page lists Chess Montreal as \"Freeware (with permission of the author)\"; no licence text",
+      "print": false,
+      "freeware": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Montreal"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "b5acedbbaa5233bee705d37abe9974bb03c3e0eec2fd6e788a2bc193db1be102",
+        "wQ.svg": "fa89454d600e2abc709d1337202cb20eb0198949fcf20df6a7c17dc0b37764fa",
+        "wR.svg": "13ab283788a23e1ae018050917c06ee30610a6258a1f924ca22078f8d25400d6",
+        "wB.svg": "f877da2a1c9c48005d3e49e95e7f7184d1ed45cc9b71203e971e7799a675446d",
+        "wN.svg": "6db3ff1aa371908446fe760be4f4d63a369e704a017601ffe0601d1452927cf0",
+        "wP.svg": "7dde8e2baa1a5726b5e8d6366a00623a3a4844fac3679bdf6bea5ef38442dc48",
+        "bK.svg": "6062c951c05c4304927169bc522aac25aea438908f2c7cf3b96ab745d2a98d29",
+        "bQ.svg": "292944c98cb493f201bc8cfbcaf345e4f95ee3b821b184a24806965ec8ce07b8",
+        "bR.svg": "a5d2c15006352fe5848ce20476969d3d7a4d35c80d8c4efab5590d24a27daf6a",
+        "bB.svg": "7800711ce9e027281b7eadd166080a026a86eaed883b6bfb8a96f1150a1f2b83",
+        "bN.svg": "7753177c6b848a55ec658a46183f1c0edae68b85ea8046cd42089693dab77c8a",
+        "bP.svg": "d4be574046ea95dbd2d3ef688e87235cbcebb87e749947e31e754f96b47ccb20"
+      }
+    },
+    "qwertyxp20000": {
+      "author": "not stated",
+      "licence": "no terms stated (the set's folder has no author or licence file)",
+      "print": false,
+      "unlicensed": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/QwertyXP20000"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "6e1f1ca0749271cecc240f3be0c382cabfdb41fc8d75099606d2c55f983e0abd",
+        "wQ.svg": "13b6f43c9e616d10dc807347109a9e47f008a3e70d95cff947d0e2ad9610c9b1",
+        "wR.svg": "b720a644dce67b486e8cd1c030dc60316b461822350792dcb2141c203d6ca0e0",
+        "wB.svg": "e6d3de58cb3575d5948bde0dafd9b6e4744cf9d5dab7740819d7eb300deb043f",
+        "wN.svg": "64f893a947acfcebd3eb2950805324d469e939f9dd5bc46fbecce8efa6516924",
+        "wP.svg": "364da25b5eb89fab8acac2426a516eec04df22722f1d9bac7a4342402127ab33",
+        "bK.svg": "83db1a1193e3cf896b06ce2aebee5717f84462934886c7bc2c7bd8a08d2bb1b9",
+        "bQ.svg": "e91591c33134d4ef6b32d05fe3f74f1ad53a359a76d56bd59d74fb2f8ab574ab",
+        "bR.svg": "27f534f9888cd940f76d43c6ad6c401d5c0a4d763876bdc2e0aa7b6d7168e4d7",
+        "bB.svg": "a17399e1ef55d4e2c61562f0fbb7233889837a61a7aa028d56ec45b529cc07be",
+        "bN.svg": "76cedd8ef5dd7d60541b4e716ce2a9d584fdf9e8490939ed7a7bf1059167a492",
+        "bP.svg": "9781da6c257a82ba6c4849a18685e2a1935f903738a6ceb8d109e67c717e6f97"
+      }
+    },
+    "regular-embossed": {
+      "author": "Alastair Scott (Chess Regular), restyled in Lucas Chess",
+      "licence": "no terms stated in Lucas Chess; the En Passant font page lists Chess Regular as \"Freeware\"; no licence text",
+      "print": false,
+      "freeware": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Regular2"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "ab5e137124034e84bf25229df39ba32286fb823e91b706cad5a5c5ec2185eb1e",
+        "wQ.svg": "5cec5bf16f642624056de54b6b25b64610400d3240a49540e513be20ce5a90d1",
+        "wR.svg": "825d45da6dea910946216e5081b820c75c943cdaabc54ad2b25447de3725dda4",
+        "wB.svg": "e17034020eda778e876c7c0a9090ad6bfd2f4e1c01cc67915b32433e81190b83",
+        "wN.svg": "6540d3ebdd234d7c360bbe414568be295133480372bb4abc976eba4867aed940",
+        "wP.svg": "1ff4f893bf8a4ce2cff903e2f684739c01cf495c739b3ce6e96e7861769cc3ae",
+        "bK.svg": "c52c7cf259ed8c60d2826355301c3ff98b66e33ee9399a2f3141a86c6322a0cd",
+        "bQ.svg": "023eb1de1a71d151d3b266e3274bb30871b65e1af835944cb16b21d4860266ef",
+        "bR.svg": "77d12ae2127f3ba9018ad8645e8f7e70453be974702c46e4b61c128676746c62",
+        "bB.svg": "7a726ac69aac2de18159550868cd5100752d7f2e185fc0c4d12a291118102714",
+        "bN.svg": "a959935d0d9b25de6e8e286d29da71b0989cd4f2e5712111e60badbd6c09ce86",
+        "bP.svg": "498f1c0514975141f8fac923b8c0b376e0c86c780424e8fe64adbbf3a73b4bce"
+      }
+    },
+    "shahi-white-gray": {
+      "author": "Tamer Karatekin (Şahî), recoloured in Lucas Chess",
+      "licence": "no terms stated in Lucas Chess; the Şahî artwork is under a non-derivative licence (\"Free for personal and commercial use, but non-derivative non-modify license\", as Lichess COPYING.md summarises it)",
+      "print": false,
+      "noderivatives": true,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Shahi-White-Gray"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "33e6675466479d12d8b95c6e379ad3616beb019ac46bbffd640aec4c29c45c70",
+        "wQ.svg": "069c84db8438457d30fa5354fc20d1bc65ec764c6bb5d2e6911848886be81d7f",
+        "wR.svg": "fea3937518a66d0fbc56483b73c6e8243d9a206898d772f50236630e4ceb441b",
+        "wB.svg": "19e91333bbbed4154b5158e0f025ff3a5417e59d372f7161f505ac19fb5b8967",
+        "wN.svg": "9b9ccffb3cfd1c525f64259d3c2088f1f8a58906c71278d5c7b2e777a97b8e1d",
+        "wP.svg": "940675416ab79a6e6fb3fd769c68a863b1a1acce0c62774330cccc38b710539b",
+        "bK.svg": "a4ec99995122447c8533ee9192dff3c975f9acb2280abce01908013493f768ce",
+        "bQ.svg": "83d6820eed81b84771701b664b98def60cf71a16b508f8afed97406aae8fbd22",
+        "bR.svg": "c54365a8793b1e48edf53c94b9c4189f73cefac2a3cbc95d80ae34d2b4759758",
+        "bB.svg": "e321e23253b3787d944194f63914a05b1b5e9ac0cbe5f62e83713606aab8bd47",
+        "bN.svg": "c7b4cea1a08238e49a110a1f0e1d4541e5b1197354bb1460181ec4c61d6ec929",
+        "bP.svg": "50aa6d3575eac800d22970d0b7b27fdb69fb5f35bcfe5e84de5fa42aa281913d"
+      }
+    },
+    "staunton-3d": {
+      "author": "Marc Graziani",
+      "licence": "GPL-2.0 (license.txt)",
+      "print": false,
+      "source": {
+        "repo": "lukasmonk/lucaschessR2",
+        "commit": "b3ab7678077d6433e45d85f55acac2102e13e82e",
+        "path": "Resources/Pieces/Staunton 3D"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "ad777f4a1b502ee6ab2bae988fa2cf8a0e9e66f6fcf502d9b8d31aec51b71899",
+        "wQ.svg": "1951235c6f326bcb98a26d34ed854c42b42f67ee464c23ba47b993bdd5a49157",
+        "wR.svg": "bafa8dfb56497efacb16c3d7c32990a02fd8d21804019e56c6a369ea951b9a35",
+        "wB.svg": "9b91b32f53bd6444b3c1dfc2456d18fab1276170e5df5c38b6bd1f477997370c",
+        "wN.svg": "b3587ae8041d8eee4bddd105f1e8cf30fb11f7c38f43d5a8e042d169056fee33",
+        "wP.svg": "74f794bf24a1cf3b0e3a05a0c9c361d1367f0ba3f1b4b68503eb367c8c451673",
+        "bK.svg": "5f454c17041862682b94ab0e2c2c4be3f8c6843028ff3508662db87efd37d4f1",
+        "bQ.svg": "42ce3910cfcee78e690caeaf29332b985965ec5d392c980c0ae135a9e1502fca",
+        "bR.svg": "31eefaaaf04e4ba100cb41fad0e00fe5a489b9fbf0516e1d64475dc3db4bd75d",
+        "bB.svg": "9699b32ca3059adf2be08bae4484c0949707291727970a2dbd03d6c78728dbef",
+        "bN.svg": "f6dbc5a59668071fc57b698030e41559579f3ed73d93c8a06099808a9153ff72",
+        "bP.svg": "4e88512ecf91dc734bc4502ed2f0c5ffb7fe23e7af085ee604688de64ad1e691"
+      }
+    },
+    "1echecs": {
+      "author": "Christian Poisson (1Echecs font), SVG by Mu-Tsun Tsai",
+      "licence": "no terms stated in the repository; the En Passant font page says \"1Echecs is freeware, but if used for more than 10 diagrams, the author would like a copy\"",
+      "print": true,
+      "freeware": true,
+      "source": {
+        "repo": "MuTsunTsai/1echecs-svg",
+        "commit": "1fd2e94846e94995c6ac7fab72ca3f74a1b32f0c",
+        "path": "svg"
+      },
+      "files": {
+        "wK": "wk.svg",
+        "wQ": "wq.svg",
+        "wR": "wr.svg",
+        "wB": "wb.svg",
+        "wN": "wn.svg",
+        "wP": "wp.svg",
+        "bK": "bk.svg",
+        "bQ": "bq.svg",
+        "bR": "br.svg",
+        "bB": "bb.svg",
+        "bN": "bn.svg",
+        "bP": "bp.svg"
+      },
+      "sha256": {
+        "wK.svg": "3421d3d7b84b33701a75b529ab6fa791a1fbf27d83b30dcee4c45d02f6b28cac",
+        "wQ.svg": "6e816cabeaf575740d4db49ada1167145b951857e49330f45934d87dfe38c7d4",
+        "wR.svg": "bc307e3fa5bffe96a17fe8328b8161e131e36a90ac6a0b76adb793ddbcf911fb",
+        "wB.svg": "ee62701dd2f26543d4688b606a096e3def0ec3071839eac121d7ef8349b941cf",
+        "wN.svg": "305bd6cdb67d26d661d762c7ab5e1614cbe838252a4bd2e474dab0a938177484",
+        "wP.svg": "b3995edd6517f80e07d9e1073956f8974d4960e2bfd80e72a8923d12b38892aa",
+        "bK.svg": "ac9bba927e625228d4deef63c001adf22ca208635332d8cd67adf590508fc160",
+        "bQ.svg": "cd322a7f93e75e368b74e6c6283e6fccfd6ee103daf65c0b8a5c5ab349e3bf24",
+        "bR.svg": "d85e2e08acd31e24c346951519003bd27bc5fa2423ee406b03043365dc8c5808",
+        "bB.svg": "9369b5cdf95e4b12b59619b5b2d4443c6ff2088b3a11b195098efc03b2ae51d7",
+        "bN.svg": "acb6c5896ac714b1302dacec72867d9bfeb57f1e261acf0fb6a404ad0f780588",
+        "bP.svg": "ffa4f4c0b52c75919e895b34849869ec18979e3b1983e09b5f09e5ab98c37818"
+      }
     }
   }
 }

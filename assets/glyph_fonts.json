@@ -270,6 +270,56 @@
       "black": "~",
       "print": true,
       "sha256": "043d0020f92c62311d93ddb66a85964d38879fe151ff512e5bfcf79fb1473328"
+    },
+    "chess-regular": {
+      "file": "CHEQ_TT.TTF",
+      "url": "https://www.enpassant.dk/chess/downl/cheq_tt.zip",
+      "member": "CHEQ_TT.TTF",
+      "author": "Alastair Scott, after Adobe's Cheq",
+      "licence": "Freeware: the En Passant font page says \"Freeware\"; no licence text (the font's name table says \"Copyright 1991, Atech Software, Carlsbad CA\")",
+      "freeware": true,
+      "white": "kqrbhp",
+      "black": "lwtnjo",
+      "print": true,
+      "sha256": "f571f28ceffda5d741b283a653b7aa406c84ce77c189dc1de141f55c3cf4d03c"
+    },
+    "traveller-standard": {
+      "file": "STD.TTF",
+      "url": "https://www.enpassant.dk/chess/downl/tds.zip",
+      "member": "STD.TTF",
+      "author": "Alan Cowderoy",
+      "licence": "Freeware: the En Passant font page says \"Freeware\"; no licence text (the font's own notes state no terms)",
+      "freeware": true,
+      "white": "KQRBNP",
+      "black": "kqrbnp",
+      "print": true,
+      "sha256": "d444a9cefe337bbc0825206ebe49470f1fdbef897b1d61734e62611887011467"
+    },
+    "chess-alfonso": {
+      "file": "ALFOCHES.TTF",
+      "url": "https://www.enpassant.dk/chess/downl/alfonso.zip",
+      "member": "ALFOCHES.TTF",
+      "author": "Armando H. Marroquin",
+      "licence": "Freeware: the font's README says \"The font is freeware\"; no licence text",
+      "freeware": true,
+      "encoding": "armn",
+      "white": "kqrbnp",
+      "black": "lwtvmo",
+      "print": true,
+      "sha256": "69765f975470b704b95f135965719e11b8eb0870d9e9e49af7fe2396fa7d7af9"
+    },
+    "chess-line": {
+      "file": "LINEFONT.TTF",
+      "url": "https://www.enpassant.dk/chess/downl/chesline.zip",
+      "member": "LINEFONT.TTF",
+      "author": "Armando H. Marroquin",
+      "licence": "Freeware: the font's README says \"The font is freeware\"; no licence text",
+      "freeware": true,
+      "encoding": "armn",
+      "white": "kqrbnp",
+      "black": "lwtvmo",
+      "print": false,
+      "sha256": "d7b3ffeaaf5e2126a7d8fb778a1739b7d7cebebac3d8dce9bb7fcc3861e33ce8"
     }
   }
 }

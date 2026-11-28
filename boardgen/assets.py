@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import io
 import json
+import re
 from functools import lru_cache
 from pathlib import Path
 
@@ -16,6 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_DIR = ROOT / "assets"
 ASSET_DIR = ROOT / "data" / "assets"
 BASE_PIECE_SIZE = 192
+_VIEWBOX = re.compile(r'viewBox\s*=\s*"([^"]+)"')
 
 # Fonts with Cyrillic coverage, used for non-Latin page text.
 CYRILLIC_FONTS = ("Arimo.ttf", "EBGaramond.ttf", "PTSerif-Bold.ttf", "PTSerif-Regular.ttf", "SourceSans3.ttf")
@@ -40,8 +42,14 @@ def print_piece_sets() -> tuple[str, ...]:
 
 @lru_cache(maxsize=1)
 def open_piece_sets() -> tuple[str, ...]:
-    """Sets under an open licence: not marked noncommercial, and not freeware with no licence text."""
-    return tuple(name for name, entry in piece_sets().items() if not entry.get("noncommercial") and not entry.get("freeware"))
+    """Sets under a stated open licence.
+
+    Left out: sets marked noncommercial, noderivatives (no modified copies
+    allowed), freeware with no licence text, and unlicensed sets, for which
+    no terms are stated at all.
+    """
+    closed = ("noncommercial", "noderivatives", "freeware", "unlicensed")
+    return tuple(name for name, entry in piece_sets().items() if not any(entry.get(flag) for flag in closed))
 
 
 @lru_cache(maxsize=1)
@@ -82,20 +90,91 @@ def _glyph_piece(entry: dict, symbol: str) -> np.ndarray:
     return premultiplied
 
 
+def _premultiply(image: Image.Image) -> np.ndarray:
+    rgba = np.asarray(image.convert("RGBA"), dtype=np.float32)
+    alpha = rgba[..., 3:4] / 255.0
+    return np.concatenate([rgba[..., :3] * alpha, alpha], axis=2)
+
+
+def _fitted_size(width: int, height: int, scale: float) -> tuple[int, int]:
+    """The size that fits a width x height picture into `scale` of the square, keeping its shape."""
+    factor = scale * BASE_PIECE_SIZE / max(width, height)
+    return max(1, round(width * factor)), max(1, round(height * factor))
+
+
+def _letterbox(art: np.ndarray, scale: float) -> np.ndarray:
+    """Place premultiplied artwork, already fitted, in the square.
+
+    It is centred across. Vertically it keeps the margin that `scale` leaves
+    below it, so artwork wider than tall stands on the same baseline as square
+    sets instead of floating in the middle of the square.
+    """
+    size = BASE_PIECE_SIZE
+    height, width = art.shape[:2]
+    bottom = size - int(round(size * (1.0 - scale) / 2))
+    top, left = bottom - height, (size - width) // 2
+    canvas = np.zeros((size, size, 4), dtype=np.float32)
+    canvas[top:bottom, left : left + width] = art
+    return canvas
+
+
+def _widened_svg(path: Path, scale: float) -> str:
+    """The SVG's text with its viewBox widened on every side, so the drawing fills `scale` of it.
+
+    Unlike shrinking a finished render, this also shows artwork that reaches
+    past the original viewBox, such as a halo the original clips.
+    """
+    text = path.read_text(encoding="utf-8")
+    root = text.find("<svg")
+    match = _VIEWBOX.search(text, root, text.find(">", root)) if root >= 0 else None
+    if match is None:
+        raise ValueError(f"{path} has no viewBox to widen")
+    x, y, width, height = (float(value) for value in match.group(1).replace(",", " ").split())
+    pad_x, pad_y = width * (1.0 / scale - 1.0) / 2, height * (1.0 / scale - 1.0) / 2
+    widened = f"{x - pad_x:g} {y - pad_y:g} {width + 2 * pad_x:g} {height + 2 * pad_y:g}"
+    return text[: match.start(1)] + widened + text[match.end(1) :]
+
+
+def _svg_piece(path: Path, scale: float) -> np.ndarray:
+    source = {"svg_path": str(path)} if scale == 1.0 else {"svg_string": _widened_svg(path, scale), "resources_dir": str(path.parent)}
+    # An explicit DPI is required: with the default, sizes in mm or pt are rejected.
+    # resvg fits the drawing inside width x height and keeps its shape, so
+    # artwork that is not square comes back smaller on one side.
+    png = resvg_py.svg_to_bytes(**source, width=BASE_PIECE_SIZE, height=BASE_PIECE_SIZE, dpi=96.0)
+    return _letterbox(_premultiply(Image.open(io.BytesIO(bytes(png)))), 1.0)
+
+
+def _raster_piece(path: Path, scale: float) -> np.ndarray:
+    """A piece from a bitmap (WebP, PNG), with its alpha channel kept."""
+    with Image.open(path) as image:
+        art = _premultiply(image)
+    width, height = _fitted_size(art.shape[1], art.shape[0], scale)
+    interpolation = cv2.INTER_AREA if width < art.shape[1] else cv2.INTER_CUBIC
+    art = cv2.resize(art, (width, height), interpolation=interpolation)
+    art[..., 3] = np.clip(art[..., 3], 0.0, 1.0)
+    art[..., :3] = np.clip(art[..., :3], 0.0, art[..., 3:] * 255.0)
+    return _letterbox(art, scale)
+
+
 @lru_cache(maxsize=None)
 def _base_piece(set_name: str, symbol: str) -> np.ndarray:
+    """A piece at the base size.
+
+    SVG and bitmap artwork keeps its shape: what is not square is letterboxed.
+    A set's `scale` (default 1) shrinks its artwork inside the square, for
+    drawings that reach or cross the edge, such as pieces with a halo; for SVG
+    it widens the viewBox, so that what the original clips is drawn.
+    """
     entry = piece_sets()[set_name]
     if "file" in entry:
         return _glyph_piece(entry, symbol)
     colour = "w" if symbol.isupper() else "b"
-    path = ASSET_DIR / "pieces" / set_name / f"{colour}{symbol.upper()}.svg"
+    extension = entry.get("format", "svg")
+    path = ASSET_DIR / "pieces" / set_name / f"{colour}{symbol.upper()}.{extension}"
     if not path.exists():
         raise FileNotFoundError(f"{path} is missing; run tools/fetch_assets.py first")
-    # An explicit DPI is required: with the default, sizes in mm or pt are rejected.
-    png = resvg_py.svg_to_bytes(svg_path=str(path), width=BASE_PIECE_SIZE, height=BASE_PIECE_SIZE, dpi=96.0)
-    rgba = np.asarray(Image.open(io.BytesIO(bytes(png))).convert("RGBA"), dtype=np.float32)
-    alpha = rgba[..., 3:4] / 255.0
-    premultiplied = np.concatenate([rgba[..., :3] * alpha, alpha], axis=2)
+    scale = float(entry.get("scale", 1.0))
+    premultiplied = _svg_piece(path, scale) if extension == "svg" else _raster_piece(path, scale)
     premultiplied.setflags(write=False)
     return premultiplied
 

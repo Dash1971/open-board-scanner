@@ -5,7 +5,8 @@ Files come from pinned commits, or from a fixed URL where the source is not a
 git repository (a font inside a zip archive is named by `member`), and are
 checked against the SHA-256 hashes in the manifests. A piece set from another
 repository gives its own `source` and, when its files are not named wK.svg
-and so on, a `files` map from our names to its own.
+and so on, a `files` map from our names to its own. A set drawn as bitmaps
+names their file type in `format` (for example "webp"); the default is SVG.
 Nothing is downloaded that a manifest does not name.
 
     python tools/fetch_assets.py          # download and verify
@@ -93,12 +94,13 @@ def main() -> int:
             source = entry.get("source", pieces["source"])
             folder = source["path"] if "source" in entry else f"{source['path']}/{name}"
             hashes = entry.setdefault("sha256", {})
+            extension = entry.get("format", "svg")  # bitmap sets name theirs, for example "webp" or "png"
             for colour, piece in PIECES:
-                local = f"{colour}{piece}.svg"
+                local = f"{colour}{piece}.{extension}"
                 if "files" in entry:  # the set's own file names, keyed by ours without the extension
                     remote = entry["files"][f"{colour}{piece}"]
                 else:
-                    remote = f"{LONG_NAMES[colour]}{LONG_NAMES[piece]}.svg" if entry.get("naming") == "long" else local
+                    remote = f"{LONG_NAMES[colour]}{LONG_NAMES[piece]}.{extension}" if entry.get("naming") == "long" else local
                 fetcher.get(raw_url(source, f"{folder}/{remote}"), DEST / "pieces" / name / local, hashes, local)
             print(f"pieces/{name}: done")
         changed.append((PIECES_MANIFEST, pieces))
