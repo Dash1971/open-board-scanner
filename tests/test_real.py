@@ -45,12 +45,12 @@ def test_turned_crops_keep_image_and_labels_together():
     assert seen_turns == {0, 1, 2, 3}
 
 
-def test_batches_draw_evenly_from_sources():
+def test_batches_favour_small_sources_without_drowning_large_ones():
     boards = [board("big", name=str(i)) for i in range(9)] + [board("small", seen="8/8/8/8/8/8/8/8", name="s")]
     images, squares, white, turns = real_batch(boards, 400, np.random.default_rng(1))
     assert images.shape == (400, 256, 256, 3) and squares.shape == (400, 64)
     from_small = int(((squares != 0).sum(axis=1) == 0).sum())
-    assert 150 < from_small < 250
+    assert 60 < from_small < 140  # one board in ten, drawn a quarter of the time
 
 
 def test_split_by_source_and_by_fold():

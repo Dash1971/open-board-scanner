@@ -97,12 +97,18 @@ def load_labelled_sets(labels: list[str], photos: list[str]) -> list[RealBoard]:
 
 
 def real_batch(boards: list[RealBoard], count: int, rng: np.random.Generator):
-    """`count` jittered crops drawn evenly from the sources, so that a large book does not drown a small one."""
+    """`count` jittered crops, with each source drawn in proportion to the square root of its size.
+
+    Drawing by board would let a large book drown a small one; drawing evenly
+    by source would show a source with one board as often as one with a
+    hundred. The square root sits between the two.
+    """
     sources = sorted({board.source for board in boards})
     by_source = {source: [board for board in boards if board.source == source] for source in sources}
+    weights = np.sqrt([len(by_source[source]) for source in sources])
     crops = []
-    for _ in range(count):
-        pool = by_source[sources[int(rng.integers(len(sources)))]]
+    for choice in rng.choice(len(sources), size=count, p=weights / weights.sum()):
+        pool = by_source[sources[int(choice)]]
         crops.append(pool[int(rng.integers(len(pool)))].crop(rng))
     images, squares, white, turns = zip(*crops)
     return np.stack(images), np.stack(squares).astype(np.int64), np.array(white, np.float32), np.array(turns, np.int64)
