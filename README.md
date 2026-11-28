@@ -13,6 +13,12 @@ reader reads it. Given nothing but the image:
 - 87 of 88 real photos the reader had never trained on were read exactly;
 - 1,547 of 1,650 clean boards in 33 Lichess piece sets were read exactly.
 
+**A new reader, BoardNet v5, is trained but not yet released.** It adds
+1,294 more real boards and a much wider generator. Trained without them, it
+read 402 of 413 real boards from books and apps it had never seen; v4 read
+360. See [v5](#more-real-boards-and-a-wider-generator-v5). The figures above
+and the release are still v4.
+
 Open risks: book typefaces and screen styles it has not seen, real
 screenshots (only 28 from the chess.com app and 48 from Lichess tested, all
 read correctly), and speed on a phone (not measured). The
@@ -369,6 +375,83 @@ Limits:
 
 Recorded metrics are in [`results/`](results).
 
+### More real boards and a wider generator (v5)
+
+BoardNet v5 is v4 trained further on everything gathered since. The model is
+the same size (2.03 MB as INT8). It is not yet in a release.
+
+What was added:
+
+| Data | Boards | Where it comes from |
+| --- | ---: | --- |
+| Private photos | 548 (was 438) | Fifteen e-books, three printed books and one app, photographed |
+| Wikisource | 306 | Scanned public-domain books whose diagrams volunteers typed in ([`tools/fetch_wikisource.py`](tools/fetch_wikisource.py)) |
+| Internet Archive | 802 | Seventeen books and magazines, 1849 to 1926 ([`assets/archive_diagrams.json`](assets/archive_diagrams.json)) |
+| chess.com app and Lichess screenshots | 28 and 48 | The two small sets that were tests for v4 |
+| Synthetic crops | 257,939 (was 68,000) | More piece sets and diagram fonts, textured boards, real puzzle positions, pages on monitors, and 79,939 boards of the public Chess Positions set |
+
+Because the final model trains on every real board we have, it cannot be
+tested on them. So the training was done twice.
+
+**The check run** held out 413 real boards: whole books and apps the model
+had never seen (e-books 9 to 15, My Chess Career, Staunton's Text Book, the
+chess.com and Lichess screenshots, one app screenshot) and the same fifth of
+the first photos that v4 held out. It started from v4 and trained on the
+other 517 real boards.
+
+| Held-out real boards read exactly | v4 | Check run |
+| --- | ---: | ---: |
+| All 413, read at four turns | 360 | 402 |
+| Capablanca, My Chess Career (89) | 72 | 88 |
+| Staunton, The Chess-Player's Text Book (50) | 18 | 44 |
+| E-books 9 to 15 (107) | 104 | 105 |
+| chess.com app (28) | 28 | 28 |
+| Lichess (48) | 48 | 47 |
+
+After it, all 413 boards had at most one wrong square. The Internet Archive
+boards were not part of the check run; they were labelled afterwards.
+
+**The final run** started from the check run's model and trained on all
+1,732 real boards for 30,000 steps (83 minutes on a MacBook Air). The
+scoreboard ([`results/scoreboard/`](results/scoreboard)) runs every test
+from the whole image, finder included:
+
+| Test | Boards | v4 | Check run | v5 |
+| --- | ---: | ---: | ---: | ---: |
+| Private photos | 548 | 525 of 527 | 545 | 548 |
+| Wikisource | 306 | 190 | 298 | 304 |
+| Internet Archive scans | 802 | 144 | 504 | 796 |
+| chess.com app | 28 | 28 | 28 | 28 |
+| Lichess | 48 | 48 | 47 | 48 |
+| Rendered boards, 33 Lichess sets | 1,650 | 1,547 | 1,537 | 1,610 |
+| Chess Positions set, held-out part | 20,061 | 13,180 | 18,651 | 19,894 |
+
+Read the v5 column with care: v5 trained on every real board in the first
+five rows, so those numbers show that it learned them, not how it does on new
+books. The check run column and the table above are the evidence for that.
+The last two rows are images v5 never saw, though it trained on the same
+artwork.
+
+On the rendered boards, letter went from 17 to 38 of 50, monarchy from 19 to
+49 and xkcd from 39 to 47. Pirouetti is still poor (32). On the new synthetic
+test crops (3,000, harder than the old ones) v4 reads 46% exactly and v5 73%.
+
+Limits:
+
+- **No real board is left that v5 has not trained on.** The next honest test
+  needs new photos.
+- **The Internet Archive labels started as model readings.** Every board
+  was checked by eye on contact sheets. Boards that were changed or doubted
+  were checked a second time, and boards where the two checks disagreed were
+  dropped (69 of 871). After training, the 43 squares where v5 still
+  disagreed with a label were looked at again: the label was right on 41 and
+  two were corrected. A wrong label that the model learned would not show up
+  this way.
+- **Old typefaces are over-represented.** Most of the new real boards are
+  from before 1930. Modern commercial book fonts are still only covered by
+  the private photos.
+- **The finder was not retrained.**
+
 ## Board finder
 
 BoardFinder (`train/finder.py`) finds the four corners of the board in a
@@ -574,3 +657,10 @@ this repository.
 BoardNet v2 and v4 were fine-tuned on photographs of diagrams in copyrighted books
 and e-books. The photographs are not distributed, and the model outputs only
 piece positions. This too is stated as provenance.
+
+BoardNet v5 is also trained on scanned pages from Wikisource and the Internet
+Archive, on screenshots of the chess.com app and Lichess, on the public Chess
+Positions set, and on piece sets and board textures whose terms are not
+stated. We gathered as much as we could find and recorded where each item
+came from; [THIRD_PARTY.md](THIRD_PARTY.md) and
+[MODEL-LICENSE.md](MODEL-LICENSE.md) list them.

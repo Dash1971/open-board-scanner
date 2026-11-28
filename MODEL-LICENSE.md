@@ -14,6 +14,15 @@ terms they carry and, separately, what they were trained on.
   [THIRD_PARTY.md](THIRD_PARTY.md).
 - **Photographs of diagrams in copyrighted books and e-books.** From BoardNet
   v2 on. The photographs are not distributed.
+- **From BoardNet v5 on** (trained, not yet in a release):
+  - scanned pages of old books from Wikisource and the Internet Archive;
+  - screenshots of the chess.com phone app and of Lichess;
+  - the public "Chess Positions" image set, whose boards are drawn with
+    artwork of unstated terms;
+  - rendered boards in more piece sets and board textures, some with no
+    stated terms.
+
+  Each is listed with its source in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 The models contain none of this artwork or these photographs. They output
 piece positions only.

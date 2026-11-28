@@ -296,7 +296,7 @@
   },
   "archive scans": {
    "boards": 802,
-   "exact": 143,
+   "exact": 144,
    "by_group": {
     "American chess-nuts: a collection of problems (1868)": {
      "boards": 106,
@@ -308,7 +308,7 @@
     },
     "Chess problems made easy (1924)": {
      "boards": 134,
-     "exact": 59
+     "exact": 60
     },
     "Chess strategy (1921)": {
      "boards": 42,

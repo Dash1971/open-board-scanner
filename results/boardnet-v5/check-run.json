@@ -1,0 +1,1414 @@
+{
+  "note": "BoardNet v5, check run: 413 real boards held out (whole sources, and the fifth of the first two photo sets that v4 held out). Boards from private photos are left out of wrong_by_board.",
+  "start": "runs/boardnet-v4/model.pt",
+  "steps": 30000,
+  "lr": 0.0003,
+  "real_share": 0.3,
+  "seed": 0,
+  "train_boards": 517,
+  "train_sources": [
+    "Capablanca, Chess Fundamentals (1921)",
+    "Carroll, Through the Looking-Glass (1872)",
+    "Collier's Cyclopedia of Commercial and Social Information (1882)",
+    "Rogers, How to Play Chess (1907)",
+    "The Chess Player's Chronicle, series 3, volume 1 (1877)",
+    "e-book 1",
+    "e-book 2",
+    "e-book 3",
+    "e-book 4",
+    "e-book 5",
+    "e-book 6",
+    "e-book 7",
+    "e-book 8",
+    "printed book 1",
+    "printed book 2",
+    "printed book 3"
+  ],
+  "test_boards": 413,
+  "test_sources": [
+    "Capablanca, My Chess Career (1920)",
+    "Staunton, The Chess-Player's Text Book (1849)",
+    "app screenshot 1",
+    "chess.com app",
+    "e-book 1",
+    "e-book 10",
+    "e-book 11",
+    "e-book 12",
+    "e-book 13",
+    "e-book 14",
+    "e-book 15",
+    "e-book 2",
+    "e-book 3",
+    "e-book 4",
+    "e-book 5",
+    "e-book 6",
+    "e-book 7",
+    "e-book 8",
+    "e-book 9",
+    "lichess site",
+    "printed book 1",
+    "printed book 2",
+    "printed book 3"
+  ],
+  "before": {
+    "real_test": {
+      "boards": 413,
+      "exact_boards": 310,
+      "boards_with_at_most_1_error": 383,
+      "wrong_squares": 144,
+      "square_accuracy": 0.99455,
+      "quarter_turns_right": 413,
+      "wrong_by_board": {
+        "my-chess-career-capablanca_0100.jpg": 5,
+        "my-chess-career-capablanca_0100.jpg#2": 3,
+        "my-chess-career-capablanca_0112.jpg": 1,
+        "my-chess-career-capablanca_0113.jpg": 1,
+        "my-chess-career-capablanca_0113.jpg#2": 1,
+        "my-chess-career-capablanca_0120.jpg": 2,
+        "my-chess-career-capablanca_0122.jpg": 1,
+        "my-chess-career-capablanca_0124.jpg": 2,
+        "my-chess-career-capablanca_0128.jpg": 2,
+        "my-chess-career-capablanca_0129.jpg": 1,
+        "my-chess-career-capablanca_0134.jpg": 3,
+        "my-chess-career-capablanca_0135.jpg": 1,
+        "my-chess-career-capablanca_0136.jpg": 1,
+        "my-chess-career-capablanca_0137.jpg": 3,
+        "my-chess-career-capablanca_0138.jpg": 1,
+        "my-chess-career-capablanca_0142.jpg": 1,
+        "my-chess-career-capablanca_0143.jpg": 2,
+        "my-chess-career-capablanca_0144.jpg": 1,
+        "my-chess-career-capablanca_0146.jpg": 2,
+        "my-chess-career-capablanca_0148.jpg": 1,
+        "my-chess-career-capablanca_0153.jpg": 4,
+        "my-chess-career-capablanca_0153.jpg#2": 2,
+        "my-chess-career-capablanca_0154.jpg": 2,
+        "my-chess-career-capablanca_0155.jpg": 3,
+        "my-chess-career-capablanca_0164.jpg": 1,
+        "my-chess-career-capablanca_0165.jpg": 1,
+        "my-chess-career-capablanca_0167.jpg": 1,
+        "my-chess-career-capablanca_0171.jpg": 1,
+        "my-chess-career-capablanca_0172.jpg": 1,
+        "my-chess-career-capablanca_0176.jpg": 1,
+        "my-chess-career-capablanca_0182.jpg": 1,
+        "my-chess-career-capablanca_0183.jpg": 1,
+        "my-chess-career-capablanca_0184.jpg": 2,
+        "my-chess-career-capablanca_0190.jpg": 2,
+        "my-chess-career-capablanca_0195.jpg": 2,
+        "my-chess-career-capablanca_0201.jpg": 1,
+        "my-chess-career-capablanca_0028.jpg": 1,
+        "my-chess-career-capablanca_0031.jpg": 2,
+        "my-chess-career-capablanca_0036.jpg": 1,
+        "my-chess-career-capablanca_0039.jpg": 1,
+        "my-chess-career-capablanca_0040.jpg": 1,
+        "my-chess-career-capablanca_0050.jpg": 1,
+        "my-chess-career-capablanca_0056.jpg": 2,
+        "my-chess-career-capablanca_0060.jpg": 2,
+        "my-chess-career-capablanca_0064.jpg": 1,
+        "my-chess-career-capablanca_0073.jpg": 1,
+        "my-chess-career-capablanca_0077.jpg": 1,
+        "my-chess-career-capablanca_0079.jpg": 1,
+        "my-chess-career-capablanca_0082.jpg": 1,
+        "my-chess-career-capablanca_0090.jpg": 1,
+        "my-chess-career-capablanca_0091.jpg": 1,
+        "my-chess-career-capablanca_0095.jpg": 1,
+        "my-chess-career-capablanca_0098.jpg": 1,
+        "the-chess-player-s-text-book_0103.jpg": 1,
+        "the-chess-player-s-text-book_0107.jpg": 1,
+        "the-chess-player-s-text-book_0109.jpg": 1,
+        "the-chess-player-s-text-book_0040.jpg": 1,
+        "the-chess-player-s-text-book_0041.jpg": 2,
+        "the-chess-player-s-text-book_0047.jpg": 2,
+        "the-chess-player-s-text-book_0048.jpg": 1,
+        "the-chess-player-s-text-book_0052.jpg": 1,
+        "the-chess-player-s-text-book_0054.jpg": 3,
+        "the-chess-player-s-text-book_0055.jpg": 1,
+        "the-chess-player-s-text-book_0058.jpg": 1,
+        "the-chess-player-s-text-book_0059.jpg": 1,
+        "the-chess-player-s-text-book_0061.jpg": 1,
+        "the-chess-player-s-text-book_0063.jpg": 1,
+        "the-chess-player-s-text-book_0069.jpg": 1,
+        "the-chess-player-s-text-book_0071.jpg": 1,
+        "the-chess-player-s-text-book_0072.jpg": 1,
+        "the-chess-player-s-text-book_0073.jpg": 1,
+        "the-chess-player-s-text-book_0076.jpg": 3,
+        "the-chess-player-s-text-book_0077.jpg": 2,
+        "the-chess-player-s-text-book_0079.jpg": 1,
+        "the-chess-player-s-text-book_0080.jpg": 1,
+        "the-chess-player-s-text-book_0081.jpg": 1,
+        "the-chess-player-s-text-book_0082.jpg": 1,
+        "the-chess-player-s-text-book_0085.jpg": 1,
+        "the-chess-player-s-text-book_0086.jpg": 2,
+        "the-chess-player-s-text-book_0090.jpg": 1,
+        "the-chess-player-s-text-book_0093.jpg": 1,
+        "the-chess-player-s-text-book_0094.jpg": 1,
+        "the-chess-player-s-text-book_0095.jpg": 1,
+        "the-chess-player-s-text-book_0096.jpg": 2,
+        "the-chess-player-s-text-book_0097.jpg": 2,
+        "C3.jpg": 1
+      },
+      "by_source": {
+        "Capablanca, My Chess Career (1920)": {
+          "boards": 89,
+          "exact_boards": 36,
+          "boards_with_at_most_1_error": 70,
+          "wrong_squares": 81,
+          "square_accuracy": 0.98578,
+          "quarter_turns_right": 89
+        },
+        "Staunton, The Chess-Player's Text Book (1849)": {
+          "boards": 50,
+          "exact_boards": 18,
+          "boards_with_at_most_1_error": 42,
+          "wrong_squares": 42,
+          "square_accuracy": 0.98687,
+          "quarter_turns_right": 50
+        },
+        "app screenshot 1": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "chess.com app": {
+          "boards": 28,
+          "exact_boards": 27,
+          "boards_with_at_most_1_error": 28,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99944,
+          "quarter_turns_right": 28
+        },
+        "e-book 1": {
+          "boards": 21,
+          "exact_boards": 21,
+          "boards_with_at_most_1_error": 21,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 21
+        },
+        "e-book 10": {
+          "boards": 17,
+          "exact_boards": 17,
+          "boards_with_at_most_1_error": 17,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 17
+        },
+        "e-book 11": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 12": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 13": {
+          "boards": 11,
+          "exact_boards": 11,
+          "boards_with_at_most_1_error": 11,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 11
+        },
+        "e-book 14": {
+          "boards": 29,
+          "exact_boards": 29,
+          "boards_with_at_most_1_error": 29,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 29
+        },
+        "e-book 15": {
+          "boards": 21,
+          "exact_boards": 14,
+          "boards_with_at_most_1_error": 20,
+          "wrong_squares": 8,
+          "square_accuracy": 0.99405,
+          "quarter_turns_right": 21
+        },
+        "e-book 2": {
+          "boards": 13,
+          "exact_boards": 13,
+          "boards_with_at_most_1_error": 13,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 13
+        },
+        "e-book 3": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 4": {
+          "boards": 2,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 2,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99219,
+          "quarter_turns_right": 2
+        },
+        "e-book 5": {
+          "boards": 7,
+          "exact_boards": 7,
+          "boards_with_at_most_1_error": 7,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 7
+        },
+        "e-book 6": {
+          "boards": 5,
+          "exact_boards": 5,
+          "boards_with_at_most_1_error": 5,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 5
+        },
+        "e-book 7": {
+          "boards": 4,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99609,
+          "quarter_turns_right": 4
+        },
+        "e-book 8": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 9": {
+          "boards": 22,
+          "exact_boards": 15,
+          "boards_with_at_most_1_error": 20,
+          "wrong_squares": 9,
+          "square_accuracy": 0.99361,
+          "quarter_turns_right": 22
+        },
+        "lichess site": {
+          "boards": 48,
+          "exact_boards": 47,
+          "boards_with_at_most_1_error": 48,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99967,
+          "quarter_turns_right": 48
+        },
+        "printed book 1": {
+          "boards": 8,
+          "exact_boards": 8,
+          "boards_with_at_most_1_error": 8,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 8
+        },
+        "printed book 2": {
+          "boards": 15,
+          "exact_boards": 15,
+          "boards_with_at_most_1_error": 15,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 15
+        },
+        "printed book 3": {
+          "boards": 6,
+          "exact_boards": 6,
+          "boards_with_at_most_1_error": 6,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 6
+        }
+      }
+    },
+    "real_test_four_turns": {
+      "boards": 413,
+      "exact_boards": 360,
+      "boards_with_at_most_1_error": 402,
+      "wrong_squares": 64,
+      "square_accuracy": 0.99758,
+      "quarter_turns_right": 413,
+      "wrong_by_board": {
+        "my-chess-career-capablanca_0100.jpg": 1,
+        "my-chess-career-capablanca_0112.jpg": 1,
+        "my-chess-career-capablanca_0113.jpg#2": 2,
+        "my-chess-career-capablanca_0137.jpg": 1,
+        "my-chess-career-capablanca_0142.jpg": 1,
+        "my-chess-career-capablanca_0154.jpg": 1,
+        "my-chess-career-capablanca_0164.jpg": 1,
+        "my-chess-career-capablanca_0172.jpg": 1,
+        "my-chess-career-capablanca_0184.jpg": 1,
+        "my-chess-career-capablanca_0190.jpg": 2,
+        "my-chess-career-capablanca_0195.jpg": 1,
+        "my-chess-career-capablanca_0200.jpg": 1,
+        "my-chess-career-capablanca_0028.jpg": 1,
+        "my-chess-career-capablanca_0031.jpg": 1,
+        "my-chess-career-capablanca_0040.jpg": 2,
+        "my-chess-career-capablanca_0050.jpg": 1,
+        "my-chess-career-capablanca_0090.jpg": 1,
+        "the-chess-player-s-text-book_0103.jpg": 1,
+        "the-chess-player-s-text-book_0104.jpg": 2,
+        "the-chess-player-s-text-book_0107.jpg": 2,
+        "the-chess-player-s-text-book_0109.jpg": 1,
+        "the-chess-player-s-text-book_0040.jpg": 1,
+        "the-chess-player-s-text-book_0047.jpg": 2,
+        "the-chess-player-s-text-book_0048.jpg": 1,
+        "the-chess-player-s-text-book_0052.jpg": 1,
+        "the-chess-player-s-text-book_0055.jpg": 1,
+        "the-chess-player-s-text-book_0058.jpg": 1,
+        "the-chess-player-s-text-book_0059.jpg": 1,
+        "the-chess-player-s-text-book_0064.jpg": 2,
+        "the-chess-player-s-text-book_0069.jpg": 1,
+        "the-chess-player-s-text-book_0071.jpg": 1,
+        "the-chess-player-s-text-book_0072.jpg": 1,
+        "the-chess-player-s-text-book_0073.jpg": 1,
+        "the-chess-player-s-text-book_0075.jpg": 1,
+        "the-chess-player-s-text-book_0076.jpg": 1,
+        "the-chess-player-s-text-book_0077.jpg": 2,
+        "the-chess-player-s-text-book_0078.jpg": 1,
+        "the-chess-player-s-text-book_0081.jpg": 1,
+        "the-chess-player-s-text-book_0082.jpg": 1,
+        "the-chess-player-s-text-book_0084.jpg": 1,
+        "the-chess-player-s-text-book_0085.jpg": 1,
+        "the-chess-player-s-text-book_0086.jpg": 2,
+        "the-chess-player-s-text-book_0087.jpg": 1,
+        "the-chess-player-s-text-book_0088.jpg": 1,
+        "the-chess-player-s-text-book_0090.jpg": 1,
+        "the-chess-player-s-text-book_0093.jpg": 1,
+        "the-chess-player-s-text-book_0095.jpg": 1,
+        "the-chess-player-s-text-book_0096.jpg": 2,
+        "the-chess-player-s-text-book_0097.jpg": 1
+      },
+      "by_source": {
+        "Capablanca, My Chess Career (1920)": {
+          "boards": 89,
+          "exact_boards": 72,
+          "boards_with_at_most_1_error": 86,
+          "wrong_squares": 20,
+          "square_accuracy": 0.99649,
+          "quarter_turns_right": 89
+        },
+        "Staunton, The Chess-Player's Text Book (1849)": {
+          "boards": 50,
+          "exact_boards": 18,
+          "boards_with_at_most_1_error": 43,
+          "wrong_squares": 39,
+          "square_accuracy": 0.98781,
+          "quarter_turns_right": 50
+        },
+        "app screenshot 1": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "chess.com app": {
+          "boards": 28,
+          "exact_boards": 28,
+          "boards_with_at_most_1_error": 28,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 28
+        },
+        "e-book 1": {
+          "boards": 21,
+          "exact_boards": 21,
+          "boards_with_at_most_1_error": 21,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 21
+        },
+        "e-book 10": {
+          "boards": 17,
+          "exact_boards": 17,
+          "boards_with_at_most_1_error": 17,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 17
+        },
+        "e-book 11": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 12": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 13": {
+          "boards": 11,
+          "exact_boards": 11,
+          "boards_with_at_most_1_error": 11,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 11
+        },
+        "e-book 14": {
+          "boards": 29,
+          "exact_boards": 29,
+          "boards_with_at_most_1_error": 29,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 29
+        },
+        "e-book 15": {
+          "boards": 21,
+          "exact_boards": 19,
+          "boards_with_at_most_1_error": 20,
+          "wrong_squares": 3,
+          "square_accuracy": 0.99777,
+          "quarter_turns_right": 21
+        },
+        "e-book 2": {
+          "boards": 13,
+          "exact_boards": 13,
+          "boards_with_at_most_1_error": 13,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 13
+        },
+        "e-book 3": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 4": {
+          "boards": 2,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 2,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99219,
+          "quarter_turns_right": 2
+        },
+        "e-book 5": {
+          "boards": 7,
+          "exact_boards": 7,
+          "boards_with_at_most_1_error": 7,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 7
+        },
+        "e-book 6": {
+          "boards": 5,
+          "exact_boards": 5,
+          "boards_with_at_most_1_error": 5,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 5
+        },
+        "e-book 7": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 8": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 9": {
+          "boards": 22,
+          "exact_boards": 21,
+          "boards_with_at_most_1_error": 22,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99929,
+          "quarter_turns_right": 22
+        },
+        "lichess site": {
+          "boards": 48,
+          "exact_boards": 48,
+          "boards_with_at_most_1_error": 48,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 48
+        },
+        "printed book 1": {
+          "boards": 8,
+          "exact_boards": 8,
+          "boards_with_at_most_1_error": 8,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 8
+        },
+        "printed book 2": {
+          "boards": 15,
+          "exact_boards": 15,
+          "boards_with_at_most_1_error": 15,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 15
+        },
+        "printed book 3": {
+          "boards": 6,
+          "exact_boards": 6,
+          "boards_with_at_most_1_error": 6,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 6
+        }
+      }
+    },
+    "real_train": {
+      "boards": 517,
+      "exact_boards": 402,
+      "boards_with_at_most_1_error": 465,
+      "wrong_squares": 193,
+      "square_accuracy": 0.99417,
+      "quarter_turns_right": 517,
+      "wrong_by_board": {
+        "chess-player-s-chronicle-series-3-volume-1_0044.jpg#2": 1,
+        "chess-player-s-chronicle-series-3-volume-1_0045.jpg": 2,
+        "chess-player-s-chronicle-series-3-volume-1_0045.jpg#2": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0100.jpg": 4,
+        "chess-fundamentals-ia-chessfundamental00capa_0102.jpg": 4,
+        "chess-fundamentals-ia-chessfundamental00capa_0103.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0107.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0114.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0116.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0123.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0124.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0125.jpg": 4,
+        "chess-fundamentals-ia-chessfundamental00capa_0132.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0136.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0140.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0141.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0142.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0144.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0146.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0148.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0149.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0152.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0155.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0159.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0163.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0164.jpg#2": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0165.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0168.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0170.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0171.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0177.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0178.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0180.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0181.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0181.jpg#2": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0183.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0184.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0186.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0188.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0189.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0193.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0194.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0195.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0196.jpg": 5,
+        "chess-fundamentals-ia-chessfundamental00capa_0200.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0202.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0209.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0209.jpg#2": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0214.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0215.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0218.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0219.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0220.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0221.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0223.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0224.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0227.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0228.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0229.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0230.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0232.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0238.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0239.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0249.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0025.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0251.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0252.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0253.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0255.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0256.jpg": 6,
+        "chess-fundamentals-ia-chessfundamental00capa_0257.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0259.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0260.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0261.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0030.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0032.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0036.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0038.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0038.jpg#2": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0039.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0048.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0049.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0054.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0056.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0057.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0060.jpg#2": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0068.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0070.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0071.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0072.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0072.jpg#2": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0073.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0074.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0076.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0080.jpg": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0080.jpg#2": 2,
+        "chess-fundamentals-ia-chessfundamental00capa_0084.jpg": 3,
+        "chess-fundamentals-ia-chessfundamental00capa_0085.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0086.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0087.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0089.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0091.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0096.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0099.jpg": 1,
+        "collier-s-cyclopedia-of-commercial-and-social-information_0451.jpg#2": 1,
+        "how-to-play-chess-rogers_0111.jpg": 1,
+        "how-to-play-chess-rogers_0128.jpg": 1,
+        "how-to-play-chess-rogers_0131.jpg": 2,
+        "how-to-play-chess-rogers_0134.jpg": 1,
+        "how-to-play-chess-rogers_0136.jpg": 1,
+        "how-to-play-chess-rogers_0146.jpg": 1,
+        "how-to-play-chess-rogers_0148.jpg": 2,
+        "how-to-play-chess-rogers_0150.jpg": 2,
+        "how-to-play-chess-rogers_0152.jpg": 1,
+        "through-the-looking-glass-and-what-alice-found-there_0011.jpg": 2
+      },
+      "by_source": {
+        "Capablanca, Chess Fundamentals (1921)": {
+          "boards": 144,
+          "exact_boards": 43,
+          "boards_with_at_most_1_error": 97,
+          "wrong_squares": 174,
+          "square_accuracy": 0.98112,
+          "quarter_turns_right": 144
+        },
+        "Carroll, Through the Looking-Glass (1872)": {
+          "boards": 1,
+          "exact_boards": 0,
+          "boards_with_at_most_1_error": 0,
+          "wrong_squares": 2,
+          "square_accuracy": 0.96875,
+          "quarter_turns_right": 1
+        },
+        "Collier's Cyclopedia of Commercial and Social Information (1882)": {
+          "boards": 1,
+          "exact_boards": 0,
+          "boards_with_at_most_1_error": 1,
+          "wrong_squares": 1,
+          "square_accuracy": 0.98438,
+          "quarter_turns_right": 1
+        },
+        "Rogers, How to Play Chess (1907)": {
+          "boards": 17,
+          "exact_boards": 8,
+          "boards_with_at_most_1_error": 14,
+          "wrong_squares": 12,
+          "square_accuracy": 0.98897,
+          "quarter_turns_right": 17
+        },
+        "The Chess Player's Chronicle, series 3, volume 1 (1877)": {
+          "boards": 4,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 4,
+          "square_accuracy": 0.98438,
+          "quarter_turns_right": 4
+        },
+        "e-book 1": {
+          "boards": 79,
+          "exact_boards": 79,
+          "boards_with_at_most_1_error": 79,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 79
+        },
+        "e-book 2": {
+          "boards": 50,
+          "exact_boards": 50,
+          "boards_with_at_most_1_error": 50,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 50
+        },
+        "e-book 3": {
+          "boards": 9,
+          "exact_boards": 9,
+          "boards_with_at_most_1_error": 9,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 9
+        },
+        "e-book 4": {
+          "boards": 7,
+          "exact_boards": 7,
+          "boards_with_at_most_1_error": 7,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 7
+        },
+        "e-book 5": {
+          "boards": 13,
+          "exact_boards": 13,
+          "boards_with_at_most_1_error": 13,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 13
+        },
+        "e-book 6": {
+          "boards": 14,
+          "exact_boards": 14,
+          "boards_with_at_most_1_error": 14,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 14
+        },
+        "e-book 7": {
+          "boards": 17,
+          "exact_boards": 17,
+          "boards_with_at_most_1_error": 17,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 17
+        },
+        "e-book 8": {
+          "boards": 14,
+          "exact_boards": 14,
+          "boards_with_at_most_1_error": 14,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 14
+        },
+        "printed book 1": {
+          "boards": 37,
+          "exact_boards": 37,
+          "boards_with_at_most_1_error": 37,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 37
+        },
+        "printed book 2": {
+          "boards": 58,
+          "exact_boards": 58,
+          "boards_with_at_most_1_error": 58,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 58
+        },
+        "printed book 3": {
+          "boards": 52,
+          "exact_boards": 52,
+          "boards_with_at_most_1_error": 52,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 52
+        }
+      }
+    },
+    "synthetic": {
+      "boards": 3000,
+      "exact_boards": 0.456,
+      "boards_with_at_most_1_error": 0.6057,
+      "square_accuracy": 0.96142,
+      "wrong_squares_per_board": 2.469
+    }
+  },
+  "compare": {},
+  "minutes": 131.4,
+  "after": {
+    "real_test": {
+      "boards": 413,
+      "exact_boards": 390,
+      "boards_with_at_most_1_error": 410,
+      "wrong_squares": 26,
+      "square_accuracy": 0.99902,
+      "quarter_turns_right": 413,
+      "wrong_by_board": {
+        "my-chess-career-capablanca_0138.jpg": 1,
+        "my-chess-career-capablanca_0028.jpg": 1,
+        "the-chess-player-s-text-book_0109.jpg": 1,
+        "the-chess-player-s-text-book_0041.jpg": 1,
+        "the-chess-player-s-text-book_0047.jpg": 1,
+        "the-chess-player-s-text-book_0054.jpg": 1,
+        "the-chess-player-s-text-book_0061.jpg": 1,
+        "the-chess-player-s-text-book_0071.jpg": 1,
+        "the-chess-player-s-text-book_0082.jpg": 1,
+        "the-chess-player-s-text-book_0084.jpg": 1,
+        "the-chess-player-s-text-book_0086.jpg": 1,
+        "the-chess-player-s-text-book_0087.jpg": 1,
+        "the-chess-player-s-text-book_0088.jpg": 1,
+        "the-chess-player-s-text-book_0097.jpg": 1,
+        "E1.jpg": 1,
+        "E4.jpg": 1
+      },
+      "by_source": {
+        "Capablanca, My Chess Career (1920)": {
+          "boards": 89,
+          "exact_boards": 87,
+          "boards_with_at_most_1_error": 89,
+          "wrong_squares": 2,
+          "square_accuracy": 0.99965,
+          "quarter_turns_right": 89
+        },
+        "Staunton, The Chess-Player's Text Book (1849)": {
+          "boards": 50,
+          "exact_boards": 38,
+          "boards_with_at_most_1_error": 50,
+          "wrong_squares": 12,
+          "square_accuracy": 0.99625,
+          "quarter_turns_right": 50
+        },
+        "app screenshot 1": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "chess.com app": {
+          "boards": 28,
+          "exact_boards": 28,
+          "boards_with_at_most_1_error": 28,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 28
+        },
+        "e-book 1": {
+          "boards": 21,
+          "exact_boards": 21,
+          "boards_with_at_most_1_error": 21,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 21
+        },
+        "e-book 10": {
+          "boards": 17,
+          "exact_boards": 16,
+          "boards_with_at_most_1_error": 17,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99908,
+          "quarter_turns_right": 17
+        },
+        "e-book 11": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 12": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 13": {
+          "boards": 11,
+          "exact_boards": 11,
+          "boards_with_at_most_1_error": 11,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 11
+        },
+        "e-book 14": {
+          "boards": 29,
+          "exact_boards": 28,
+          "boards_with_at_most_1_error": 29,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99946,
+          "quarter_turns_right": 29
+        },
+        "e-book 15": {
+          "boards": 21,
+          "exact_boards": 17,
+          "boards_with_at_most_1_error": 18,
+          "wrong_squares": 7,
+          "square_accuracy": 0.99479,
+          "quarter_turns_right": 21
+        },
+        "e-book 2": {
+          "boards": 13,
+          "exact_boards": 13,
+          "boards_with_at_most_1_error": 13,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 13
+        },
+        "e-book 3": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 4": {
+          "boards": 2,
+          "exact_boards": 2,
+          "boards_with_at_most_1_error": 2,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 2
+        },
+        "e-book 5": {
+          "boards": 7,
+          "exact_boards": 7,
+          "boards_with_at_most_1_error": 7,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 7
+        },
+        "e-book 6": {
+          "boards": 5,
+          "exact_boards": 5,
+          "boards_with_at_most_1_error": 5,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 5
+        },
+        "e-book 7": {
+          "boards": 4,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99609,
+          "quarter_turns_right": 4
+        },
+        "e-book 8": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 9": {
+          "boards": 22,
+          "exact_boards": 22,
+          "boards_with_at_most_1_error": 22,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 22
+        },
+        "lichess site": {
+          "boards": 48,
+          "exact_boards": 46,
+          "boards_with_at_most_1_error": 48,
+          "wrong_squares": 2,
+          "square_accuracy": 0.99935,
+          "quarter_turns_right": 48
+        },
+        "printed book 1": {
+          "boards": 8,
+          "exact_boards": 8,
+          "boards_with_at_most_1_error": 8,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 8
+        },
+        "printed book 2": {
+          "boards": 15,
+          "exact_boards": 15,
+          "boards_with_at_most_1_error": 15,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 15
+        },
+        "printed book 3": {
+          "boards": 6,
+          "exact_boards": 6,
+          "boards_with_at_most_1_error": 6,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 6
+        }
+      }
+    },
+    "real_test_four_turns": {
+      "boards": 413,
+      "exact_boards": 402,
+      "boards_with_at_most_1_error": 413,
+      "wrong_squares": 11,
+      "square_accuracy": 0.99958,
+      "quarter_turns_right": 413,
+      "wrong_by_board": {
+        "my-chess-career-capablanca_0113.jpg#2": 1,
+        "the-chess-player-s-text-book_0109.jpg": 1,
+        "the-chess-player-s-text-book_0052.jpg": 1,
+        "the-chess-player-s-text-book_0070.jpg": 1,
+        "the-chess-player-s-text-book_0071.jpg": 1,
+        "the-chess-player-s-text-book_0086.jpg": 1,
+        "the-chess-player-s-text-book_0097.jpg": 1,
+        "E7.jpg": 1
+      },
+      "by_source": {
+        "Capablanca, My Chess Career (1920)": {
+          "boards": 89,
+          "exact_boards": 88,
+          "boards_with_at_most_1_error": 89,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99982,
+          "quarter_turns_right": 89
+        },
+        "Staunton, The Chess-Player's Text Book (1849)": {
+          "boards": 50,
+          "exact_boards": 44,
+          "boards_with_at_most_1_error": 50,
+          "wrong_squares": 6,
+          "square_accuracy": 0.99813,
+          "quarter_turns_right": 50
+        },
+        "app screenshot 1": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "chess.com app": {
+          "boards": 28,
+          "exact_boards": 28,
+          "boards_with_at_most_1_error": 28,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 28
+        },
+        "e-book 1": {
+          "boards": 21,
+          "exact_boards": 21,
+          "boards_with_at_most_1_error": 21,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 21
+        },
+        "e-book 10": {
+          "boards": 17,
+          "exact_boards": 17,
+          "boards_with_at_most_1_error": 17,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 17
+        },
+        "e-book 11": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 12": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 13": {
+          "boards": 11,
+          "exact_boards": 11,
+          "boards_with_at_most_1_error": 11,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 11
+        },
+        "e-book 14": {
+          "boards": 29,
+          "exact_boards": 29,
+          "boards_with_at_most_1_error": 29,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 29
+        },
+        "e-book 15": {
+          "boards": 21,
+          "exact_boards": 20,
+          "boards_with_at_most_1_error": 21,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99926,
+          "quarter_turns_right": 21
+        },
+        "e-book 2": {
+          "boards": 13,
+          "exact_boards": 13,
+          "boards_with_at_most_1_error": 13,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 13
+        },
+        "e-book 3": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 4": {
+          "boards": 2,
+          "exact_boards": 2,
+          "boards_with_at_most_1_error": 2,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 2
+        },
+        "e-book 5": {
+          "boards": 7,
+          "exact_boards": 7,
+          "boards_with_at_most_1_error": 7,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 7
+        },
+        "e-book 6": {
+          "boards": 5,
+          "exact_boards": 5,
+          "boards_with_at_most_1_error": 5,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 5
+        },
+        "e-book 7": {
+          "boards": 4,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99609,
+          "quarter_turns_right": 4
+        },
+        "e-book 8": {
+          "boards": 3,
+          "exact_boards": 3,
+          "boards_with_at_most_1_error": 3,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 3
+        },
+        "e-book 9": {
+          "boards": 22,
+          "exact_boards": 21,
+          "boards_with_at_most_1_error": 22,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99929,
+          "quarter_turns_right": 22
+        },
+        "lichess site": {
+          "boards": 48,
+          "exact_boards": 47,
+          "boards_with_at_most_1_error": 48,
+          "wrong_squares": 1,
+          "square_accuracy": 0.99967,
+          "quarter_turns_right": 48
+        },
+        "printed book 1": {
+          "boards": 8,
+          "exact_boards": 8,
+          "boards_with_at_most_1_error": 8,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 8
+        },
+        "printed book 2": {
+          "boards": 15,
+          "exact_boards": 15,
+          "boards_with_at_most_1_error": 15,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 15
+        },
+        "printed book 3": {
+          "boards": 6,
+          "exact_boards": 6,
+          "boards_with_at_most_1_error": 6,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 6
+        }
+      }
+    },
+    "real_train": {
+      "boards": 517,
+      "exact_boards": 514,
+      "boards_with_at_most_1_error": 517,
+      "wrong_squares": 3,
+      "square_accuracy": 0.99991,
+      "quarter_turns_right": 517,
+      "wrong_by_board": {
+        "chess-fundamentals-ia-chessfundamental00capa_0142.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0146.jpg": 1,
+        "chess-fundamentals-ia-chessfundamental00capa_0238.jpg": 1
+      },
+      "by_source": {
+        "Capablanca, Chess Fundamentals (1921)": {
+          "boards": 144,
+          "exact_boards": 141,
+          "boards_with_at_most_1_error": 144,
+          "wrong_squares": 3,
+          "square_accuracy": 0.99967,
+          "quarter_turns_right": 144
+        },
+        "Carroll, Through the Looking-Glass (1872)": {
+          "boards": 1,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 1,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 1
+        },
+        "Collier's Cyclopedia of Commercial and Social Information (1882)": {
+          "boards": 1,
+          "exact_boards": 1,
+          "boards_with_at_most_1_error": 1,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 1
+        },
+        "Rogers, How to Play Chess (1907)": {
+          "boards": 17,
+          "exact_boards": 17,
+          "boards_with_at_most_1_error": 17,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 17
+        },
+        "The Chess Player's Chronicle, series 3, volume 1 (1877)": {
+          "boards": 4,
+          "exact_boards": 4,
+          "boards_with_at_most_1_error": 4,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 4
+        },
+        "e-book 1": {
+          "boards": 79,
+          "exact_boards": 79,
+          "boards_with_at_most_1_error": 79,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 79
+        },
+        "e-book 2": {
+          "boards": 50,
+          "exact_boards": 50,
+          "boards_with_at_most_1_error": 50,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 50
+        },
+        "e-book 3": {
+          "boards": 9,
+          "exact_boards": 9,
+          "boards_with_at_most_1_error": 9,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 9
+        },
+        "e-book 4": {
+          "boards": 7,
+          "exact_boards": 7,
+          "boards_with_at_most_1_error": 7,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 7
+        },
+        "e-book 5": {
+          "boards": 13,
+          "exact_boards": 13,
+          "boards_with_at_most_1_error": 13,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 13
+        },
+        "e-book 6": {
+          "boards": 14,
+          "exact_boards": 14,
+          "boards_with_at_most_1_error": 14,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 14
+        },
+        "e-book 7": {
+          "boards": 17,
+          "exact_boards": 17,
+          "boards_with_at_most_1_error": 17,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 17
+        },
+        "e-book 8": {
+          "boards": 14,
+          "exact_boards": 14,
+          "boards_with_at_most_1_error": 14,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 14
+        },
+        "printed book 1": {
+          "boards": 37,
+          "exact_boards": 37,
+          "boards_with_at_most_1_error": 37,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 37
+        },
+        "printed book 2": {
+          "boards": 58,
+          "exact_boards": 58,
+          "boards_with_at_most_1_error": 58,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 58
+        },
+        "printed book 3": {
+          "boards": 52,
+          "exact_boards": 52,
+          "boards_with_at_most_1_error": 52,
+          "wrong_squares": 0,
+          "square_accuracy": 1.0,
+          "quarter_turns_right": 52
+        }
+      }
+    },
+    "synthetic": {
+      "boards": 3000,
+      "exact_boards": 0.7,
+      "boards_with_at_most_1_error": 0.846,
+      "square_accuracy": 0.98929,
+      "wrong_squares_per_board": 0.685
+    }
+  }
+}

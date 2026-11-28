@@ -1,0 +1,18 @@
+{
+  "fp32": {
+    "file_mb": 7.788,
+    "boards": 2600,
+    "exact_boards": 0.7342,
+    "boards_with_at_most_1_error": 0.8677,
+    "square_accuracy": 0.99046,
+    "wrong_squares_per_board": 0.61
+  },
+  "int8": {
+    "file_mb": 2.031,
+    "boards": 2600,
+    "exact_boards": 0.7315,
+    "boards_with_at_most_1_error": 0.8623,
+    "square_accuracy": 0.99036,
+    "wrong_squares_per_board": 0.617
+  }
+}

@@ -312,6 +312,44 @@ manifests are [`assets/boards.json`](assets/boards.json) and
 | 15 board textures | Isarhamster/chessx, `data/themes/boards` | not stated | none stated for the boards; the repository is GPL-2.0-or-later |
 | About 60,000 puzzle positions | database.lichess.org | Lichess | CC0 |
 
+## Scanned books, screenshots and imported boards
+
+BoardNet v5 is also trained on real board images. None of the images are
+stored in this repository; the tools below fetch them again.
+
+| Data | Boards | Source | Terms |
+| --- | ---: | --- | --- |
+| Wikisource diagrams | 306 | English Wikisource page scans of seven books, 1849 to 1921, with the positions volunteers typed in. `tools/fetch_wikisource.py`; rights of each scan are saved in `files.json` | Public-domain scans; transcriptions CC BY-SA 4.0 |
+| Internet Archive diagrams | 802 | Page scans of the seventeen items below. `tools/fetch_ia_diagrams.py`; outlines and positions are in [`assets/archive_diagrams.json`](assets/archive_diagrams.json) | As each item states, below |
+| Chess Positions | 100,000 | "Chess Positions" by koryakinp on Kaggle, from the Hugging Face mirror `smallchess/kaggle-chess-positions`. `tools/fetch_chess_positions.py`. 79,939 used for training, 20,061 kept as a test | Labelled CC0 by its author; the boards are drawn with piece artwork whose terms are not stated |
+| Lichess screenshots | 48 | Captures of the Lichess analysis board | Lichess artwork, under the piece sets' licences above |
+| chess.com app screenshots | 28 | Taken by hand in the phone app; private, not distributed | chess.com's artwork; no licence |
+| Private photos | 548 | Photographs of diagrams in copyrighted books and e-books; private, not distributed | No licence |
+
+Internet Archive items. All were published before 1930. The positions in
+`assets/archive_diagrams.json` are our own labels and are under this
+repository's licence.
+
+| Item | Title | Boards | Rights as the Archive states them |
+| --- | --- | ---: | --- |
+| [`americanchessnu00gilbgoog`](https://archive.org/details/americanchessnu00gilbgoog) | American chess-nuts: a collection of problems (1868) | 106 | marked not in copyright |
+| [`chessfundamental00capa`](https://archive.org/details/chessfundamental00capa) | Chess fundamentals (1921) | 42 | marked not in copyright |
+| [`TavernerChessProblemsMadeEasy`](https://archive.org/details/TavernerChessProblemsMadeEasy) | Chess problems made easy (1924) | 134 | Public Domain Mark |
+| [`chessstrategy00lask`](https://archive.org/details/chessstrategy00lask) | Chess strategy (1921) | 42 | no rights statement |
+| [`derschachwettka00tarrgoog`](https://archive.org/details/derschachwettka00tarrgoog) | Der schachwettkampf Lasker-Tarrasch um die weltmeisterschaft im aug… | 46 | marked not in copyright |
+| [`lesphinxjournal00jourgoog`](https://archive.org/details/lesphinxjournal00jourgoog) | Le Sphinx: journal des échecs (1866) | 23 | marked not in copyright |
+| [`nordiskskaktide00unkngoog`](https://archive.org/details/nordiskskaktide00unkngoog) | Nordisk skaktidende (1874) | 3 | marked not in copyright |
+| [`RevistaDeAjedrezVol.11889`](https://archive.org/details/RevistaDeAjedrezVol.11889) | Revista De Ajedrez Vol. 1 1889 (1889) | 8 | Public Domain Mark |
+| [`the-british-chess-magazine-volume-12-1892`](https://archive.org/details/the-british-chess-magazine-volume-12-1892) | The British Chess Magazine Volume 12 1892 (1892) | 77 | no rights statement |
+| [`the-british-chess-magazine-volume-27-1907`](https://archive.org/details/the-british-chess-magazine-volume-27-1907) | The British Chess Magazine Volume 27 1907 (1907) | 40 | no rights statement |
+| [`the-british-chess-magazine-volume-46-1926`](https://archive.org/details/the-british-chess-magazine-volume-46-1926) | The British Chess Magazine Volume 46 1926 (1926) | 43 | no rights statement |
+| [`championshipmat00hoffgoog`](https://archive.org/details/championshipmat00hoffgoog) | The Championship match : Lasker v. Tarrasch (1908) | 13 | marked not in copyright |
+| [`chessplayerstext00stau_0`](https://archive.org/details/chessplayerstext00stau_0) | The chess-player's text book (1849) | 22 | no known copyright restrictions stated |
+| [`cu31924029919820`](https://archive.org/details/cu31924029919820) | The Hastings chess tournament 1895. Containing the authorised accou… | 40 | no rights statement |
+| [`middlegameinches00znos`](https://archive.org/details/middlegameinches00znos) | The middle game in chess (1922) | 34 | marked not in copyright |
+| [`modernchessinstr00steirich`](https://archive.org/details/modernchessinstr00steirich) | The modern chess instructor (1889) | 91 | marked not in copyright |
+| [`bub_gb_wRNBAAAAYAAJ`](https://archive.org/details/bub_gb_wRNBAAAAYAAJ) | Wiener Schach-Zeitung (1855) | 38 | Public Domain Mark |
+
 ## Fonts
 
 Source: [google/fonts](https://github.com/google/fonts) at commit

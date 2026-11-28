@@ -11,6 +11,7 @@ Every command and seed used for the models in the [report](REPORT.md).
 | The board finder, trained on synthetic scenes only | Yes, to within GPU randomness. |
 | The 1,650-board test | Yes. The boards are published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/test-boards-v1). |
 | BoardNet v2 and v4, and the shipped finder | No. They also train on 438 labelled photos of copyrighted pages, which are private. The commands are below for use with your own photos. |
+| BoardNet v5 | No. It also trains on 548 private photos and 28 private screenshots. Its other 1,156 real boards (Wikisource, Internet Archive, Lichess) and all its synthetic data can be fetched or regenerated. |
 | Results on real photos and screenshots | No. Those images are private. |
 | The trained models | Published as a [release](https://github.com/Dash1971/open-board-scanner/releases/tag/models-v1), so the tests can be run without training. |
 
@@ -96,6 +97,68 @@ python -m train.train_finder --scenes data/scenes/train --test data/scenes/test 
     --labels A.json --photos A --steps 6000 --out runs/finder-v1
 python -m train.export_finder --checkpoint runs/finder-v1/model.pt --scenes data/scenes/test --out runs/finder-v1
 ```
+
+### BoardNet v5
+
+Not yet in a release. The synthetic crops come from the current generator
+with every set in the manifests (`python tools/fetch_assets.py` first):
+
+```sh
+python -m train.make_crops --seed 21 --count 60000 --crops 2 --holdout --out data/crops/train-v3
+python -m train.make_crops --seed 2100 --count 3000 --crops 1 --out data/crops/test-v3
+python -m train.make_crops --seed 31 --start 2000000 --count 3000 --crops 2 \
+    --sets fantasy,mpchess,cooke,gioco,monarchy --out data/crops/train-heldsets
+python -m train.make_crops --seed 41 --start 3000000 --count 4000 --crops 2 \
+    --kinds screenshot,screenshot,monitor --out data/crops/train-screens
+python -m train.make_crops --seed 42 --start 4000000 --count 12000 --crops 2 \
+    --kinds screenshot,screenshot,monitor --out data/crops/train-screens
+
+# The public Chess Positions boards: 79,939 to train on, 20,061 kept as a test
+python tools/fetch_chess_positions.py
+python -m train.import_chess_positions --source data/external/chess-positions-full --out data/crops/kaggle
+```
+
+`data/crops/train-v5` is a folder of links to every shard of `train-v3`,
+`train-newsets`, `train-heldsets`, `train-screens` and
+`kaggle/chess-positions-train`. Shard numbers must not clash, so the Chess
+Positions shards are linked under numbers from 9000000.
+
+Real boards. Four private photo sets and the private chess.com screenshots
+cannot be fetched; the others can:
+
+```sh
+python tools/fetch_wikisource.py                                          # Wikisource pages
+python tools/wikisource_manifest.py read && python tools/wikisource_manifest.py build   # diagrams matched to positions; doubtful ones are settled by eye in between
+python tools/external_labels.py                                           # label files for training
+python tools/fetch_ia_diagrams.py fetch                                   # Internet Archive pages
+python tools/ia_labels.py restore                                         # their labels, from assets/archive_diagrams.json
+```
+
+```sh
+# Check run: whole sources held out, and the fifth of the first two photo sets that v4 held out.
+# Its synthetic folder was train-v3 plus the first 9,000 Chess Positions crops.
+python -m train.finetune --labels A.json --photos A ... --labels data/external/lichess-shots/labels.json --photos data/external/lichess-shots/images \
+    --fold 0 5 --fold-sets 2 \
+    --test-source "app screenshot 1" --test-source "e-book 9" ... --test-source "e-book 15" \
+    --test-source "Staunton, The Chess-Player's Text Book (1849)" --test-source "Capablanca, My Chess Career (1920)" \
+    --test-source "chess.com app" --test-source "lichess site" \
+    --start runs/boardnet-v4/model.pt --synthetic data/crops/train-v3c --synthetic-test data/crops/test-v3 \
+    --steps 30000 --real-share 0.3 --out runs/boardnet-v5-check
+
+# Final run: every real board, the Internet Archive ones included, nothing held out
+python -m train.finetune --labels A.json --photos A ... --labels data/external/ia/labels.json --photos data/external/ia \
+    --start runs/boardnet-v5-check/model.pt --synthetic data/crops/train-v5 \
+    --steps 30000 --real-share 0.3 --out runs/boardnet-v5
+python -m train.export_onnx --checkpoint runs/boardnet-v5/model.pt --data data/crops/test-v3 --out runs/boardnet-v5
+
+# Every test in one file
+python -m train.scoreboard --name boardnet-v5 --finder runs/finder-v1/boardfinder-int8.onnx --reader runs/boardnet-v5/boardnet-int8.onnx
+```
+
+The final run needs about 2.5 GB of memory and 85 minutes on a MacBook Air.
+On a 16 GB machine set `PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.3` and
+`PYTORCH_MPS_LOW_WATERMARK_RATIO=0.2` first. A checkpoint is saved at every
+evaluation.
 
 Leave out `--labels` and `--photos` to train the finder on synthetic scenes
 only. The finder's held-out test in the README used
