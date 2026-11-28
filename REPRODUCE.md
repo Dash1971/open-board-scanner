@@ -19,7 +19,13 @@ close to ours, not equal.
 
 ## Setup
 
-Python 3.12.
+Python 3.12. Check out the `models-v1` tag first: the generator has gained new
+kinds of sample since, so the current code draws different images from the
+same seeds.
+
+```sh
+git checkout models-v1
+```
 
 ```sh
 python -m venv .venv && . .venv/bin/activate
