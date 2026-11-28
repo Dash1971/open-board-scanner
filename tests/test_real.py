@@ -110,3 +110,20 @@ def test_sources_and_a_fold_can_be_held_out_together():
     # The same boards of the first set as before, the whole of source d, and nothing of source c.
     assert held == earlier_test | {"d0", "d1", "d2"}
     assert len(train) + len(test) == 17 and not held & {b.board_id for b in train}
+
+
+def test_keeping_only_the_board_gives_the_same_crop(tmp_path):
+    from train.real import around_board
+    from boardgen import rectify
+
+    rng = np.random.default_rng(3)
+    page = cv2.resize(rng.integers(0, 255, (90, 70, 3), dtype=np.uint8), (700, 900), interpolation=cv2.INTER_CUBIC)
+    corners = np.array([[210, 330], [520, 338], [514, 650], [204, 640]], np.float32)
+    part, moved = around_board(page, corners)
+    assert part.shape[0] < 500 and part.shape[1] < 500
+    whole, kept = rectify(page, corners, 256).astype(int), rectify(part, moved, 256).astype(int)
+    assert np.abs(whole - kept).mean() < 0.5  # the same pixels, up to rounding in the warp
+    # A board at the very edge of the photo is kept whole.
+    edge = np.array([[0, 0], [300, 0], [300, 300], [0, 300]], np.float32)
+    part, moved = around_board(page, edge)
+    assert np.array_equal(moved, edge) and part.shape[:2] == (361, 361)

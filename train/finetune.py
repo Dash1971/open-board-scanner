@@ -86,8 +86,8 @@ def main() -> None:
     rng = np.random.default_rng(args.seed)
     generator = torch.Generator(device=device).manual_seed(args.seed)
 
-    fold_pool = len(load_labelled_sets(args.labels[: args.fold_sets], args.photos[: args.fold_sets])) if args.fold_sets else None
-    train, test = split(load_labelled_sets(args.labels, args.photos), args.test_source, tuple(args.fold) if args.fold else None, args.seed, fold_pool)
+    fold_pool = len(load_labelled_sets(args.labels[: args.fold_sets], args.photos[: args.fold_sets], boards_only=True)) if args.fold_sets else None
+    train, test = split(load_labelled_sets(args.labels, args.photos, boards_only=True), args.test_source, tuple(args.fold) if args.fold else None, args.seed, fold_pool)
     if not train:
         raise SystemExit("no labelled boards left to train on")
     model = BoardNet().to(device)

@@ -293,6 +293,80 @@
      "exact": 13180
     }
    }
+  },
+  "archive scans": {
+   "boards": 802,
+   "exact": 143,
+   "by_group": {
+    "American chess-nuts: a collection of problems (1868)": {
+     "boards": 106,
+     "exact": 0
+    },
+    "Chess fundamentals (1921)": {
+     "boards": 42,
+     "exact": 36
+    },
+    "Chess problems made easy (1924)": {
+     "boards": 134,
+     "exact": 59
+    },
+    "Chess strategy (1921)": {
+     "boards": 42,
+     "exact": 0
+    },
+    "Der schachwettkampf Lasker-Tarrasch um die weltmeisterschaft im august-september": {
+     "boards": 46,
+     "exact": 13
+    },
+    "Le Sphinx: journal des \u00e9checs (1866)": {
+     "boards": 23,
+     "exact": 0
+    },
+    "Nordisk skaktidende (1874)": {
+     "boards": 3,
+     "exact": 0
+    },
+    "Revista De Ajedrez Vol. 1 1889 (1889)": {
+     "boards": 8,
+     "exact": 6
+    },
+    "The British Chess Magazine Volume 12 1892 (1892)": {
+     "boards": 77,
+     "exact": 1
+    },
+    "The British Chess Magazine Volume 27 1907 (1907)": {
+     "boards": 40,
+     "exact": 2
+    },
+    "The British Chess Magazine Volume 46 1926 (1926)": {
+     "boards": 43,
+     "exact": 0
+    },
+    "The Championship match : Lasker v. Tarrasch (1908)": {
+     "boards": 13,
+     "exact": 0
+    },
+    "The Hastings chess tournament 1895. Containing the authorised account of the 230": {
+     "boards": 40,
+     "exact": 0
+    },
+    "The chess-player's text book (1849)": {
+     "boards": 22,
+     "exact": 3
+    },
+    "The middle game in chess (1922)": {
+     "boards": 34,
+     "exact": 23
+    },
+    "The modern chess instructor (1889)": {
+     "boards": 91,
+     "exact": 0
+    },
+    "Wiener Schach-Zeitung (1855)": {
+     "boards": 38,
+     "exact": 0
+    }
+   }
   }
  }
 }

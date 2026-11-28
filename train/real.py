@@ -45,8 +45,26 @@ class RealBoard:
         return np.ascontiguousarray(image), squares.reshape(64), self.white_at_bottom, (self.quarter_turns - extra) % 4
 
 
-def load_labelled(labels: str | Path, photos: str | Path) -> list[RealBoard]:
-    """Every board marked as labelled, in the order of the label file."""
+def around_board(image: np.ndarray, corners: np.ndarray, margin: float = 0.2) -> tuple[np.ndarray, np.ndarray]:
+    """The part of a photo that holds one board, with the outline moved to match.
+
+    A scanned page is many times larger than the diagram on it. Keeping only
+    the board and a margin wide enough for the jitter in RealBoard.crop saves
+    most of the memory and most of the time spent softening the page.
+    """
+    low, high = corners.min(axis=0), corners.max(axis=0)
+    pad = margin * float((high - low).max())
+    x0, y0 = np.maximum(np.floor(low - pad), 0).astype(int)
+    x1, y1 = np.minimum(np.ceil(high + pad) + 1, [image.shape[1], image.shape[0]]).astype(int)
+    return np.ascontiguousarray(image[y0:y1, x0:x1]), (corners - [x0, y0]).astype(np.float32)
+
+
+def load_labelled(labels: str | Path, photos: str | Path, boards_only: bool = False) -> list[RealBoard]:
+    """Every board marked as labelled, in the order of the label file.
+
+    With boards_only, each board keeps just its own part of the photo (see
+    around_board); the default keeps whole photos, which the finder needs.
+    """
     boards = []
     cache: dict[str, np.ndarray] = {}
     for board_id, record in json.loads(Path(labels).read_text())["boards"].items():
@@ -58,12 +76,16 @@ def load_labelled(labels: str | Path, photos: str | Path) -> list[RealBoard]:
             if loaded is None:
                 raise FileNotFoundError(f"{photo} is listed in {labels} but cannot be read from {photos}")
             cache[photo] = cv2.cvtColor(loaded, cv2.COLOR_BGR2RGB)
+        image, corners = cache[photo], np.asarray(record["corners"], np.float32)
+        if boards_only:
+            image, corners = around_board(image, corners)
+            cache = {photo: cache[photo]}  # boards of one photo follow each other; let earlier pages go
         boards.append(
             RealBoard(
                 board_id=board_id,
                 source=record["source"],
-                image=cache[photo],
-                corners=np.asarray(record["corners"], np.float32),
+                image=image,
+                corners=corners,
                 squares=np.ascontiguousarray(crop_as_it_lies(record)),
                 quarter_turns=int(record["quarter_turns"]),
                 white_at_bottom=bool(record["white_at_bottom"]),
@@ -89,11 +111,11 @@ def turn_crops(images: np.ndarray, squares: np.ndarray, quarter_turns: np.ndarra
     return images, squares, (quarter_turns - extras) % 4
 
 
-def load_labelled_sets(labels: list[str], photos: list[str]) -> list[RealBoard]:
+def load_labelled_sets(labels: list[str], photos: list[str], boards_only: bool = False) -> list[RealBoard]:
     """Labelled boards from several label files, each paired with its photo folder."""
     if len(labels) != len(photos):
         raise SystemExit("give one --photos folder for every --labels file")
-    return [board for pair in zip(labels, photos) for board in load_labelled(*pair)]
+    return [board for pair in zip(labels, photos) for board in load_labelled(*pair, boards_only=boards_only)]
 
 
 def real_batch(boards: list[RealBoard], count: int, rng: np.random.Generator):
@@ -123,13 +145,19 @@ def read_boards(model: BoardNet, boards: list[RealBoard], device: torch.device, 
     of those extra quarter turns and the readings are averaged.
     """
     model.eval()
-    images = torch.from_numpy(np.stack([board.crop()[0] for board in boards])).to(device).permute(0, 3, 1, 2).float()
-    squares, rotation = 0.0, 0.0
-    for extra in turns:
-        logits, _, turn_logits = model(torch.rot90(images, extra, dims=(2, 3)))
-        squares = squares + torch.rot90(torch.softmax(logits, dim=1), -extra, dims=(2, 3))
-        rotation = rotation + torch.roll(torch.softmax(turn_logits, dim=1), extra, dims=1)
-    return squares.argmax(dim=1).flatten(1).cpu().numpy(), rotation.argmax(dim=1).cpu().numpy()
+    read_squares, read_turns = [], []
+    for start in range(0, len(boards), 128):  # in parts: a thousand boards at once do not fit on the GPU
+        images = torch.from_numpy(np.stack([board.crop()[0] for board in boards[start : start + 128]])).to(device).permute(0, 3, 1, 2).float()
+        squares, rotation = 0.0, 0.0
+        for extra in turns:
+            logits, _, turn_logits = model(torch.rot90(images, extra, dims=(2, 3)))
+            squares = squares + torch.rot90(torch.softmax(logits, dim=1), -extra, dims=(2, 3))
+            rotation = rotation + torch.roll(torch.softmax(turn_logits, dim=1), extra, dims=1)
+        read_squares.append(squares.argmax(dim=1).flatten(1).cpu().numpy())
+        read_turns.append(rotation.argmax(dim=1).cpu().numpy())
+    if not boards:
+        return np.zeros((0, 64), np.int64), np.zeros(0, np.int64)
+    return np.concatenate(read_squares), np.concatenate(read_turns)
 
 
 def _real_summary(boards: list[RealBoard], predicted: np.ndarray, turns: np.ndarray) -> dict:

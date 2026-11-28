@@ -10,6 +10,7 @@ machine is left out. Every row counts boards read exactly: all 64 squares.
 Rows:
     photos            private labelled photos, from the whole photo, by source
     wikisource        printed diagrams from public-domain books, outline given
+    archive scans     printed diagrams from Internet Archive scans, outline given
     chess.com app     phone screenshots, from the whole screenshot
     lichess           browser captures, from the whole screenshot
     rendered boards   clean boards in many piece sets, from the whole image
@@ -85,6 +86,23 @@ def wikisource(finder, reader) -> dict | None:
     return tally.report()
 
 
+def archive(finder, reader) -> dict | None:
+    from label.store import rows_to_grid
+
+    labels = EXTERNAL / "ia" / "labels.json"
+    if not labels.exists():
+        return None
+    tally, page, name = Tally(), None, None
+    for record in json.loads(labels.read_text())["boards"].values():
+        if record["status"] != "done":
+            continue
+        if record["photo"] != name:  # boards of one page follow each other
+            name, page = record["photo"], load(EXTERNAL / "ia" / record["photo"])
+        seen = read_board(reader, page, np.asarray(record["corners"], np.float32))[0]
+        tally.add(record["source"], bool((seen == rows_to_grid(record["seen"])).all()))
+    return tally.report()
+
+
 def chesscom(finder, reader) -> dict | None:
     labels = PRIVATE / "labels" / "chesscom-2026-11-23.json"
     if not labels.exists():
@@ -145,6 +163,7 @@ def chess_positions(finder, reader) -> dict | None:
 TESTS = (
     ("photos", photos),
     ("wikisource", wikisource),
+    ("archive scans", archive),
     ("chess.com app", chesscom),
     ("lichess", lichess),
     ("rendered boards", rendered),

@@ -1,0 +1,376 @@
+{
+ "name": "boardnet-v5-check",
+ "note": "Check run: started from v4; held out fold 0 of 5 of the first two photo sets, e-book 9 to 15, app screenshot 1, Staunton and My Chess Career from Wikisource, the chess.com app and Lichess site screenshots. Trained on the 10k mirror of the chess positions set (not the full one) and on 104 piece sets (cooke, gioco, fantasy, mpchess, monarchy held out).",
+ "tests": {
+  "photos": {
+   "boards": 548,
+   "exact": 545,
+   "by_group": {
+    "app screenshot 1": {
+     "boards": 3,
+     "exact": 3
+    },
+    "e-book 1": {
+     "boards": 100,
+     "exact": 100
+    },
+    "e-book 10": {
+     "boards": 17,
+     "exact": 17
+    },
+    "e-book 11": {
+     "boards": 3,
+     "exact": 3
+    },
+    "e-book 12": {
+     "boards": 4,
+     "exact": 4
+    },
+    "e-book 13": {
+     "boards": 11,
+     "exact": 11
+    },
+    "e-book 14": {
+     "boards": 29,
+     "exact": 29
+    },
+    "e-book 15": {
+     "boards": 21,
+     "exact": 20
+    },
+    "e-book 2": {
+     "boards": 63,
+     "exact": 63
+    },
+    "e-book 3": {
+     "boards": 13,
+     "exact": 13
+    },
+    "e-book 4": {
+     "boards": 9,
+     "exact": 9
+    },
+    "e-book 5": {
+     "boards": 20,
+     "exact": 20
+    },
+    "e-book 6": {
+     "boards": 19,
+     "exact": 19
+    },
+    "e-book 7": {
+     "boards": 21,
+     "exact": 20
+    },
+    "e-book 8": {
+     "boards": 17,
+     "exact": 17
+    },
+    "e-book 9": {
+     "boards": 22,
+     "exact": 21
+    },
+    "printed book 1": {
+     "boards": 45,
+     "exact": 45
+    },
+    "printed book 2": {
+     "boards": 73,
+     "exact": 73
+    },
+    "printed book 3": {
+     "boards": 58,
+     "exact": 58
+    }
+   }
+  },
+  "wikisource": {
+   "boards": 306,
+   "exact": 298,
+   "by_group": {
+    "Capablanca, Chess Fundamentals (1921)": {
+     "boards": 144,
+     "exact": 144
+    },
+    "Capablanca, My Chess Career (1920)": {
+     "boards": 89,
+     "exact": 87
+    },
+    "Carroll, Through the Looking-Glass (1872)": {
+     "boards": 1,
+     "exact": 1
+    },
+    "Collier's Cyclopedia of Commercial and Social Information (1882)": {
+     "boards": 1,
+     "exact": 1
+    },
+    "Rogers, How to Play Chess (1907)": {
+     "boards": 17,
+     "exact": 17
+    },
+    "Staunton, The Chess-Player's Text Book (1849)": {
+     "boards": 50,
+     "exact": 44
+    },
+    "The Chess Player's Chronicle, series 3, volume 1 (1877)": {
+     "boards": 4,
+     "exact": 4
+    }
+   }
+  },
+  "chess.com app": {
+   "boards": 28,
+   "exact": 28,
+   "by_group": {
+    "default pieces and board": {
+     "boards": 28,
+     "exact": 28
+    }
+   }
+  },
+  "lichess": {
+   "boards": 48,
+   "exact": 47,
+   "by_group": {
+    "default": {
+     "boards": 16,
+     "exact": 16
+    },
+    "piece set 'horsey', board 'green'": {
+     "boards": 8,
+     "exact": 7
+    },
+    "piece set 'maestro', board 'wood'": {
+     "boards": 8,
+     "exact": 8
+    },
+    "piece set 'staunty', board 'blue'": {
+     "boards": 16,
+     "exact": 16
+    }
+   }
+  },
+  "rendered boards": {
+   "boards": 1650,
+   "exact": 1537,
+   "by_group": {
+    "anarcandy": {
+     "boards": 50,
+     "exact": 47
+    },
+    "caliente": {
+     "boards": 50,
+     "exact": 50
+    },
+    "california": {
+     "boards": 50,
+     "exact": 50
+    },
+    "cardinal": {
+     "boards": 50,
+     "exact": 50
+    },
+    "cburnett": {
+     "boards": 50,
+     "exact": 50
+    },
+    "celtic": {
+     "boards": 50,
+     "exact": 50
+    },
+    "chessboart": {
+     "boards": 50,
+     "exact": 50
+    },
+    "chessnut": {
+     "boards": 50,
+     "exact": 50
+    },
+    "cooke": {
+     "boards": 50,
+     "exact": 42
+    },
+    "dubrovny": {
+     "boards": 50,
+     "exact": 49
+    },
+    "fantasy": {
+     "boards": 50,
+     "exact": 50
+    },
+    "firi": {
+     "boards": 50,
+     "exact": 45
+    },
+    "fresca": {
+     "boards": 50,
+     "exact": 50
+    },
+    "gioco": {
+     "boards": 50,
+     "exact": 50
+    },
+    "horsey": {
+     "boards": 50,
+     "exact": 46
+    },
+    "icpieces": {
+     "boards": 50,
+     "exact": 50
+    },
+    "kiwen-suwi": {
+     "boards": 50,
+     "exact": 50
+    },
+    "letter": {
+     "boards": 50,
+     "exact": 17
+    },
+    "maestro": {
+     "boards": 50,
+     "exact": 50
+    },
+    "merida": {
+     "boards": 50,
+     "exact": 50
+    },
+    "minimal-warmth": {
+     "boards": 50,
+     "exact": 50
+    },
+    "monarchy": {
+     "boards": 50,
+     "exact": 40
+    },
+    "mpchess": {
+     "boards": 50,
+     "exact": 50
+    },
+    "papercut": {
+     "boards": 50,
+     "exact": 50
+    },
+    "pirouetti": {
+     "boards": 50,
+     "exact": 34
+    },
+    "pixel": {
+     "boards": 50,
+     "exact": 50
+    },
+    "rhosgfx": {
+     "boards": 50,
+     "exact": 47
+    },
+    "shapes": {
+     "boards": 50,
+     "exact": 49
+    },
+    "spatial": {
+     "boards": 50,
+     "exact": 50
+    },
+    "staunty": {
+     "boards": 50,
+     "exact": 50
+    },
+    "tatiana": {
+     "boards": 50,
+     "exact": 50
+    },
+    "totoy": {
+     "boards": 50,
+     "exact": 46
+    },
+    "xkcd": {
+     "boards": 50,
+     "exact": 25
+    }
+   }
+  },
+  "chess positions set": {
+   "boards": 20061,
+   "exact": 18651,
+   "by_group": {
+    "32 piece styles, 28 board styles": {
+     "boards": 20061,
+     "exact": 18651
+    }
+   }
+  },
+  "archive scans": {
+   "boards": 802,
+   "exact": 504,
+   "by_group": {
+    "American chess-nuts: a collection of problems (1868)": {
+     "boards": 106,
+     "exact": 28
+    },
+    "Chess fundamentals (1921)": {
+     "boards": 42,
+     "exact": 42
+    },
+    "Chess problems made easy (1924)": {
+     "boards": 134,
+     "exact": 85
+    },
+    "Chess strategy (1921)": {
+     "boards": 42,
+     "exact": 41
+    },
+    "Der schachwettkampf Lasker-Tarrasch um die weltmeisterschaft im august-september": {
+     "boards": 46,
+     "exact": 18
+    },
+    "Le Sphinx: journal des \u00e9checs (1866)": {
+     "boards": 23,
+     "exact": 1
+    },
+    "Nordisk skaktidende (1874)": {
+     "boards": 3,
+     "exact": 0
+    },
+    "Revista De Ajedrez Vol. 1 1889 (1889)": {
+     "boards": 8,
+     "exact": 8
+    },
+    "The British Chess Magazine Volume 12 1892 (1892)": {
+     "boards": 77,
+     "exact": 59
+    },
+    "The British Chess Magazine Volume 27 1907 (1907)": {
+     "boards": 40,
+     "exact": 34
+    },
+    "The British Chess Magazine Volume 46 1926 (1926)": {
+     "boards": 43,
+     "exact": 5
+    },
+    "The Championship match : Lasker v. Tarrasch (1908)": {
+     "boards": 13,
+     "exact": 9
+    },
+    "The Hastings chess tournament 1895. Containing the authorised account of the 230": {
+     "boards": 40,
+     "exact": 34
+    },
+    "The chess-player's text book (1849)": {
+     "boards": 22,
+     "exact": 22
+    },
+    "The middle game in chess (1922)": {
+     "boards": 34,
+     "exact": 32
+    },
+    "The modern chess instructor (1889)": {
+     "boards": 91,
+     "exact": 85
+    },
+    "Wiener Schach-Zeitung (1855)": {
+     "boards": 38,
+     "exact": 1
+    }
+   }
+  }
+ }
+}
