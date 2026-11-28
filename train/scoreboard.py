@@ -13,6 +13,7 @@ Rows:
     chess.com app     phone screenshots, from the whole screenshot
     lichess           browser captures, from the whole screenshot
     rendered boards   clean boards in many piece sets, from the whole image
+    chess positions set   the public Chess Positions boards held out of training, board given
 """
 
 from __future__ import annotations
@@ -126,7 +127,29 @@ def rendered(finder, reader) -> dict | None:
     return tally.report()
 
 
-TESTS = (("photos", photos), ("wikisource", wikisource), ("chess.com app", chesscom), ("lichess", lichess), ("rendered boards", rendered))
+def chess_positions(finder, reader) -> dict | None:
+    from .data import load_all, shard_starts
+
+    folder = ROOT / "data" / "crops" / "kaggle" / "chess-positions-test"
+    if not shard_starts(folder):
+        return None
+    data = load_all(folder)
+    box = np.array([[0, 0], [256, 0], [256, 256], [0, 256]], np.float32) - 0.5
+    tally = Tally()
+    for image, squares in zip(data["images"], data["squares"]):
+        seen, _, turns, _ = read_board(reader, image, box)
+        tally.add("32 piece styles, 28 board styles", bool(turns == 0 and (seen.reshape(64) == squares).all()))
+    return tally.report()
+
+
+TESTS = (
+    ("photos", photos),
+    ("wikisource", wikisource),
+    ("chess.com app", chesscom),
+    ("lichess", lichess),
+    ("rendered boards", rendered),
+    ("chess positions set", chess_positions),
+)
 
 
 def main() -> None:
@@ -135,11 +158,15 @@ def main() -> None:
     parser.add_argument("--finder", required=True)
     parser.add_argument("--reader", required=True)
     parser.add_argument("--note", default="", help="what these models were trained on, so trained-on rows can be told from unseen ones")
+    parser.add_argument("--only", action="append", default=[], help="run just this test and keep the file's other rows (repeatable)")
     parser.add_argument("--out", type=Path, default=ROOT / "results" / "scoreboard")
     args = parser.parse_args()
     finder, reader = onnx_finder(args.finder), onnx_reader(args.reader)
-    board = {"name": args.name, "note": args.note, "tests": {}}
+    path = args.out / f"{args.name}.json"
+    board = json.loads(path.read_text()) if args.only and path.exists() else {"name": args.name, "note": args.note, "tests": {}}
     for title, test in TESTS:
+        if args.only and title not in args.only:
+            continue
         result = test(finder, reader)
         if result is None:
             print(f"{title}: data not here, left out")
@@ -147,7 +174,7 @@ def main() -> None:
         board["tests"][title] = result
         print(f"{title}: {result['exact']} of {result['boards']}", flush=True)
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / f"{args.name}.json").write_text(json.dumps(board, indent=1) + "\n")
+    path.write_text(json.dumps(board, indent=1) + "\n")
 
 
 if __name__ == "__main__":

@@ -283,6 +283,16 @@
      "exact": 39
     }
    }
+  },
+  "chess positions set": {
+   "boards": 20061,
+   "exact": 13180,
+   "by_group": {
+    "32 piece styles, 28 board styles": {
+     "boards": 20061,
+     "exact": 13180
+    }
+   }
   }
  }
 }
