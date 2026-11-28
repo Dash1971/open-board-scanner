@@ -10,6 +10,7 @@ Nothing is downloaded that a manifest does not name.
 
     python tools/fetch_assets.py          # download and verify
     python tools/fetch_assets.py --pin    # record hashes for files without one
+    python tools/fetch_assets.py --only pieces --pin    # one manifest only
 """
 
 from __future__ import annotations
@@ -80,36 +81,45 @@ class Fetcher:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--pin", action="store_true", help="record missing hashes")
+    parser.add_argument("--only", choices=("pieces", "fonts", "glyphs"), help="handle one manifest and leave the others untouched")
     args = parser.parse_args()
     fetcher = Fetcher(args.pin)
+    wanted = (args.only,) if args.only else ("pieces", "fonts", "glyphs")
+    changed = []
 
-    pieces = json.loads(PIECES_MANIFEST.read_text())
-    for name, entry in pieces["sets"].items():
-        source = entry.get("source", pieces["source"])
-        folder = source["path"] if "source" in entry else f"{source['path']}/{name}"
-        hashes = entry.setdefault("sha256", {})
-        for colour, piece in PIECES:
-            local = f"{colour}{piece}.svg"
-            if "files" in entry:  # the set's own file names, keyed by ours without the extension
-                remote = entry["files"][f"{colour}{piece}"]
-            else:
-                remote = f"{LONG_NAMES[colour]}{LONG_NAMES[piece]}.svg" if entry.get("naming") == "long" else local
-            fetcher.get(raw_url(source, f"{folder}/{remote}"), DEST / "pieces" / name / local, hashes, local)
-        print(f"pieces/{name}: done")
+    if "pieces" in wanted:
+        pieces = json.loads(PIECES_MANIFEST.read_text())
+        for name, entry in pieces["sets"].items():
+            source = entry.get("source", pieces["source"])
+            folder = source["path"] if "source" in entry else f"{source['path']}/{name}"
+            hashes = entry.setdefault("sha256", {})
+            for colour, piece in PIECES:
+                local = f"{colour}{piece}.svg"
+                if "files" in entry:  # the set's own file names, keyed by ours without the extension
+                    remote = entry["files"][f"{colour}{piece}"]
+                else:
+                    remote = f"{LONG_NAMES[colour]}{LONG_NAMES[piece]}.svg" if entry.get("naming") == "long" else local
+                fetcher.get(raw_url(source, f"{folder}/{remote}"), DEST / "pieces" / name / local, hashes, local)
+            print(f"pieces/{name}: done")
+        changed.append((PIECES_MANIFEST, pieces))
 
-    fonts = json.loads(FONTS_MANIFEST.read_text())
-    for name, entry in fonts["fonts"].items():
-        fetcher.get(raw_url(fonts["source"], entry["path"]), DEST / "fonts" / name, entry, "sha256")
-        print(f"fonts/{name}: done")
+    if "fonts" in wanted:
+        fonts = json.loads(FONTS_MANIFEST.read_text())
+        for name, entry in fonts["fonts"].items():
+            fetcher.get(raw_url(fonts["source"], entry["path"]), DEST / "fonts" / name, entry, "sha256")
+            print(f"fonts/{name}: done")
+        changed.append((FONTS_MANIFEST, fonts))
 
-    glyphs = json.loads(GLYPHS_MANIFEST.read_text())
-    for name, entry in glyphs["fonts"].items():
-        url = entry["url"] if "url" in entry else raw_url(entry, entry["path"])
-        fetcher.get(url, DEST / "glyph_fonts" / entry["file"], entry, "sha256", entry.get("member"))
-        print(f"glyph_fonts/{name}: done")
+    if "glyphs" in wanted:
+        glyphs = json.loads(GLYPHS_MANIFEST.read_text())
+        for name, entry in glyphs["fonts"].items():
+            url = entry["url"] if "url" in entry else raw_url(entry, entry["path"])
+            fetcher.get(url, DEST / "glyph_fonts" / entry["file"], entry, "sha256", entry.get("member"))
+            print(f"glyph_fonts/{name}: done")
+        changed.append((GLYPHS_MANIFEST, glyphs))
 
     if args.pin:
-        for path, manifest in ((PIECES_MANIFEST, pieces), (FONTS_MANIFEST, fonts), (GLYPHS_MANIFEST, glyphs)):
+        for path, manifest in changed:
             path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
     if fetcher.failures:
         print(f"{fetcher.failures} file(s) failed verification")
