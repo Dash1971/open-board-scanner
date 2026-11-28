@@ -2,7 +2,10 @@
 """Download the piece sets and fonts listed in the assets/ manifests.
 
 Files come from pinned commits, or from a fixed URL where the source is not a
-git repository, and are checked against the SHA-256 hashes in the manifests.
+git repository (a font inside a zip archive is named by `member`), and are
+checked against the SHA-256 hashes in the manifests. A piece set from another
+repository gives its own `source` and, when its files are not named wK.svg
+and so on, a `files` map from our names to its own.
 Nothing is downloaded that a manifest does not name.
 
     python tools/fetch_assets.py          # download and verify
@@ -13,8 +16,10 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import sys
+import zipfile
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -47,9 +52,19 @@ class Fetcher:
         self.pin = pin
         self.failures = 0
 
-    def get(self, url: str, target: Path, hashes: dict, key: str) -> None:
-        """Fetch one file, or reuse the local copy, and check or record its hash."""
-        data = target.read_bytes() if target.exists() else fetch(url)
+    def get(self, url: str, target: Path, hashes: dict, key: str, member: str | None = None) -> None:
+        """Fetch one file, or reuse the local copy, and check or record its hash.
+
+        With `member`, the URL is a zip archive and the named file inside it is
+        kept. Nothing in the archive is run, and nothing else is unpacked.
+        """
+        if target.exists():
+            data = target.read_bytes()
+        else:
+            data = fetch(url)
+            if member is not None:
+                with zipfile.ZipFile(io.BytesIO(data)) as archive:
+                    data = archive.read(member)
         digest = hashlib.sha256(data).hexdigest()
         expected = hashes.get(key)
         if expected is None and self.pin:
@@ -75,7 +90,10 @@ def main() -> int:
         hashes = entry.setdefault("sha256", {})
         for colour, piece in PIECES:
             local = f"{colour}{piece}.svg"
-            remote = f"{LONG_NAMES[colour]}{LONG_NAMES[piece]}.svg" if entry.get("naming") == "long" else local
+            if "files" in entry:  # the set's own file names, keyed by ours without the extension
+                remote = entry["files"][f"{colour}{piece}"]
+            else:
+                remote = f"{LONG_NAMES[colour]}{LONG_NAMES[piece]}.svg" if entry.get("naming") == "long" else local
             fetcher.get(raw_url(source, f"{folder}/{remote}"), DEST / "pieces" / name / local, hashes, local)
         print(f"pieces/{name}: done")
 
@@ -87,7 +105,7 @@ def main() -> int:
     glyphs = json.loads(GLYPHS_MANIFEST.read_text())
     for name, entry in glyphs["fonts"].items():
         url = entry["url"] if "url" in entry else raw_url(entry, entry["path"])
-        fetcher.get(url, DEST / "glyph_fonts" / entry["file"], entry, "sha256")
+        fetcher.get(url, DEST / "glyph_fonts" / entry["file"], entry, "sha256", entry.get("member"))
         print(f"glyph_fonts/{name}: done")
 
     if args.pin:
