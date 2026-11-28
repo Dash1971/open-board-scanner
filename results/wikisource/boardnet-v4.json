@@ -1,0 +1,72 @@
+{
+ "note": "Printed diagrams from public-domain books transcribed on English Wikisource. A label is 'agrees' when the Wikisource transcription and BoardNet v4 gave the same 64 squares, and 'checked' when they differed and the board was settled by eye. boardnet_v4_exact counts boards v4 read exactly from the labelled outline, reading at four turns. v4 never trained on these books.",
+ "by_book": {
+  "The Chess Player's Chronicle, series 1, volume 1 (1841)": {
+   "excluded": 1
+  },
+  "The Chess Player's Chronicle, series 3, volume 1 (1877)": {
+   "agrees": 3,
+   "usable": 4,
+   "boardnet_v4_exact": 3,
+   "checked": 1,
+   "right_wikisource": 1
+  },
+  "Capablanca, Chess Fundamentals (1921)": {
+   "checked": 66,
+   "usable": 144,
+   "boardnet_v4_exact": 82,
+   "right_neither": 10,
+   "right_wikisource": 52,
+   "agrees": 78,
+   "excluded": 6,
+   "right_model": 4
+  },
+  "Collier's Cyclopedia of Commercial and Social Information (1882)": {
+   "excluded": 10,
+   "agrees": 1,
+   "usable": 1,
+   "boardnet_v4_exact": 1
+  },
+  "Rogers, How to Play Chess (1907)": {
+   "agrees": 10,
+   "usable": 17,
+   "boardnet_v4_exact": 12,
+   "checked": 7,
+   "right_wikisource": 5,
+   "right_model": 2,
+   "excluded": 6
+  },
+  "Capablanca, My Chess Career (1920)": {
+   "checked": 26,
+   "usable": 89,
+   "boardnet_v4_exact": 72,
+   "right_wikisource": 16,
+   "agrees": 63,
+   "right_model": 9,
+   "excluded": 4,
+   "right_neither": 1
+  },
+  "Staunton, The Chess-Player's Text Book (1849)": {
+   "agrees": 15,
+   "usable": 50,
+   "boardnet_v4_exact": 18,
+   "checked": 35,
+   "right_wikisource": 31,
+   "excluded": 1,
+   "right_model": 3,
+   "right_neither": 1
+  },
+  "Carroll, Through the Looking-Glass (1872)": {
+   "agrees": 1,
+   "usable": 1,
+   "boardnet_v4_exact": 1
+  }
+ },
+ "all": {
+  "usable": 306,
+  "boardnet_v4_exact": 189,
+  "agrees": 171,
+  "checked": 135,
+  "excluded": 28
+ }
+}
