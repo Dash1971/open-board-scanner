@@ -138,6 +138,7 @@ def main() -> None:
         if step % max(100, args.steps // 30) == 0 or step == args.steps:
             held = score_real(model, test, device)
             print(f"  step {step}/{args.steps}  loss {loss.item():.4f}  held-out exact {held.get('exact_boards', '-')}/{held['boards']}  wrong squares {held.get('wrong_squares', '-')}  {(time.time() - began) / 60:.1f} min", flush=True)
+            torch.save(model.state_dict(), out / "checkpoint.pt")  # so a stopped run is not lost; pass it as --start to carry on
             model.train()
 
     report["minutes"] = round((time.time() - began) / 60, 1)

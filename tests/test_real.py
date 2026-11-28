@@ -127,3 +127,16 @@ def test_keeping_only_the_board_gives_the_same_crop(tmp_path):
     edge = np.array([[0, 0], [300, 0], [300, 300], [0, 300]], np.float32)
     part, moved = around_board(page, edge)
     assert np.array_equal(moved, edge) and part.shape[:2] == (361, 361)
+
+
+def test_a_large_board_is_shrunk_and_still_cuts_the_same():
+    from train.real import around_board
+    from boardgen import rectify
+
+    rng = np.random.default_rng(4)
+    page = cv2.resize(rng.integers(0, 255, (30, 24, 3), dtype=np.uint8), (1600, 2000), interpolation=cv2.INTER_CUBIC)
+    corners = np.array([[300, 500], [1210, 520], [1195, 1430], [290, 1405]], np.float32)
+    part, moved = around_board(page, corners, max_side=320)
+    assert max(part.shape[:2]) < 480 and abs(np.linalg.norm(moved[1] - moved[0]) - 320) < 2
+    whole, kept = rectify(page, corners, 256).astype(int), rectify(part, moved, 256).astype(int)
+    assert np.abs(whole - kept).mean() < 2.0

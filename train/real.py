@@ -20,6 +20,8 @@ from label.store import crop_as_it_lies
 
 from .model import BoardNet
 
+BOARD_SIDE_KEPT = 320  # pixels a board keeps in memory during training
+
 
 @dataclass
 class RealBoard:
@@ -45,18 +47,28 @@ class RealBoard:
         return np.ascontiguousarray(image), squares.reshape(64), self.white_at_bottom, (self.quarter_turns - extra) % 4
 
 
-def around_board(image: np.ndarray, corners: np.ndarray, margin: float = 0.2) -> tuple[np.ndarray, np.ndarray]:
+def around_board(image: np.ndarray, corners: np.ndarray, margin: float = 0.2, max_side: int | None = None) -> tuple[np.ndarray, np.ndarray]:
     """The part of a photo that holds one board, with the outline moved to match.
 
     A scanned page is many times larger than the diagram on it. Keeping only
     the board and a margin wide enough for the jitter in RealBoard.crop saves
-    most of the memory and most of the time spent softening the page.
+    most of the memory and most of the time spent softening the page. With
+    max_side, a board larger than that is also shrunk to it: the reader sees
+    256 pixels a side, so little is lost.
     """
     low, high = corners.min(axis=0), corners.max(axis=0)
     pad = margin * float((high - low).max())
     x0, y0 = np.maximum(np.floor(low - pad), 0).astype(int)
     x1, y1 = np.minimum(np.ceil(high + pad) + 1, [image.shape[1], image.shape[0]]).astype(int)
-    return np.ascontiguousarray(image[y0:y1, x0:x1]), (corners - [x0, y0]).astype(np.float32)
+    part, moved = np.ascontiguousarray(image[y0:y1, x0:x1]), (corners - [x0, y0]).astype(np.float32)
+    side = float(np.linalg.norm(moved[1] - moved[0]))
+    if max_side and side > max_side:
+        scale = max_side / side
+        size = (max(1, round(part.shape[1] * scale)), max(1, round(part.shape[0] * scale)))
+        # Pixel centres: a point at x in the large image lies at (x + 0.5) * scale - 0.5 in the small one.
+        moved = ((moved + 0.5) * [size[0] / part.shape[1], size[1] / part.shape[0]] - 0.5).astype(np.float32)
+        part = cv2.resize(part, size, interpolation=cv2.INTER_AREA)
+    return part, moved
 
 
 def load_labelled(labels: str | Path, photos: str | Path, boards_only: bool = False) -> list[RealBoard]:
@@ -78,7 +90,7 @@ def load_labelled(labels: str | Path, photos: str | Path, boards_only: bool = Fa
             cache[photo] = cv2.cvtColor(loaded, cv2.COLOR_BGR2RGB)
         image, corners = cache[photo], np.asarray(record["corners"], np.float32)
         if boards_only:
-            image, corners = around_board(image, corners)
+            image, corners = around_board(image, corners, max_side=BOARD_SIDE_KEPT)
             cache = {photo: cache[photo]}  # boards of one photo follow each other; let earlier pages go
         boards.append(
             RealBoard(
